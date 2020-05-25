@@ -21,65 +21,22 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <h2 class="text-muted text-center">
-                @RenderSection("LibraryHeader", required: true)
-            </h2>
-        </div>
-    </header>
+    @RenderBody()
 
+    <p>&nbsp;</p>
 
-    <div class="container mt-5">
-
-        <p class="p2 alert alert-secondary">
-            <small>
-                <a href="/">home</a> >>
-                @RenderSection("BreadCrumbLibrary", required: true) >>
-                <a href="/#@RenderSection("BreadCrumbAnchor", required: true)">@RenderSection("BreadCrumbChapter", required: true)</a> >>
-                @RenderSection("BreadCrumbPageName", required: true)
-            </small>
-        </p>
-
-        <h3 class="mb-5 text-center">@RenderSection("PageName", required: true)</h3>
-
-        @RenderBody()
-
-        @*<div class="m-3">
-                        <code>
-                            // code definition
-                        </code>
-                    </div>
-
-                    <h4 class="text-center text-info">tip.....</h4>
-
-                    <div class="card text-white bg-info m-3 col-3">
-                        <div class="card-body">
-                            <div id="">
-                                {results}
-                            </div>
-                        </div>
-                    </div>
-
-            <pre>
-            <code>
-            </code>
-            </pre>
-
-                    <p>&nbsp;</p>*@
-
-        <p>&nbsp;</p>
-
-    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container text-center">
             &copy; 2020 - JsPlayground
         </div>
     </footer>
 
     <environment include="Development">
-        <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </environment>
@@ -88,8 +45,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </environment>
-
-    @RenderSection("Scripts", required: false)
 
 </body>
 </html>

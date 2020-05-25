@@ -1,10 +1,597 @@
 ﻿@page
-@model IndexModel
+
 @{
-    ViewData["Title"] = "Home page";
+    Layout = "~/Pages/Shared/_HomeLayout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@model IndexModel
+
+@{
+    ViewData["Title"] = "JS Playground";
+}
+
+<header>
+    <div class="container mt-3">
+        <h2 class="text-muted text-center"><a href="/">JavaScript / TypeScript / jQuery Demos</a></h2>
+    </div>
+</header>
+
+<div class="container mt-5">
+
+    <div class="row mt-3">
+
+        <!-- javascript -->
+        <div class="col-4">
+            <div>
+                <img src="assets/images/javascript-logo.PNG" style="max-height: 75px;" />
+            </div>
+
+            <p id="js-animations"><strong>Animations</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="~/Javascript/Animation/BasicExample">Basic Example</a></li>
+            </ul>
+
+            <p id="js-api"><strong>API</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="~/Javascript/API/GoogleMaps">Google Maps</a></li>
+                <li><a href="~/Javascript/API/ValidationApi">Validation API</a></li>
+                <li><a href="~/Javascript/API/ValidationApiExample2">Validation API Example</a></li>
+            </ul>
+
+            <p id="js-arrays"><strong>Arrays</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Arrays/ArrayMethods">Array Methods</a></li>
+                <li><a href="Javascript/Arrays/ArrayAddingUsingLength">Array Add Using length()</a></li>
+                <li><a href="Javascript/Arrays/ArrayProperties">Array Properties</a></li>
+                <li><a href="Javascript/Arrays/Basics">Basics</a></li>
+                <li><a href="Javascript/Arrays/GetValsFromArray">Get values examples</a></li>
+                <li><a href="Javascript/Arrays/Concat">concat()</a></li>
+                <li><a href="Javascript/Arrays/Destructuring">destructuring</a></li>
+                <li><a href="Javascript/Arrays/Filter">filter()</a></li>
+                <li><a href="Javascript/Arrays/ForEach">foreach()</a></li>
+                <li><a href="Javascript/Arrays/Includes">includes()</a></li>
+                <li><a href="Javascript/Arrays/IndexOf">indexOf()</a></li>
+                <li><a href="Javascript/Arrays/IsArray">isArray()</a></li>
+                <li><a href="Javascript/Arrays/Join">join()</a></li>
+                <li><a href="Javascript/Arrays/Map">map()</a></li>
+                <li><a href="Javascript/Arrays/Pop">pop()</a></li>
+                <li><a href="Javascript/Arrays/Push">push()</a></li>
+                <li><a href="Javascript/Arrays/Reduce">reduce()</a></li>
+                <li><a href="Javascript/Arrays/Shift">shift()</a></li>
+                <li><a href="Javascript/Arrays/Slice">slice()</a></li>
+                <li><a href="Javascript/Arrays/Splice">splice()</a></li>
+                <li><a href="Javascript/Arrays/ToString">toString()</a></li>
+                <li><a href="Javascript/Arrays/ValueOf">valueOf()</a></li>
+            </ul>
+
+            <p id="js-arrays"><strong>Async</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/async/Basics">Basics</a></li>
+                <li><a href="Javascript/async/Fetch">fetch()</a></li>
+            </ul>
+
+            <p id="js-basics"><strong>Basics</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Basics/Basics">Basics</a></li>
+                <li><a href="Javascript/Basics/BestPractices">Best Practices</a></li>
+                <li><a href="Javascript/Basics/BreakReferenceLabel">Break Reference Label</a></li>
+                <li><a href="Javascript/Basics/CommonDomProperties">Common DOM Properties</a></li>
+                <li><a href="Javascript/Basics/ConstructorProperty">Constructor Property</a></li>
+                <li><a href="Javascript/Basics/Defer">Defer</a></li>
+                <li><a href="Javascript/Basics/EscapeCharacters">Escape Characters</a></li>
+                <li><a href="Javascript/Basics/Keywords">Keywords</a></li>
+                <li><a href="Javascript/Basics/Operators">Operators</a></li>
+                <li><a href="Javascript/Basics/Regions">Regions</a></li>
+                <li><a href="Javascript/Basics/Scopes">Scopes</a></li>
+                <li><a href="Javascript/Basics/Ternary">Ternary Operator</a></li>
+                <li><a href="Javascript/Basics/TruthyFalsy">Truthy &amp; Falsy</a></li>
+                <li><a href="Javascript/Basics/ValueOf">Value Of</a></li>
+                <li><a href="Javascript/Basics/VSCode">VS Code</a></li>
+            </ul>
+
+            <p id="js-challenges"><strong>Challenges</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Challenges/EvenNumbers">even numbers using map()</a></li>
+            </ul>
+
+            <p id="js-classes"><strong>Classes</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Classes/Basics">Basics</a></li>
+            </ul>
+
+            <p id="js-console"><strong>Console</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Console/Examples">Console Examples</a></li>
+            </ul>
+
+            <p id="js-dates"><strong>Dates</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Dates/Formats">Date Formats</a></li>
+                <li><a href="Javascript/Dates/GetMethods">Date Get Methods</a></li>
+                <li><a href="Javascript/Dates/Methods">Date Methods</a></li>
+                <li><a href="Javascript/Dates/SetMethods">Date Set Methods</a></li>
+                <li><a href="Javascript/Dates/NewDate">Instantiating New Date</a></li>
+                <li><a href="Javascript/Dates/TimeZones">Time Zones</a></li>
+            </ul>
+
+            <p id="js-debugging"><strong>Debugging</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Debugging/Basics">Basics</a></li>
+                <li><a href="Javascript/Debugging/Console">Console</a></li>
+                <li><a href="Javascript/Debugging/Debugger">Debugger</a></li>
+                <li><a href="Javascript/Debugging/Strict">Strict Mode</a></li>
+                <li><a href="Javascript/Debugging/TryCatch">Try Catch</a></li>
+            </ul>
+
+            <p id="js-dom-elements"><strong>DOM Elements</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/DOMElements/Accessing">Accessing DOM Elements</a></li>
+                <li><a href="Javascript/DOMElements/Adding">Adding DOM Elements</a></li>
+                <li><a href="Javascript/DOMElements/Deleting">Deleting DOM Elements</a></li>
+            </ul>
+
+            <p id="js-dom-methods"><strong>DOM Methods</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/DOMMethods/Methods">common methods</a></li>
+                <li><a href="Javascript/DOMMethods/DocumentReady">document ready</a></li>
+                <li><a href="Javascript/DOMMethods/GetElementByClass">getElementByClassName()</a></li>
+                <li><a href="Javascript/DOMMethods/GetElementById">getElementById()</a></li>
+                <li><a href="Javascript/DOMMethods/GetElementByTag">getElementByTagName()</a></li>
+                <li><a href="Javascript/DOMMethods/QuerySelector">querySelectorAll()</a></li>
+                <li><a href="Javascript/DOMMethods/SetAttribute">setAttribute()</a></li>
+            </ul>
+
+            <p id="js-dom-navigation"><strong>DOM Navigation</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/DOMNavigation/Basics">Basics</a></li>
+                <li><a href="Javascript/DOMNavigation/ChildNodes">child nodes</a></li>
+                <li><a href="Javascript/DOMNavigation/Children">children</a></li>
+                <li><a href="Javascript/DOMNavigation/CreateNewNodes">create new nodes</a></li>
+                <li><a href="Javascript/DOMNavigation/RemoveChild">remove child</a></li>
+                <li><a href="Javascript/DOMNavigation/ReplaceChild">replace child</a></li>
+                <li><a href="Javascript/DOMNavigation/RootNodes">root nodes</a></li>
+            </ul>
+
+            <p id="js-dom-properties"><strong>DOM Properties</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/DOMProperties/ChangingProperties">Changing Properties</a></li>
+                <li><a href="Javascript/DOMProperties/CookieProperty">Cookie Property</a></li>
+                <li><a href="Javascript/DOMProperties/InnerhtmlInnertext">innerHTML and innerText</a></li>
+            </ul>
+
+            <p id="js-dom-events"><strong>Event Listeners</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Events/AddEventListener">addEventListener</a></li>
+                <li><a href="Javascript/Events/OnChange">onchange</a></li>
+                <li><a href="Javascript/Events/OnClick">onclick</a></li>
+                <li><a href="Javascript/Events/Events">Events</a></li>
+                <li><a href="Javascript/Events/OnMouseoverOnMouseout">onmouseover - onmouseout</a></li>
+                <li><a href="Javascript/Events/OnMouseupOnMousedown">onmouseup - onmousedown</a></li>
+                <li><a href="Javascript/Events/OnclickVsClick">onclick vs click</a></li>
+                <li><a href="Javascript/Events/OnBlurOnFocus">onblur - onfocus</a></li>
+                <li><a href="Javascript/Events/Onload">onload</a></li>
+                <li><a href="Javascript/Events/OnUnload">onunload</a></li>
+                <li><a href="Javascript/Events/PreventDefault">preventDefault</a></li>
+            </ul>
+
+            <p id="js-forms"><strong>Forms</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Forms/LoopThruFormControls">Loop thru form controls</a></li>
+                <li><a href="Javascript/Forms/PreventDefault">preventDefault()</a></li>
+            </ul>
+
+            <p id="js-functions"><strong>Functions</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Functions/AnonymousFunctions">Anonymous Functions</a></li>
+                <li><a href="Javascript/Functions/Arguments">Arguments</a></li>
+                <li><a href="Javascript/Functions/ArrowFunctions">Arrow Functions</a></li>
+                <li><a href="Javascript/Functions/FunctionsAreObjects">Functions are objects</a></li>
+                <li><a href="Javascript/Functions/FunctionExpressions">Function Expressions</a></li>
+                <li><a href="Javascript/Functions/InvokingVsCalling">Invoking vs Calling</a></li>
+                <li><a href="Javascript/Functions/RecursiveVsNonrecursive">Recursive vs Non Recursive</a></li>
+                <li><a href="Javascript/Functions/ScopeOfArrowFunctions">Scope of Arrow Functions</a></li>
+                <li><a href="Javascript/Functions/SelfInvokingFunctions">Self Invoking Functions</a></li>
+            </ul>
+
+            <p id="js-global-functions"><strong>Global Functions</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/GlobalFunctions/Boolean">Boolean()</a></li>
+                <li><a href="Javascript/GlobalFunctions/CommonFunctions">Common Global Functions</a></li>
+                <li><a href="Javascript/GlobalFunctions/EncodeuriDecodeuri">encodeUri() - decodeUri()</a></li>
+                <li><a href="Javascript/GlobalFunctions/Eval">eval()</a></li>
+                <li><a href="Javascript/GlobalFunctions/IsNan">IsNan()</a></li>
+                <li><a href="Javascript/GlobalFunctions/Number">Number()</a></li>
+                <li><a href="Javascript/GlobalFunctions/ParseFloat">parseFloat()</a></li>
+                <li><a href="Javascript/GlobalFunctions/ParseInt">parseInt()</a></li>
+                <li><a href="Javascript/GlobalFunctions/TypeConversions">Type conversions</a></li>
+            </ul>
+
+            <p id="js-json"><strong>JSON</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/JSON/Basics">Basics</a></li>
+                <li><a href="Javascript/JSON/Parse">JSON.parse()</a></li>
+                <li><a href="Javascript/JSON/Stringify">JSON.stringify()</a></li>
+            </ul>
+
+            <p id="js-keywords"><strong>Keywords</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Keywords/Const">const</a></li>
+                <li><a href="Javascript/Keywords/Return">return</a></li>
+                <li><a href="Javascript/Keywords/This">this</a></li>
+            </ul>
+
+            <p id="js-math"><strong>Math</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Math/CommonMathFunctions">Common Math Functions</a></li>
+                <li><a href="Javascript/Math/Floor">floor()</a></li>
+                <li><a href="Javascript/Math/MinMax">min() / max()</a></li>
+                <li><a href="Javascript/Math/Random">random()</a></li>
+                <li><a href="Javascript/Math/Round">round()</a></li>
+                <li><a href="Javascript/Math/ToFixed">toFixed()</a></li>
+                <li><a href="Javascript/Math/ToPrecision">toPrecision()</a></li>
+            </ul>
+
+            <p id="js-objects"><strong>Objects</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Objects/AddingDeletingProperties">Adding / Deleting Object Properties</a></li>
+                <li><a href="Javascript/Objects/Assign">Assign (cloning)</a></li>
+                <li><a href="Javascript/Objects/BuiltInConstructors">Built In Constructors</a></li>
+                <li><a href="Javascript/Objects/CreatingNewObject">Creating a new Object</a></li>
+                <li><a href="Javascript/Objects/Constructors">Constructors</a></li>
+                <li><a href="Javascript/Objects/DestructuringSpreading">Destructuring and Spreading</a></li>
+                <li><a href="Javascript/Objects/FunctionsInObjects">Functions in Objects</a></li>
+                <li><a href="Javascript/Objects/LoopingThruProperties">Looping Thru Properties</a></li>
+                <li><a href="Javascript/Objects/ObjectLiterals">Object Literals</a></li>
+                <li><a href="Javascript/Objects/Properties">Properties</a></li>
+            </ul>
+
+            <p id="js-snippets"><strong>Snippets</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Snippets/IsNumeric">Is Numeric</a></li>
+            </ul>
+
+            <p id="js-strings"><strong>String</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Strings/CharAt">charAt() / charCodeAt()</a></li>
+                <li><a href="Javascript/Strings/IndexOf">indexOf()</a></li>
+                <li><a href="Javascript/Strings/LastIndexOf">lastIndexOf()</a></li>
+                <li><a href="Javascript/Strings/Length">length</a></li>
+                <li><a href="Javascript/Strings/RegexBasics">RegEx Basics</a></li>
+                <li><a href="Javascript/Strings/RegexExample">RegEx Example</a></li>
+                <li><a href="Javascript/Strings/RegexPatterns">RegEx Patterns</a></li>
+                <li><a href="Javascript/Strings/Match">match()</a></li>
+                <li><a href="Javascript/Strings/Replace">replace()</a></li>
+                <li><a href="Javascript/Strings/Search">search()</a></li>
+                <li><a href="Javascript/Strings/Slice">slice()</a></li>
+                <li><a href="Javascript/Strings/Split">split()</a></li>
+                <li><a href="Javascript/Strings/TemplateLiterals">String Template Literals</a></li>
+                <li><a href="Javascript/Strings/SubString">substring()</a></li>
+                <li><a href="Javascript/Strings/ToString">toString()</a></li>
+                <li><a href="Javascript/Strings/ToUpperCaseToLowerCase">toUpperCase() / toLowerCase()</a></li>
+            </ul>
+
+            <p id="js-types"><strong>Types</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Types/DataTypes">data types</a></li>
+                <li><a href="Javascript/Types/Number">number</a></li>
+                <li><a href="Javascript/Types/TypeOf">typeof</a></li>
+            </ul>
+
+            <p id="js-window"><strong>Window Object</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="Javascript/Window-Object/BrowserObjectModel">Browser Object Model</a></li>
+                <li><a href="Javascript/Window-Object/Methods">Common Methods</a></li>
+                <li><a href="Javascript/Window-Object/History">History Object</a></li>
+                <li><a href="Javascript/Window-Object/Location">Location Object</a></li>
+                <li><a href="Javascript/Window-Object/Navigator">Navigator Object</a></li>
+                <li><a href="Javascript/Window-Object/PopUps">PopUps</a></li>
+                <li><a href="Javascript/Window-Object/SetInterval">setInterval() / clearInterval()</a></li>
+                <li><a href="Javascript/Window-Object/SetTimeout">setTimeout() / clearTimeout() REDO THIS</a></li>
+                <li><a href="Javascript/Window-Object/InnerHeightInnerWidth">Window Inner Height / Inner Width</a></li>
+                <li><a href="Javascript/Window-Object/WindowObject">Window Object</a></li>
+                <li><a href="Javascript/Window-Object/WindowScreen">Window Screen Object</a></li>
+            </ul>
+
+        </div>
+
+        <!-- typescript -->
+        <div class="col-4">
+            <div>
+                <img src="assets/images/typescript-logo.PNG" style="max-height: 75px;" />
+            </div>
+
+            <p id="ts-basics"><strong>Basics</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Basics/AccessModifiers">Access Modifiers</a></li>
+                <li><a href="TypeScript/Basics/BasicConcepts">Basic Concepts</a></li>
+                <li><a href="TypeScript/Basics/BuildTask">Build Task</a></li>
+                <li><a href="TypeScript/Basics/CompilingManually">Compiling Manually</a></li>
+                <li><a href="TypeScript/Basics/CreatingPaths">Creating Paths</a></li>
+                <li><a href="TypeScript/Basics/Hierarchy">Hierarchy</a></li>
+                <li><a href="TypeScript/Basics/HttpServer">http-server</a></li>
+                <li><a href="TypeScript/Basics/PackageJson">package.json</a></li>
+                <li><a href="TypeScript/Basics/SimpleExample">Simple Example</a></li>
+                <li><a href="TypeScript/Basics/TSConfig">tsconfig.json - the TypeScript project file</a></li>
+                <li><a href="TypeScript/Basics/MultipleTSConfigFiles">tsconfig.json - multiple files</a></li>
+                <li><a href="TypeScript/Basics/StrictNullChecks">Strict Null Checks</a></li>
+                <li><a href="TypeScript/Basics/TypeAnnotations">Type Annotations</a></li>
+                <li><a href="TypeScript/Basics/TypeAssertions">Type Assertions</a></li>
+                <li><a href="TypeScript/Basics/TypeScriptFeatures">TypeScript features</a></li>
+            </ul>
+
+            <p id="ts-challenges"><strong>Challenges</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Challenges/DropDowns">Drop Down List Challenge</a></li>
+                <li><a href="TypeScript/Challenges/EqualDivision">Equal Division Challenge</a></li>
+                <li><a href="TypeScript/Challenges/Fibonacci">Fibonacci Challenge</a></li>
+                <li><a href="TypeScript/Challenges/PrimeNumbers">Prime Numbers Challenge</a></li>
+            </ul>
+
+            <p id="ts-classes"><strong>Classes</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Classes/AbstractClasses">Abstract Classes</a></li>
+                <li><a href="TypeScript/Classes/Basics">Basics and Features</a></li>
+                <li><a href="TypeScript/Classes/Car">Car Class Demo</a></li>
+                <li><a href="TypeScript/Classes/Fields">Class Fields</a></li>
+                <li><a href="TypeScript/Classes/ClassProperties">Class Properties</a></li>
+                <li><a href="TypeScript/Classes/Constructors">Constructors</a></li>
+                <li><a href="TypeScript/Classes/Extends">Inheritance (extends) Demo</a></li>
+                <li><a href="TypeScript/Classes/FunctionAsClassProperty">Function as Class Property</a></li>
+                <li><a href="TypeScript/Classes/InstantiatingNewObjects">instantiating new objects</a></li>
+                <li><a href="TypeScript/Classes/Spaceship">Spaceship Class Blueprint Demo</a></li>
+            </ul>
+
+            <p id="ts-cookies"><strong>Cookies</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Cookies/Cookies?superhero=batman">Get / Set Cookie Demo</a></li>
+            </ul>
+
+            <p id="ts-debugging"><strong>Debugging</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Debugging/SourceMaps">Source Maps</a></li>
+            </ul>
+
+            <p id="ts-declaration-files"><strong>Declaration Files</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/DeclarationFiles/Basics">Basics</a></li>
+                <li><a href="TypeScript/DeclarationFiles/InstallingDeclarationFiles">Installing Declaration Files</a></li>
+                <li><a href="TypeScript/DeclarationFiles/TypeDeclarationExample">Type Declaration Files Example</a></li>
+                <li><a href="TypeScript/DeclarationFiles/FindingTypeDeclarationFiles">Finding Type Declaration Files</a></li>
+            </ul>
+
+            <p id="ts-events"><strong>Events</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Events/ButtonClick">Button Click</a></li>
+            </ul>
+
+            <p id="ts-external-files"><strong>External Files</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/External-Files/ExternalReferenceFiles">External and Definition Files</a></li>
+            </ul>
+
+            <p id="ts-flow-control"><strong>Flow Control</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/FlowControl/Break">break</a></li>
+                <li><a href="TypeScript/FlowControl/Continue">continue</a></li>
+                <li><a href="TypeScript/FlowControl/If">if</a></li>
+                <li><a href="TypeScript/FlowControl/Loops">loop examples</a></li>
+                <li><a href="TypeScript/FlowControl/NullCheck">null / undefined checks</a></li>
+                <li><a href="TypeScript/FlowControl/Switch">switch case</a></li>
+            </ul>
+
+            <p id="ts-forms"><strong>Forms</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Forms/FormControls">Form Controls</a></li>
+                <li><a href="TypeScript/Forms/GetValuesFromDropDown">Get values from drop down</a></li>
+                <li><a href="TypeScript/Forms/LoopThruFormControls">Loop thru form controls</a></li>
+                <li><a href="TypeScript/Forms/ValidatingNumericInput">Validating Numeric Input</a></li>
+            </ul>
+
+            <p id="ts-functions"><strong>Functions</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Functions/ArrowFunctions">Arrow Functions</a></li>
+                <li><a href="TypeScript/Functions/ArrowFunctionsThis">Arrow Functions 'this'</a></li>
+                <li><a href="TypeScript/Functions/Examples">Function Examples</a></li>
+                <li><a href="TypeScript/Functions/FunctionScopeExample">Function Scope Example</a></li>
+                <li><a href="TypeScript/Functions/FunctionWithDefaultArgumentsVals">Function with default arg values</a></li>
+                <li><a href="TypeScript/Functions/FunctionTypes">Function Types</a></li>
+                <li><a href="TypeScript/Functions/GlobalFunctions">Global Functions</a></li>
+                <li><a href="TypeScript/Functions/Lambdas">Lambdas</a></li>
+                <li><a href="TypeScript/Functions/OptionalArguments">Optional Arguments</a></li>
+                <li><a href="TypeScript/Functions/SimpleArrowsExample">Simple Arrow Functions Example</a></li>
+            </ul>
+
+            <p id="ts-html"><strong>Html Elements</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/HtmlElements/Targeting">Targeting Html Elements</a></li>
+            </ul>
+
+            <p id="ts-installation"><strong>Installation</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Installation/InstallingTS">Installing TypeScript</a></li>
+            </ul>
+
+            <p id="ts-interfaces"><strong>Interfaces</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Interfaces/Basics">Basics</a></li>
+                <li><a href="TypeScript/Interfaces/DuckTyping">Duck Typing</a></li>
+                <li><a href="TypeScript/Interfaces/Employee">Employee Interface Example</a></li>
+                <li><a href="TypeScript/Interfaces/ImplementsVsExtends">Implements vs Extends</a></li>
+                <li><a href="TypeScript/Interfaces/InterfaceClassContractExample">Interface Spaceship Contract Example</a></li>
+                <li><a href="TypeScript/Interfaces/ConfigContractExample">Configuration Contract Example</a></li>
+            </ul>
+
+            <p id="ts-keywords"><strong>Keywords</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Keywords/All">all keywords</a></li>
+                <li><a href="TypeScript/Keywords/Const">const</a></li>
+                <li><a href="TypeScript/Keywords/Declare">declare (Ambient Declarations)</a></li>
+                <li><a href="TypeScript/Keywords/Let">let</a></li>
+                <li><a href="TypeScript/Keywords/Readonly">readonly</a></li>
+                <li><a href="TypeScript/Keywords/Static">static</a></li>
+                <li><a href="TypeScript/Keywords/Super">super</a></li>
+            </ul>
+
+            <p id="ts-modules"><strong>Modules</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/modules/Basics">Basics</a></li>
+                <li><a href="TypeScript/modules/Export">export</a></li>
+                <li><a href="TypeScript/modules/ImportRelativeNonRelative">import: relative vs non-relative</a></li>
+            </ul>
+
+            <p id="ts-namespaces"><strong>Namespaces</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/namespaces/Namespaces">Namespace Demos</a></li>
+            </ul>
+
+            <p id="ts-operators"><strong>Operators</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Operators/Modulus">Modulus Example</a></li>
+                <li><a href="TypeScript/Operators/NonNullAssertionOperator">Non Null Assertion Operator</a></li>
+            </ul>
+
+            <p id="ts-reference"><strong>Reference Files</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/ReferenceFiles/ReferenceFiles">Reference File Demo</a></li>
+            </ul>
+
+            <p id="ts-strings"><strong>String</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Strings/TemplateLiterals">String Template Literals</a></li>
+            </ul>
+
+            <p id="ts-types"><strong>Types</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="TypeScript/Types/DataTypeExamples">Data Type Examples</a></li>
+                <li><a href="TypeScript/Types/EnumExamples">Enum Examples</a></li>
+                <li><a href="TypeScript/Types/Primitive">Primitive Types Example</a></li>
+                <li><a href="TypeScript/Types/ReadonlyArray">Readonly Array</a></li>
+                <li><a href="TypeScript/Types/UnionTypes">Union Types</a></li>
+            </ul>
+        </div>
+
+        <!-- jquery -->
+        <div class=col-4>
+            <div>
+                <img src="assets/images/jquery-logo.png" style="max-height: 75px;" />
+            </div>
+
+            <p id="jq-ajax"><strong>AJAX</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/ajax/AutoComplete">autoComplete()</a></li>
+                <li><a href="jquery/ajax/AjaxError">ajaxError()</a></li>
+                <li><a href="jquery/ajax/AjaxStart">ajaxStart()</a></li>
+                <li><a href="jquery/ajax/AjaxSuccess">ajaxSuccess()</a></li>
+                <li><a href="jquery/ajax/Basics">Basics</a></li>
+                <li><a href="jquery/ajax/Methods">Common Methods</a></li>
+                <li><a href="jquery/ajax/Get">get()</a></li>
+                <li><a href="jquery/ajax/Load">load()</a></li>
+                <li><a href="jquery/ajax/Post">post()</a></li>
+            </ul>
+
+            <p id="jq-basics"><strong>Basics</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/basics/AddClassRemoveClass">CSS addClass(), removeClass()</a></li>
+                <li><a href="jquery/basics/Attr">attr()</a></li>
+                <li><a href="jquery/basics/Basics">Basics</a></li>
+                <li><a href="jquery/basics/Chaining">Chaining</a></li>
+                <li><a href="jquery/basics/GettingSettingCSSProps">getting and setting CSS properties</a></li>
+                <li><a href="jquery/basics/DocumentReady">Document Ready</a></li>
+                <li><a href="jquery/basics/HeightWidth">height and width functions</a></li>
+                <li><a href="jquery/basics/MoreTargetingExamples">More Targeting Examples</a></li>
+                <li><a href="jquery/basics/Prop">prop()</a></li>
+                <li><a href="jquery/basics/RemoveAttr">removeAttr()</a></li>
+                <li><a href="jquery/basics/RemoveProp">removeProp()</a></li>
+                <li><a href="jquery/basics/Selectors">Selectors</a></li>
+                <li><a href="jquery/basics/SelectorExamples">Selector Examples</a></li>
+            </ul>
+
+            <p id="jq-data"><strong>Data</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/data/CustomAttributes">custom attributes</a></li>
+            </ul>
+
+            <p id="jq-dom"><strong>DOM</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/dom/AppendPrepend">append() / prepend()</a></li>
+                <li><a href="jquery/dom/Attr">attr()</a></li>
+                <li><a href="jquery/dom/AttributeFiltering">attribute filtering</a></li>
+                <li><a href="jquery/dom/BeforeAfter">before() / after()</a></li>
+                <li><a href="jquery/dom/Clone">clone()</a></li>
+                <li><a href="jquery/dom/Contains">contains()</a></li>
+                <li><a href="jquery/dom/Each">each()</a></li>
+                <li><a href="jquery/dom/Empty">empty()</a></li>
+                <li><a href="jquery/dom/Eq">eq()</a></li>
+                <li><a href="jquery/dom/ElementTypeFiltering">element type filtering</a></li>
+                <li><a href="jquery/dom/Has">has()</a></li>
+                <li><a href="jquery/dom/Filter">filter()</a></li>
+                <li><a href="jquery/dom/First">first()</a></li>
+                <li><a href="jquery/dom/Html">html()</a></li>
+                <li><a href="jquery/dom/Last">last()</a></li>
+                <li><a href="jquery/dom/Length">length()</a></li>
+                <li><a href="jquery/dom/Not">not()</a></li>
+                <li><a href="jquery/dom/Prop">prop()</a></li>
+                <li><a href="jquery/dom/Remove">remove()</a></li>
+                <li><a href="jquery/dom/TableFilterDemos">table filter demos</a></li>
+                <li><a href="jquery/dom/Text">text()</a></li>
+                <li><a href="jquery/dom/Val">val()</a></li>
+            </ul>
+
+            <p id="jq-effects"><strong>Effects</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/effects/Animate">animate()</a></li>
+                <li><a href="jquery/effects/Fading">fading</a></li>
+                <li><a href="jquery/effects/ShowHide">show() / hide()</a></li>
+                <li><a href="jquery/effects/Slide">slide()</a></li>
+                <li><a href="jquery/effects/Stop">stop()</a></li>
+                <li><a href="jquery/effects/Toggle">toggle()</a></li>
+                <li><a href="jquery/effects/ToggleClass">toggleClass()</a></li>
+            </ul>
+
+            <p id="jq-traversing"><strong>Events</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/events/BlurFocus">blur() / focus()</a></li>
+                <li><a href="jquery/events/Callback">callback</a></li>
+                <li><a href="jquery/events/Click">click()</a></li>
+                <li><a href="jquery/events/Hover">hover()</a></li>
+                <li><a href="jquery/events/Keystrokes">keystrokes</a></li>
+                <li><a href="jquery/events/Mouseover">mouseover()</a></li>
+                <li><a href="jquery/events/MouseupMousedown">mouseup() / mousedown()</a></li>
+                <li><a href="jquery/events/MouseEnterMouseLeave">mouseenter() / mouseleave()</a></li>
+                <li><a href="jquery/events/On">on()</a></li>
+            </ul>
+
+            <p id="jq-forms"><strong>Forms</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/forms/GettingValsFromControls">Getting vals from form controls</a></li>
+                <li><a href="jquery/forms/SettingValsF0rmControls">Setting vals from form controls</a></li>
+                <li><a href="jquery/forms/CountingItemsInDropDown">Counting items in a drop down</a></li>
+                <li><a href="jquery/forms/CountingSelectedCheckboxes">Counting selected checkboxes</a></li>
+            </ul>
+
+            <p id="jq-ui"><strong>jQuery UI</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/jquery-ui/SliderExample">slider example</a></li>
+            </ul>
+
+            <p id="jq-ui"><strong>Plug Ins</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/plugins/Countdown">Countdown</a></li>
+                <li><a href="jquery/plugins/CountdownNew">Countdown (new)</a></li>
+            </ul>
+
+            <p id="jq-traversing"><strong>Traversing</strong></p>
+            <ul class="list-unstyled">
+                <li><a href="jquery/traversing/Children">children()</a></li>
+                <li><a href="jquery/traversing/Find">find()</a></li>
+                <li><a href="jquery/traversing/Next">next()</a></li>
+                <li><a href="jquery/traversing/Parent">parent()</a></li>
+                <li><a href="jquery/traversing/Parents">parents()</a></li>
+                <li><a href="jquery/traversing/ParentsUntil">parentsUntil()</a></li>
+                <li><a href="jquery/traversing/Prev">prev()</a></li>
+                <li><a href="jquery/traversing/Siblings">siblings()</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
+
