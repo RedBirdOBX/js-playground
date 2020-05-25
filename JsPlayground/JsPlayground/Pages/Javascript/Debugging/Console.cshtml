@@ -1,0 +1,52 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Console";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-debugging}
+@section BreadCrumbChapter {debugging}
+@section BreadCrumbPageName {console}
+@section PageName {Console}
+
+<p>The Console object provides access to the browser's debugging console.</p>
+
+<ul>
+    <li><code>clear()</code> - Clears the console</li>
+    <li><code>error()</code> - Outputs an error message to the console</li>
+    <li><code>info()</code> - Outputs an informational message to the console</li>
+    <li><code>log()</code> - Outputs a message to the console</li>
+    <li><code>warn()</code> - Outputs a warning message to the console</li>
+    <li><code>dir()</code> - Outputs an object</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+console.log("This is a message");
+console.info("This is a info message");
+console.warn("This is a warning message");
+console.error("This is a error message");
+console.log("This is a message with overloads...but just use string templates. ", "My message");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        console.log("This is a message");
+        console.info("This is a info message");
+        console.warn("This is a warning message");
+        console.error("This is a error message");
+        console.log("This is a message with overloads...just use string templates. ", "My message");
+    </script>
+}

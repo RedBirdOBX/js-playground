@@ -1,0 +1,58 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.LoopingThruPropertiesModel
+
+@{
+    string pageId = "Looping Thru Properties";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    You can loop through the properties of an object like so:
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<hr />
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        function person(first, last, age) {
+            this.FirstName = first;
+            this.LastName = last;
+            this.Age = age;
+        }
+
+        // demo1
+        let father = new person("John", "Doe", 50);
+        let output = "";
+        let demo1 = document.getElementById("demo1");
+
+        for (var prop in father) {
+            output += `${father[prop]}<br />`;
+        }
+
+        demo1.innerHTML = output;
+    </script>
+}

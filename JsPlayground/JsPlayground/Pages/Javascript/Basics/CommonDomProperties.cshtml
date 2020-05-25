@@ -1,0 +1,50 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Common DOM Properties";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {common dom properties}
+@section PageName {Common DOM Properties}
+
+<p>Notice that you can (just like with jQuery), grab a element and manipulate it.</p>
+
+<pre>
+<code>
+&lt;div id="order-form">
+    &lt;form>
+
+        &lt;label>Your Name:&lt;label>
+        &lt;input />
+        &lt;label>Email&lt;label>
+        &lt;input type="email" />
+        &lt;label>Subject&lt;/label>
+        &lt;input type="text" />
+        &lt;label>Message&lt;label>
+        &lt;textarea rows="3" cols="50">&lt;/textarea>
+        &lt;input type="submit" value="Send Message" />
+
+    &lt;/form>
+&lt;/div>
+
+var orderForm = document.getElementById("order-form");
+orderForm.hidden = true;
+orderForm.click(function () { alert("hello"); });
+// etc
+
+    </code>
+</pre>
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

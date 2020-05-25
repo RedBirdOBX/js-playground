@@ -1,0 +1,221 @@
+﻿@page
+
+@model SpliceModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "splice()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {splice()}
+@section PageName {splice()}
+
+<p>
+    The splice() method can be used to add new items to an array. It can also be used to remove items from an array. The
+    splice() method take three or more arguments:
+</p>
+
+<ul>
+    <li>The first parameter defines the position where new elements should be added (spliced in).</li>
+    <li>The second parameter defines how many elements should be removed.</li>
+    <li>The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+// the original array.
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("before").innerHTML = fruits.join("*");
+
+// will add Lemon and Kiwi AFTER Orange. It will then add two new elements to the end of the array.
+fruits.splice(2, 0, "Lemon", "Kiwi");
+
+// will now show all six elements.
+document.getElementById("after").innerHTML = fruits.join("*");
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="before"></h4>
+    <h4 class="text-danger" id="after"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 1
+// Adding items to the beginning of the array.
+let fruits2 = ["orange", "banana", "apple", "pineapple"];
+fruits2.splice(0, 0, "lemon", "lime");
+$("#demo1").html("results: " + fruits.join("-"));
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo1"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 2
+// adding items to the end of the array
+let cars = ["ford", "chevy", "nissan", "toyota"];
+cars.splice(cars.length, 0, "gmc", "hyundai");
+$("#demo2").html("results: " + cars.join("-"));
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo2"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 3
+// adding items to the end of the array and then resorting them
+let colors = ["blue", "green", "yellow", "red"];
+colors.splice(colors.length, 0, "black", "white");
+colors = colors.sort();
+$("#demo3").html("results: " + colors.toString());
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo3"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 4
+// removing the first two items
+let foods = ["salads", "vegetables", "pizza", "tacos", "pasta", "rice"];
+foods.splice(0, 2);
+$("#demo4").html("results: " + foods.toString());
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo4"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 5
+// removing the last two items(tom & jerry)
+let cartoons = ["ricky", "bobby", "elmer", "bugs", "tom", "jerry"];
+cartoons = cartoons.reverse();
+cartoons.splice(0, 2);
+cartoons = cartoons.reverse();
+$("#demo5").html("results: " + cartoons.toString());
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo5"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+// demo 6
+// removing an item within the array
+let sodas = ["coke", "pepsi", "mt dew", "rat poison", "dr pepper", "sprite"];
+let removeIndex = sodas.indexOf("rat poison"); //remove this
+if (removeIndex != -1)
+{
+    // simple. Get the position of the offending item and mark it for removal.
+    sodas.splice(removeIndex, 1);
+}
+
+sodas = sodas.sort();
+$("#demo6").html("results: " + sodas.toString());
+</code>
+</pre>
+
+<div>
+    <h4 class="text-danger" id="demo6"></h4>
+</div>
+
+<hr />
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // the original array.
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("before").innerHTML = fruits.join("*");
+
+        // will add Lemon and Kiwi AFTER Orange.  It will then add two new elements to the end of the array.
+        fruits.splice(2, 0, "Lemon", "Kiwi");
+
+        // will now show all six elements.
+        document.getElementById("after").innerHTML = fruits.join("*");
+
+        // demo 1
+        // Adding items to the beginning of the array.
+        let fruits2 = ["orange", "banana", "apple", "pineapple"];
+        fruits2.splice(0, 0, "lemon", "lime");
+        $("#demo1").html("results: " + fruits.join("-"));
+
+        // demo 2
+        // adding items to the end of the array
+        let cars = ["ford", "chevy", "nissan", "toyota"];
+        cars.splice(cars.length, 0, "gmc", "hyundai");
+        $("#demo2").html("results: " + cars.join("-"));
+
+        // demo 3
+        // adding items to the end of the array and then resorting them
+        let colors = ["blue", "green", "yellow", "red"];
+        colors.splice(colors.length, 0, "black", "white");
+        colors = colors.sort();
+        $("#demo3").html("results: " + colors.toString());
+
+        // demo 4
+        // removing the first two items
+        let foods = ["salads", "vegetables", "pizza", "tacos", "pasta", "rice"];
+        foods.splice(0, 2);
+        $("#demo4").html("results: " + foods.toString());
+
+        // demo 5
+        // removing the last two items(tom & jerry)
+        let cartoons = ["ricky", "bobby", "elmer", "bugs", "tom", "jerry"];
+        cartoons = cartoons.reverse();
+        cartoons.splice(0, 2);
+        cartoons = cartoons.reverse();
+        $("#demo5").html("results: " + cartoons.toString());
+
+        // demo 6
+        // removing an item within the array
+        let sodas = ["coke", "pepsi", "mt dew", "rat poison", "dr pepper", "sprite"];
+        let removeIndex = sodas.indexOf("rat poison");             //remove this
+        if (removeIndex != -1) {
+            // simple.  Get the position of the offending item and mark it for removal.
+            sodas.splice(removeIndex, 1);
+        }
+
+        sodas = sodas.sort();
+        $("#demo6").html("results: " + sodas.toString());
+    </script>
+}

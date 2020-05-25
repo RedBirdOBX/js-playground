@@ -1,0 +1,125 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.NavigatorModel
+
+@{
+    string pageId = "Navigator";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>window.navigator</code> object contains information about the visitor's browser.
+</p>
+
+<p>Common examples are:</p>
+
+<ul>
+    <li><code>window.navigator.appName</code> returns name of browser</li>
+    <li><code>window.navigator.appCodeName</code> returns name of browser</li>
+    <li><code>window.navigator.platform</code> returns the browser platform (operating system)</li>
+    <li><code>window.navigator.product</code> returns the engine name of the browser</li>
+    <li><code>window.navigator.cookieEnabled</code> (boolean)</li>
+    <li><code>window.navigator.appVersion</code> returns version information about the browser</li>
+    <li><code>window.navigator.userAgent</code> returns version information about the browser</li>
+    <li><code>window.navigator.language</code> returns the browser's language</li>
+    <li><code>window.navigator.javaEnabled()</code> (method / boolean) returns true if Java is enabled</li>
+</ul>
+
+<p>
+    Chrome, Firefox, IE, Safari, and Opera all return appCodeName "Mozilla". IE11, Chrome, Firefox, and Safari return
+    appName "Netscape".
+</p>
+
+<p>
+    The information from the navigator object can often be misleading, and should not be used to detect browser versions
+    because:
+</p>
+
+<ul>
+    <li>Different browsers can use the same name</li>
+    <li>The navigator data can be changed by the browser owner</li>
+    <li>Some browsers misidentify themselves to bypass site tests</li>
+    <li>Browsers cannot report new operating systems, released later than the browser</li>
+</ul>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let Navigator =
+{
+    appName: window.navigator.appName,
+    appCodeName: window.navigator.appCodeName,
+    appVersion: window.navigator.appVersion,
+    platform: window.navigator.platform,
+    product: window.navigator.product,
+    cookieEnabled: window.navigator.cookieEnabled,
+    userAgent: window.navigator.userAgent,
+    language: window.navigator.language,
+    javaEnabled: window.navigator.javaEnabled
+}
+
+let results = "";
+results += "appName: " + Navigator.appName + "&lt;br />";
+results += "appCodeName: " + Navigator.appCodeName + "&lt;br />";
+results += "appVersion: " + Navigator.appVersion + "&lt;br />";
+results += "platform: " + Navigator.platform + "&lt;br />";
+results += "product: " + Navigator.product + "&lt;br />";
+results += "cookieEnabled: " + Navigator.cookieEnabled + "&lt;br />";
+results += "userAgent: " + Navigator.userAgent + "&lt;br />";
+results += "language: " + Navigator.language + "&lt;br />";
+results += "javaEnabled: " + Navigator.javaEnabled + "&lt;br />";
+
+document.getElementById("demo1").innerHTML = results;
+            </code>
+        </pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let Navigator =
+        {
+            appName: window.navigator.appName,
+            appCodeName: window.navigator.appCodeName,
+            appVersion: window.navigator.appVersion,
+            platform: window.navigator.platform,
+            product: window.navigator.product,
+            cookieEnabled: window.navigator.cookieEnabled,
+            userAgent: window.navigator.userAgent,
+            language: window.navigator.language,
+            javaEnabled: window.navigator.javaEnabled
+        }
+
+        let results = "";
+        results += "appName: " + Navigator.appName + "<br />";
+        results += "appCodeName: " + Navigator.appCodeName + "<br />";
+        results += "appVersion: " + Navigator.appVersion + "<br />";
+        results += "platform: " + Navigator.platform + "<br />";
+        results += "product: " + Navigator.product + "<br />";
+        results += "cookieEnabled: " + Navigator.cookieEnabled + "<br />";
+        results += "userAgent: " + Navigator.userAgent + "<br />";
+        results += "language: " + Navigator.language + "<br />";
+        results += "javaEnabled: " + Navigator.javaEnabled + "<br />";
+
+        document.getElementById("demo1").innerHTML = results;
+    </script>
+}

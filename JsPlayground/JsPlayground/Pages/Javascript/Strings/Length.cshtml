@@ -1,0 +1,62 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.LengthModel
+
+@{
+    string pageId = "Length";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>length</code> <strong>property</strong> returns the length of a string or and the count of an array.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let string1 = "Hello World";
+let length1 = string1.length;
+document.getElementById("demo1").innerHTML = `The length of the string1 is ${length1}.`;
+
+let array1 = ["apple", "banana", "pineapple"];
+let length2 = array1.length;
+document.getElementById("demo2").innerHTML = `The length of the array1 is ${length2}.`;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let string1 = "Hello World";
+            let length1 = string1.length;
+            document.getElementById("demo1").innerHTML = `The length of the string1 is ${length1}.`;
+
+            let array1 = ["apple", "banana", "pineapple"];
+            let length2 = array1.length;
+            document.getElementById("demo2").innerHTML = `The length of the array1 is ${length2}.`;
+        }
+    </script>
+}

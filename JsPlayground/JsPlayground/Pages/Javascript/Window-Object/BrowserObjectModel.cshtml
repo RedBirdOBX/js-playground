@@ -1,0 +1,67 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.BrowserObjectModelModel
+
+@{
+    string pageId = "Browser Object Model";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The Browser Object Model (BOM) allows JavaScript to "talk to" the browser.
+    There are no official standards for the Browser Object Model (BOM). Since modern browsers have implemented (almost) the
+    same methods and properties for JavaScript interactivity, it is often referred to, as methods and properties of the BOM.
+</p>
+
+<p>
+    <strong>The Window Object</strong><br />
+    The window object is supported by all browsers. It represents the browser's window.
+</p>
+
+<p>
+    All global JavaScript objects, functions, and variables automatically become members of the window object.
+</p>
+
+<p>
+    Global variables are properties of the window object.
+</p>
+
+<p>
+    Global functions are methods of the window object.
+</p>
+
+<p>
+    Even the document object (of the HTML DOM) is a property of the window object:
+</p>
+
+<pre>
+<code>
+window.document.getElementById("header");
+....is the same as...
+document.getElementById("header");
+</code>
+</pre>
+
+<p class="text-center">
+    <img src="../../assets/images/bom.jpg" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

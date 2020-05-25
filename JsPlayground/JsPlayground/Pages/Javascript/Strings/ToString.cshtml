@@ -1,0 +1,66 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.ToStringModel
+
+@{
+    string pageId = "ToString";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    With JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive
+    values as objects when executing methods and properties.
+</p>
+
+<p>
+    <string>toString()</string> returns a number as a string and it will spit out the contents of an array as a comma-delimited string.
+    All number methods can be used on any type of numbers (literals, variables, or expressions).
+</p>
+
+<code>substring({start index}, {end index});</code>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let x = 123;
+let results = "";
+results = x.toString() + "&lt;br />";       // returns 123 from variable x
+results += (123).toString() + "&lt;br />";  // returns 123 from literal 123
+results += (100 + 23).toString();           // returns 123 from expression 100 + 23
+document.getElementById("demo1").innerHTML = results;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let x = 123;
+            let results = "";
+            results = x.toString() + "<br />";              // returns 123 from variable x
+            results += (123).toString() + "<br />";         // returns 123 from literal 123
+            results += (100 + 23).toString();               // returns 123 from expression 100 + 23
+            document.getElementById("demo1").innerHTML = results;
+        }
+    </script>
+}

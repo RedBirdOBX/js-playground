@@ -1,0 +1,61 @@
+﻿@page
+
+@{
+    string pageId = "Get Element By Class";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.GetElementByClassModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    When you use the <code>getElementsByClassName()</code> method, will get a list(array) of all the elements with that matching CSS class.
+    Using the code below, we will look and see what the contents of paragraphs 1 & 2 are.
+</p>
+
+<hr />
+
+<p class="lead">
+    Someone who'll rattle the cages. How about a magic trick? I'm gonna make this pencil disappear. Ta-da!
+</p>
+
+<p>
+    You have learn to bury your guilt with anger. I will teach you to confront it and to face the truth.
+</p>
+
+<hr />
+
+<h3 id="demo1" class="text-danger"></h3>
+
+<pre>
+<code>
+let x = document.getElementsByClassName("lead");
+let results = "";
+
+results = "The first paragraph (index 0) which has the lead class is: " + x[0].innerHTML + "<br />";
+document.getElementById("demo1").innerHTML = results;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let x = document.getElementsByClassName("lead");
+        let results = "";
+
+        results = "The first paragraph (index 0) which has the lead class is: " + x[0].innerHTML + "<br />";
+        document.getElementById("demo1").innerHTML = results;
+    </script>
+}

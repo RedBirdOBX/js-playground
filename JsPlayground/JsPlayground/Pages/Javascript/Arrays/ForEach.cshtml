@@ -1,0 +1,63 @@
+﻿@page
+
+@model ForEachModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "foreach()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {foreach()}
+@section PageName {foreach()}
+
+<p>
+    The <code>foreach()</code> method calls a <strong>function</strong> once for each element in an array, in order.
+</p>
+
+<p><a href="https://www.w3schools.com/jsref/jsref_foreach.asp">https://www.w3schools.com/jsref/jsref_foreach.asp</a></p>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div id="">
+            <h4 class="text-white text-center">Adult ages</h4>
+            <p class="text-white text-center" id="demo1"></p>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+let output = "";
+const ages = [40, 11, 8, 32, 33, 16, 40];
+const CheckForAdult = (age) =>
+{
+    output += (age >= 18) ? `I am an adult. I am ${age}.&lt;br />` : `I am not an adult. I am ${age}.&lt;br />`;
+};
+ages.forEach(CheckForAdult);
+document.getElementById("demo1").innerHTML = output;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let output = "";
+        const ages = [40, 11, 8, 32, 33, 16, 40];
+        const CheckForAdult = (age) => {
+            output += (age >= 18) ? `I am an adult. I am ${age}.<br />` : `I am not an adult. I am ${age}.<br />`;
+        };
+        ages.forEach(CheckForAdult);
+        document.getElementById("demo1").innerHTML = output;
+    </script>
+}

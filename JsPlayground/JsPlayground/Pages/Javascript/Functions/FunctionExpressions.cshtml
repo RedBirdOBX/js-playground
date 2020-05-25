@@ -1,0 +1,151 @@
+﻿@page
+
+@{
+    string pageId = "Function Expressions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Expanding on the <a href="../Functions/anonymous-functions.html">anonymous function concept</a>, we know that
+    function do not need names.  You can also take function, not give it a name, and "express" it with a lambda expression.
+    Take this code snippet for example - this is using a function <strong>with</strong> a name called <code>DoMath</code>:
+</p>
+
+<div class="card text-white bg-info my-3 col-3">
+    <div class="card-body" id="Demo1">
+    </div>
+</div>
+
+<pre>
+<code>
+let a = 100;
+let b = 100;
+function DoMath(a,b)
+{
+    return a+b;
+}
+$("#Demo1").html(DoMath(a,b));
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    Here's the same thing and assigning the function to a variable called do math.  This is how we invoke the function.
+    The function itself <strong>has no name</strong>.
+</p>
+
+<div class="card text-white bg-info my-3 col-3">
+    <div class="card-body" id="Demo2">
+    </div>
+</div>
+
+<pre>
+<code>
+$(function ()
+{
+    let c = 101;
+    let d = 101;
+    let DoMath2 = <mark>function(c,d) {return c+d;};</mark>
+    $("#Demo2").html(DoMath2(c,d));
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    Now we can use an function expression.  Notice how I said "sum is an arrow, that takes two args and it's return is e + f "?
+    This an expression....a formula.
+</p>
+
+<div class="card text-white bg-info my-3 col-3">
+    <div class="card-body" id="Demo3">
+    </div>
+</div>
+
+<pre>
+<code>
+$(function ()
+{
+    let e = 102;
+    let f = 102;
+<mark>let sum = (e,f) => { return e + f; };</mark>
+    $("#Demo3").html(sum(e,f));
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    We can even go one step further and remove <code>return</code> and the curly braces.
+</p>
+
+<div class="card text-white bg-info my-3 col-3">
+    <div class="card-body" id="Demo4">
+    </div>
+</div>
+
+<pre>
+<code>
+$(function ()
+{
+    let g = 103;
+    let h = 103;
+<mark>let sum = (g,h) => g + h; </mark>
+    $("#Demo4").html(sum(g,h));
+});
+</code>
+</pre>
+
+
+
+@section Scripts
+{
+    <script>
+        // demo 1
+        let a = 100;
+        let b = 100;
+        function DoMath(a, b) {
+            return a + b;
+        }
+        $("#Demo1").html(DoMath(a, b));
+
+        // demo 2
+        $(function () {
+            let c = 101;
+            let d = 101;
+            let DoMath2 = function (c, d) { return c + d; };
+            $("#Demo2").html(DoMath2(c, d));
+        });
+
+        // demo 3
+        $(function () {
+            let e = 102;
+            let f = 102;
+            let sum = (e, f) => { return e + f; };
+            $("#Demo3").html(sum(e, f));
+        });
+
+        // demo 4
+        $(function () {
+            let g = 103;
+            let h = 103;
+            let sum = (g, h) => g + h;
+            $("#Demo4").html(sum(g, h));
+        });
+
+    </script>
+}

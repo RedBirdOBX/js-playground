@@ -1,0 +1,134 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.AddingDeletingPropertiesModel
+
+@{
+    string pageId = "Adding / Deleting Properties";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-}
+@section BreadCrumbChapter {}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <strong>Adding properties to an object</strong><br />
+    You can add new properties to an existing object by simply giving it a value. Assume that the person object already
+    exists - you can then give it new properties:
+</p>
+
+<code>person.nationality = "English";</code>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+function person(first, last, age, eye)
+{
+    this.firstName = first;
+    this.lastName = last;
+}
+
+let father = new person("John", "Doe");
+father.Age = 50;
+
+let msg = "Father name is " + father.firstName + " " + father.lastName + ". Age is " + father.Age + "<br />";
+document.getElementById("demo1").innerHTML = msg;;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    <strong>Deleting properties to an object</strong><br />
+    The delete keyword deletes a property from an object.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let mother = new person("Jane", "Doe");
+mother.Age = 50;
+
+delete mother.Age; // or delete person["age"];
+
+let msg2 = "Mother name is " + mother.firstName + " " + mother.lastName + ". Age is " + mother.Age + "&ltbr />";
+document.getElementById("demo2").innerHTML = msg2;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<hr />
+
+<p>
+    <strong>Adding a Method to an object</strong><br />
+    Adding a new method to an existing object is also easy.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo3"></div>
+    </div>
+</div>
+<pre>
+<code>
+let brother = new person("Jack", "Doe");
+brother.FullName = function () { return this.FirstName + " " + this.LastName; };
+
+let msg3 = "Brother name is " + brother.firstName + " " + brother.lastName + ". Full Name is " + brother.FullName() + "&lt;br />";
+document.getElementById("demo3").innerHTML = msg3;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function person(first, last) {
+            this.FirstName = first;
+            this.LastName = last;
+        }
+
+        // demo1
+        let father = new person("John", "Doe");
+        father.Age = 50;
+
+        let msg = "Father name is " + father.FirstName + " " + father.LastName + ". Age is " + father.Age + "<br />";
+        document.getElementById("demo1").innerHTML = msg;
+
+        // demo2
+        let mother = new person("Jane", "Doe");
+        mother.Age = 50;
+
+        delete mother.Age; // or delete person["age"];
+
+        let msg2 = "Mother name is " + mother.FirstName + " " + mother.LastName + ". Age is " + mother.Age + "<br />";
+        document.getElementById("demo2").innerHTML = msg2;
+
+        // demo3
+        let brother = new person("Jack", "Doe");
+        brother.FullName = function () { return this.FirstName + " " + this.LastName; };
+
+        let msg3 = "Brother name is " + brother.FirstName + " " + brother.LastName + ". Full Name is " + brother.FullName() + "<br />";
+        document.getElementById("demo3").innerHTML = msg3;
+    </script>
+}

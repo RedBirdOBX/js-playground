@@ -1,0 +1,69 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Keywords.ReturnModel
+
+@{
+    string pageId = "Return";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p><strong>the return keyword</strong></p>
+
+<p>The return statement stops the execution of a function and returns a value from that function.</p>
+
+<p>
+    <strong>Tip:</strong> If you plan to break up the return statement and use parenthesis, keep the opening parenthesis on the same
+    line  - proceeding the <code>return</code> statement.
+</p>
+
+<pre>
+<code>
+// this will NOT work
+function GetMessage()
+{
+<mark>return (</mark>"Hello World!...lots of code/content here" );
+}
+console.log(GetMessage());
+
+// this WILL work
+function GetMessage()
+{
+<mark>return (</mark> "Hello World!...lots of code/content here");
+}
+console.log(GetMessage());
+
+// this is even better
+function GetMessage()
+{
+    let message = "Hello World!...lots of code/content here";
+    return message;
+}
+console.log(GetMessage());
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        function GetMessage() {
+            return (
+                "Hello World!"
+            );
+        }
+        console.log(GetMessage());
+    </script>
+}

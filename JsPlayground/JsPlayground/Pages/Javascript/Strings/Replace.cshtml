@@ -1,0 +1,83 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.ReplaceModel
+
+@{
+    string pageId = "Replace";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>replace()</code> method returns a modified string where the pattern is replaced.
+    Here's two examples of using <code>replace()</code>: one simple method and one a little more advanced
+    using a <code>regex</code> pattern.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 1
+let demo1 = document.getElementById("demo1");
+let message = "Hello WoRld";
+message = message.replace("WoRld", "World");
+demo1.innerHTML = message;
+
+// example 2
+let demo2 = document.getElementById("demo2");
+let expression = /world/i;
+message = message.replace(expression, "Everybody!")
+demo2.innerHTML = message;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    <strong>Regular Expression Modifiers</strong><br />
+    Modifiers can be used to perform case-insensitive searches.
+</p>
+
+<ul>
+    <li><code>i</code>  - Perform case-insensitive matching</li>
+    <li><code>g</code>  - Perform a global match (find all matches rather than stopping after the first match)</li>
+    <li><code>m</code>  - Perform multiline matching</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // example 1
+        let demo1 = document.getElementById("demo1");
+        let message = "Hello WoRld";
+        message = message.replace("WoRld", "World");
+        demo1.innerHTML = message;
+
+        // example 2
+        let demo2 = document.getElementById("demo2");
+        let expression = /world/i;
+        message = message.replace(expression, "Everybody!")
+        demo2.innerHTML = message;
+    </script>
+}

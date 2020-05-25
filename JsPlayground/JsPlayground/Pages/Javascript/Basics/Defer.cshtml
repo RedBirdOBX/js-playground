@@ -1,0 +1,35 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Defer";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {defer}
+@section PageName {Defer}
+
+<p>
+    Sometimes you will have an issue where the page with throw an error because it is trying reference an element in a
+    script file which has not been yet written to the page. Wrapping the code in a jQuery document ready function is one
+    approach but if you don’t have jQuery in your project, you can tag the script file with a <code>defer</code> attribute:
+</p>
+
+<pre>
+<code>
+&lt;script src="javascripts/libraries/knockout-3.4.2.js">&lt;/script>
+&lt;script src="javascripts/app.js" <mark>defer="defer"</mark>>&lt;/script>
+</code>
+</pre>
+
+<p class="mb-5">This tells the browser not to load this script until the page has finished loading.</p>
+
+@section Scripts
+{
+}

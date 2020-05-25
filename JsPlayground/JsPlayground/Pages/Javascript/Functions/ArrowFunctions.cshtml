@@ -1,0 +1,248 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.ArrowFunctionsModel
+
+@{
+    string pageId = "Arrow Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    More examples are in the <a href="../../index.html">TypeScript</a> section.
+</p>
+
+<p>
+    There are many ways to define a function in JavaScript, and the modern specification (ES6) introduced a new way, <code>
+        arrow
+        functions
+    </code>. It is a way to define a function without typing the keyword "function", but rather by using an arrow symbol.
+    This shorter syntax is preferable not only because it's shorter, but also because it behaves more predictably
+    with closures.
+</p>
+
+<h3>Syntax basics</h3>
+
+<ul>
+    <li>Do not use the <code>function</code> keyword. <code>const</code> is preferred.</li>
+    <li>You can omit the curly braces if you can define your return statement (function body) in one line.</li>
+    <li>If you do omit the curly braces and use a single line, you can use optional parenthesis to encapsulate an expression.</li>
+    <li>
+        If you use curly braces to define your return statement (function body), then you <strong>must</strong> include
+        a <code>return</code> statement.
+    </li>
+    <li>They are not well suited for defining object methods.</li>
+</ul>
+
+<div class="my-3">
+    <code>
+        const {name} = ({optional parameter: type}, {optional parameter: type}, etc): {return type} => {function body};<br />
+        const DailyPay = (hourlyRate : number, hours : number, bonus? : number): number => { (hourlyRate * hours) + bonus; };
+    </code>
+</div>
+
+<pre>
+<code>
+// example 1
+// you can omit the arguments () and the braces & return statement.
+const SayHello => "Hello";
+
+// example 2
+// you can include the arguments () if you like and omit the braces & return statement.
+const SayHello = () => "Hello";
+
+// example 3
+// one line return. you can omit the arguments () and the braces & return statement.
+const squareIt = (x) => x * x;
+
+// example 4
+// one line return. You can do this if you like....
+const squareIt = (x) => (x * x);
+
+// example 5
+// multiple lines of return code - I need to use curly-braces and return statement
+const MyFunction = (arg1, agr2) =>
+{
+    let results = 0;
+    // fake logic...
+    if(arg1 > arg2)
+    {
+        // logic here
+        // results = ....
+    }
+    else
+    {
+        // logic here
+        // results = ....
+    }
+    return results;
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3>Confusion about 'this'</h3>
+
+<p>
+    A regular function always binds the value for its <code>this</code> keyword for its caller.
+    If it didn't have an explicit caller, the value of this keyword will be determined by the calling environment.
+</p>
+
+<p>
+    An arrow function does not care who calls it, while a regular function cares
+    very much about that.  The <code>this</code> keyword in an arrow function is determined on
+    <strong>where the arrow function was defined</strong>.
+</p>
+
+<h4 class="text-info text-center">
+    <em>'this' in regular functions == who called it?  'this' in arrow functions == where was this defined?</em>
+</h4>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="example1"></div>
+        <div id="example2"></div>
+        <div id="example3"></div>
+        <div id="example4"></div>
+        <div id="example5"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+function RegFunction()
+{
+    // old boring global function.
+    // who is "this"? The caller.
+    // it always binds the value for it's "this" keyword to the caller.
+    // this might be better known as "caller" in this scenario.
+    // if it didn't have an explicit caller, it is bound to the calling environment like Window.
+    // this is the Window object
+    console.log(`RegFunction: ${this}`);
+    console.dir(this);
+    return this;
+}
+
+// notice that `this` is the **person** object.
+// 'this' is contained within this object scope
+let person =
+{
+    FirstName: "Penelope",
+    LastName: "Barrymore",
+    FullName: function ()
+    {
+        console.log(`Person Obj: ${this}`);
+        console.dir(this);
+        return this.FirstName + " " + this.LastName;
+    }
+}
+
+// Arrow function example
+// notice that `this` is the window object again even though it was the car
+// object who called it. Why? Because it, the function, was defined in the Window object.
+let CalculateCost = () =>
+{
+    console.log(`CalculateCost: ${this}`);
+    console.dir(this);
+    return 1000000 * 1;
+}
+
+let car =
+{
+    Color: "Red",
+    Speed: "Fast",
+    Cost: CalculateCost
+}
+
+let testerObj =
+{
+    // the properties of this obj are defined by functions
+    FunctProp1: function () { console.log("FunctProp1", this); return this; },
+    FunctProp2: () => { console.log("FunctProp2", this); return this; }
+};
+
+$(function ()
+{
+    $("#example1").text(RegFunction());
+    $("#example2").text(person.FullName());
+    $("#example3").text(car.Cost);
+    $("#example4").text(testerObj.FunctProp1());
+    $("#example5").text(testerObj.FunctProp2());
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        function RegFunction() {
+            // old boring global function.
+            // who is "this"?  The caller.
+            // it always binds the value for it's "this" keyword to the caller.
+            // this might be better known as "caller" in this scenario.
+            // if it didn't have an explicit caller, it is bound to the calling environment like Window.
+            // this is the Window object
+            console.log(`RegFunction: ${this}`);
+            console.dir(this);
+            return this;
+        }
+
+        // notice that `this` is the **person** object.
+        // 'this' is contained within this object scope
+        let person =
+        {
+            FirstName: "Penelope",
+            LastName: "Barrymore",
+            FullName: function () {
+                console.log(`Person Obj: ${this}`);
+                console.dir(this);
+                return this.FirstName + " " + this.LastName;
+            }
+        }
+
+        // Arrow function example
+        // notice that `this` is the window object again even though it was the car
+        // object who called it. Why?  Because it, the function, was defined in the Window object.
+        let CalculateCost = () => {
+            console.log(`CalculateCost: ${this}`);
+            console.dir(this);
+            return 1000000 * 1;
+        }
+
+        let car =
+        {
+            Color: "Red",
+            Speed: "Fast",
+            Cost: CalculateCost
+        }
+
+        let testerObj =
+        {
+            // the properties of this obj are defined by functions
+            FunctProp1: function () { console.log("FunctProp1", this); return this; },
+            FunctProp2: () => { console.log("FunctProp2", this); return this; }
+        };
+
+        $(function () {
+            $("#example1").text(RegFunction());
+            $("#example2").text(person.FullName());
+            $("#example3").text(car.Cost);
+            $("#example4").text(testerObj.FunctProp1());
+            $("#example5").text(testerObj.FunctProp2());
+        });
+    </script>
+}

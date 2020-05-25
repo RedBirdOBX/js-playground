@@ -1,0 +1,45 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.TypeConversionsModel
+
+
+@{
+    string pageId = "Type Conversions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>You can use the Boolean() function to find out if an expression (or a variable) is true.</p>
+
+<p>
+    <code>Number()</code><br />
+    Number(myVar) converts a variable to a number.
+</p>
+
+<p>
+    <code>String(myVar)</code><br />
+    String(myVar) converts a variable to a string.
+</p>
+
+<p>
+    <code>Boolean()</code><br />
+    Boolean(myVar) converts a variable to a boolean. You can use the Boolean() function to find out if an expression (or a
+    variable) is true. Everything with a legitimate value is True.
+</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

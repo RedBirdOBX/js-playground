@@ -1,0 +1,49 @@
+﻿@page
+
+@model ToStringModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "toString()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {toString()}
+@section PageName {toString()}
+
+<p>
+    The JavaScript method toString() converts an array to a string of (comma separated) array values. So does assigning a
+    variable an already established array.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+    <h3 class="text-danger" id="demo2"></h3>
+</div>
+
+<pre>
+<code>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+//or....
+document.getElementById("demo").innerHTML = fruits;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = fruits.toString();
+        //or....
+        document.getElementById("demo2").innerHTML = fruits;
+    </script>
+}

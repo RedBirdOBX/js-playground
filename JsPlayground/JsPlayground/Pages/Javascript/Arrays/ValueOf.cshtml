@@ -1,0 +1,61 @@
+﻿@page
+
+@model ValueOfModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "valueOf()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {valueOf()}
+@section PageName {valueOf()}
+
+<p>
+    The valueOf() method is the default behavior for an array. It converts an array to a primitive value. JavaScript will
+    automatically convert an array to a string when a primitive value is expected. Because of this, all these examples will
+    produce the same result.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+    <h3 class="text-danger" id="demo2"></h3>
+    <h3 class="text-danger" id="demo3"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+let fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo2").innerHTML = fruits2.valueOf();
+
+let fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo3").innerHTML = fruits3.toString();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = fruits;
+
+        let fruits2 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo2").innerHTML = fruits2.valueOf();
+
+        let fruits3 = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo3").innerHTML = fruits3.toString();
+    </script>
+}

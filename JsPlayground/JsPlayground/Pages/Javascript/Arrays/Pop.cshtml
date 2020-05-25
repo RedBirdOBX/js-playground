@@ -1,0 +1,45 @@
+﻿@page
+
+@model PopModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "pop()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {pop()}
+@section PageName {pop()}
+
+<p>
+    The pop() method removes the <strong>last</strong> element from an array.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.pop();
+document.getElementById("demo").innerHTML = fruits.join(" - ")
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.pop();
+        document.getElementById("demo").innerHTML = fruits.join(" - ");
+    </script>
+}

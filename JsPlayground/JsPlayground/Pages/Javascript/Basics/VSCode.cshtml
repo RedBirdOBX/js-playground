@@ -1,0 +1,48 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "VS Code";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {vs code}
+@section PageName {VS Code}
+
+<p>
+    VS Code is our favorite IDE (so far) for front-end development. Make sure you have these helpful
+    extensions installed.
+</p>
+
+<ul>
+    <li>Code Spell Checker</li>
+    <li>ESLint</li>
+    <li>HTML Snippets</li>
+</ul>
+
+<p class="text-center"><img src="../../assets/images/extensions.png" /></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example1").innerHTML = fruits;
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example2").innerHTML = fruits.valueOf();
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example3").innerHTML = fruits.toString();
+    </script>
+
+}

@@ -1,0 +1,107 @@
+﻿@page
+
+@model DestructuringModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Destructuring";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {destructuring}
+@section PageName {Destructuring}
+
+<p>
+    You can dynamically declare variables from the indexes/positions of the array and set their values from
+    an array. This is known as array destructuring. You can even skip positions in the array.
+</p>
+
+<pre>
+<code>
+let numbers = [1,2,3,4,5];
+let [number1, number2, number3<mark>,,</mark>number5] = numbers;    // note how I skipped the 4th item with double commas...
+let demoLabel = document.getElementById("demo");
+demoLabel.innerHTML = `${number1}, ${number2}, <mark>${number3}, ${number5}</mark>`;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>
+    You can even destructure them into two arrays by using <code>...</code>to indicate the second (more multiple) array.
+</p>
+
+<pre>
+<code>
+let numbers2 = [100, 200, 300, 400, 500];
+<mark>let [first, ...restOfItems] = numbers2;</mark>
+let demoLabel2 = document.getElementById("demo2");
+demoLabel2.innerHTML = `${first.toString()}&lt;br />${restOfItems.toString()}`;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>
+    Here is a more practical example. Now we're destructuring an object and not an array so technically this should be on
+    another page....but you get the point.
+</p>
+
+<pre>
+<code>
+let rawData = {Junk1: "foo", Junk2: "bar", Name: "Ricky Bobby", Occupation: "Race Car Driver"};
+let {junk1, junk2, ...<mark>scrubbedPerson</mark>} = rawData; // we now have discard junk props and now have a clean object
+junk1 = null;
+junk2 = null;
+let demoLabel3 = document.getElementById("demo3");
+demoLabel3.innerHTML = `Name: ${scrubbedPerson.Name}, Occupation: ${<mark>scrubbedPerson</mark>.Occupation}`;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo3"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let numbers = [1, 2, 3, 4, 5];
+        let [number1, number2, number3, , number5] = numbers;
+        let demoLabel = document.getElementById("demo");
+        demoLabel.innerHTML = `${number1}, ${number2}, ${number3}, ${number5}`;
+
+        let numbers2 = [100, 200, 300, 400, 500];
+        let [first, ...restOfItems] = numbers2;
+        let demoLabel2 = document.getElementById("demo2");
+        demoLabel2.innerHTML = `${first.toString()}<br />${restOfItems.toString()}`;
+
+        let rawData = { Junk1: "foo", Junk2: "bar", Name: "Ricky Bobby", Occupation: "Race Car Driver" };
+        let { junk1, junk2, ...scrubbedPerson } = rawData;   // we now have discard junk props and now have a clean object
+        junk1 = null;
+        junk2 = null;
+        let demoLabel3 = document.getElementById("demo3");
+        demoLabel3.innerHTML = `Name: ${scrubbedPerson.Name}, Occupation: ${scrubbedPerson.Occupation}`;
+    </script>
+}

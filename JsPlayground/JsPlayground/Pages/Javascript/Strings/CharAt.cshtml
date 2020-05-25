@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.CharAtModel
+
+@{
+    string pageId = "CharAt";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>charAt()</code> method returns the character at a specified index (position) in a string.
+    The <code>charCodeAt()</code> method returns the unicode of the character at a specified index in a string.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let str = "HELLO WORLD";
+str = str.charAt(0);
+document.getElementById("demo1").innerHTML = str;
+
+let str2 = "HELLO WORLD";
+str2 = str2.charCodeAt(0);
+document.getElementById("demo2").innerHTML = str2;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let str = "HELLO WORLD";
+            str = str.charAt(0);
+            document.getElementById("demo1").innerHTML = str;
+
+            let str2 = "HELLO WORLD";
+            str2 = str2.charCodeAt(0);
+            document.getElementById("demo2").innerHTML = str2;
+        }
+    </script>
+}

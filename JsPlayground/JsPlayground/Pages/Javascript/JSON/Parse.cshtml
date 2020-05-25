@@ -1,0 +1,96 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.JSON.ParseModel
+
+@{
+    string pageId = "Parse";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-json}
+@section BreadCrumbChapter {json}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    To create a JSON Object from text / string (usually from another source), we can use the <code>JSON.parse()</code> method. The
+    opposite, reverse process is to use JSON.stringify(obj).
+</p>
+
+<p>
+    For example, take a string and parse it:
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// create or retrieve the string
+let data = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+// parse it. Make it a legit JSON object
+let employeesList = JSON.parse(data);
+
+// figure out how many items are in your object array
+let numOfEmployees = employeesList.employees.length;
+
+// do some looping!
+let output = "";
+for (var i = 0; i < numOfEmployees; i++)
+{
+    output +="First Name: " + employeesList.employees[i].firstName + ", "
+    + "Last Name: " + employeesList.employees[i].lastName + "&lt;br />" ;
+}
+
+// show it let
+demo1=document.getElementById("demo1");
+demo1.innerHTML=output;
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // create or retrieve the string
+        let data = '{ "employees" : [' +
+            '{ "firstName":"John" , "lastName":"Doe" },' +
+            '{ "firstName":"Anna" , "lastName":"Smith" },' +
+            '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+        // parse it.  Make it a legit JSON object
+        let employeesList = JSON.parse(data);
+
+        // figure out how many items are in your object array
+        let numOfEmployees = employeesList.employees.length;
+
+        // do some looping!
+        let output = "";
+        for (let i = 0; i < numOfEmployees; i++) {
+            output += "First Name: " + employeesList.employees[i].firstName + ", " +
+                "Last Name: " + employeesList.employees[i].lastName + "<br />";
+        }
+
+        // show it
+        let demo1 = document.getElementById("demo1");
+        demo1.innerHTML = output;
+    </script>
+}

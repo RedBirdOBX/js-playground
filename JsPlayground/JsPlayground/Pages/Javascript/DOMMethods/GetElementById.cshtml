@@ -1,0 +1,61 @@
+﻿@page
+
+@{
+    string pageId = "Get Element By Id";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.GetElementByIdModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>getElementById()</code> is a popular DOM method to get an HTML element object. It is a method of the document object.
+    You don't necessarily need to assign the results of the method to a variable (as I commonly do). You can simply find it and manipulate it.
+</p>
+
+<hr />
+
+<div>
+    <h4 class="text-center"><span id="demo1">Demo 1</span></h4>
+    <h4 class="text-center"><span id="demo2"></span></h4>
+    <div class="text-center"><img id="img1" /></div>
+</div>
+
+<pre>
+<code>
+let demo1 = document.getElementById("demo1");
+demo1.style.color = "red";
+
+//or
+
+document.getElementById("demo2").style.color = "blue";
+document.getElementById("demo2").innerHTML = "blue!";
+document.getElementById("img1").src = "/assets/images/javascript-logo.png";
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let demo1 = document.getElementById("demo1");
+        demo1.style.color = "red";
+
+        //or
+
+        document.getElementById("demo2").style.color = "blue";
+        document.getElementById("demo2").innerHTML = "blue!";
+        document.getElementById("img1").src = "/assets/images/javascript-logo.png";
+    </script>
+}

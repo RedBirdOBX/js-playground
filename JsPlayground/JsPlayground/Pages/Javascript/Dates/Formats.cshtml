@@ -1,0 +1,142 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Formats";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {formats}
+@section PageName {Formats}
+
+<p>
+    There are generally 4 types of JavaScript date formats:
+</p>
+
+<ul>
+    <li>ISO Dates</li>
+    <li>Long Dates</li>
+    <li>Short Dates</li>
+    <li>Full Format</li>
+</ul>
+
+<p><a href="https://www.w3schools.com/js/js_dates.asp" target="_blank">https://www.w3schools.com/js/js_dates.asp</a></p>
+
+<div class="my-5"></div>
+
+<p>
+    <strong>Default Date Output</strong><br />
+    Independent of input format, JavaScript will (by default) output dates in <strong>full text</strong> string format.
+</p>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<pre>
+<code>
+let date1 = new Date();
+document.getElementById("demo1").innerHTML = date1;
+    </code>
+</pre>
+
+<div class="my-5"></div>
+
+<p>
+    <strong>JavaScript ISO Dates</strong><br />
+    The ISO 8601 syntax (YYYY-MM-DD) is also the preferred JavaScript date format
+    (<a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">https://en.wikipedia.org/wiki/ISO_8601</a>).
+    ISO 8601 is the international standard for the representation of dates and times.
+</p>
+
+<p>
+    The T in the date string, between the date and time, indicates UTC time:
+    <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time" target="_blank">
+        https://en.wikipedia.org/wiki/Coordinated_Universal_Time
+    </a>.
+</p>
+
+<p>UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time).</p>
+
+<p><img src="../../assets/images/utc-map.png" class="img-fluid"></p>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+    <h4 class="text-center text-info"><span id="demo3"></span></h4>
+</div>
+
+<pre>
+<code>
+let date2 = new Date("2017-04-30");
+document.getElementById("demo2").innerHTML = date2;
+
+let date3 = new Date("2017-04-30T12:30:00");
+document.getElementById("demo3").innerHTML = date3;
+    </code>
+</pre>
+
+<div class="my-5"></div>
+
+<p>
+    <strong>JavaScript Short Dates</strong><br />
+    Short dates are most often written with an "MM/DD/YYYY" syntax like this:
+</p>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo4"></span></h4>
+</div>
+
+<pre>
+<code>
+let date4 = new Date("04/30/2017");
+document.getElementById("demo4").innerHTML = date4;
+</code>
+</pre>
+
+<div class="my-5"></div>
+
+<p>
+    <strong>JavaScript Long Dates</strong><br />
+    Long dates are most often written with a "MMM DD YYYY" syntax.
+    Months can be written in full like January, or abbreviated like Jan.
+</p>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo5"></span></h4>
+</div>
+
+<pre>
+<code>
+let date5 = new Date("Mar 25 2015");
+document.getElementById("demo5").innerHTML = date5;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let date1 = new Date();
+        document.getElementById("demo1").innerHTML = date1;
+
+        let date2 = new Date();
+        document.getElementById("demo2").innerHTML = date2;
+
+        let date3 = new Date("2017-04-30T12:30:00");
+        document.getElementById("demo3").innerHTML = date3;
+
+        let date4 = new Date("04/30/2017");
+        document.getElementById("demo4").innerHTML = date4;
+
+        let date5 = new Date("Mar 25 2015");
+        document.getElementById("demo5").innerHTML = date5;
+    </script>
+}

@@ -1,0 +1,106 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.RecursiveVsNonrecursiveModel
+
+@{
+    string pageId = "Recursive vs NonRecursive";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    In JavaScript, if a function calls <strong>itself</strong> recursively then the JavaScript engine has to create what's
+    called a new 'stack'. A stack is a chunk of memory allocated to help keep track of all the information related to the
+    function at the point of execution (such as its arguments and their initialized values).
+</p>
+
+<p>
+    <code>Recursion</code> is a technique for iterating over an operation by having a function call itself repeatedly until it arrives at
+    a result. Most loops can be rewritten in a recursive style, and in some functional languages this approach to looping is
+    the default.
+</p>
+<pre>
+<code>
+// recursive example
+// will return square root
+function func1(number, exponent)
+{
+    if (exponent === 0)
+    {
+        return 1;
+    }
+
+    return number * func1(number, exponent - 1);
+}
+console.log(func1(4,2));
+
+// non-recursive example
+// will return square root
+function func2(number, exponent)
+{
+    let results = 1;
+
+    // will go thru loop twice
+    for (var i = 0; i < exponent; i++)
+    {
+        results *=number;
+    }
+    return results;
+}
+console.log("Example 2: " + func2(4, 2));
+
+// simple exponent example
+function func3(number, exponent)
+{
+    return number ** exponent;
+}
+console.log(" Example 3: " + func3(4, 2));
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // recursive example
+        // will return square root
+        function func1(number, exponent) {
+            if (exponent === 0) {
+                return 1;
+            }
+
+            return number * func1(number, exponent - 1);
+        }
+        console.log("Example 1: " + func1(4, 2));
+
+        // non-recursive example
+        // will return square root
+        function func2(number, exponent) {
+            let results = 1;
+
+            // will go thru loop twice
+            for (var i = 0; i < exponent; i++) {
+                results *= number;
+            }
+            return results;
+        }
+        console.log("Example 2: " + func2(4, 2));
+
+        // simple exponent example
+        function func3(number, exponent) {
+            return number ** exponent;
+        }
+        console.log("Example 3: " + func3(4, 2));
+    </script>
+}

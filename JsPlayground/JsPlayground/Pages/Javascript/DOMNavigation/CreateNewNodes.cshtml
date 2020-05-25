@@ -1,0 +1,103 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Navigation.CreateNodesModel
+
+@{
+    string pageId = "Create New Nodes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-navigation}
+@section BreadCrumbChapter {dom navigation}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    To add a new element to the HTML DOM, you must create the element (element node) first, and then append it to an
+    existing element. To do this, you need to use the <code>createElement</code> and <code>createTextNode</code> methods.
+</p>
+
+<hr />
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+
+<hr />
+
+<pre>
+<code>
+    let para = document.createElement("p");
+    let node = document.createTextNode("This paragraph was created and inserted via javascript.");
+    para.setAttribute("class","text-danger");
+    para.appendChild(node);
+
+    let element = document.getElementById("div1");
+    element.appendChild(para);
+</code>
+</pre>
+
+<hr />
+
+<p>
+    Notice that this <strong>appended</strong> the paragraph element. If you want to insert the new element (node) <strong>before</strong> everything else,
+    refer to the example below.
+</p>
+
+<p>
+    <strong>insertBefore()</strong><br />
+    insertBefore() takes two arguments. The element to be inserted and the element to insert it in front of.
+</p>
+
+<hr />
+
+<div id="div2">
+    <p id="p3">This is a paragraph.</p>
+    <p id="p4">This is another paragraph.</p>
+</div>
+
+<pre>
+<code>
+let para2 = document.createElement("p");
+let node2 = document.createTextNode("This paragraph was created and inserted via javascript.");
+para2.setAttribute("class", "text-danger");
+para2.appendChild(node2);
+
+let element2 = document.getElementById("div2");
+let child2 = document.getElementById("p3");
+element2.<mark>insertBefore</mark>(para2, child2);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let para = document.createElement("p");
+        let node = document.createTextNode("This paragraph was created and inserted via javascript.");
+        para.setAttribute("class", "text-danger");
+        para.appendChild(node);
+
+        let element = document.getElementById("div1");
+        element.appendChild(para);
+
+        let para2 = document.createElement("p");
+        let node2 = document.createTextNode("This paragraph was created and inserted via javascript.");
+        para2.setAttribute("class", "text-danger");
+        para2.appendChild(node2);
+
+        let element2 = document.getElementById("div2");
+        let child2 = document.getElementById("p3");
+        element2.insertBefore(para2, child2);
+    </script>
+}

@@ -1,0 +1,132 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.ArgumentsModel
+
+@{
+    string pageId = "Arguments";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    JavaScript function definitions <strong>do not</strong> specify data types for parameters. JavaScript functions do not
+    perform type checking on the passed arguments.
+</p>
+
+<p>
+    JavaScript functions do not check the number of arguments received. If a function is called with missing a
+    argument(s), the missing values are set to <code>undefined</code>. Extra arguments are simply ignored.
+</p>
+
+<p>
+    Here's a common way to check to see if a argument exists.
+</p>
+
+<pre>
+<code>
+function myFunction(x, y)
+{
+    if (y === undefined)
+    { y = 0;}
+}
+</code>
+</pre>
+
+<h4>Arguments Default Values</h4>
+
+<p>
+    You can set default values for function arguments.  See how we never define "answer"?  The function sees that it was
+    missing and set it's default value.
+</p>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let ShowSecretOfLife = (<mark>answer = "42"</mark>) => { document.getElementById("demo1").innerHTML = answer;  };
+ShowSecretOfLife();
+</code>
+</pre>
+
+<h4>Destructuring Function Arguments</h4>
+
+<p>
+    Just as you can <a href="../Arrays/destructuring.html">destructure arrays</a>, you can use destructuring for functions
+    and arguments.  Take a look at the code below. You can declare just the property NAME of the object as
+    an argument and then when you pass in the actual object, it will destructure it (some sort of reflection?)
+    and use it's value.
+</p>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+//the object
+let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver" };
+
+// the function (returns a string)
+let GetJobOfPerson = ({Occupation}) => `Job: ${Occupation.toUpperCase()}`;
+
+// show the property of the obj
+document.getElementById("demo1").innerHTML = GetJobOfPerson(person);
+</code>
+</pre>
+
+<p>
+    And...to make it even more complicated, we can use <strong>default values</strong> for these properties just
+    like we did for function arguments.
+</p>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="demo3"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let car = { Color: "Red", TopSpeed: "200" };
+let GetCarData = ({Color, TopSpeed, <mark>Coolness = "Very"</mark>}) =>
+                    { return `Color: ${Color}, Top Speed: ${TopSpeed}, Coolness: ${Coolness}` };
+document.getElementById("demo3").innerHTML = GetCarData(car);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        let ShowSecretOfLife = (answer = "42") => { document.getElementById("demo1").innerHTML = answer; };
+        ShowSecretOfLife();
+
+        let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver" };
+        let GetJobOfPerson = ({ Occupation }) => { return `Job: ${Occupation.toUpperCase()}`; };
+        document.getElementById("demo2").innerHTML = GetJobOfPerson(person);
+
+        let car = { Color: "Red", TopSpeed: "200" };
+        let GetCarData = ({ Color, TopSpeed, Coolness = "Very" }) => { return `Color: ${Color}, Top Speed: ${TopSpeed}, Coolness: ${Coolness}` };
+        document.getElementById("demo3").innerHTML = GetCarData(car);
+    </script>
+}
+

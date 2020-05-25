@@ -1,0 +1,44 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.CommonFunctionsModel
+
+
+@{
+    string pageId = "Common Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<ul>
+    <li><code>decodeURI()</code> Decodes a URI</li>
+    <li><code>decodeURIComponent</code>() Decodes a URI component</li>
+    <li><code>encodeURI()</code> Encodes a URI</li>
+    <li><code>encodeURIComponent()</code> Encodes a URI component</li>
+    <li><code>eval()</code> Evaluates a string and executes it as if it was script code</li>
+    <li><code>isFinite()</code> Determines whether a value is a finite, legal number</li>
+    <li><code>isNaN()</code> Determines whether a value is an illegal number</li>
+    <li><code>Number()</code> Converts an object's value to a number</li>
+    <li><code>parseFloat()</code> Parses a string and returns a floating point number</li>
+    <li><code>parseInt()</code> Parses a string and returns an integer</li>
+    <li><code>toString()</code> Converts an object's value to a string</li>
+</ul>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

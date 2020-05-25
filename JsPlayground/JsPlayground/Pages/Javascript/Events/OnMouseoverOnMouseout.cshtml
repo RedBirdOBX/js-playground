@@ -1,0 +1,89 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnMouseover / OnMouseout";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onmouseover / onmouseout}
+@section PageName {OnMouseover / OnMouseout}
+
+<p>
+    The <code>mouseover</code> and <code>mouseout</code> events can be used to trigger a function when the user mouses over, or out of, an HTML
+    element. These are events of any element within the document object.
+</p>
+
+<div class="my-3">
+    <h4 class="text-center" id="demo">Mouseover me</h4>
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onmouseover="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onmouseover = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("mouseover", myScript);
+</code>
+</pre>
+
+<hr />
+
+<pre>
+<code>
+document.getElementById("demo").addEventListener("mouseover", function () { MakeRed(this); });
+document.getElementById("demo").addEventListener("mouseout", function () { MakeNormal(this); });
+
+function MakeRed(control)
+{
+    control.innerHTML = "Mouse over";
+    control.style.color="#ff0000";
+    control.style.background = "#ffcc00";
+}
+
+function MakeNormal(control)
+{
+    control.innerHTML = "Mouse out";
+    control.style.color = "#000000";
+    control.style.background = "#ffffff";
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.body.onload = function () {
+            document.getElementById("demo").addEventListener("mouseover", function () { MakeRed(this); });
+            document.getElementById("demo").addEventListener("mouseout", function () { MakeNormal(this); });
+
+            function MakeRed(control) {
+                control.innerHTML = "Mouse over";
+                control.style.color = "#ff0000";
+                control.style.background = "#ffcc00";
+            }
+
+            function MakeNormal(control) {
+                control.innerHTML = "Mouse out";
+                control.style.color = "#000000";
+                control.style.background = "#ffffff";
+            }
+        };
+    </script>
+}

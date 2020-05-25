@@ -1,0 +1,208 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.RegExExampleModel
+
+@{
+    string pageId = "RegEx Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    This page will show a increasingly complex example. We will start simple and grow it's complexity.
+</p>
+
+<blockquote class="blockquote">
+    And.... Introduce a little anarchy, upset the established order and everything becomes chaos. I'm an agent of chaos. Oh,
+    and you know the thing about chaos? It's fair. - The Dark Knight, 2008
+</blockquote>
+
+<hr />
+
+<p>Looking for anarchy regardless of case. Will return position. This is a literal search.</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 1
+let pattern1 = /Anarchy/i;
+let results1 = stringToSearch.search(pattern1);
+document.getElementById("demo1").innerHTML = "Position of Anarchy: " + results1;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    This uses a range. In this example, we are looking for any characters from a to z. The asterisk indicates we are looking
+    for a match with any number of characters - starting at 1. The results are 0 as expected.  It found a match in
+    position "0".
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 2
+let pattern2 = /[a-z]*/i;
+let results2 = stringToSearch.search(pattern2);
+document.getElementById("demo2").innerHTML = results2;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    This looks for a range of characters from a-z but will require the match which is found have 7 characters. This is done
+    by using the {7} instead of the *.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo3"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let pattern3 = /[a-z]{7}/i;
+let results3 = stringToSearch.search(pattern3);
+document.getElementById("demo3").innerHTML = results3;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    This example uses \b modifiers. This requires the match to be on a string <strong>boundary</strong> - it must be on the beginning of the
+    string and/or the end of the string. Here, we are looking for the string 'thing' which must be in the beginning of the
+    string or the end.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo4"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let pattern4 = /\bthing\b/i;
+let results4 = stringToSearch.search(pattern4);
+document.getElementById("demo4").innerHTML = results4;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    This example uses a numeric range [0-9] and requires four characters. The match must be at the beginning or the end of
+    the string.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo5"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let pattern5 = /\b[0-9]{4}\b/;
+let results5 = stringToSearch.search(pattern5);
+document.getElementById("demo5").innerHTML = results5;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    This example uses a numeric range [0-9] and requires five characters which is common for finding a zipcode. In addition,
+    it allows for a user or input to provide a plus-four zipcode. Since the input may or may not have the plus-four part, we
+    need to account for that.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo6"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 6 - couldn't get this to work...
+let stringToSearch2 = "My zip code is 23112-0000.";
+let pattern6 = /\b[0-9]{5}(?:-[0-9]{4})?\b/;
+let results6 = stringToSearch.search(pattern6);
+document.getElementById("demo6").innerHTML = results6;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p><a href="https://www.w3schools.com/js/js_regexp.asp" target="_blank">https://www.w3schools.com/js/js_regexp.asp</a></p>
+<p><a href="http://buildregex.com/" target="_blank">http://buildregex.com/</a></p>
+<p><a href="https://www.regexbuddy.com/create.html" target="_blank">https://www.regexbuddy.com/create.html</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let stringToSearch = "And... Introduce a little anarchy, upset the established order and everything becomes chaos. I'm an agent of chaos. Oh, and you know the thing about chaos? It's fair. - The Dark Knight, 2008";
+
+        // example 1
+        let pattern1 = /Anarchy/i;
+        let results1 = stringToSearch.search(pattern1);
+        document.getElementById("demo1").innerHTML = "1) Position of Anarchy: " + results1;
+
+        // example 2
+        let pattern2 = /[a-z]*/i;
+        let results2 = stringToSearch.search(pattern2);
+        document.getElementById("demo2").innerHTML = "2) Position of first alpha char: " + results2;
+
+        // example 3
+        let pattern3 = /[a-z]{7}/i;
+        let results3 = stringToSearch.search(pattern3);
+        document.getElementById("demo3").innerHTML = "3) Position of first 7 char length string: " + results3;
+
+        // example 4
+        let pattern4 = /\bthing\b/i;
+        let results4 = stringToSearch.search(pattern4);
+        document.getElementById("demo4").innerHTML = "4) Position of thing: " + results4;
+
+        // example 5
+        let pattern5 = /\b[0-9]{4}\b/;
+        let results5 = stringToSearch.search(pattern5);
+        document.getElementById("demo5").innerHTML = "5) Position of 4-char numeric string: " + results5;
+
+        // example 6 - couldn't get this to work...
+        let stringToSearch2 = "My zip code is 23112-0000";
+        let pattern6 = /\b[0-9]{5}(?:-[0-9]{4})?\b/;
+        let results6 = stringToSearch.search(pattern6);
+        document.getElementById("demo6").innerHTML = "6) Position of zip code extension: " + results6;
+
+    </script>
+}

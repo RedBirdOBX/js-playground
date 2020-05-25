@@ -1,0 +1,190 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Try Catch";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-debugging}
+@section BreadCrumbChapter {debugging}
+@section BreadCrumbPageName {try catch}
+@section PageName {Try Catch}
+
+<p>
+    The <code>try</code> statement lets you test a block of code for errors. The <code>catch</code> statement lets you handle the error.
+    The <code>throw</code> statement lets you <strong>create custom errors</strong>.
+    The <code>finally</code> statement lets you execute code, after try and catch, regardless of
+    the result.
+</p>
+
+<ul class="my-5">
+    <li>Open Developer Console</li>
+    <li>Click button...see error</li>
+</ul>
+
+<hr />
+
+<p>
+    <strong>Try Catch Finally Example</strong>
+</p>
+
+<div class="my-5">
+    <button id="TestButton1" class="btn btn-danger" onclick="RunTest1()">Try Catch Finally</button>
+</div>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<pre>
+<code>
+function RunTest1()
+{
+    let output = "";
+    let demo1 = document.getElementById("demo1");
+
+    try
+    {
+        for (let i = 0; i < 5; i++)
+        {
+            output +=`The number is ${i}&lt;br />`;
+        }
+<mark>allert</mark>("all done");
+    }
+    catch (error)
+    {
+        output = error.message;
+    }
+    finally
+    {
+        demo1.innerHTML = output;
+    }
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<hr />
+
+<p>
+    <strong>Try Catch Finally with Throw Example</strong>
+</p>
+
+<p>
+    It may be beneficial to use the try..catch with execution flow errors. To do it, we should be able to raise our own
+    errors, which is done by <strong>throw.</strong>
+</p>
+
+<p>
+    The syntax is: throw {name}, where {name} is literally anything. No matter what you throw, it will be caught by the catch...Or
+    make the program die if throw is done out of try section.
+</p>
+
+<div class="my-5">
+    <button id="TestButton2" class="btn btn-danger" onclick="RunTest2()">Try Catch Finally with Throw</button>
+</div>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+function RunTest2()
+{
+    let demo2 = document.getElementById("demo2");
+
+    try
+    {
+        //try any of these
+        let age = 200;
+        //let age = 50;
+        //let age = "bob";
+        ValidateAge(age);
+        demo2.innerHTML = "Age is valid";
+    }
+
+    catch (error)
+    {
+        demo2.innerHTML = "Error: " + error.message;
+    };
+}
+
+function ValidateAge(age)
+{
+    if (isNaN(age))
+    {
+        throw { name: 'NotANumberError', message: 'Invalid age - Not a number!' };
+    }
+
+    if (age < 5 || age> 150)
+    {
+        throw { name: 'OutOfRangeError', message: 'Age out of range' };
+    }
+
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function RunTest1() {
+            let output = "";
+            let demo1 = document.getElementById("demo1");
+
+            try {
+                for (let i = 0; i < 5; i++) {
+                    output += `The number is ${i}<br />`;
+                }
+                allert("all done");
+
+            }
+            catch (error) {
+                output = error.message;
+            }
+            finally {
+                demo1.innerHTML = output;
+            }
+        }
+
+        function RunTest2() {
+            let demo2 = document.getElementById("demo2");
+
+            try {
+                //try any of these
+                let age = 200;
+                //let age = 50;
+                //let age = "bob";
+                ValidateAge(age);
+                demo2.innerHTML = "Age is valid";
+            }
+
+            catch (error) {
+                demo2.innerHTML = "Error: " + error.message;
+            };
+        }
+
+        function ValidateAge(age) {
+            if (isNaN(age)) {
+                throw { name: 'NotANumberError', message: 'Invalid age - Not a number!' };
+            }
+
+            if (age < 5 || age > 150) {
+                throw { name: 'OutOfRangeError', message: 'Age out of range' };
+            }
+
+        }
+
+    </script>
+}

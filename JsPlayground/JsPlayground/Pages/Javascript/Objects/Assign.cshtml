@@ -1,0 +1,97 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.AssignModel
+
+@{
+    string pageId = "Assign";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Sometimes you want to compare two object of identical structure but the properties may have different values.  In the scenario, you may have created a copy of Object1
+    to create Object2.  This presents a problem because these are <strong>reference</strong> types.... so any changes you make in Object2 will also be made in
+    Object1 since Object2 and Object1 share the same memory pointer.
+</p>
+
+<p>
+    Consider the following example:
+</p>
+
+<pre>
+<code>
+// example 1
+let Spaceship1 = { Type: "X-Wing", Alliance: "Resistance" };
+let Spaceship2 = Spaceship1;        // make a copy
+Spaceship2.Type = "Y-Wing";         // change the copy
+// what?  that doesn't look right, we changed both!
+$("#demo1").html(`The Type of Spaceship1 is ${Spaceship1.Type} and the type of Spaceship2 is ${Spaceship2.Type}.`);
+</code>
+</pre>
+
+<div class="card text-white bg-info my-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>
+    The solution is to use the object method <code>assign</code> introduced in ECMA 6.
+    <em>
+        The <code>Object.assign()</code> method copies all enumerable own properties from
+        one or more source objects to a target object. It returns the target object.
+    </em>
+</p>
+
+<p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" target="_blank">
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+    </a>
+</p>
+
+<pre>
+<code>
+// example 2
+let Spaceship1a = { Type: "X-Wing", Alliance: "Resistance" };
+let Spaceship2a = Object.assign({}, Spaceship1a);
+Spaceship2a.Type = "Y-Wing";         // change the copy
+$("#demo2").html(`The Type of Spaceship1a is ${Spaceship1a.Type} and the type of Spaceship2a is ${Spaceship2a.Type}.`);
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-3">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // example 1
+        let Spaceship1 = { Type: "X-Wing", Alliance: "Resistance" };
+        let Spaceship2 = Spaceship1;        // make a copy
+        Spaceship2.Type = "Y-Wing";         // change the copy
+        // what?  that doesn't look right, we changed both!
+        $("#demo1").html(`The Type of Spaceship1 is <strong>${Spaceship1.Type}</strong> and the type of Spaceship2 is <strong>${Spaceship2.Type}</strong>.`);
+
+        // example 2
+        let Spaceship1a = { Type: "X-Wing", Alliance: "Resistance" };
+        let Spaceship2a = Object.assign({}, Spaceship1a);
+        Spaceship2a.Type = "Y-Wing";         // change the copy
+        $("#demo2").html(`The Type of Spaceship1a is <strong>${Spaceship1a.Type}</strong> and the type of Spaceship2a is <strong>${Spaceship2a.Type}</strong>.`);
+    </script>
+}

@@ -1,0 +1,81 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.NumberModel
+
+
+@{
+    string pageId = "Number";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>Number()</code> returns a number, converted from its argument.
+    <code>Number()</code> can be used to convert JavaScript variables to numbers.
+    Very similar to the <code>parseInt</code> function.
+</p>
+
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<hr />
+
+<pre>
+<code>
+let output = "";
+let a = true;
+let b = false;
+let c = new Date();
+let d = "10"
+let e = "10 20"
+output += `true: ${Number(a)}&lt;br />`;
+output += `false: ${Number(b)}&lt;br />`;
+output += `Date(): ${Number(c)}&lt;br />`;
+output += `"10": ${Number(d)}&lt;br />`;
+output += `"10 20": ${Number(e)}&lt;br />`;
+
+let demo1 = document.getElementById("demo1");
+demo1.innerHTML = output;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let output = "";
+            let a = true;
+            let b = false;
+            let c = new Date();
+            let d = "10"
+            let e = "10 20"
+            output += `true: ${Number(a)}<br />`;
+            output += `false: ${Number(b)}<br />`;
+            output += `Date(): ${Number(c)}<br />`;
+            output += `"10": ${Number(d)}<br />`;
+            output += `"10 20": ${Number(e)}<br />`;
+
+            let demo1 = document.getElementById("demo1");
+            demo1.innerHTML = output;
+        };
+    </script>
+}

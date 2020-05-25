@@ -1,0 +1,73 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.InnerHeightInnerWidthModel
+
+@{
+    string pageId = "Inner Height / Inner Width";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Two properties can be used to determine the size of the browser window.
+    The browser window (the browser viewport) is NOT including toolbars and scrollbars.
+
+</p>
+
+
+<ul>
+    <li><code>window.innerHeight</code> - the inner height of the browser window (in pixels)</li>
+    <li><code>window.innerWidth</code> - the inner width of the browser window (in pixels)</li>
+</ul>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+
+<pre>
+<code>
+let output = "";
+let Window =
+{
+    InnerWidth: window.innerWidth,
+    InnerHeight: window.innerHeight
+};
+
+output += "InnerWidth: " + Window.InnerWidth + "&lt;br />";
+output += "InnerHeight: " + Window.InnerHeight + "&lt;br />";
+document.getElementById("demo1").innerHTML = output;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let output = "";
+        let Window =
+        {
+            InnerWidth: window.innerWidth,
+            InnerHeight: window.innerHeight
+        };
+
+        output += "InnerWidth: " + Window.InnerWidth + "<br />";
+        output += "InnerHeight: " + Window.InnerHeight + "<br />";
+        document.getElementById("demo1").innerHTML = output;
+    </script>
+}

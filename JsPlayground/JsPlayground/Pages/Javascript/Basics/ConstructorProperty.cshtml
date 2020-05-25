@@ -1,0 +1,89 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Constructor Property";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {constructor property}
+@section PageName {Constructor Property}
+
+<p>The constructor property returns the constructor function for all JavaScript variables and shows their data type.</p>
+
+<pre>
+<code>
+document.getElementById("demo1").innerHTML =
+"john".constructor + "&lt;br /> +
+(3.14).constructor + "&lt;br />" +
+false.constructor + "&lt;br />" +
+[1,2,3,4].constructor + "&lt;br />" +
+{name:'john', age:34}.constructor + "&lt;br />" +
+new Date().constructor + "&lt;br />" +
+function () {}.constructor;
+    </code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="constructor-demo">hello</div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<script>
+    document.getElementById("constructor-demo").innerHTML =
+        "john".constructor + "<br />" +
+        (3.14).constructor + "<br />" +
+        false.constructor + "<br />" +
+        [1, 2, 3, 4].constructor + "<br />" +
+        { name: 'john', age: 34 }.constructor + "<br />" +
+        new Date().constructor + "<br />" +
+        function () { }.constructor;
+</script>
+
+<p>You can check the constructor property to find out if an object is an Array (contains the word "Array"). </p>
+
+<pre>
+<code>
+var myArray = ["bob","james"];
+function isArray(myArray)
+{
+    return myArray.constructor.toString().indexOf("Array") > -1;
+}
+$("#demo2").html(isArray(myArray));
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>You can check the constructor property to find out if an object is an Array (contains the word "Date").</p>
+
+<pre>
+<code>
+var myDate = new Date();
+function isDate(myDate)
+{
+    return myDate.constructor.toString().indexOf("Date") > -1;
+}
+$("#demo3").html(isDate(myDate));
+    </code>
+</pre>
+
+<p></p>https://www.w3schools.com/jsref/jsref_constructor_string.asp
+<br />
+https://www.w3schools.com/jsref/jsref_constructor_array.asp</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

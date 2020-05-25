@@ -1,0 +1,78 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.ConstructorsModel
+
+@{
+    string pageId = "Constructors";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The standard way to create an object with default values is to use an object constructor function. In this example, you must
+    pass a series of arguments to the object constructor to instantiate it.  This is also known as a object <code>Prototype</code>.
+</p>
+
+<pre>
+<code>
+function Person(first, last, age, eye)
+{
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+}
+            </code>
+        </pre>
+
+<hr />
+
+<p>
+    Here's a good example of creating multiple "persons":
+</p>
+
+<pre>
+<code>
+let father = new Person("John", "Doe", 50, "blue");
+let mother = new Person("Sally", "Rally", 48, "green");
+let msg = "Father name is " + myFather.firstName + " " + myFather.lastName + "." + "&lt;br />";
+msg += "Mother name is " + myMother.firstName + " " + myMother.lastName + "." + "&lt;br />";
+document.getElementById("demo1").innerHTML = msg;;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+
+        let father = new Person("John", "Doe", 50, "blue");
+        let mother = new Person("Sally", "Rally", 48, "green");
+        let msg = "Father name is " + father.firstName + " " + father.lastName + "." + "<br />";
+        msg += "Mother name is " + mother.firstName + " " + mother.lastName + "." + "<br />";
+        document.getElementById("demo1").innerHTML = msg;;
+    </script>
+}

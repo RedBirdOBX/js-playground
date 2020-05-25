@@ -1,0 +1,51 @@
+﻿@page
+
+@model ConcatModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "concat()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {concat()}
+@section PageName {concat()}
+
+<p>
+    The <code>concat()</code> method creates a new array by concatenating two arrays.
+    The <code>concat()</code> method can take any number of array
+    arguments.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+    let arr1 = ["Cecilie", "Lone"];
+    let arr2 = ["Emil", "Tobias", "Linus"];
+    let arr3 = ["Robin", "Morgan"];
+    let myChildren = arr1.concat(arr2, arr3);
+    document.getElementById("demo").innerHTML = myChildren.join("*");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["banana", "apple", "pear"];
+        fruits[fruits.length] = "lemon";
+        document.getElementById("demo").innerHTML = "length is " + fruits.length + ": " + fruits.toString();
+        let exampleLabel = document.getElementById("example");
+        exampleLabel.innerHTML = fruits.toString();
+    </script>
+}

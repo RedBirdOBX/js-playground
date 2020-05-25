@@ -1,0 +1,128 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.PopUpsModel
+
+@{
+    string pageId = "Pop Ups";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    There are three common pop-ups used in Javascript: alert, prompt, and confirm.
+</p>
+
+<p>
+    Alert<br />
+    Declaring the window objects is optional (window.alert vs alert).
+</p>
+
+<div class="text-center">
+    <button type="button" class="btn btn-success" onclick="ShowAlert();">Alert</button>
+</div>
+
+<pre>
+<code>
+function ShowAlert()
+{
+    alert("Hello World");
+}
+</code>
+</pre>
+
+<hr />
+
+<p>
+    Confirm Box<br />
+    A confirm box is often used if you want the user to verify or accept something. When a confirm box pops up, the user
+    will have to click either "OK" or "Cancel" to proceed. If the user clicks "OK", the box returns true. If the user clicks
+    "Cancel", the box returns false.
+</p>
+
+<p><a href="https://www.w3schools.com/jsref/met_win_confirm.asp" target="_blank">https://www.w3schools.com/jsref/met_win_confirm.asp</a></p>
+
+<div class="text-center">
+    <button type="button" class="btn btn-danger" onclick="ShowConfirm();">Confirm</button>
+</div>
+
+<pre>
+<code>
+function ShowConfirm()
+{
+    var results;
+    if (confirm("PRESS A BUTTON") === true)
+    { results = "You pressed OK!"; }
+    else
+    { results = "You pressed Cancel!"; }
+
+    alert(results);
+}
+</code>
+</pre>
+
+<hr />
+
+<p>
+    Prompt<br />
+    A prompt box is often used if you want the user to input a value before entering a page. When a prompt box pops up, the
+    user will have to click either "OK" or "Cancel" to proceed after entering an input value. If the user clicks "OK" the
+    box returns the input value. If the user clicks "Cancel" the box returns null.
+</p>
+
+<div class="text-center">
+    <button type="button" class="btn btn-warning" onclick="ShowPrompt();">Prompt</button>
+</div>
+
+<pre>
+<code>
+function ShowPrompt()
+{
+    var yourName = prompt("What is your name?", "enter name");
+    if (yourName != null)
+    {alert("Hello " + yourName + "! How are you today?"); }
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Line Breaks</strong> - To display line breaks inside a popup box, use a back-slash followed by the character n such as \n.</p>
+
+<code>alert("Hello\nHow are you?");</code>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function ShowAlert() {
+            alert("Hello World");
+        }
+
+        function ShowConfirm() {
+            var results;
+            if (confirm("PRESS A BUTTON") === true) { results = "You pressed OK!"; }
+            else { results = "You pressed Cancel!"; }
+
+            alert(results);
+        }
+
+        function ShowPrompt() {
+            var yourName = prompt("What is your name?", "enter name");
+            if (yourName != null) { alert("Hello " + yourName + "! How are you today?"); }
+        }
+
+    </script>
+}

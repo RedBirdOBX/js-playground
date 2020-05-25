@@ -1,0 +1,408 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "fetch";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {operators}
+@section PageName {Operators}
+
+
+<p><strong>Arithmetic Operators</strong></p>
+
+<table class="table table-condensed table-striped">
+
+    <tr>
+        <td>+</td>
+        <td>Addition</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>-</td>
+        <td>Subtraction</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>*</td>
+        <td>Multiplication</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>/</td>
+        <td>Division</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>%</td>
+        <td>Modulus</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>++</td>
+        <td>Increment</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>--</td>
+        <td>Decrement</td>
+        <td></td>
+    </tr>
+
+</table>
+
+<p><strong>Assignment Operators</strong></p>
+
+<table class="table table-condensed table-striped">
+
+    <tr>
+        <td>=</td>
+        <td>x = y</td>
+        <td>x = y</td>
+    </tr>
+
+    <tr>
+        <td>+=</td>
+        <td>x += y</td>
+        <td>x = x + y</td>
+    </tr>
+
+    <tr>
+        <td>-=</td>
+        <td>x -= y</td>
+        <td>x = x - y</td>
+    </tr>
+
+    <tr>
+        <td>*=</td>
+        <td>x *= y</td>
+        <td>x = x * y</td>
+    </tr>
+
+    <tr>
+        <td>/=</td>
+        <td>x /= y</td>
+        <td>x = x / y</td>
+    </tr>
+
+    <tr>
+        <td>%=</td>
+        <td>x %= y</td>
+        <td>x = x % y</td>
+    </tr>
+
+</table>
+
+<p><strong>Comparison and Logical Operators</strong></p>
+
+<table class="table table-condensed table-striped">
+
+    <tr>
+        <td>==</td>
+        <td>equal to</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>===</td>
+        <td>equal value and equal type</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>!=</td>
+        <td>not equal</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>!===</td>
+        <td>not equal value or not equal type</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>></td>
+        <td>greater than</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><</td>
+        <td>less than</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>>=</td>
+        <td>greater than or equal to</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td><=</td>
+        <td>less than or equal to</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>?</td>
+        <td>ternary operator</td>
+        <td></td>
+    </tr>
+
+</table>
+
+<p><strong>Type Operators</strong></p>
+
+<table class="table table-condensed table-striped">
+
+    <tr>
+        <td>typeof</td>
+        <td>Returns the type of a variable</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>instanceof</td>
+        <td>Returns true if an object is an instance of an object type</td>
+        <td></td>
+    </tr>
+
+</table>
+
+<p><strong>Operator Examples</strong></p>
+
+<table class="table table-condensed table-striped">
+
+    <tr>
+        <td>())</td>
+        <td>Expression grouping</td>
+        <td>(3 + 4)</td>
+    </tr>
+
+    <tr>
+        <td>.</td>
+        <td>Member</td>
+        <td>person.Name</td>
+    </tr>
+
+    <tr>
+        <td>[]</td>
+        <td>Member</td>
+        <td>person["Name"]</td>
+    </tr>
+
+    <tr>
+        <td>function()</td>
+        <td>Function call</td>
+        <td>MyFunction();</td>
+    </tr>
+
+    <tr>
+        <td>new</td>
+        <td>Create</td>
+        <td>new Person();</td>
+    </tr>
+
+    <tr>
+        <td>++</td>
+        <td>Post Increment</td>
+        <td>counter++;</td>
+    </tr>
+
+    <tr>
+        <td>--</td>
+        <td>Post Decrement</td>
+        <td>counter--;</td>
+    </tr>
+
+    <tr>
+        <td>++</td>
+        <td>Pre Increment</td>
+        <td>++counter;</td>
+    </tr>
+
+    <tr>
+        <td>--</td>
+        <td>Pre Decrement</td>
+        <td>--counter;</td>
+    </tr>
+
+    <tr>
+        <td>!</td>
+        <td>Not / False</td>
+        <td>!isValid;</td>
+    </tr>
+
+    <tr>
+        <td>typeof</td>
+        <td>Type</td>
+        <td>typeof person;</td>
+    </tr>
+
+    <tr>
+        <td>*</td>
+        <td>Multiplication</td>
+        <td>1 * 2;</td>
+    </tr>
+
+    <tr>
+        <td>/</td>
+        <td>Division</td>
+        <td>4 / 2;</td>
+    </tr>
+
+    <tr>
+        <td>%</td>
+        <td>Modulus</td>
+        <td>4 % 2;</td>
+    </tr>
+
+    <tr>
+        <td>**</td>
+        <td>Exponentiation</td>
+        <td>4 ** 2;</td>
+    </tr>
+
+    <tr>
+        <td>+</td>
+        <td>Addition</td>
+        <td>4 + 2;</td>
+    </tr>
+
+    <tr>
+        <td>-</td>
+        <td>Subtraction</td>
+        <td>4 - 2;</td>
+    </tr>
+
+    <tr>
+        <td><<</td>
+        <td>Zero fill left shift</td>
+        <td>0101 << 1 = 1010 (bits)</td>
+    </tr>
+
+    <tr>
+        <td>>></td>
+        <td>Zero fill right shift</td>
+        <td>0101 >> 1 = 0010 (bit)</td>
+    </tr>
+
+    <tr>
+        <td><</td>
+        <td>Less than</td>
+        <td>1 < 2</td>
+    </tr>
+
+    <tr>
+        <td><</td>
+        <td>Less than or equal to</td>
+        <td>1 < =2</td>
+    </tr>
+
+    <tr>
+        <td>></td>
+        <td>Greater than</td>
+        <td>10 > 2</td>
+    </tr>
+
+    <tr>
+        <td>>=</td>
+        <td>Greater than or equal to</td>
+        <td>10 >= 2</td>
+    </tr>
+
+    <tr>
+        <td>==</td>
+        <td>Equal value</td>
+        <td>true == "false"</td>
+    </tr>
+
+    <tr>
+        <td>===</td>
+        <td>Equal value and type</td>
+        <td>false === "false"</td>
+    </tr>
+
+    <tr>
+        <td>!=</td>
+        <td>Not equal value</td>
+        <td>isGood != "false"</td>
+    </tr>
+
+    <tr>
+        <td>!=</td>
+        <td>Not equal value and type</td>
+        <td>isGood !== false</td>
+    </tr>
+
+    <tr>
+        <td>&&</td>
+        <td>And</td>
+        <td>isValid = isGood && isGreat</td>
+    </tr>
+
+    <tr>
+        <td>=</td>
+        <td>Assignment</td>
+        <td>isNotValid == isDeleted || isBad</td>
+    </tr>
+
+
+    <tr>
+        <td>||</td>
+        <td>Or</td>
+        <td>isNotValid == isDeleted || isBad</td>
+    </tr>
+
+    <tr>
+        <td>=</td>
+        <td>Assignment</td>
+        <td>x = y;</td>
+    </tr>
+
+    <tr>
+        <td>+=</td>
+        <td>Assignment</td>
+        <td>x += y;</td>
+    </tr>
+
+    <tr>
+        <td>-=</td>
+        <td>Assignment</td>
+        <td>x -= y;</td>
+    </tr>
+
+    <tr>
+        <td>*=</td>
+        <td>Assignment</td>
+        <td>x *= y;</td>
+    </tr>
+
+    <tr>
+        <td>/=</td>
+        <td>Assignment</td>
+        <td>x /= y;</td>
+    </tr>
+
+</table>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

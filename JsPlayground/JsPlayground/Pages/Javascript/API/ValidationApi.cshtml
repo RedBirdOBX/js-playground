@@ -1,0 +1,95 @@
+﻿@page
+
+@model ValidationAPIModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Validation API";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-api}
+@section BreadCrumbChapter {api}
+@section BreadCrumbPageName {validation api}
+@section PageName {Validation API}
+
+
+<p>
+    There is a <code>checkValidity()</code> method in the latest version of javascript which works well with HTML5. By using the new
+    HTML5 form field attributes, you can check to see if the data submitted meets this criteria.
+</p>
+
+<p>
+    <a href="https://www.w3schools.com/js/js_validation_api.asp" target="_blank">https://www.w3schools.com/js/js_validation_api.asp</a>
+</p>
+
+<p class="text-center">Enter a number between 10 and 100.</p>
+<div class="form-group">
+    <label for="txtNumber" class="col-sm-3 control-label">Enter a Number</label>
+    <div class="col-sm-9">
+        <input type="number" class="form-control" id="txtNumber" min="10" max="100">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <button type="button" onclick="myFunction();" class="btn btn-primary btn-lg">Check Number</button>
+    </div>
+</div>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+function myFunction()
+{
+    let input = document.getElementById("txtNumber");
+    if (input.checkValidity() === false)
+    {
+        document.getElementById("demo1").innerHTML = input.validationMessage;
+    }
+}
+</code>
+</pre>
+
+<hr />
+
+<p>You also chose to use some of the <strong>validity properties</strong> to test against.</p>
+
+<ul>
+    <li><strong>customError</strong> - Set to true, if a custom validity message is set.</li>
+    <li><strong>patternMismatch</strong> - Set to true, if an element's value does not match its pattern attribute.</li>
+    <li><strong>rangeOverflow</strong> - Set to true, if an element's value is greater than its max attribute.</li>
+    <li><strong>rangeUnderflow</strong> - Set to true, if an element's value is less than its min attribute.</li>
+    <li><strong>stepMismatch</strong> - Set to true, if an element's value is invalid per its step attribute.</li>
+    <li><strong>tooLong</strong> - Set to true, if an element's value exceeds its maxLength attribute.</li>
+    <li><strong>typeMismatch</strong> - Set to true, if an element's value is invalid per its type attribute.</li>
+    <li><strong>valueMissing</strong> - Set to true, if an element (with a required attribute) has no value.</li>
+    <li><strong>valid</strong> - Set to true, if an element's value is valid.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+@section Scripts
+{
+    <script>
+        function myFunction() {
+            let input = document.getElementById("txtNumber");
+            if (input.checkValidity() === false) {
+                document.getElementById("demo1").innerHTML = input.validationMessage;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,73 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Accessing";
+}
+
+@model AccessingElementModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-elements}
+@section BreadCrumbChapter {dom elements}
+@section BreadCrumbPageName {accessing}
+@section PageName {Accessing DOM Elements}
+
+<p>
+    The HTML DOM (<code>Document Object Model</code>) is the owner of all other objects in your web page.
+    If you want to access any element in an
+    HTML page, you always start with accessing the document object.
+    The DOM defines a standard for accessing HTML and XML documents.
+</p>
+
+<p>
+    The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to
+    dynamically access and update the content, structure, and style of a document.
+</p>
+
+<p>
+    Below are some examples of how you can use the document object to access and manipulate HTML.
+</p>
+
+<pre>
+<code>
+document.getElementById("{id}");
+document.getElementsByTagName("{name}");
+document.getElementsByClassName("{class}");
+</code>
+</pre>
+
+<p><strong>Changing HTML Elements Examples</strong></p>
+
+<div class="my-3">
+    <h4><span id="demo1"></span></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+document.getElementById("demo1").innerHTML = "Goodbye World";
+document.getElementById("demo1").setAttribute("class","text-success");
+document.getElementById("demo1").style.fontSize = "50px";
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("demo1").innerHTML = "Goodbye World";
+        document.getElementById("demo1").setAttribute("class", "text-success");
+        document.getElementById("demo1").style.fontSize = "50px";
+    </script>
+}

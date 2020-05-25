@@ -1,0 +1,46 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Prevent Default";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {prevent default}
+@section PageName {prevent default}
+
+<p>
+    The <code>preventDefault()</code> method cancels the event if it is cancelable, meaning that the default action that belongs to the
+    event will not occur. For example, this can be useful when clicking on a submit button and preventing the form from submitting.
+    Notice that this page does not refresh.
+</p>
+
+<div class="my-5"><code>event.preventDefault();</code></div>
+
+<p class="my-5"><a href="http://www.w3schools.com/jsref/event_preventdefault.asp" target="_blank">http://www.w3schools.com/jsref/event_preventdefault.asp</a></p>
+
+<form>
+    <button type="submit" id="btnSubmit" class="btn btn-danger">
+        Prevent me from submitting
+    </button>
+</form>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.body.onload = function () {
+            document.getElementById("btnSubmit").addEventListener("click", function (event) {
+                event.preventDefault()
+                alert("You shall not pass!");
+            });
+        };
+    </script>
+}

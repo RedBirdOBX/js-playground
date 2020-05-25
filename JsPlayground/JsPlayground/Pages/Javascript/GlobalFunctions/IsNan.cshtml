@@ -1,0 +1,111 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.IsNanModel
+
+
+@{
+    string pageId = "IsNan";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>isNaN()</code> function determines whether a value is an illegal number (Not-a-Number).
+    This function returns true if the value equates to NaN. Otherwise it returns false.
+</p>
+
+<pre>
+<code>
+// example
+var x = 100 / "Apple";
+isNaN(x); // returns true because x is Not a Number
+</code>
+</pre>
+
+<hr />
+
+<p class="text-center">Enter a number between 1 and 100.</p>
+
+<div class="form-group">
+    <label for="txtNumber" class="col-sm-3 control-label">Enter a Number</label>
+    <div class="col-sm-9">
+        <input type="text" class="form-control" id="txtNumber" placeholder="Enter a number">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <button type="button" onclick="ValidateNumber();" class="btn btn-primary btn-lg">
+            Check Number
+        </button>
+    </div>
+</div>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<hr />
+<pre>
+<code>
+function ValidateNumber()
+{
+    let num = document.getElementById("txtNumber").value;
+    let message = "";
+    let demo = document.getElementById("demo1");
+
+    if (isNaN(num) || num === "")
+    {
+        message = "This is not a number.";
+    }
+    else if ((num < 0) || (num> 100))
+    {
+        message = "This number is not between 1 and 100.";
+    }
+    else
+    {
+        message = "Your number of " + num + " is valid.";
+    }
+
+    demo1.innerHTML = message;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        function ValidateNumber() {
+            let num = document.getElementById("txtNumber").value;
+            let message = "";
+            let demo = document.getElementById("demo1");
+
+            if (isNaN(num) || num === "") {
+                message = "This is not a number.";
+            }
+            else if ((num < 0) || (num > 100)) {
+                message = "This number is not between 1 and 100.";
+            }
+            else {
+                message = "Your number of " + num + " is valid.";
+            }
+
+            demo1.innerHTML = message;
+        }
+    </script>
+}

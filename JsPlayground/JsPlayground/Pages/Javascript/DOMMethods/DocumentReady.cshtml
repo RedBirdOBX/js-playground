@@ -1,0 +1,63 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Document Ready";
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.DocumentReadyModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {Document Ready}
+@section PageName {Document Ready}
+
+<p>
+    There is no <code>document.ready</code> out of the box method from javascript like jQuery offers. You can however, use one of the
+    three techniques below:
+</p>
+
+<pre>
+<code>
+// Option 1
+&lt;body>
+    ...content...
+    &lt;script>
+      ...my stuff...
+    &lt;/script>
+&lt;/body>
+
+// Option 2
+// onreadystatechange
+document.onreadystatechange = function ()
+{
+    if (document.readyState == "complete")
+{
+        // document is ready. Do your stuff here
+    }
+}
+
+// Option 3
+// DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function()
+{
+    // document is ready. Do your stuff here
+})
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p><a href="http://www.w3schools.com/js/js_htmldom_document.asp" target="_blank">http://www.w3schools.com/js/js_htmldom_document.asp</a></p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

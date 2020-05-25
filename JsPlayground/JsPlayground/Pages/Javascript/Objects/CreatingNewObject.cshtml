@@ -1,0 +1,129 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.CreatingNewObjectModel
+
+@{
+    string pageId = "Creating New Object";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    You can create a javascript object in a few different ways.
+    You can define it hard-coded style (object literal) ...
+</p>
+
+<pre>
+<code>
+// object literal
+let Spaceship = { Designation : "NCC-1701", Name : "Enterprise" };
+document.getElementById("demo1").innerHTML = Spaceship.Designation;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-2">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p class="mt-3">
+    You can use a function and a constructor...
+</p>
+
+<pre>
+<code>
+let color = "Red";
+let speed = "Fast" ;
+let car = new Car(color, speed);
+
+function Car(color, speed)
+{
+    this.Color = color;
+    this.Speed = speed;
+}
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-2">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>Here is a more advanced version.  It is an object in which the properties are functions.  This is a kind of "utility" object.</p>
+
+<pre>
+<code>
+const utils =
+{
+    // Sum an array
+    sum: arr => arr.reduce((acc, curr) => acc + curr, 0),
+
+    // create an array of numbers between min and max (edges included)
+    range: (min, max) => Array.from({ length: max - min + 1 }, (_, i) => min + i),
+
+    // pick a random number between min and max (edges included)
+    random: (min, max) => min + Math.floor(Math.random() * (max - min + 1)),
+
+    // Given an array of numbers and a max...
+    // Pick a random sum (< max) from the set of all available sums in arr randomSumIn: (arr, max)=> {
+    const sets = [[]];
+    const sums = [];
+    for (let i = 0; i < arr.length; i++)
+    {
+        for (let j=0, len=sets.length; j < len; j++)
+        {
+            const candidateSet=sets[j].concat(arr[i]);
+            const candidateSum=utils.sum(candidateSet);
+
+            if (candidateSum <=max)
+            {
+                sets.push(candidateSet); sums.push(candidateSum);
+            }
+        }
+    }
+    return sums[utils.random(0, sums.length - 1)];
+    },
+};
+
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let Spaceship = { Designation: "NCC-1701", Name: "Enterprise" };
+
+        let color = "Red";
+        let speed = "Fast";
+        let car = new Car(color, speed);
+
+        function Car(color, speed) {
+            this.Color = color;
+            this.Speed = speed;
+        }
+
+        window.onload = function () {
+            // example 1
+            document.getElementById("demo1").innerHTML = Spaceship.Designation;
+            document.getElementById("demo2").innerHTML = "Car: " + car.Color + ", " + car.Speed;
+        }
+
+    </script>
+}

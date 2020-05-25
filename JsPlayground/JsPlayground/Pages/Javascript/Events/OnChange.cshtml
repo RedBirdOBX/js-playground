@@ -1,0 +1,84 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnChange";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onchange}
+@section PageName {OnChange}
+
+<p>
+    <code>change</code> is easy and is often used in form controls.
+</p>
+
+<div class="form-group">
+    <label for="ColorList">Pick a color</label>
+    <select class="form-control" id="ColorList">
+        <option value="none">pick a color</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="white">White</option>
+    </select>
+</div>
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onchange="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onchange = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("change", myScript);
+</code>
+</pre>
+
+<hr />
+
+<pre>
+<code>
+function ShowColor()
+{
+    let colorList = document.getElementById("ColorList");
+    let color = colorList.options[colorList.selectedIndex].text; //.value would get you the value and not the text
+
+    let demo1 = document.getElementById("demo1");
+    demo1.innerHTML = color;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        document.getElementById("ColorList").addEventListener("change", function () { ShowColor(); });
+
+        function ShowColor() {
+            let colorList = document.getElementById("ColorList");
+            let color = colorList.options[colorList.selectedIndex].text;
+
+            let demo1 = document.getElementById("demo1");
+            demo1.innerHTML = color;
+        }
+    </script>
+}

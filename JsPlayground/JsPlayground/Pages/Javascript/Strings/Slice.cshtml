@@ -1,0 +1,101 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.SliceModel
+
+@{
+    string pageId = "Slice";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>slice()</code> extracts a part of a string and returns the extracted part in a new string. The method takes 2 parameters: the
+    starting index (position), and the ending index (position).
+</p>
+
+<p>This example slices out a portion of a string from position 7 to position 13:</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let str = "Apple, Banana, Kiwi";
+document.getElementById("demo1").innerHTML = str.slice(7, 13);
+</code>
+</pre>
+
+<hr />
+
+<p>
+    If a parameter is negative, the position is counted <strong>from the end</strong> of the string.
+    This example slices out a portion of a string from position -12 to position -6:
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let str2 = "Apple, Banana, Kiwi";
+document.getElementById("demo2").innerHTML = str2.slice(-12, -6);
+</code>
+</pre>
+
+<hr />
+
+<p>
+    If you omit the second parameter, the method will slice out the rest of the string.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo3"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let str3 = "Apple, Banana, Kiwi";
+document.getElementById("demo3").innerHTML = str3.slice(4);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            // example 1
+            let str = "Apple, Banana, Kiwi";
+            document.getElementById("demo1").innerHTML = str.slice(7, 13);
+
+            // example 2
+            let str2 = "Apple, Banana, Kiwi";
+            document.getElementById("demo2").innerHTML = str2.slice(-12, -6);
+
+            // example 3
+            let str3 = "Apple, Banana, Kiwi";
+            document.getElementById("demo3").innerHTML = str3.slice(4);
+        }
+    </script>
+}

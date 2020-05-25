@@ -1,0 +1,44 @@
+﻿@page
+
+@model JoinModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "join()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {join()}
+@section PageName {join()}
+
+<p>
+    The <code>join()</code> method also joins all array elements into a string. It behaves just like toString(), but in addition you can
+    specify the separator.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = fruits.join(" * ");
+    </script>
+}

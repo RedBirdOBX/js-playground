@@ -1,0 +1,52 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Truthy / Falsy";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {truthy / falsy}
+@section PageName {Truthy / Falsy}
+
+<p><strong>Falsy:</strong></p>
+
+<p><code>var y = "We are the so-called "Vikings" from the north."</code></p>
+
+<ul>
+    <li>null</li>
+    <li>undefined</li>
+    <li>NaN</li>
+    <li>empty string</li>
+    <li>0</li>
+</ul>
+
+<pre>
+<code>
+alert(0 == false);
+// true. Will return true because 0 is the default value for false but in reality,
+// it is comparing a integer to a boolean and should return false.
+
+alert(0 === false); // false
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        alert(0 == false);
+        alert(0 === false);
+    </script>
+
+}

@@ -1,0 +1,144 @@
+﻿@page
+
+@model ReduceModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "reduce()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {reduce()}
+@section PageName {reduce()}
+
+<p>
+    The <code>reduce()</code> method <strong>reduces</strong> the array to a single value.
+    The <code>reduce()</code> method executes a provided function for each value of the array (from left-to-right).
+    The return value of the function is stored in an accumulator (result/total).
+    Note: <code>reduce()</code> does not execute the function for array elements without values.
+</p>
+
+<div class="m-3">
+    <code>myArray.reduce(function(total, currentValue, (optional)currentIndex, (optional)arr), (optional)initialValue)</code>
+</div>
+
+<p>
+    Translation: The <code>reduce()</code> method must receive a function or a function reference. This function or function reference looks like this:
+</p>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th style="width:25%">Parameter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><em>function(total,currentValue, index,arr)</em></td>
+            <td>
+                Required. A function to be run for each element in the array.<br>Function arguments:<table class="table">
+                    <tbody>
+                        <tr>
+                            <th style="width:25%">Argument</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><em>total</em></td>
+                            <td>
+                                Required. The <em>initialValue</em>, or the previously returned value of the function
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><em>currentValue</em></td>
+                            <td>Required. The value of the current element</td>
+                        </tr>
+                        <tr>
+                            <td><em>currentIndex</em></td>
+                            <td>Optional. The array index of the current element</td>
+                        </tr>
+                        <tr>
+                            <td><em>arr</em></td>
+                            <td>Optional. The array object the current element belongs to</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </td>
+        </tr>
+        <tr>
+            <td><em>initialValue</em></td>
+            <td>Optional. A value to be passed to the function as the initial value</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><a href="https://www.w3schools.com/jsref/jsref_reduce.asp" target="_blank">https://www.w3schools.com/jsref/jsref_reduce.asp</a></p>
+
+<div class="card text-white bg-info my-5">
+    <div class="card-body">
+        <p class="text-white" id="demo1"></p>
+    </div>
+</div>
+
+<pre>
+<code>
+let numbers = [1000, 100, 50];
+document.getElementById("demo1").innerHTML = numbers.reduce(DoMath);
+
+// this function is called for each array element and sent two vals each time: total & current val
+function DoMath(arrayTotal, currentValue)
+{
+    return arrayTotal - currentValue;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Demo 2</strong> - Round all the numbers in an array, and display the sum.</p>
+
+<div class="card text-white bg-info my-5">
+    <div class="card-body">
+        <p class="text-white" id="demo2"></p>
+    </div>
+</div>
+
+<pre>
+<code>
+// demo 2
+let numbers2 = [15.5, 2.3, 1.1, 4.7];
+document.getElementById("demo2").innerHTML = numbers2.reduce(GetSum, 0);
+function GetSum(arrayTotal, currentValue)
+{
+    return arrayTotal + Math.round(currentValue);
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // demo 1
+        let numbers = [1000, 100, 50];
+        document.getElementById("demo1").innerHTML = numbers.reduce(DoMath);
+
+        // this function is called for each array element and sent two vals each time: total  & current val
+        function DoMath(arrayTotal, currentValue) {
+            return arrayTotal - currentValue;
+        }
+
+        // demo 2
+        let numbers2 = [15.5, 2.3, 1.1, 4.7];
+        document.getElementById("demo2").innerHTML = numbers2.reduce(GetSum, 0);
+        function GetSum(arrayTotal, currentValue) {
+            return arrayTotal + Math.round(currentValue);
+        }
+    </script>
+}

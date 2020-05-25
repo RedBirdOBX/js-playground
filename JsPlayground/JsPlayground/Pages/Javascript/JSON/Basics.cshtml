@@ -1,0 +1,92 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.JSON.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-json}
+@section BreadCrumbChapter {json}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>JSON</code> is a format for storing and transporting data. <code>JSON</code> is often used when data is sent from a server to a web page.
+    JSON stands for <code>JavaScript Object Notation</code>. Simply put, JSON files are just a collection of <code>key : value pairs</code>.
+    The key is a string and the value can be a simple data type, or another list or object.
+</p>
+
+<p class="text-center">
+    Objects in JSON are surrounded by curly braces:<br />
+    <img src="../../assets/images/json-sample.PNG" />
+</p>
+
+<p>The JSON format evaluates to multiple JavaScript Objects.</p>
+
+</p>The JSON format is <strong>almost</strong> syntactically identical to the code for creating JavaScript objects. For example, here's how we
+create an object called "person":</p>
+
+<p><code>var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code></p>
+
+<p>With a JSON Object, we are essentially creating an ARRAY of person objects and calling it PERSONS.</p>
+
+<pre>
+<code>
+{
+    "persons":
+    [
+        {"firstName":"John", "lastName":"Doe", age:50, eyeColor:"blue"},
+        {"firstName":"Anna","lastName":"Smith", age:40, eyeColor:"blue"},
+        {"firstName":"Peter", "lastName":"Jones", age:30, eyeColor:"blue"}
+    ]
+}
+</code>
+</pre>
+
+<p>JSON Syntax Rules:</p>
+
+<ul>
+    <li>Data is in name/value pairs</li>
+    <li>Data is separated by commas</li>
+    <li>Curly braces hold objects</li>
+    <li>Square brackets hold arrays</li>
+    <li>
+        JSON names/attributes/properties (firstName) require double quotes. JavaScript object names/attributes/properties do
+        not.
+    </li>
+    <li>a JSON Object can just be an single object or it can be an array of objects.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>See the difference?</p>
+
+<pre>
+<code>
+//object
+var person = { <mark>firstName:"John", </mark>lastName:"Doe", age:50, eyeColor:"blue" };
+
+//json object
+{
+    "persons":
+    [
+        { <mark>"firstName":"John",</mark> "lastName":"Doe", age:50, eyeColor:"blue" },
+        { "firstName":"John", "lastName":"Doe", age:50, eyeColor:"blue" }
+    ]
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

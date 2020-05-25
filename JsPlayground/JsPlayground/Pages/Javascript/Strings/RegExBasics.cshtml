@@ -1,0 +1,64 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.RegExBasicsModel
+
+@{
+    string pageId = "RegEx Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    A regular expression is a sequence of characters that forms a search pattern. The search pattern can be used for text
+    <strong>search</strong> and text <strong>replace</strong> operations.
+    When you search for data in a text, you can use this search pattern to describe what you are searching for. A regular
+    expression can be a single character, or a more complicated pattern.
+</p>
+
+<p><strong>A regular expression is expressed between two forward slashes:</strong></p>
+<pre>
+<code>
+/[expression]/
+
+// syntax
+/pattern/modifiers;
+
+// example
+var patt = /w3schools/i;
+    </code>
+</pre>
+
+<p>Example explained:</p>
+
+<p>
+    <code>/w3schools/i</code> is a regular expression. <code>w3schools</code> is a pattern (to be used in a search).
+    </ode>i</code> is a modifier (modifies the search to be case-insensitive).
+</p>
+
+<p>
+    The pattern cannot be defined as a string. Use this <code>x.search(/w3schools/i)</code> and NOT this <code>x.search('/w3schools/1')</code>;
+</p>
+
+<p><a href="https://www.w3schools.com/js/js_regexp.asp" target="_blank">https://www.w3schools.com/js/js_regexp.asp</a></p>
+<p><a href="http://buildregex.com/" target="_blank">http://buildregex.com/</a></p>
+<p><a href="https://www.regexbuddy.com/create.html" target="_blank">https://www.regexbuddy.com/create.html</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

@@ -1,0 +1,60 @@
+﻿@page
+
+@model BasicsModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "async";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-async}
+@section BreadCrumbChapter {async}
+@section BreadCrumbPageName {async}
+@section PageName {async}
+
+<p>
+    There's undoubtedly a lot more to cover but here is a basic example of how to make async calls in js.
+</p>
+
+<div class="card text-white bg-info m-3">
+    <div class="card-body">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let FetchData = async () =>
+{
+    let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+    let data = await response.json();
+    let firstCity = data[0];
+    document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
+};
+
+FetchData();
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let FetchData = async () =>
+        {
+            let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+            let data = await response.json();
+            let firstCity = data[0];
+            document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
+        };
+
+        FetchData();
+    </script>
+}

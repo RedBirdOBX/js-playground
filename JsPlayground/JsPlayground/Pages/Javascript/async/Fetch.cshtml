@@ -1,0 +1,91 @@
+﻿@page
+
+@model FetchModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "fetch";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-async}
+@section BreadCrumbChapter {async}
+@section BreadCrumbPageName {fetch()}
+@section PageName {fetch()}
+
+<p>
+    The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as
+    requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources
+    asynchronously across the network.
+</p>
+
+<p>
+    This kind of functionality was previously achieved using XMLHttpRequest. Fetch provides a better alternative that can be
+    easily used by other technologies such as Service Workers. Fetch also provides a single logical place to define other
+    HTTP-related concepts such as CORS and extensions to HTTP.
+</p>
+
+<p>The fetch specification differs from jQuery.ajax() in three main ways:</p>
+
+<ul>
+    <li>
+        The Promise returned from fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500. Instead,
+        it will resolve normally <strong>(with ok status set to false)</strong>, and it will only reject on network failure or if anything
+        prevented the request from completing.
+    </li>
+    <li>
+        fetch() won't receive cross-site cookies; you can’t establish a cross site session using fetch. Set-Cookie headers from
+        other sites are silently ignored.
+    </li>
+    <li>fetch won’t send cookies, unless you set the credentials init option.</li>
+</ul>
+
+<p>Things to remember:</p>
+<ul>
+    <li><code>fetch()</code> returns a <code>promise</code> ("response")</li>
+    <li>use a <code>.then</code> call to evaluate the promise</li>
+    <li>the response is raw so we will prob need to turn it into json as shown in the code sample</li>
+</ul>
+
+<p>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch</a>
+</p>
+
+<div class="card text-white bg-info m-3">
+    <div class="card-body">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let FetchData = async () =>
+{
+    let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+    let data = await response.json();
+    let firstCity = data[0];
+    document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
+};
+
+FetchData();
+    </code>
+</pre>
+
+
+@section Scripts
+{
+    <script>
+        let FetchData = async () => {
+            let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+            let data = await response.json();
+            let firstCity = data[0];
+            document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
+        };
+
+        FetchData();
+    </script>
+}

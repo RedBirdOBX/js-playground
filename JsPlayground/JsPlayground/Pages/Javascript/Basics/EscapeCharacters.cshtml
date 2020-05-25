@@ -1,0 +1,46 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Escape Characters";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {escape characters)}
+@section PageName {Escape Characters}
+
+<p>Because strings must be written within quotes, JavaScript will misunderstand this string:</p>
+
+<p><code>var y = "We are the so-called "Vikings" from the north."</code></p>
+
+<p>
+    The solution to avoid this problem, is to use the \ escape character. The backslash escape character turns special
+    characters into string characters.
+</p>
+
+<p><strong>Escape Character Examples</strong></p>
+
+<ul>
+    <li>\' single quote</li>
+    <li>\\ backslash</li>
+    <li>\n new line</li>
+    <li>\r carriage return</li>
+    <li>\t tab</li>
+    <li>\b backspace</li>
+    <li>\f form feed</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

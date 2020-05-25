@@ -1,0 +1,39 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Ternary";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {ternary)}
+@section PageName {Ternary Operator}
+
+<p>
+    A ternary operator is a conditional operator that assigns a value to a variable based on some condition. This works
+    just like an if, else statement and is great for value assignments.  You can only assign values, you cannot have blocks
+    of complicated code within.
+</p>
+
+<div class="my-3">
+    let {variable} = (some T/F test) ? {true value} : {false value};
+</div>
+
+<pre>
+<code>
+let voteable = (age < 18) ? "Too young" : "Old enough" ;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

@@ -1,0 +1,59 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnClick vs Click";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onclick vs click}
+@section PageName {OnClick vs Click}
+
+<p>
+    When adding and event using <code>addEventListener()</code>, you <strong>do not</strong> use the "on" prefix.
+    When doing it inline, right in the mark up as an property, you <strong>do</strong> use "on" as well as
+    attaching it to an object like <code>object.on{event}</code>.
+</p>
+
+<pre>
+<code>
+document.getElementById("TestButton").addEventListener("<mark>click</mark>", function(){ SayHello()});
+// vs
+&lt;button type="button" id="GoodbyeButton" class="btn btn-danger" <mark>onclick</mark>="SayGoodBye()">Say Goodbye&lt;/button>
+</code>
+</pre>
+
+<div class="text-center">
+    <button type="button" id="HelloButton" class="btn btn-danger">Say Hello</button>
+    <button type="button" id="GoodbyeButton" class="btn btn-danger" onclick="SayGoodBye()">Say Goodbye</button>
+</div>
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("HelloButton").addEventListener("click", function () { SayHello(); });
+
+        function SayHello() {
+            let demo1 = document.getElementById("demo1");
+            demo1.innerHTML = "Hello World";
+        }
+
+        function SayGoodBye() {
+            let demo1 = document.getElementById("demo2");
+            demo1.innerHTML = "Good bye World";
+        }
+    </script>
+}

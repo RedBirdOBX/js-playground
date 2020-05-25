@@ -1,0 +1,113 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Even Numbers";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {even numbers}
+@section PageName {Even Numbers Challenges}
+
+<ul>
+    <li>Prototypical Inheritance instead of Classes</li>
+    <li>Not type-less but dynamically typed</li>
+    <li>Just In Time compiled</li>
+    <li>Versions: <a href="https://www.w3schools.com/js/js_versions.asp" target="_blank">https://www.w3schools.com/js/js_versions.asp</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>
+    Take an array of numbers called "numbers" place a random mix even and odd numbers in it.
+</p>
+
+<code>const stars = [1,2,3,4,5,6,7,8];</code>
+
+<p class="m-2">
+    Now, using <code>.map()</code>, take the contents of the numbers and call a function which builds some html for the UI
+    for each element in the array .  Don't use a <code>for</code> loop.... use <code>map()</code>.
+    Something like....
+</p>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div>2</div>
+        <div>4</div>
+        <div>6</div>
+        <div>etc...</div>
+    </div>
+</div>
+
+<pre>
+<code>
+&lt;div>2&lt;/div>
+&lt;div>4&lt;/div>
+&lt;div>6&lt;/div>
+&lt;div>etc...&lt;/div>
+</code>
+</pre>
+
+<div class="text-center m-5"><button id="ShowSolutionButton" class="btn btn-info">Show Solution</button></div>
+
+<div id="SolutionContainer">
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body" id="DemoContainer">
+    </div>
+</div>
+
+<pre>
+<code>
+// solution
+let solutionHtml = "";
+const numbers = [1,2,3,4,5,6,7,8];
+
+// this receives each element of the array and we will call it 'number'
+const BuildHtml = (number) =>
+{
+    if (number % 2 == 0)
+    {
+        solutionHtml += `&lt;div class="text-white">${number}&lt;/div>`;
+    }
+};
+
+// build html
+numbers.map(BuildHtml);
+$("#DemoContainer").html(solutionHtml);
+</code>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $("#SolutionContainer").hide();
+        $("#ShowSolutionButton").click(function () {
+            $("#SolutionContainer").toggle();
+        });
+
+        // solution
+        let solutionHtml = "";
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        // this receives each element of the array and we will call it 'number'
+        const BuildHtml = (number) => {
+            if (number % 2 == 0) {
+                solutionHtml += `<div class="text-white">${number}</div>`;
+            }
+        };
+        numbers.map(number => BuildHtml(number));
+        $("#DemoContainer").html(solutionHtml);
+    </script>
+
+
+}

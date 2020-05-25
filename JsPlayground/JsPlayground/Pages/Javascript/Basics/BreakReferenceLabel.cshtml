@@ -1,0 +1,43 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Break Reference Label";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {break reference label}
+@section PageName {Break Reference Label}
+
+<p>Using the break statement with a <code>label</code> reference, to "jump out" of a JavaScript code block:</p>
+
+<p>Use and set parameter/argument defaults like so:</p>
+
+<pre>
+<code>
+var cars = ["BMW", "Volvo", "Saab", "Ford"];
+var text = "";
+
+list:
+{
+    text += cars[0] + "&lt;br />";
+    text += cars[1] + "&lt;br />";
+    text += cars[2] + "&lt;br />";
+    break list;
+    text += cars[3] + "&lt;br />";
+}
+</code>
+        </pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

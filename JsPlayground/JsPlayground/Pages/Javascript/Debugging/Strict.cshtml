@@ -1,0 +1,79 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Strict";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-debugging}
+@section BreadCrumbChapter {debugging}
+@section BreadCrumbPageName {strict}
+@section PageName {Strict}
+
+
+
+<p>
+    The purpose of <code>"use strict"</code> is to indicate that the code should be executed in "strict mode".
+    With strict mode, you can
+    not, for example, use undeclared variables or write loose code.
+    Strict mode changes previously accepted "bad syntax" into real errors.
+    <strong>You can declare it globally or within the scope of a function.</strong>
+</p>
+
+<p>
+    Strict Mode requires you to declare variables....even if within a loop.
+</p>
+
+<ul class="my-5">
+    <li>Open Developer Console</li>
+    <li>Click button...see error</li>
+</ul>
+
+<div class="my-5">
+    <button id="TestButton" class="btn btn-danger" onclick="RunTest()">Run Debugger</button>
+</div>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<pre>
+<code>
+"use strict";
+function RunTest()
+{
+//let output = "";
+let demo1 = document.getElementById("demo1");
+for (let i = 0; i < 5; i++)
+{
+output +=`The number is ${i}&lt;br />`;
+}
+demo1.innerHTML = output;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        "use strict";
+        function RunTest() {
+            //let output = "";
+            let demo1 = document.getElementById("demo1");
+            for (let i = 0; i < 5; i++) {
+                output += `The number is ${i}<br />`;
+            }
+
+            demo1.innerHTML = output;
+        }
+    </script>
+}

@@ -1,0 +1,55 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.BooleanModel
+
+
+@{
+    string pageId = "Boolean";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>You can use the Boolean() function to find out if an expression (or a variable) is true.</p>
+
+<pre>
+<code>
+// Sample 1
+var test1 = Boolean(2>1);
+document.getElementById("demo").innerHTML = "Sample 1 evaluates to be " + test1.toString();
+
+// Sample 2
+var test2 = Boolean(1 + 7 + 3.14);
+document.getElementById("demo").innerHTML = "Sample 2 evaluates to be " + test2.toString();
+</code>
+</pre>
+
+<h4 class="text-center text-info">Everything With a "Real" Value is True.</h4>
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        console.log(typeof "john");
+        console.log(typeof 3.14);
+        console.log(typeof false);
+        console.log(typeof [1, 2, 3, 4]);
+        console.log(typeof { name: 'john', age: 34 });
+    </script>
+}

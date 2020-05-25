@@ -1,0 +1,57 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.HistoryModel
+
+@{
+    string pageId = "History";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>window.history</code> object contains the browser's history.
+</p>
+
+<p>
+    Two common examples are:
+</p>
+
+<ul>
+    <li><code>history.back()</code> - same as clicking back in the browser</li>
+    <li><code>history.forward()</code> - same as clicking forward in the browser</li>
+</ul>
+
+<pre>
+<code>
+function goBack()
+{
+    window.history.back();
+}
+
+...or...
+
+function goForward()
+{
+    window.history.forward();
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

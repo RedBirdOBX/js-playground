@@ -1,0 +1,117 @@
+﻿@page
+
+@model ArrayBasicsModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Array Basics";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {basics}
+@section PageName {Array Basics}
+
+<p>
+    An array is a special variable, which can hold more than one value at a time.
+</p>
+
+<pre>
+<code>
+var cars = ["Saab", "Volvo", "BMW"];
+var cars = new Array("Saab", "Volvo", "BMW");
+            </code>
+        </pre>
+
+<p>
+    The two lines above to the exact same thing. You do not need to instantiate it with a new keyword.
+    Arrays have zero-based indexes. They are start at 0. A 5 five item array has indexes 0-4.
+</p>
+
+<h4>Arrays with Objects</h4>
+
+<p>You can also initialize arrays with objects like so:</p>
+
+<pre>
+<code>
+var ships =
+[
+    { property1: "value", property2: "value" },
+    { property1: "value", property2: "value" }
+]
+            </code>
+        </pre>
+
+<p>&nbsp;</p>
+
+<h4>Accessing by Indexes</h4>
+
+<p>
+    You can access by the Index like so:
+</p>
+
+<pre>
+<code>
+var cars2 = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars2[1];
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h4>Looping through an array</h4>
+
+<p>
+    You can also loop through and array like so:
+</p>
+
+<pre>
+<code>
+let ships =
+[
+    { Name: "X Wing", Alignment: "good" },
+    { Name: "Tie Fighter", Alignment: "bad" }
+]
+
+let html = "";
+for (var i = 0; i < ships.length; i++)
+{
+    html +=ships[i].Name + " " + ships[i].Alignment + "< br />" ;
+}
+
+let demoLabel=document.getElementById("demo");
+demoLabel.innerHTML=html;
+</code>
+</pre>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let ships =
+            [
+                { Name: "X Wing", Alignment: "good" },
+                { Name: "Tie Fighter", Alignment: "bad" }
+            ]
+
+        let html = "";
+        for (var i = 0; i < ships.length; i++) {
+            html += ships[i].Name + " " + ships[i].Alignment + "<br />";
+        }
+
+        let demoLabel = document.getElementById("demo");
+        demoLabel.innerHTML = html;
+    </script>
+}

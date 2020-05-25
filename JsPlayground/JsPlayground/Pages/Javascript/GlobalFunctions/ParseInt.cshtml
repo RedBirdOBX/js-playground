@@ -1,0 +1,81 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.ParseIntModel
+
+
+@{
+    string pageId = "ParseInt";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>parseInt()</code> parses a string and returns a <strong>whole number</strong>
+    (int). Spaces are allowed. Only the first number is returned. Very similar to the <code>Number()</code> function.
+</p>
+
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<hr />
+
+<pre>
+<code>
+let output = "";
+let output = "";
+let a = "10";
+let b = "10.33";
+let c = "10 20 30";
+let d = "10 years";
+let e = "years 10";
+output += `10: ${parseInt(a)}&lt;br />`;
+output += `10.33: ${parseInt(b)}&lt;br />`;
+output += `10 20 30: ${parseInt(c)}&lt;br />`;
+output += `"10 years": ${parseInt(d)}&lt;br />`;
+output += `"years 10": ${parseInt(e)}&lt;br />`;
+
+let demo1 = document.getElementById("demo1");
+demo1.innerHTML = output;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let output = "";
+            let a = "10";
+            let b = "10.33";
+            let c = "10 20 30";
+            let d = "10 years";
+            let e = "years 10";
+            output += `10: ${parseInt(a)}<br />`;
+            output += `10.33: ${parseInt(b)}<br />`;
+            output += `10 20 30: ${parseInt(c)}<br />`;
+            output += `"10 years": ${parseInt(d)}<br />`;
+            output += `"years 10": ${parseInt(e)}<br />`;
+
+            let demo1 = document.getElementById("demo1");
+            demo1.innerHTML = output;
+        };
+    </script>
+}

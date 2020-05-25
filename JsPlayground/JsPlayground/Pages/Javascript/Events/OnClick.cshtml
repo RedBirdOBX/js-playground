@@ -1,0 +1,96 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnClick";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onclick}
+@section PageName {OnClick}
+
+<p>
+    The click event is easy. The click is an event - a method of just about any element of the document object.
+</p>
+
+<p><a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">https://www.w3schools.com/jsref/dom_obj_event.asp</a></p>
+
+<h4 class="text-danger text-center" onclick="HeaderClick();">1) Click this header</h4>
+
+<p id="paragraph-click" class="text-danger text-center">2) Click this paragraph</p>
+
+<div class="text-center">
+    <button type="button" id="Button1" class="btn btn-danger">3) Click this button</button>
+</div>
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+    <h4 class="text-center text-info"><span id="demo3"></span></h4>
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// 1) In HTML:
+&lt;h4 class="text-danger text-center" onclick="HeaderClick();">1) Click this header&lt;/h4>
+function HeaderClick()
+{
+    let demo1 = document.getElementById("demo1");
+    demo1.innerHTML = "Header was clicked";
+}
+
+
+//2 - add it in js
+let paragraph = document.getElementById("paragraph-click");
+paragraph.onclick = function()
+{
+    document.getElementById("demo2").innerHTML = "Paragraph was clicked";
+};
+
+// 3) In JavaScript, using the addEventListener() method:
+let btn = document.getElementById("Button1");
+btn.addEventListener("click", function () { ButtonClick(); });
+
+function ButtonClick()
+{
+    document.getElementById("demo3").innerHTML = "Button was clicked";
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // 1
+        function HeaderClick() {
+            let demo1 = document.getElementById("demo1");
+            demo1.innerHTML = "Header was clicked";
+        }
+
+        // 2
+        let paragraph = document.getElementById("paragraph-click");
+        paragraph.onclick = function () {
+            document.getElementById("demo2").innerHTML = "Paragraph was clicked";
+        };
+
+        // 3
+        let btn = document.getElementById("Button1");
+        btn.addEventListener("click", function () { ButtonClick(); });
+
+        function ButtonClick() {
+            document.getElementById("demo3").innerHTML = "Button was clicked";
+        }
+    </script>
+}

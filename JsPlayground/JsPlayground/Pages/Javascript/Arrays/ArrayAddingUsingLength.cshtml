@@ -1,0 +1,45 @@
+﻿@page
+
+@model ArrayAddingUsingLengthModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Array Adding Using Length";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {adding to array using length()}
+@section PageName {Adding to Array using length()}
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["banana", "apple", "pear"];
+fruits[fruits.length] = "lemon";
+document.getElementById("demo").innerHTML = "length is " + fruits.length;
+let exampleLabel = document.getElementById("example");
+exampleLabel.innerHTML = fruits.toString();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["banana", "apple", "pear"];
+        fruits[fruits.length] = "lemon";
+        document.getElementById("demo").innerHTML = "length is " + fruits.length + ": " + fruits.toString();
+        let exampleLabel = document.getElementById("example");
+        exampleLabel.innerHTML = fruits.toString();
+    </script>
+}

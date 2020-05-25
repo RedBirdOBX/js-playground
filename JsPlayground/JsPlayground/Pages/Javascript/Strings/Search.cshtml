@@ -1,0 +1,96 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.SearchModel
+
+@{
+    string pageId = "Search";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>search()</code> method searches a string for a specified value and returns the position (index) of the match. If it is NOT
+    found, it will return a -1.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 1
+let str = "Please locate where 'locate' occurs!";
+let pos = str.search("locate");
+document.getElementById("demo1").innerHTML = pos;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    The two methods, <code>indexOf()</code> and <code>search()</code>, pretty much do the same thing. are equal.
+    They accept the same arguments (parameters), and they return the same value.
+    The <code>search()</code> method how ever can use RegEx expressions as parameters which makes it powerful.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// example 2
+let str2 = "I like punch and pie.";
+let position = str2.search(/pie/i);
+let demo2 = document.getElementById("demo2");
+demo2.innerHTML = position;
+</code>
+</pre>
+
+<hr />
+
+<p>
+    <strong>Regular Expression Modifiers</strong><br />
+    Modifiers can be used to perform case-insensitive searches.
+</p>
+
+<ul>
+    <li><code>i</code> - Perform case-insensitive matching</li>
+    <li><code>g</code> - Perform a global match (find all matches rather than stopping after the first match)</li>
+    <li><code>m</code> - Perform multiline matching</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // example 1
+        let str = "Please locate where 'locate' occurs!";
+        let pos = str.search("locate");
+        document.getElementById("demo1").innerHTML = pos;
+
+        // returns the position of pie.
+        let str2 = "I like punch and pie.";
+        let position = str2.search(/pie/i);
+        let demo2 = document.getElementById("demo2");
+        demo2.innerHTML = position;
+    </script>
+}

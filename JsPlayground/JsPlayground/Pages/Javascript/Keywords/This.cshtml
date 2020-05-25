@@ -1,0 +1,92 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Keywords.ThisModel
+
+@{
+    string pageId = "This";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    In JavaScript, the thing called <code>this</code>, is the object that "owns" the JavaScript code.
+    The value of this, when used in a function, is the object that "owns" the function. This can be another object.
+</p>
+
+<p>Note that <code>this</code> is not a variable. It is a keyword. You cannot change the value of </code>this</code>.</p>
+
+<p>
+    In most cases, the value of <code>this</code> is determined by how a function is called. It can't be set by assignment during
+    execution, and it may be different each time the function is called.
+</p>
+
+<p>Another way of thinking about <code>this</code> is that <code>this</code> often refers to a Class's members.</p>
+
+<p>
+    <a href="http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/" target="_blank">
+        http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
+    </a>
+</p>
+
+<hr />
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+var person =
+{
+    FirstName: "Penelope",
+    LastName: "Barrymore",
+    FullName: function ()
+    {
+        return <mark>this.FirstName</mark> + " " + <mark>this.LastName</mark>;
+
+        // We could have also written this:​​
+        // console.log(person.firstName + " " + person.lastName);
+    }
+}
+
+let demo1 = document.getElementById("demo1");
+demo1.innerHTML = person.FullName();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        var person =
+        {
+            FirstName: "Penelope",
+            LastName: "Barrymore",
+            FullName: function () {
+                return this.FirstName + " " + this.LastName;
+
+                // We could have also written this:
+                // console.log(person.firstName + " " + person.lastName);
+            }
+        }
+
+        let demo1 = document.getElementById("demo1");
+        demo1.innerHTML = person.FullName();
+    </script>
+}

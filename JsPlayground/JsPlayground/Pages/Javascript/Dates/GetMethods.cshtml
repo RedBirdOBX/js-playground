@@ -1,0 +1,76 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Get Methods";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {get methods}
+@section PageName {Get Methods}
+
+<p>
+    Date methods let you GET and SET date values (years, months, days, hours, minutes, seconds, milliseconds).
+</p>
+
+<table class="table table-bordered table-condensed table-striped">
+    <tbody>
+        <tr>
+            <td><code>getDate()</code></td>
+            <td>Get the day as a number (1-31)</td>
+        </tr>
+
+        <tr>
+            <td><code>getDay()</code></td>
+            <td>Get the weekday as a number (0-6)</td>
+        </tr>
+
+        <tr>
+            <td><code>getFullYear()</code></td>
+            <td>Get the four digit year (yyyy)</td>
+        </tr>
+
+        <tr>
+            <td><code>getHours()</code></td>
+            <td>Get the hour (0-23)</td>
+        </tr>
+
+        <tr>
+            <td><code>getMilliseconds()</code></td>
+            <td>Get the milliseconds (0-999)</td>
+        </tr>
+
+        <tr>
+            <td><code>getMinutes()</code></td>
+            <td>Get the minutes (0-59)</td>
+        </tr>
+
+        <tr>
+            <td><code>getMonth()</code></td>
+            <td>Get the month (0-11)</td>
+        </tr>
+
+        <tr>
+            <td><code>getSeconds()</code></td>
+            <td>Get the seconds (0-59)</td>
+        </tr>
+
+        <tr>
+            <td><code>getTime()</code></td>
+            <td>Get the time (milliseconds since January 1, 1970)</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="my-5"></div>
+
+@section Scripts
+{
+}

@@ -1,0 +1,47 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Navigation.RootNodesModel
+
+@{
+    string pageId = "Root Nodes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-navigation}
+@section BreadCrumbChapter {dom navigation}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    There are two properties of the document object which allow you to get the “root” node.
+</p>
+
+<ul>
+    <li>document.body - the inner content of the body. Everything between the <strong>body</strong> tags.</li>
+    <li>document.documentElement - The full document. Everything between the <strong>html</strong> tags.</li>
+</ul>
+
+<hr />
+
+<pre>
+<code>
+alert(document.body.innerHTML);
+alert(document.documentElement.innerHTML);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        alert(document.body.innerHTML);
+        alert(document.documentElement.innerHTML);
+    </script>
+}

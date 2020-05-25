@@ -1,0 +1,66 @@
+﻿@page
+
+@{
+    string pageId = "Get Element By Tag Name";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.GetElementByTagModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    When you use the <code>getElementByTagName()</code> method, will get a list(array) of all the elements of that tag TYPE. You're
+    <strong>not</strong> looking for elements with that particular <code>name</code> attribute but instead, you are looking for
+    those element types. The snippet below will not find items with a name attribute of p but instead, it will return all p elements.
+</p>
+
+<hr />
+
+<p class="text-danger">
+    I like punch and pie. This is the 3rd paragraph on this page.
+</p>
+
+<p class="text-danger">
+    Operation Dark Shield. This is the 4th paragraph on this page.
+</p>
+
+<div>
+    <h4 class="text-info" id="demo1"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+let pList = document.getElementsByTagName("p");
+let results = "";
+
+results = "The 3rd paragraph (index 2) is: " + pList[2].innerHTML + "&lt;br />";
+results += "The 4th paragraph (index 3) is: " + pList[3].innerHTML + "&lt;br />";
+document.getElementById("demo1").innerHTML = results;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let pList = document.getElementsByTagName("p");
+        let results = "";
+
+        results = "The 3rd paragraph (index 2) is: " + pList[2].innerHTML + "<br />";
+        results += "The 4th paragraph (index 3) is: " + pList[3].innerHTML + "<br />";
+        document.getElementById("demo1").innerHTML = results;
+    </script>
+}

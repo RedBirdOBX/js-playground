@@ -1,0 +1,87 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.EvalModel
+
+
+@{
+    string pageId = "Eval";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>eval()</code> function evaluates or executes an argument.
+    If the argument is an expression, <code>eval()</code> evaluates the expression.
+    If the argument is one or more JavaScript statements, <code>eval()</code> executes the statements.
+</p>
+
+<div class="text-center m3">
+    <button class="btn btn-info" onclick="EvalTest()">Eval Test</button>
+</div>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body" id="DemoContainer">
+    </div>
+</div>
+
+<pre>
+<code>
+function EvalTest()
+{
+    // test 1
+    let x = 10;
+    let y = 20;
+    let a = eval("x * y") + "&lt;br>"; //200
+    let b = eval("2 + 2") + "&lt;br>"; // 4
+    let c = eval("x + 17") + "&lt;br>"; //27
+    let output = a + b + c; // output was html of all three lines
+    document.getElementById("DemoContainer").innerHTML = output;
+
+    // test 2
+    //let x = 10;
+    //let y = 20;
+    //let a = eval(x * y * y) + "&lt;br>";
+    //let output = a; // 4000
+    //document.getElementById("DemoContainer").innerHTML = output;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function EvalTest() {
+            // test 1
+            let x = 10;
+            let y = 20;
+            let a = eval("x * y") + "<br>";     //200
+            let b = eval("2 + 2") + "<br>";     // 4
+            let c = eval("x + 17") + "<br>";    //27
+            let output = a + b + c;             // output was html of all three lines
+            document.getElementById("DemoContainer").innerHTML = output;
+
+            // test 2
+            //let x = 10;
+            //let y = 20;
+            //let a = eval(x * y * y) + "<br>";
+            //let output = a;             // 4000
+            //document.getElementById("DemoContainer").innerHTML = output;
+        }
+    </script>
+}

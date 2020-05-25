@@ -1,0 +1,37 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.MethodsModel
+
+@{
+    string pageId = "Anonymous Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Other common window object methods are:
+</p>
+
+<ul>
+    <li><code>window.open()</code> open a new window</li>
+    <li><code>window.close()</code> close the current window</li>
+    <li><code>window.moveTo()</code> move the current window</li>
+    <li><code>window.resizeTo()</code> resize the current window</li>
+</ul>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

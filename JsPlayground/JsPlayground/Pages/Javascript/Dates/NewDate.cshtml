@@ -1,0 +1,132 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "New Date";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {new date}
+@section PageName {New Date}
+
+<p>
+    JavaScript dates are calculated in milliseconds from 01 January, 1970 00:00:00 Universal Time (UTC). One day contains
+    86,400,000 millisecond. The Date object lets us work with dates. A date consists of a year, a month, a day, an hour, a
+    minute, a second, and milliseconds.
+</p>
+
+<div>
+<pre>
+<code>
+// static method
+document.getElementById("demo").innerHTML = Date();
+</code>
+</pre>
+</div>
+
+<p>
+    Date objects are created with the <code>new Date()</code> constructor. There are 4 ways of initiating a date:
+</p>
+
+<ul>
+    <li><code>new Date();</code></li>
+    <li><code>new Date(milliseconds);</code></li>
+    <li><code>new Date(dateString);</code></li>
+    <li><code>new Date(year, month, day, hours, minutes, seconds, milliseconds);</code></li>
+</ul>
+
+<p>
+    <strong>new Date()</strong><br />
+    Using new Date(), creates a new date object with the current date and time.
+</p>
+
+<div>
+<pre>
+<code>
+// var d = new Date();
+// document.write(d);
+Thu Nov 30 2017 07:22:49 GMT-0500 (Eastern Standard Time)
+</code>
+</pre>
+</div>
+
+<div class="mb-5"></div>
+
+<p>
+    <strong>new Date([string])</strong><br />
+    Using new Date(date string), creates a new date object from the specified date and time.
+</p>
+
+<div>
+    <pre>
+<code>
+var d = new Date("October 13, 2014 11:13:00");
+document.getElementById("demo").innerHTML = d;
+Mon Oct 13 2014 11:13:00 GMT-0400 (Eastern Daylight Time)
+</code>
+</pre>
+</div>
+
+<div class="mb-5"></div>
+
+<p>
+    <strong>new Date([number])</strong><br />
+    Using new Date(number), creates a new date object as zero time plus the number. Zero time is 01 January 1970 00:00:00
+    UTC. The number is specified in milliseconds:
+</p>
+
+<div>
+    <pre>
+    <code>
+var d = new Date(86400000);
+document.getElementById("demo").innerHTML = d;
+Thu Jan 01 1970 19:00:00 GMT-0500 (Eastern Standard Time)
+        </code>
+        </pre>
+</div>
+
+<div class="mb-5"></div>
+
+<p>
+    <strong>new Date([7 numbers])</strong><br />
+    Using new Date(7 numbers), creates a new date object with the specified date and time. The 7 numbers specify the year,
+    month, day, hour, minute, second, and millisecond, in that order. Only the first 3 are required.
+</p>
+
+<div>
+<pre>
+<code>
+// year, month, day, hour (optional), minute (optional), second (optional), millisecond (optional)
+var d = new Date(99,5,24,11,33,30,0);
+document.getElementById("demo").innerHTML = d;
+</code>
+</pre>
+</div>
+
+<div class="mb-5"></div>
+
+@section Scripts
+{
+    <script>
+        let date1 = new Date();
+        document.getElementById("demo1").innerHTML = date1;
+
+        let date2 = new Date();
+        document.getElementById("demo2").innerHTML = date2;
+
+        let date3 = new Date("2017-04-30T12:30:00");
+        document.getElementById("demo3").innerHTML = date3;
+
+        let date4 = new Date("04/30/2017");
+        document.getElementById("demo4").innerHTML = date4;
+
+        let date5 = new Date("Mar 25 2015");
+        document.getElementById("demo5").innerHTML = date5;
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Snippets.IsNumericModel
+
+@{
+    string pageId = "IsNumeric";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-snippets}
+@section BreadCrumbChapter {snippets}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<!doctype html>
+
+<pre>
+<code>
+function IsNumeric()
+{
+    let testString = document.getElementById("txtTest").value;
+    let strValidChars = "0123456789";
+    let strChar;
+    let blnResult = true;
+
+    console.log(testString);
+
+    if (testString.length == 0)
+    {
+        return false;
+    }
+
+    // test strString consists of valid characters listed above
+    for (i = 0; i < testString.length && blnResult==true; i++)
+    {
+        strChar=testString.charAt(i);
+        if (strValidChars.indexOf(strChar)==-1)
+        {
+            blnResult=false;
+            alert("NOT numeric");
+        }
+        else
+        {
+            alert("IS numeric!");
+            return blnResult;
+        }
+    }
+    alert("Out of loop!");
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

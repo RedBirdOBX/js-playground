@@ -1,0 +1,45 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Best Practices";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {best practices}
+@section PageName {Best Practices}
+
+<ul>
+    <li>Use camelCase for variable names</li>
+    <li>Use PascalCase for function names</li>
+    <li>Use strict mode ("use strict") when possible</li>
+    <li>Use === when possible</li>
+    <li>Initialize variables when declared</li>
+    <li>Provide a single place to initialize variables</li>
+    <li>Use parameter/argument defaults</li>
+</ul>
+
+<p>Use and set parameter/argument defaults like so:</p>
+
+<pre>
+<code>
+function myFunction(x, y)
+{
+    if (y === undefined)
+    { y = 0; }
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

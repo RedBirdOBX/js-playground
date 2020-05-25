@@ -1,0 +1,108 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.SetIntervalModel
+
+@{
+    string pageId = "Set Interval";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The window object allows execution of code at specified timed intervals. These time intervals are called timing events.
+</p>
+
+<p>The four key methods to use with JavaScript are:</p>
+
+<ul>
+    <li><code>setTimeout(function, milliseconds)</code> executes a function, after waiting a specified number of milliseconds</li>
+    <li><code>clearTimeout()</code> method clears a timer set with the setTimeout() method</li>
+    <li><code>setInterval(function, milliseconds)</code> same as setTimeout(), but repeats the execution of the function <strong>continuously</strong></li>
+    <li><code>clearInterval()</code> clears a timer set with the setInterval() method</li>
+</ul>
+
+<p>
+    The <code>window.setInterval</code> method calls a function or evaluates an expression at specified intervals (in milliseconds). The
+    setInterval() method will continue calling the function until <code>clearInterval()</code> is called, or the window is closed.
+</p>
+
+<p>
+    This example displays the current time (the setInterval() method will execute the function once every 1 second, just
+    like a digital watch).  Once you click the button, it will call the <code>clearInterval</code> and stop the code.
+</p>
+
+<div class="text-center my-3">
+    <button class="btn btn-danger" type="button" onclick="StopCountdown()">Stop the countdown</button>
+</div>
+
+<h4 class="text-danger text-center py-5" id="demo1"></h4>
+
+<pre>
+<code>
+const ShowMessage = () =>
+{
+    document.getElementById("demo1").innerHTML = "Hello World!";
+    clearInterval(intervalTimerId);
+}
+
+const UpdateDisplay = () =>
+{
+    document.getElementById("demo1").innerHTML = `Showing message in ${countdown}.`;
+    countdown--;
+}
+
+const StopCountdown = () =>
+{
+    console.log("Stopping clock...");
+    clearInterval(intervalTimerId);
+    clearTimeout(timeoutTimerId);
+};
+
+let countdown = 10;
+let delay = 10000;
+let timeoutTimerId = setTimeout(ShowMessage, delay);
+let intervalTimerId = setInterval(UpdateDisplay, 1000);
+</code>
+</pre>
+
+<p><a href="http://www.w3schools.com/jsref/met_win_setinterval.asp">http://www.w3schools.com/jsref/met_win_setinterval.asp</a></p>
+<p><a href="https://www.w3schools.com/jsref/met_win_clearinterval.asp">https://www.w3schools.com/jsref/met_win_clearinterval.asp</a></p>
+<p><a href="http://www.w3schools.com/js/js_timing.asp">http://www.w3schools.com/js/js_timing.asp</a></p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        const ShowMessage = () => {
+            document.getElementById("demo1").innerHTML = "Hello World!";
+            clearInterval(intervalTimerId);
+        }
+
+        const UpdateDisplay = () => {
+            document.getElementById("demo1").innerHTML = `Showing message in ${countdown}.`;
+            countdown--;
+        }
+
+        const StopCountdown = () => {
+            console.log("Stopping clock...");
+            clearInterval(intervalTimerId);
+            clearTimeout(timeoutTimerId);
+        };
+
+        let countdown = 10;
+        let delay = 10000;
+        let timeoutTimerId = setTimeout(ShowMessage, delay);
+        let intervalTimerId = setInterval(UpdateDisplay, 1000);
+    </script>
+}

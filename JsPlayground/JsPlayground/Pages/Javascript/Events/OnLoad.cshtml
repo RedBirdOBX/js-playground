@@ -1,0 +1,94 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Onload";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onload}
+@section PageName {Onload}
+
+<p>
+    The <code>onload</code> event occurs when an <strong>object</strong> has been loaded.
+    <code>onload</code> is most often used within the body
+        element to execute a script
+        once a web page has completely loaded all content (including images, script files,
+        CSS files, etc.).
+</p>
+
+<p>
+    The onload event can be used to check the visitor's browser type and browser version, and load the proper version of
+    the web page based on the information.
+</p>
+
+<p>
+    Here is an example of using the <code>load</code> event. This is a method of the document object and is triggered when the page
+    loads. In this example, the function will display the current MONTH once the page loads.
+</p>
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+    <h4 class="text-center text-info"><span id="demo3"></span></h4>
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onload="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onload = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("load", myScript);
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let pageBody = document.getElementById("page-body");
+        pageBody.onload = ShowMonth();
+        pageBody.onload = ShowStart();
+        pageBody.onunload = ShowEnd();
+
+        function ShowMonth() {
+            let currentDate = new Date();
+            let output = (currentDate.getMonth() + 1);
+            document.getElementById("demo1").innerHTML = "load: Month # " + output;
+        }
+
+        function ShowStart() {
+            let demo2 = document.getElementById("demo2");
+            demo2.innerHTML = "load: Started at " + new Date().getMilliseconds() + "<br />";
+        }
+
+        function ShowEnd() {
+            let counter = 0;
+            do {
+                counter++;
+            }
+            while (counter < 10000000);
+
+            let demo3 = document.getElementById("demo3");
+            demo3.innerHTML = "unload: Ended at " + new Date().getMilliseconds();
+        }
+
+    </script>
+}

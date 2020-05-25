@@ -1,0 +1,62 @@
+﻿@page
+
+@model AddingModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Adding";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-elements}
+@section BreadCrumbChapter {dom elements}
+@section BreadCrumbPageName {adding}
+@section PageName {Adding DOM Elements}
+
+<p>Use <code>appendChild</code> to add the new element under its parent.</p>
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+
+<pre>
+<code>
+&lt;div id="div1">
+    &lt;p id="p1">This is a paragraph.&lt;/p>
+    &lt;p id="p2">This is another paragraph.&lt;/p>
+&lt;/div>
+
+let newParagraph = document.createElement("p");
+let paragraphText = document.createTextNode("This is new.");
+newParagraph.appendChild(paragraphText);
+newParagraph.setAttribute("class","text-success");
+// or
+// newParagraph.innerHTML = "This is new";
+var element = document.getElementById("div1");
+element.appendChild(newParagraph);
+
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let newParagraph = document.createElement("p");
+        let paragraphText = document.createTextNode("This is new.");
+        newParagraph.appendChild(paragraphText);
+        newParagraph.setAttribute("class", "text-success");
+        // or
+        // newParagraph.innerHTML = "This is new";
+        var element = document.getElementById("div1");
+        element.appendChild(newParagraph);
+    </script>
+}

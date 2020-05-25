@@ -1,0 +1,43 @@
+﻿@page
+
+@model PushModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "push()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {push()}
+@section PageName {push()}
+
+<div>
+    <h3 class="text-danger" id="example"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Apples","Bananas","Oranges"];
+fruits.push("Pineapple");
+let exampleLabel = document.getElementById("example");
+exampleLabel.innerHTML = fruits.toString();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Apples", "Bananas", "Oranges"];
+        fruits.push("Pineapple");
+        let exampleLabel = document.getElementById("example");
+        exampleLabel.innerHTML = fruits.toString();
+    </script>
+}

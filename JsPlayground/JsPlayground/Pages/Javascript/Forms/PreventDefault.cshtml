@@ -1,0 +1,64 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Forms.PreventDefaultModel
+
+@{
+    string pageId = "Prevent Default";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>preventDefault()</code> method cancels the event if it is cancelable, meaning that the default action that belongs to
+    the event will not occur. Not all events are cancelable. Use the cancelable property to find out if an event is cancelable.
+</p>
+
+<p>
+    <a href="https://www.w3schools.com/jsref/event_preventdefault.asp">
+        https://www.w3schools.com/jsref/event_preventdefault.asp
+    </a><br />
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">
+        https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+    </a>
+</p>
+
+<hr />
+
+<form id="TestForm">
+
+    <p>Please click on the checkbox control.</p>
+
+    <label for="id-checkbox">Checkbox:</label>
+    <input type="checkbox" id="id-checkbox" />
+
+    <div id="output-box">
+    </div>
+
+</form>
+
+<hr />
+
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        document.querySelector("#id-checkbox").addEventListener("click", function (event) {
+            document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+            event.preventDefault();
+        }, false);
+    </script>
+}
+

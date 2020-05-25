@@ -1,0 +1,56 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Math.RandomModel
+
+@{
+    string pageId = "Random";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-math}
+@section BreadCrumbChapter {math}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>Math.random()</code> returns a random number.
+    It returns a random number between 0 and a number lower than 1. Additional logic (like with <code>Math.ceil()</code>
+    will be needed to return a random integer.
+</p>
+
+<p>
+    <strong>Tip: </strong> <code>Math.ceil()</code> and <code>Math.random()</code> can be used together to return a
+    random number between 0 and 10.
+</p>
+
+<pre>
+<code>
+let demo1 = document.getElementById("demo1");
+demo1.innerHTML = "Random Number: " + (Math.ceil(Math.random() * 10));
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p><a href="http://www.w3schools.com/jsref/jsref_random.asp" target="_blank">http://www.w3schools.com/jsref/jsref_random.asp</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let demo1 = document.getElementById("demo1");
+        demo1.innerHTML = "Random Number: " + (Math.ceil(Math.random() * 10));
+    </script>
+}

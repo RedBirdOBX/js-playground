@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Navigation.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-navigation}
+@section BreadCrumbChapter {dom navigation}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    According to the W3C HTML DOM standard, everything in an HTML document is a node:
+</p>
+
+<ul>
+    <li>The entire document is a document node</li>
+    <li>Every HTML element is an element node</li>
+    <li>The text inside HTML elements are text nodes</li>
+    <li>Every HTML attribute is an attribute node</li>
+    <li>All comments are comment nodes</li>
+</ul>
+
+<div class="my-3">
+    <img src="/assets/images/dom-tree.PNG" class="mx-auto d-block" />
+</div>
+
+<p>
+    With the HTML DOM, all nodes in the node tree can be accessed by JavaScript. New nodes can be created, and all nodes
+    can be modified or deleted.
+</p>
+
+<p>
+    <strong>Node Relationships</strong><br />
+    The terms parent, child, and sibling are used to describe the relationships.
+</p>
+
+<ul>
+    <li>In a node tree, the top node is called the root (or root node)</li>
+    <li>Every node has exactly one parent, except the root (which has no parent)</li>
+    <li>A node can have any number of children</li>
+    <li>Siblings (brothers or sisters) are nodes with the same parent</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><a href="https://www.w3schools.com/js/js_htmldom_navigation.asp" target="_blank">https://www.w3schools.com/js/js_htmldom_navigation.asp</a></p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

@@ -1,0 +1,97 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Navigation.ReplaceChildModel
+
+@{
+    string pageId = "Replace Child";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-navigation}
+@section BreadCrumbChapter {dom navigation}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    To replace an element to the HTML DOM, use the <code>replaceChild()</code> method.
+</p>
+
+<hr />
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+
+<hr />
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<pre>
+<code>
+&lt;div id="div1">
+    &lt;p id="p1">This is a paragraph.&lt;/p>
+    &lt;p id="p2">This is another paragraph.&lt;/p>
+&lt;/div>
+
+// new p node
+let newParagraph = document.createElement("p");
+
+// new text node under the new p node
+let newText = document.createTextNode("This is new.");
+
+// add the text
+newParagraph.appendChild(newText);
+
+// this also works
+//newParagraph.innerHTML = "this is new stuff";
+
+// find the parent
+let parent = document.getElementById("div1");
+
+// find the node to be replaced
+let oldParagraph = document.getElementById("p1");
+
+// replace it.
+parent.replaceChild(newParagraph, oldParagraph);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // new p node
+        let newParagraph = document.createElement("p");
+
+        // new text node under the new p node
+        let newText = document.createTextNode("This is new.");
+
+        // add the text
+        newParagraph.appendChild(newText);
+
+        // this also works
+        //newParagraph.innerHTML = "this is new stuff";
+
+        // find the parent
+        let parent = document.getElementById("div1");
+
+        // find the node to be replaced
+        let oldParagraph = document.getElementById("p1");
+
+        // replace it.
+        parent.replaceChild(newParagraph, oldParagraph);
+    </script>
+}
+

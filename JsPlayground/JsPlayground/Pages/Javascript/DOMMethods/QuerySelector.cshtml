@@ -1,0 +1,67 @@
+﻿@page
+
+@{
+    string pageId = "Query Selector";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.QuerySelectorModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    In addition to using a getElementsById/TagName/Class method, you can use the <code>querySelectorAll</code> method.
+    Like before, you will get a list(array) of all the elements with that match. Using the code below, we will look and see what the
+    contents of paragraphs 1 & 2 are.
+</p>
+
+<hr />
+
+<p class="special">This is a very special paragraph.</p>
+
+<p>This is NOT a special paragraph.</p>
+
+<p class="special">This is another special paragraph.</p>
+
+<p>This is a NOT special paragraph.</p>
+
+<div>
+    <h4 class="text-info" id="demo1"></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+let specialParagraphs = document.querySelectorAll("p.special");
+let results = "";
+
+results = "The first paragraph (index 0) which has the special class is: " + specialParagraphs[0].innerHTML + "&lt;br />";
+document.getElementById("demo1").innerHTML = results;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        let specialParagraphs = document.querySelectorAll("p.special");
+        let results = "";
+
+        results = "The first paragraph (index 0) which has the special class is: " + specialParagraphs[0].innerHTML + "<br />";
+        document.getElementById("demo1").innerHTML = results;
+    </script>
+
+}

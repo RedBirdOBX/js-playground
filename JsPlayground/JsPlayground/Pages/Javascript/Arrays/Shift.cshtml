@@ -1,0 +1,64 @@
+﻿@page
+
+@model ShiftModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "shift()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {shift()}
+@section PageName {shift()}
+
+<p>
+    Shifting is equivalent to popping, working on the <strong>first element instead of the last</strong>. The shift() method removes the
+    first array element and "shifts" all other elements to a lower index. It DOES reassign new indexes.
+</p>
+
+<div>
+    <h3 class="text-danger" id="before"></h3>
+    <h3 class="text-danger" id="after"></h3>
+    <h3 class="text-danger" id="demo2"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("before").innerHTML = fruits.join("-");
+
+fruits.shift();
+
+document.getElementById("after").innerHTML = fruits.join("-");
+
+let output = "";
+for (var i = 0; i &lt; fruits.length; i++) { output +="The index is " + i + "&lt;br />" ; }
+document.getElementById("demo2").innerHTML=output;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("before").innerHTML = fruits.join("-");
+
+        fruits.shift();
+
+        document.getElementById("after").innerHTML = fruits.join("-");
+
+        let output = "";
+        for (var i = 0; i < fruits.length; i++) {
+            output += "The index is " + i + "<br />";
+        }
+        document.getElementById("demo2").innerHTML = output;
+    </script>
+}

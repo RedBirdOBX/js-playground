@@ -1,0 +1,90 @@
+﻿@page
+
+@model ValidationAPIExample2Model
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Validation API Example";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-api}
+@section BreadCrumbChapter {api}
+@section BreadCrumbPageName {validation api example}
+@section PageName {Validation API Example}
+
+<p>You also chose to use some of the <strong>validity properties</strong> to test against.</p>
+
+<ul>
+    <li><strong>customError</strong> - Set to true, if a custom validity message is set.</li>
+    <li><strong>patternMismatch</strong> - Set to true, if an element's value does not match its pattern attribute.</li>
+    <li><strong>rangeOverflow</strong> - Set to true, if an element's value is greater than its max attribute.</li>
+    <li><strong>rangeUnderflow</strong> - Set to true, if an element's value is less than its min attribute.</li>
+    <li><strong>stepMismatch</strong> - Set to true, if an element's value is invalid per its step attribute.</li>
+    <li><strong>tooLong</strong> - Set to true, if an element's value exceeds its maxLength attribute.</li>
+    <li><strong>typeMismatch</strong> - Set to true, if an element's value is invalid per its type attribute.</li>
+    <li><strong>valueMissing</strong> - Set to true, if an element (with a required attribute) has no value.</li>
+    <li><strong>valid</strong> - Set to true, if an element's value is valid.</li>
+</ul>
+
+<p>For example, here's how we can use a <code>rangeUnderflow</code> property:</p>
+
+<p>Enter a number higher than 99.</p>
+
+<div class="form-group">
+    <label for="txtNumber2" class="col-sm-3 control-label">Enter a Number</label>
+    <div class="col-sm-9">
+        <input type="number" class="form-control" id="txtNumber2" min="100">
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <button type="button" onclick="myFunction2();" class="btn btn-primary btn-lg">Check Number</button>
+    </div>
+</div>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<hr />
+
+<pre>
+<code>
+function myFunction2()
+{
+    let input = document.getElementById("txtNumber2");
+    let msg = "Number is too low.";
+
+    if (input.validity.rangeUnderflow)
+    {
+        document.getElementById("demo1").innerHTML = msg;
+    }
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function myFunction2() {
+            let input = document.getElementById("txtNumber2");
+            let msg = "Number is too low.";
+
+            if (input.validity.rangeUnderflow) {
+                document.getElementById("demo1").innerHTML = msg;
+            }
+        }
+    </script>
+}

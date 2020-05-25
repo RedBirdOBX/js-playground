@@ -1,0 +1,57 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Properties.InnerHtmlInnerTextsModel
+
+@{
+    string pageId = "Inner Html / Inner Text";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-properties}
+@section BreadCrumbChapter {dom properties}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    By using the <code>innerHTML</code> property, you can add html to a tag.
+</p>
+
+<p class="text-danger" id="paragraph1"></p>
+
+<p>
+    By using the <code>innerText</code> property, you add it all as text (encoded).
+</p>
+
+<p id="paragraph2"></p>
+
+
+<pre>
+<code>
+let p1 = document.getElementById("paragraph1");
+p1.innerHTML = "&lt;strong>Hello World&lt;/strong>";
+
+let p2 = document.getElementById("paragraph2");
+p2.innerText = "&lt;strong>Hello World&lt;/strong>";
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let p1 = document.getElementById("paragraph1");
+        p1.innerHTML = "<strong>Hello World</strong>";
+
+        let p2 = document.getElementById("paragraph2");
+        p2.innerText = "<strong>Hello World</strong>";
+    </script>
+}

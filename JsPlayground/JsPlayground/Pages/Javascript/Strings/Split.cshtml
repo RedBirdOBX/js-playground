@@ -1,0 +1,86 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.SplitModel
+
+@{
+    string pageId = "Split";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    A string can be converted to an array with the <code>split()</code> method. If the separator is omitted, the returned array will
+    contain the whole string in index[0].
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// create string
+var txt = "a,b,c,d,e";
+
+// split into an array
+array = txt.split(",");
+
+// loop through array and make an html string
+let x = 0;
+let numberOfLoops = array.length;
+let htmlOutput = "";
+
+do
+{
+    htmlOutput += array[x] + "&lt;br />";
+    x++;
+}
+while (x < numberOfLoops);
+
+document.getElementById("demo1").innerHTML=htmlOutput;
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            // create string
+            var txt = "a,b,c,d,e";
+
+            // split into an array
+            array = txt.split(",");
+
+            // loop through array and make an html string
+            let x = 0;
+            let numberOfLoops = array.length;
+            let htmlOutput = "";
+
+            do {
+                htmlOutput += array[x] + "<br />";
+                x++;
+            }
+            while (x < numberOfLoops);
+
+            document.getElementById("demo1").innerHTML = htmlOutput;
+        }
+
+    </script>
+}

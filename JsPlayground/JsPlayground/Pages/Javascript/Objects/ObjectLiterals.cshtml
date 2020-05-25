@@ -1,0 +1,72 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.ObjectLiteralsModel
+
+@{
+    string pageId = "Object Literals";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    When you define an object "hard-coded style" (object literal), you can do a few things.
+</p>
+
+<pre>
+<code>
+let mystery = "SecretToLife";
+
+let Spaceship =
+{
+Designation : "NCC-1701",
+Name : "Enterprise",
+CalculateSpeed() {return 100; },
+CalculateCrew: (crew) => { return crew * 1; },
+
+// note the name of this property is set elsewhere!
+// this is known as a dynamic property.
+[mystery] : 42
+};
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-2">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let mystery = "SecretToLife";
+
+        let Spaceship =
+        {
+            Designation: "NCC-1701",
+            Name: "Enterprise",
+            CalculateSpeed() { return 100; },
+            CalculateCrew: (crew) => { return crew * 1; },
+
+            // note the name of this property is set elsewhere!
+            [mystery]: 42
+        };
+
+        window.onload = function () {
+            // example 1
+            document.getElementById("demo1").innerHTML = `Spaceship: ${Spaceship.Name}<br />Speed: ${Spaceship.CalculateSpeed()}`;
+        }
+    </script>
+}

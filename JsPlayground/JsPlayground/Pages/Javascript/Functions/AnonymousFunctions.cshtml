@@ -1,0 +1,49 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.AnonymousFunctionsModel
+
+@{
+    string pageId = "Anonymous Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The function x below is an <code>anonymous</code> function. It is a function <strong>without</strong> a name.
+    These functions are stored in variables and do not need function names.
+    It's just a function...without a name...assigned to a variable.
+    They are always invoked (called) using the variable name.
+</p>
+
+<pre>
+<code>
+// anonymous examples
+var x = function (a, b) {return a * b};
+var z = x(4, 3);
+
+// named example
+var x = FunctionY(a, b);
+function FunctionY(a, b)
+{
+    return a * b;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}
+

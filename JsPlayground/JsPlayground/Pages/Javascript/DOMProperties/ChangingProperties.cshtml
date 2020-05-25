@@ -1,0 +1,76 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Properties.ChangingPropertiesModel
+
+@{
+    string pageId = "Changing Properties";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-properties}
+@section BreadCrumbChapter {dom properties}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    You can also convert an HTML element into a object and change it's relevant properties. You can change the style on text
+    elements, src on image elements and so on.
+</p>
+
+<p id="paragraph1">Hello World</p>
+
+<p class="text-center"><img id="image1" src="" /></p>
+
+<pre>
+<code>
+let p1 = document.getElementById("paragraph1");
+p1.style = "color:red";
+
+let img1 = document.getElementById("image1");
+img1.src = "../../assets/images/minion.jpg";
+</code>
+</pre>
+
+<hr />
+
+<p><strong>Changing CSS</strong></p>
+
+<p>
+    You can also change CSS by updating the <code>style</code> property of a DOM Element.
+    This is not the preferred method as it only adds in-line styles to the element.
+    (A more preferred way is to use the <code>setAttribute</code> method and change the CSS Class.)
+</p>
+
+<p id="paragraph2">Hello World</p>
+
+<pre>
+<code>
+document.getElementById("paragraph2").style.color = "blue";
+document.getElementById("paragraph2").style.fontWeight = "bold";
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let p1 = document.getElementById("paragraph1");
+        p1.style = "color:red";
+
+        let img1 = document.getElementById("image1");
+        img1.src = "../../assets/images/minion.jpg";
+
+
+        document.getElementById("paragraph2").style.color = "blue";
+        document.getElementById("paragraph2").style.fontWeight = "bold";
+    </script>
+}

@@ -1,0 +1,53 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Deleting";
+}
+
+@model DeletingModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-elements}
+@section BreadCrumbChapter {dom elements}
+@section BreadCrumbPageName {deleting}
+@section PageName {Deleting DOM Elements}
+
+<p>Use <code>removeChild</code> to remove the new element from its parent.</p>
+
+<div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+</div>
+
+<pre>
+<code>
+&lt;div id="div1">
+    &lt;p id="p1">This is a paragraph.&lt;/p>
+    &lt;p id="p2">This is another paragraph.&lt;/p>
+&lt;/div>
+
+let container = document.getElementById("div1");
+let removeP = document.getElementById("p2");
+container.removeChild(removeP);
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        let container = document.getElementById("div1");
+        let removeP = document.getElementById("p2");
+        container.removeChild(removeP);
+    </script>
+}

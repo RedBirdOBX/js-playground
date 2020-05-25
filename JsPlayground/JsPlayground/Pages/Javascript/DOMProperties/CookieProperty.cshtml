@@ -1,0 +1,177 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Properties.CookiePropertiesModel
+@{
+    string pageId = "Cookie Property";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-properties}
+@section BreadCrumbChapter {dom properties}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about
+    the user. When a user visits a web page, his name can be stored in a cookie. Next time the user visits the page, the cookie
+    "remembers" his name. Cookies are saved in name-value pairs.
+</p>
+
+<p>
+    JavaScript can create, read, and delete cookies with the <code>document.cookie</code> property.
+</p>
+
+<p>
+    Here are a few examples of setting a cookie:
+</p>
+<pre>
+<code>
+document.cookie = "username=John Doe";
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC";
+document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+</code>
+</pre>
+
+<p>
+    <strong>Reading a cookie</strong><br />
+    <code>var x = document.cookie;</code>
+</p>
+
+
+<p>
+    <strong>Deleting a cookie</strong><br />
+    <code>
+        // Just set the expires parameter to a passed date:<br />
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    </code>
+</p>
+
+
+<p>
+    Even if you write a whole cookie string to document.cookie, when you read it out again, you can only see the name-value
+    pair of it.  If you set a new cookie, older cookies are not overwritten. The new cookie is added to document.cookie.
+</p>
+
+<p>
+    Here we will set a attribute of message in the cookie and set it's value. We will also set an expiration date of 7 days
+    from now.
+</p>
+
+<p>TIP: EditThisCookie Chrome Extension is a useful tool. </p>
+
+<hr />
+
+<div class="my-3">
+    <h4><span id="demo1"></span></h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+function LookForMsgCookie()
+{
+    // to store results
+    var html = "";
+
+    // look for a specific cookie name
+    var cookieName = "message=";
+
+    // Look at any existing cookie and split it's values into an array
+    var attributeArray = document.cookie.split(';');
+
+    for (var i = 0; i < attributeArray.length; i++)
+    {
+        // cookie array item
+        var item=attributeArray[i];
+
+        // I assume the entry starts with a leading space?
+        while (item.charAt(0)==' ' )
+        {
+            // get everything after the second position
+            item=item.substring(1);
+        }
+
+        // if 'message' is found - does not have index of -1
+        if (item.indexOf(cookieName)==0)
+        {
+            html=item.substring(cookieName.length, item.length);
+        }
+    }
+    document.getElementById("demo1").innerHTML=html;
+}
+
+function SetCookie()
+{
+    var expDate=new Date();
+    var expDays=7;
+
+    // create the expiration date 7 days from now
+    expDate.setTime(expDate.getTime() + (expDays * 24 * 60 * 60 * 1000));
+    // set the cookie
+    document.cookie="message=" + "Hello World;expires=" + expDate;
+}
+        </code>
+        </pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+
+        SetCookie();
+        LookForMsgCookie();
+
+        function LookForMsgCookie() {
+            // to store results
+            var html = "";
+
+            // look for a specific cookie name
+            var cookieName = "message=";
+
+            // Look at any existing cookie and split it's values into an array
+            var attributeArray = document.cookie.split(';');
+
+            for (var i = 0; i < attributeArray.length; i++) {
+
+                // cookie array item
+                var item = attributeArray[i];
+
+                // I assume the entry starts with a leading space?
+                while (item.charAt(0) == ' ') {
+                    // get everything after the second position
+                    item = item.substring(1);
+                }
+
+                // if 'message' is found - does not have index of -1
+                if (item.indexOf(cookieName) == 0) {
+                    html = item.substring(cookieName.length, item.length);
+                }
+            }
+
+            document.getElementById("demo1").innerHTML = html;
+
+        }
+
+        function SetCookie() {
+            var expDate = new Date();
+            var expDays = 7;
+
+            // create the expiration date 7 days from now
+            expDate.setTime(expDate.getTime() + (expDays * 24 * 60 * 60 * 1000));
+
+            // set the cookie
+            document.cookie = "message=" + "Hello World;expires=" + expDate;
+        }
+
+    </script>
+}

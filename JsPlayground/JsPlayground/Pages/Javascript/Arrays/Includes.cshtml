@@ -1,0 +1,75 @@
+﻿@page
+
+@model IncludesModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "includes()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {includes()}
+@section PageName {includes()}
+
+<p>
+    The <code>includes()</code> method determines whether an array contains a specified element and returns a boolean response.
+    This method returns true if the array contains the element, and false if not. Note: The includes() method <strong>is</strong>
+    case sensitive. ECMAScript 7+.
+</p>
+
+<div class="m-3">
+    <code>myArray.includes({element}, {start index (optional)})</code>
+</div>
+
+<p><a href="https://www.w3schools.com/jsref/jsref_includes_array.asp" target="_blank">https://www.w3schools.com/jsref/jsref_includes_array.asp</a></p>
+
+<div class="card text-white bg-info my-5">
+    <div class="card-body">
+        <p class="text-white" id="demo1"></p>
+        <p class="text-white" id="demo2"></p>
+        <p class="text-white" id="demo3"></p>
+    </div>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let demo1Response = fruits.includes("Pear");
+document.getElementById("demo1").innerHTML = `Does fruits include Pear? Answer:
+${(demo1Response.toString().toUpperCase())}.`;;
+
+let demo2Response = fruits.includes("Apple");
+document.getElementById("demo2").innerHTML = `Does fruits include Apple? Answer:
+${(demo2Response.toString().toUpperCase())}.`;;
+
+// with a starting position
+let demo3Response = fruits.includes("Banana", 1);
+document.getElementById("demo3").innerHTML = `Does fruits include Banana starting at position 2? Answer:
+${(demo3Response.toString().toUpperCase())}.`;;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+        let demo1Response = fruits.includes("Pear");
+        document.getElementById("demo1").innerHTML = `Does fruits include Pear? Answer: ${(demo1Response.toString().toUpperCase())}.`;;
+
+        let demo2Response = fruits.includes("Apple");
+        document.getElementById("demo2").innerHTML = `Does fruits include Apple? Answer: ${(demo2Response.toString().toUpperCase())}.`;;
+
+        let demo3Response = fruits.includes("Banana", 1);
+        document.getElementById("demo3").innerHTML = `Does fruits include Banana starting at position 2? Answer: ${(demo3Response.toString().toUpperCase())}.`;;
+    </script>
+}

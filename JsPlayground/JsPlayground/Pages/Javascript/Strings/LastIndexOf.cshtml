@@ -1,0 +1,55 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Strings.LastIndexOfModel
+
+@{
+    string pageId = "LastIndexOf";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-strings}
+@section BreadCrumbChapter {strings}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>lastIndexOf()</code> method returns the index of the last occurrence of a specified text in a string. If it is NOT found,
+    it will return a -1.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let str = "Please locate where 'locate' occurs!";
+let pos = str.lastIndexOf("locate");
+document.getElementById("demo1").innerHTML = "The position of the last 'locate' is: " + pos + ".";
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        window.onload = function () {
+            let str = "Please locate where 'locate' occurs!";
+            let pos = str.lastIndexOf("locate");
+            document.getElementById("demo1").innerHTML = "The position of the last 'locate' is: " + pos + ".";
+        }
+    </script>
+}

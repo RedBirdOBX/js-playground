@@ -1,0 +1,62 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Types.DataTypesModel
+
+@{
+    string pageId = "Data Types";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>JavaScript supports the following data types:</p>
+
+<ul>
+    <li>numbers</li>
+    <li>strings</li>
+    <li>boolean</li>
+    <li>arrays</li>
+    <li>objects</li>
+</ul>
+
+<p>
+    <strong>Strings:</strong> All string methods return a new string. They don't modify the original string. Formally said: Strings are immutable:
+    Strings cannot be changed, only replaced.
+</p>
+
+<p>
+    <strong>Arrays:</strong> JavaScript arrays are written with square brackets. Array items are separated by commas. Array indexes are zero-based,
+    which means the first item is [0], second is [1], and so on.
+</p>
+
+<div>
+    <code>var cars = ["Saab", "Volvo", "BMW"];</code>
+</div>
+
+<p>
+    <strong>Objects:</strong> JavaScript objects are written with curly braces. Object properties are written as name:value pairs, separated by
+    commas.
+</p>
+
+<div>
+    <code>var person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};</code>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

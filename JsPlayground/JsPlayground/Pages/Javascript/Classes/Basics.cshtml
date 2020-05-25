@@ -1,0 +1,113 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Basics";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {basics}
+@section PageName {Basics}
+
+
+<p>
+    Classes are covered in a lot more detail in the TypeScript section.  That said, ECMAScript / JavaScript 6
+    now supports Classes. Study the code below which is plain vanilla js.
+</p>
+
+<p>
+    Remember, like TypeScript, Classes can have many functions within them but the do <strong>not</strong>
+    use the <code>function</code> keyword.
+</p>
+
+<pre>
+<code>
+class Person
+{
+    constructor(fullName)
+    {
+        this.FullName = fullName;
+    }
+
+    Greeting()
+    {
+        document.getElementById("demo1").innerHTML = `Hello ${this.FullName}.`;
+    }
+}
+
+class Student extends Person
+{
+    constructor(fullName, level)
+    {
+        // if you have a class which extends another class (abstract),
+        // and your derived class has a constructor, then you must use
+        // the super function keyword.
+        super(fullName);
+        this.Level = level;
+    }
+
+    Greeting()
+    {
+        document.getElementById("demo2").innerHTML = `Hello ${this.FullName} from ${this.Level}.`;
+    }
+}
+
+let person1 = new Person("Max");
+let person2 = new Student("Ricky Bobby", "1st Level");
+
+person1.Greeting();
+person2.Greeting();
+</code>
+</pre>
+
+<div class="card text-white mt-1">
+    <div class="card-body">
+        <div id="demo1" class="text-info"></div>
+        <div id="demo2" class="text-warning"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        class Person {
+            constructor(fullName) {
+                this.FullName = fullName;
+            }
+
+            Greeting() {
+                document.getElementById("demo1").innerHTML = `Hello ${this.FullName}.`;
+            }
+        }
+
+        class Student extends Person {
+            constructor(fullName, level) {
+                // if you have a class which extends another class (abstract),
+                // and your derived class has a constructor, then you must use
+                // the super function keyword.
+                super(fullName);
+                this.Level = level;
+            }
+
+            Greeting() {
+                document.getElementById("demo2").innerHTML = `Hello ${this.FullName} from ${this.Level}.`;
+            }
+        }
+
+        let person1 = new Person("Max");
+        let person2 = new Student("Ricky Bobby", "1st Level");
+
+        person1.Greeting();
+        person2.Greeting();
+    </script>
+}

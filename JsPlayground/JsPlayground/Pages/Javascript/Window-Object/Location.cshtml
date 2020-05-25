@@ -1,0 +1,113 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Window_Object.LocationModel
+
+@{
+    string pageId = "Location";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-window}
+@section BreadCrumbChapter {window}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>window.location</code> object contains many properties and methods and can be used to get the current page address (URL)
+    and to redirect the browser to a new page.
+</p>
+
+<p>
+    The window.location object can be written without the window prefix. Some examples:
+</p>
+
+<ul>
+    <li><code>window.location.href</code> returns the href (URL) of the current page</li>
+    <li><code>window.location.hostname</code> returns the domain name of the web host (ip or url)</li>
+    <li><code>window.location.pathname</code> returns the path and filename of the current page</li>
+    <li><code>window.location.protocol</code> returns the web protocol used (http:// or https://)</li>
+    <li><code>window.location.assign(url)</code> loads a new document (takes url)</li>
+</ul>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let output = "";
+let Location =
+{
+    Href: window.location.href,
+    HostName: window.location.hostname,
+    PathName: window.location.pathname,
+    Protocol: window.location.protocol,
+    Assign: window.location.assign
+}
+
+output += "href: " + Location.Href + "&lt;br />";
+output += "hostname: " + Location.HostName + "&lt;br />";
+output += "pathname: " + Location.PathName + "&lt;br />";
+output += "protocol: " + Location.Protocol + "&lt;br />";
+output += "assign: " + Location.Assign + "&lt;br />";
+
+document.getElementById("demo1").innerHTML = output;
+</code>
+</pre>
+
+<hr />
+
+<p>Here is a simple example on how to use assign to send the user to another URL.</p>
+
+<p class="text-center"><input type="button" class="btn btn-danger" value="Get Outta Here" onclick="GetOuttaHere()" /></p>
+
+<pre>
+<code>
+function GetOuttaHere()
+{
+    window.location.assign("http://www.google.com");
+}
+</code>
+</pre>
+
+<p><a href="http://www.w3schools.com/js/js_window_location.asp" target="_blank">http://www.w3schools.com/js/js_window_location.asp</a>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let output = "";
+        let Location =
+        {
+            Href: window.location.href,
+            HostName: window.location.hostname,
+            PathName: window.location.pathname,
+            Protocol: window.location.protocol,
+            Assign: window.location.assign
+        }
+
+        output += "href: " + Location.Href + "<br />";
+        output += "hostname: " + Location.HostName + "<br />";
+        output += "pathname: " + Location.PathName + "<br />";
+        output += "protocol: " + Location.Protocol + "<br />";
+        output += "assign: " + Location.Assign + "<br />";
+
+        document.getElementById("demo1").innerHTML = output;
+
+        function GetOuttaHere() {
+            window.location.assign("http://www.google.com");
+        }
+
+    </script>
+
+}

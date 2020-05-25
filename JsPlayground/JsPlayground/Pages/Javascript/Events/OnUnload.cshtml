@@ -1,0 +1,64 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnUnload";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onunload}
+@section PageName {OnUnload}
+
+<p>
+    Here is an example of using the <code>unload</code> event. This is a method of the document object and is triggered when the page
+    unloads. In this example, the function will check to see if the browser accepts cookies.
+</p>
+
+<div class="my-3">
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onunload="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onunload = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("unload", myScript);
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+
+        document.body.onload = function () {
+            let pageBody = document.getElementById("page-body");
+            pageBody.unload = CheckCookies();
+
+            function CheckCookies() {
+                var text = "";
+                if (navigator.cookieEnabled == true) { text = "Cookies are enabled."; }
+                else { text = "Cookies are not enabled."; }
+                document.getElementById("demo1").innerHTML = text;
+            }
+        }
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Math.ToPrecisionModel
+
+@{
+    string pageId = "ToPrecision";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-math}
+@section BreadCrumbChapter {math}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>toPrecision()</code> returns a <strong>string</strong>, with a number written with a specified length including
+    the integers <strong>and</strong> decimals (excluding the decimal itself) - uses rounding.
+</p>
+
+<p><code>toPrecision(5) = "123.45" - the length of the string</code></p>
+
+<p>toPrecision() or toPrecision(0) returns the whole thing - unaltered.</p>
+
+<pre>
+<code>
+let x = 9.56475322;
+let output = "";
+output += x.toPrecision(0) + "&lt;br />";
+output += x.toPrecision(2) + "&lt;br />";
+output += x.toPrecision(4) + "&lt;br />"; // <-- rounding!
+                                                 output +=x.toPrecision(6) + "&lt;br />" ;
+                                                 let demo1=document.getElementById("demo1");
+                                                 demo1.innerHTML=output;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let x = 9.56475322;
+        let output = "";
+        output += x.toPrecision() + "<br />";
+        output += x.toPrecision(2) + "<br />";
+        output += x.toPrecision(4) + "<br />";
+        output += x.toPrecision(6) + "<br />";
+
+        let demo1 = document.getElementById("demo1");
+        demo1.innerHTML = output;
+    </script>
+}

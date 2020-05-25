@@ -1,0 +1,108 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Animation.BasicExampleModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Basic Example";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-animations}
+@section BreadCrumbChapter {animations}
+@section BreadCrumbPageName {basic example}
+@section PageName {Basic Example}
+
+<p>
+    To demonstrate how to create HTML animations with JavaScript, we need a container element. All animations should be
+    relevant to their container element.
+</p>
+
+<p>
+    The container element should be created with style = "position: relative". The animation element should be created with
+    style = "position: absolute".
+</p>
+
+<p>
+    JavaScript animations are done by programming gradual changes in an element's style. The changes are called by a timer.
+    When the timer interval is small, the animation looks continuous.
+</p>
+
+<pre>
+<code>
+// pseudo code
+var id = setInterval(frame, 5);
+
+function frame()
+{
+    if (/* test for finished */)
+    { clearInterval(id);}
+    else
+    {
+        /* code to change the element style */
+    }
+}
+</code>
+</pre>
+
+<p>This example is using the setInterval and clearInterval methods.</p>
+
+<button class="btn btn-danger" onclick="myMove();" type="button">Test</button>
+
+<p>&nbsp;</p>
+
+<div id="container-block">
+    <div id="animate"></div>
+</div>
+
+<p>&nbsp;</p>
+
+<style>
+    #container-block {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background: yellow;
+    }
+
+    #animate {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background: red;
+    }
+</style>
+
+<p><strong>Links</strong></p>
+
+<ul>
+    <li><a href="https://htmlpreview.github.io/" target="_blank">https://htmlpreview.github.io/</a></li>
+    <li><a href="http://www.w3schools.com/js/js_htmldom_animate.asp" target="_blank">http://www.w3schools.com/js/js_htmldom_animate.asp</a></li>
+    <li><a href="http://www.w3schools.com/jsref/met_win_setinterval.asp" target="_blank">http://www.w3schools.com/jsref/met_win_setinterval.asp</a></li>
+    <li><a href="http://www.w3schools.com/jsref/met_win_clearinterval.asp" target="_blank">http://www.w3schools.com/jsref/met_win_clearinterval.asp</a></li>
+</ul>
+
+@section Scripts
+{
+    <script>
+        function myMove() {
+            var elem = document.getElementById("animate");
+            var pos = 0;
+            var id = setInterval(frame, 5);
+
+            function frame() {
+                if (pos == 350) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + 'px';
+                    elem.style.left = pos + 'px';
+                }
+            }
+        }
+    </script>
+}

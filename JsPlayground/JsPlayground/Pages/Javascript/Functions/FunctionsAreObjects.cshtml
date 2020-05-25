@@ -1,0 +1,68 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.FunctionsAreObjectsModel
+
+@{
+    string pageId = "Functions Are Objects";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <strong>arguments.length</strong><br />
+    Since functions have both properties and methods, they are considered objects. The <code>arguments.length</code> property returns the
+    number of arguments received when the function was invoked.
+</p>
+
+<pre>
+<code>
+function myFunction(a, b)
+{
+    return arguments.length;
+}
+document.getElementById("demo1").innerHTML = myFunction("foo", "bar");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>toString()</strong><br />
+    The <code>toString()</code> method returns the definition of the function. Note that we do not pass the actual arguments.
+</p>
+<pre>
+<code>
+function myFunction(a, b)
+{
+    return arguments.length;
+}
+document.getElementById("demo1").innerHTML = myFunction.toString();
+</code>
+</pre>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        function myFunction(a, b) {
+            return arguments.length;
+        }
+        document.getElementById("demo1").innerHTML = myFunction.toString();
+    </script>
+}

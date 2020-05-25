@@ -1,0 +1,108 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Scopes";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {scopes}
+@section PageName {Scopes}
+
+<p>
+    Block Scopes <code>{ .. stuff .. }</code> are a bit different that js Function scopes.
+    Variables defined in a <strong>function</strong> scope
+    are restricted to their scope whereas variables defined in a <strong>block</strong> scope are not.
+</p>
+
+<pre>
+<code>
+// example 1 //
+var condition = true;
+if (condition)
+{
+    var msg = "Hello";
+}
+
+// you can still see and use this variable.  Boo.
+alert(msg);
+
+
+// example 2 //
+for(var i = 0; i < 5; i++)
+{
+    // do stuff
+}
+// wait...how can I see 'i'?  that's not right
+alert(i);
+
+// example 3 //
+// let's use LET to fix that
+var condition2 = true;
+if (condition2)
+{
+    let msg2 = "Hello";
+}
+// nope!  No can do
+//alert(msg2);
+
+
+// example 4 //
+function FooBar()
+{
+    var msg3 = "foobar";
+}
+// NOPE!  no can do either. this was defined in a function
+//alert(msg3);
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // example 1 //
+        var condition = true;
+        if (condition) {
+            var msg = "Hello";
+        }
+
+        // you can still see and use this variable.  Boo.
+        alert(msg);
+
+
+        // example 2 //
+        for (var i = 0; i < 5; i++) {
+            // do stuff
+        }
+        // wait...how can I see 'i'?  that's not right
+        alert(i);
+
+        // example 3 //
+        // let's use LET to fix that
+        var condition2 = true;
+        if (condition2) {
+            let msg2 = "Hello";
+        }
+        // nope!  No can do
+        //alert(msg2);
+
+
+        // example 4 //
+        function FooBar() {
+            var msg3 = "foobar";
+        }
+            // NOPE!  no can do either. this was defined in a function
+            //alert(msg3);
+    </script>
+
+}

@@ -1,0 +1,12 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace JsPlayground.Pages.Javascript.Arrays
+{
+    public class SpliceModel : PageModel
+    {
+        public void OnGet()
+        {
+
+        }
+    }
+}

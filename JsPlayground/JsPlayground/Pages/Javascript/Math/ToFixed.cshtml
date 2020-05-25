@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Math.ToFixedModel
+
+@{
+    string pageId = "ToFixed";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-math}
+@section BreadCrumbChapter {math}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>toFixed()</code> returns a <strong>string</strong>, with the number written with a specified number of decimals.
+</p>
+
+<p>Note: <code>toFixed(2)</code> is perfect for working with money.</p>
+<pre>
+<code>
+let x = 9.56475322;
+let output = "";
+output += x.toFixed(0) + "&lt;br />";
+output += x.toFixed(1) + "&lt;br />";
+output += x.toFixed(2) + "&lt;br />";
+output += x.toFixed(4) + "&lt;br />";
+output += x.toFixed(6) + "&lt;br />";
+
+let demo1 = document.getElementById("demo1");
+demo1.innerHTML = output;
+    </code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let x = 9.56475322;
+        let output = "";
+        output += x.toFixed(0) + "<br />";
+        output += x.toFixed(1) + "<br />";
+        output += x.toFixed(2) + "<br />";
+        output += x.toFixed(4) + "<br />";
+        output += x.toFixed(6) + "<br />";
+
+        let demo1 = document.getElementById("demo1");
+        demo1.innerHTML = output;
+    </script>
+}

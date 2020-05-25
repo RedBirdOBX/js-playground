@@ -1,0 +1,45 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Set Attribute";
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.SetAttributeModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {set attribute}
+@section PageName {Set Attribute}
+
+<p>
+    Here's an example of how to use the <code>setAttribute()</code> method to change an element's attribute value.
+</p>
+
+<hr />
+
+<div>
+    <h4 id="demo1">Hello World</h4>
+</div>
+
+<hr />
+
+<pre>
+<code>
+document.getElementById("demo1").setAttribute("class", "text-danger")
+            </code>
+        </pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("demo1").setAttribute("class", "text-danger")
+    </script>
+}

@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Math.FloorModel
+
+@{
+    string pageId = "Floor";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-math}
+@section BreadCrumbChapter {math}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The Math object contains a lot of helpful, common methods. It's kind of a utility class. <code>Math.floor()</code> rounds a number
+    down to the nearest integer.
+</p>
+
+<pre>
+<code>
+let demo1 = document.getElementById("demo1");
+
+// returns 4
+demo1.innerHTML = Math.floor(4.9);
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let demo1 = document.getElementById("demo1");
+        // returns 4
+        demo1.innerHTML = Math.floor(4.9);
+    </script>
+}

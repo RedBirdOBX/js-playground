@@ -1,0 +1,68 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Global_Functions.EncodeUriDecodeUriModel
+
+
+@{
+    string pageId = "EncodeUri / DecodeUri";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-global-functions}
+@section BreadCrumbChapter {global functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Sometimes we need to encode the characters in a url.</p>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let example1 = "hello world.html?name=ricky bobby ";
+document.getElementById("demo1").innerHTML = encodeURI(example1);
+</code>
+</pre>
+
+<hr />
+
+<p>Sometimes we need to decode the characters which have been encoded.</p>
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let example2 = "hello%20world,%20how%20are%20you?";
+document.getElementById("demo2").innerHTML = decodeURI(example2);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let example1 = "hello world.html?name=ricky bobby ";
+        document.getElementById("demo1").innerHTML = encodeURI(example1);
+
+        let example2 = "hello%20world,%20how%20are%20you?";
+        document.getElementById("demo2").innerHTML = decodeURI(example2);
+    </script>
+}

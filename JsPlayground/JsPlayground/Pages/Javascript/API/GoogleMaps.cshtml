@@ -1,0 +1,62 @@
+﻿@page
+
+@model GoogleMapsModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Google Map";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-api}
+@section BreadCrumbChapter {api}
+@section BreadCrumbPageName {google map}
+@section PageName {Google Map}
+
+
+<p>
+    Here is a sample of how to use the Google Maps API in combination with a javascript to fill a Div container. Note - the
+    div must has a defined height via CSS.
+</p>
+
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<p>
+    <a href="http://www.w3schools.com/googleapi/google_maps_basic.asp" target="_blank">http://www.w3schools.com/googleapi/google_maps_basic.asp</a>
+</p>
+
+
+<pre>
+<code>
+function initialize()
+{
+var mapProp =
+{center:new google.maps.LatLng(51.508742,-0.120850),zoom:5,mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var mapProp =
+                { center: new google.maps.LatLng(51.508742, -0.120850), zoom: 5, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+}

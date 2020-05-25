@@ -1,0 +1,50 @@
+﻿@page
+
+@model IndexOfModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "indexOf()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {indexOf()}
+@section PageName {indexOf()}
+
+<p>
+    The indexOf() also works with arrays. You can use it to determine if something is found within an array. If it is NOT
+    found, it will return a -1. "0" is actually the very first position (zero based) so it's possible o is return as a
+    positive test.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+    // The result of a will be “2” meaning that "Apple" is located at position 2 in the array.
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let a = fruits.indexOf("Apple");
+    document.getElementById("demo").innerHTML = a;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // The result of a will be “2” meaning that "Apple" is located at position 2 in the array.
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        let a = fruits.indexOf("Apple");
+        document.getElementById("demo").innerHTML = a;
+    </script>
+}

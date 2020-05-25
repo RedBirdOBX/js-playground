@@ -1,0 +1,93 @@
+﻿@page
+
+@model GetValusFromArrayModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Get values from Array";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {get values from array}
+@section PageName {Get values from Array}
+
+<p><strong>Typical example</strong></p>
+
+<pre>
+<code>
+$(function()
+{
+    let cars = MakeCarsArray();
+    document.getElementById("demo1").innerHTML = `Car 1 is ${cars[0]}. Car 2 is ${cars[1]}.`;
+});
+
+function MakeCarsArray()
+{
+    var cars = ["Saab", "Volvo", "Jeep"];
+    return cars;
+}
+            </code>
+        </pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>More advanced example</strong>. This is known as <em>Array Destructuring</em>.</p>
+
+<pre>
+<code>
+$(function()
+{
+<mark>const [animal1, animal2, animal3] = MakeAnimalsArray();</mark>
+    document.getElementById("demo2").innerHTML = `Animal 1 is ${animal1}. Animal 2 is ${animal2}.`;
+});
+
+function MakeAnimalsArray()
+{
+    var cars = ["cat", "dog", "llama"];
+    return cars;
+}
+</code>
+        </pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo2"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            let cars = MakeCarsArray();
+            document.getElementById("demo1").innerHTML = `Car 1 is ${cars[0]}. Car 2 is ${cars[1]}.`;
+
+            const [animal1, animal2, animal3] = MakeAnimalsArray();
+            document.getElementById("demo2").innerHTML = `Animal 1 is ${animal1}. Animal 2 is ${animal2}.`;
+        });
+
+        function MakeCarsArray() {
+            var cars = ["Saab", "Volvo", "Jeep"];
+            return cars;
+        }
+
+        function MakeAnimalsArray() {
+            var cars = ["cat", "dog", "llama"];
+            return cars;
+        }
+    </script>
+}

@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.ScopeOfArrowFunctionsModel
+
+
+@{
+    string pageId = "Scope of Arrow Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p class="mt-5">These are Anonymous functions with a simple syntax. They do not use the keyword <code>function</code>.</p>
+
+<div class="card bg-light mt-1">
+    <div class="card-body">
+        <div><strong>Example 1</strong></div>
+        <div class="mb-1" id="example1"></div>
+    </div>
+</div>
+
+<div class="card bg-light mt-1">
+    <div class="card-body">
+        <div><strong>Example 2</strong></div>
+        <div class="mb-1" id="example2"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        const testerObj =
+        {
+            func1: function () {
+                console.log('func1', this);
+                $("#example1").text('func1:' + this);
+            },
+
+            func2: () => {
+                console.log('func2', this);
+                $("#example2").text('func2: ' + this);
+            }
+        };
+
+        // 'this' is the caller: the window obj
+        testerObj.func1();
+
+        // 'this' is
+        testerObj.func2();
+    </script>
+}

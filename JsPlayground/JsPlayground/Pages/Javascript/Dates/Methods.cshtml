@@ -1,0 +1,84 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Methods";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {methods}
+@section PageName {Methods}
+
+<p>
+    <strong>Date.parse()</strong><br />
+    If you have a valid date string, you can use the <code>Date.parse()</code> method to convert it to milliseconds.
+    <code>Date.parse(</code>) returns the number of milliseconds between the date and January 1, 1970. You can then use the number of
+    milliseconds to convert it to a date object.
+</p>
+
+<div class="my-5"></div>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo1"></span></h4>
+</div>
+
+<pre>
+<code>
+let stringDate = "April 30, 1970";
+let dateInMilliseconds = Date.parse(stringDate);
+let birthDate = new Date(dateInMilliseconds);
+document.getElementById("demo1").innerHTML = birthDate;
+</code>
+</pre>
+
+<div class="my-5"></div>
+
+<p>
+    <strong>Compare Dates</strong><br />
+    Dates can easily be compared. The following example compares today's date with January 14, 2100.
+</p>
+
+<pre>
+<code>
+let date1 = new Date(1970, 04, 30);
+let date2 = new Date(1969, 05, 13);
+let message = "";
+
+if (date2 < date1)
+{
+    message="Lisa is older.";
+}
+</code>
+</pre>
+
+<div>
+    <h4 class="text-center text-info"><span id="demo2"></span></h4>
+</div>
+
+<div class="my-5"></div>
+
+@section Scripts
+{
+    <script>
+        let stringDate = "April 30, 1970";
+        let dateInMilliseconds = Date.parse(stringDate);
+        let birthDate = new Date(dateInMilliseconds);
+        document.getElementById("demo1").innerHTML = birthDate;
+
+        let date1 = new Date(1970, 04, 30);
+        let date2 = new Date(1969, 05, 13);
+        let message = "";
+
+        if (date2 < date1) {
+            message = "Lisa is older.";
+        }
+
+        document.getElementById("demo2").innerHTML = message;
+    </script>
+}

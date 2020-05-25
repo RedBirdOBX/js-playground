@@ -1,0 +1,49 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.InvokingVsCallingModel
+
+@{
+    string pageId = "Invoking vs Calling";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    To <code>invoke</code> a javascript function, you assign it variable - thus making it an object.  Like so:  <code>let x = MyFunction();</code>.
+</p>
+
+<p>
+    To <code>call</code> a javascript function, you simply call it in code like so: <code>MyFunction();</code>.
+</p>
+
+<p>
+    To make a <code>reference</code> to a function, you simply use it's name: <code>var myPointer = MyFunction</code>.
+</p>
+
+<p>
+    In JavaScript there, is always a default <code>global</code> object. In HTML the default global object is the HTML page itself, so
+    the function above "belongs" to the HTML page.
+</p>
+
+<p>
+    In a browser, the page object is the <strong>browser window</strong>. The function above automatically becomes a window function.
+    <strong>myFunction() and window.myFunction()</strong> is the same function.
+</p>
+
+<h4 class="text-info text-center">Functions always belong to an object - even if it's the default Window object.</h4>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

@@ -1,0 +1,71 @@
+﻿@page
+
+@model MapModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "map()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {map()}
+@section PageName {map()}
+
+<p>
+    The <code>map()</code> method creates a <strong>new array</strong> with the results of calling a <strong>function</strong> for
+    every array element. The <code>map()</code> method calls the provided function once for each element in an array, in order.
+    <code>map()</code> does not execute the function for array elements without values.
+</p>
+
+<p>
+    The return type is a new array. <strong>
+        For each element in the orig array, it will call a function and add the results
+        to the new array
+    </strong>.
+</p>
+
+<p>
+    <a href="https://www.w3schools.com/jsref/jsref_map.asp" target="_blank">
+        https://www.w3schools.com/jsref/jsref_map.asp
+    </a>
+</p>
+
+<div class="m-5">
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+function Capitalize(fruit)
+{
+    return fruit.toUpperCase();
+}
+
+let fruitsArray = ["Banana", "Orange", "Apple", "Mango"];
+let capFruitsArray = fruits.map(Capitalize)
+
+document.getElementById("demo").innerHTML = capFruitsArray.join(" - ");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function Capitalize(fruit) {
+            return fruit.toUpperCase();
+        }
+
+        let fruitsArray = ["Banana", "Orange", "Apple", "Mango"];
+        let capFruitsArray = fruitsArray.map(Capitalize)
+
+        document.getElementById("demo").innerHTML = capFruitsArray.join(" - ");
+    </script>
+}

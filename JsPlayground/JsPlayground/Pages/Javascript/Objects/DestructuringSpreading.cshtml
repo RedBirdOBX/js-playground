@@ -1,0 +1,80 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.DestructuringSpreadingModel
+
+@{
+    string pageId = "Destructuring / Spreading";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    You can destructure an object. You can spread an object.  And, you can do both.
+</p>
+
+<p>
+    To <strong>destructure</strong> is to take the properties from an object or array and assign each property as it is
+    iterated over, to a new variable.
+</p>
+
+<p>
+    To <strong>spread</strong> an object is to take all the properties of that object and place it into an array.
+    All the objects properties will become items in a new array or object.
+</p>
+
+<pre>
+<code>
+// data
+let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+
+// destructure
+let {Name, Occupation} = person;
+let destructureDemo = document.getElementById("destructure-demo");
+destructureDemo.innerHTML = `Name: ${Name}, Occupation: ${Occupation}`;
+
+// spread
+let {...rickyBobby} = person;
+let spreadDemo = document.getElementById("spread-demo");
+spreadDemo.innerHTML = `Name: ${rickyBobby.Name}, Occupation: ${rickyBobby.Occupation}`;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        Destructure example:<br />
+        <div id="destructure-demo"></div><br /><br />
+        Spread example:<br />
+        <div id="spread-demo"></div><br /><br />
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // data
+        let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+
+        // destructure
+        let { Name, Occupation } = person;
+        let destructureDemo = document.getElementById("destructure-demo");
+        destructureDemo.innerHTML = `Name: ${Name}, Occupation: ${Occupation}`;
+
+        // spread
+        let { ...rickyBobby } = person;
+        let spreadDemo = document.getElementById("spread-demo");
+        spreadDemo.innerHTML = `Name: ${rickyBobby.Name}, Occupation: ${rickyBobby.Occupation}`;
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.FunctionsInObjectsModel
+
+@{
+    string pageId = "Functions In Objects";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In JavaScript you can define functions as object methods. The following example creates an object (Person), with two
+    properties (firstName and lastName), and a method (fullName):
+</p>
+
+<hr />
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+function Person(firstName, lastName)
+{
+    this.FirstName = firstName;
+    this.LastName = lastName;
+    this.FullName = function () { return this.FirstName + " " + this.LastName; }
+}
+
+let demo1 = document.getElementById("demo1");
+let person1 = new Person("Ricky", "Bobby");
+demo1.innerHTML = person1.FullName();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function Person(firstName, lastName) {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.FullName = function () { return this.FirstName + " " + this.LastName; }
+        }
+
+        let demo1 = document.getElementById("demo1");
+        let person1 = new Person("Ricky", "Bobby");
+        demo1.innerHTML = person1.FullName();
+    </script>
+}

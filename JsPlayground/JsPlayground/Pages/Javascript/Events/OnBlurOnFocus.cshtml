@@ -1,0 +1,89 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnBlur / OnFocus";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onblur / onfocus}
+@section PageName {OnBlur / OnFocus}
+
+<p>
+    When an element gets the focus, such as a form field, you can use the <code>onfocus</code>
+    event to trigger a function. <code>onblur</code> is the opposite - it's like "OnLostFocus".
+    You can use this to call something else such as resetting a form field back.
+</p>
+
+<p>
+    Note that we're using <code>this</code> as an argument so we can use this on any form element
+    and don't need to write function to worry about which form field to change.
+</p>
+
+<div class="form-group">
+    <label for="Hello">Type Something</label>
+    <input type="text" id="Hello" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label for="Hello">Type Something Else</label>
+    <input type="text" id="Hello2" class="form-control" />
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onfocus="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onfocus = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("focus", myScript);
+</code>
+</pre>
+
+<hr />
+
+<pre>
+<code>
+document.getElementById("Hello").addEventListener("focus", function () { RedAlert(this); });
+document.getElementById("Hello").addEventListener("blur", function () { YellowAlert(this); });
+
+document.getElementById("Hello2").addEventListener("focus", function () { RedAlert(this); });
+document.getElementById("Hello2").addEventListener("blur", function () { YellowAlert(this); });
+
+function RedAlert(control)
+{ control.style.background = "#ff0000"; }
+
+function YellowAlert(control)
+{ control.style.background = "#ffcc00"; }
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("Hello").addEventListener("focus", function () { RedAlert(this); });
+        document.getElementById("Hello").addEventListener("blur", function () { YellowAlert(this); });
+
+        document.getElementById("Hello2").addEventListener("focus", function () { RedAlert(this); });
+        document.getElementById("Hello2").addEventListener("blur", function () { YellowAlert(this); });
+
+        function RedAlert(control) { control.style.background = "#ff0000"; }
+
+        function YellowAlert(control) { control.style.background = "#ffcc00"; }
+    </script>
+}

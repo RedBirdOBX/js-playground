@@ -1,0 +1,69 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Time Zones";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {time zones}
+@section PageName {Time Zones}
+
+<p>
+    JavaScript accepts these time zones:
+</p>
+
+<ul>
+    <li><strong>UTC</strong> Coordinated Universal Time</li>
+    <li><strong>GMT</strong> Greenwich Mean Time</li>
+    <li><strong>EDT (US)</strong> Eastern Daylight Time</li>
+    <li><strong>CDT (US)</strong> Central Daylight Time</li>
+    <li><strong>MDT (US)</strong> Mountain Daylight Time</li>
+    <li><strong>PDT (US)</strong> Pacific Daylight Time</li>
+    <li><strong>EST (US)</strong> Eastern Standard Time</li>
+    <li><strong>CST (US)</strong> Central Standard Time</li>
+    <li><strong>MST (US)</strong> Mountain Standard Time</li>
+    <li><strong>PST (US)</strong> Pacific Standard Time</li>
+</ul>
+
+<h4 class="text-info text-center">UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time) and is also known as Zulu Time.</h4>
+
+<p>
+    When setting a date, without specifying the time zone, <strong>JavaScript will use the browser's time zone</strong>. When getting a
+    date, without specifying the time zone, the result is converted to the browser's time zone. In other words: If a
+    date/time is created in GMT (Greenwich Mean Time), the date/time will be converted to CDT (Central US Daylight Time) if
+    a user browses from central US.
+</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time" target="_blank">https://en.wikipedia.org/wiki/Coordinated_Universal_Time</a></p>
+<p><a href="https://upload.wikimedia.org/wikipedia/commons/e/e8/Standard_World_Time_Zones.png" target="_blank">https://upload.wikimedia.org/wikipedia/commons/e/e8/Standard_World_Time_Zones.png</a></p>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        let stringDate = "April 30, 1970";
+        let dateInMilliseconds = Date.parse(stringDate);
+        let birthDate = new Date(dateInMilliseconds);
+        document.getElementById("demo1").innerHTML = birthDate;
+
+        let date1 = new Date(1970, 04, 30);
+        let date2 = new Date(1969, 05, 13);
+        let message = "";
+
+        if (date2 < date1) {
+            message = "Lisa is older.";
+        }
+
+        document.getElementById("demo2").innerHTML = message;
+    </script>
+}

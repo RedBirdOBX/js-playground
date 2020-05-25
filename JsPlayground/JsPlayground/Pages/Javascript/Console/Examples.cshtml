@@ -1,0 +1,89 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Examples";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-console}
+@section BreadCrumbChapter {console}
+@section BreadCrumbPageName {examples}
+@section PageName {Examples}
+
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/dir" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Console/dir</a></p>
+<p><a href="https://www.w3schools.com/jsref/obj_console.asp" target="_blank">https://www.w3schools.com/jsref/obj_console.asp</a></p>
+
+<div class="my-5"></div>
+
+<p>
+    You can use <code>console.log</code> to write out a message to the console.
+</p>
+
+<p>
+    You can also use <code>console.dir</code> to
+    see all the properties of a specified JavaScript <strong>object</strong> in console by which the developer can easily
+    get the properties of the object.
+</p>
+
+
+<pre>
+<code>
+// object
+function Spaceship()
+{
+    Designation = "";
+    Class = "";
+}
+
+let spaceship = new Spaceship();
+spaceship.Designation = "NCC1701D";
+spaceship.Class = "Galaxy";
+
+console.log(`** Logging Spaceship: ${spaceship}`);
+console.log("** Using console.dir for Spaceship:");
+console.dir(spaceship);
+
+// json data
+let person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+console.log(`** Logging person: ${person}`);
+console.log("** Using console.dir for person:");
+console.dir(person);
+</code>
+</pre>
+
+<h4 class="text-center">Be sure to view the developer's console on this page.</h4>
+
+<div class="my-5"></div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        // object
+        function Spaceship() {
+            Designation = "";
+            Class = "";
+        }
+
+        let spaceship = new Spaceship();
+        spaceship.Designation = "NCC1701D";
+        spaceship.Class = "Galaxy";
+
+        console.log(`** Logging Spaceship: ${spaceship}`);
+        console.log("** Using console.dir for Spaceship:");
+        console.dir(spaceship);
+
+        // json data
+        let person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+        console.log(`** Logging person: ${person}`);
+        console.log("** Using console.dir for person:");
+        console.dir(person);
+    </script>
+    }

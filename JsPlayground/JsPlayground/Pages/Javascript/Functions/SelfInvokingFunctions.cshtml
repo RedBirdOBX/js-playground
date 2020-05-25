@@ -1,0 +1,59 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.SelfInvokingFunctionsModel
+
+
+@{
+    string pageId = "Self Invoking Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Function expressions can be made "self-invoking". A self-invoking expression is invoked (started) automatically, without
+    being called. Function expressions will execute automatically if the expression is followed by <code>()</code>.
+    You have to add parentheses around the function to indicate that it is a function expression.
+</p>
+
+<p>
+    <code>Recursion</code> is a technique for iterating over an operation by having a function call itself repeatedly until it arrives at
+    a result. Most loops can be rewritten in a recursive style, and in some functional languages this approach to looping is
+    the default.
+</p>
+
+<pre>
+<code>
+// we wrap the function in parentheses to indicate that it a function expression!
+(function ()
+{
+    var x = "Hello!!"; // I will invoke myself
+}) // we wrap the function in parentheses to indicate that it a function expression!
+(); / Function expressions will execute automatically if the expression is followed by ().
+// The function above is actually an anonymous self-invoking function (function without name).
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // we wrap the function in parentheses to indicate that it a function expression!
+        (function () {
+            var x = "Hello!!";      // I will invoke myself
+        })                          //we wrap the function in parentheses to indicate that it a function expression!
+            ();                         //Function expressions will execute automatically if the expression is followed by ().
+            // The function above is actually an anonymous self-invoking function (function without name).
+    </script>
+}

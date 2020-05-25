@@ -1,0 +1,107 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Types.NumberModel
+
+@{
+    string pageId = "Number";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    JavaScript has only one type of number. JavaScript numbers can be written with, or without decimals.
+</p>
+
+<h4 class="text-center text-info"><em>JavaScript numbers are always 64-bit floating point.</em></h4>
+
+<p>
+    <strong>Infinity:</strong> Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible
+    number. Division by 0 (zero) also generates Infinity. Infinity is a number: typeOf Infinity returns number.
+</p>
+
+<div>
+    <pre>
+    <code>
+var x = 2 / 0;      // x will be Infinity
+var y = -2 / 0;     // y will be -Infinity
+
+typeof Infinity; // returns "number"
+</code>
+</pre>
+</div>
+
+<p>
+    <strong>NaN:</strong> NaN is a JavaScript reserved word indicating that a value is not a number. Trying to do arithmetic with a non-numeric
+    string will result in NaN (Not a Number).
+</p>
+
+<div>
+    <code>var x = 100 / "Apple"; // x will be NaN (Not a Number)</code>
+</div>
+
+<p>
+    <strong>Numbers as Objects:</strong> Normally JavaScript numbers are primitive values created from literals:
+    <code>var x = 123</code>. But numbers can also be defined as objects with the keyword new: <code>var y = new Number(123)</code>.
+</p>
+
+<p>
+    Don't create Number objects. It slows down execution speed. Just remember, numbers as OBJECTS are not the same as
+    Number Types (primitive data type).
+</p>
+
+<div>
+<pre>
+<code>
+var x = 500;
+var y = new Number(500);
+// (x == y) is true because x and y have equal VALUES
+// (x === y) is false because x and y have different types
+</code>
+</pre>
+</div>
+
+<p>
+    <strong>Misunderstanding Floats:</strong>
+    All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats). All programming languages, including
+    JavaScript, have difficulties with precise floating point values.
+</p>
+
+<div>
+<pre>
+<code>
+var x = 0.1;
+var y = 0.2;
+var z = x + y       // the result in z will not be 0.3
+if (z == 0.3)       // this if test will FAIL
+</code>
+</pre>
+</div>
+
+<p>To solve the problem above, it helps to multiply and divide.</p>
+
+<div>
+<pre>
+<code>
+var z = (x * 10 + y * 10) / 10;             // z will be 0.3
+if (z == 0.3)                               // this if test will PASS
+</code>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

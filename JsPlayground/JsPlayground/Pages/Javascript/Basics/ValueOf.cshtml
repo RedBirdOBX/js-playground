@@ -1,0 +1,64 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "valueOf";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {valueOf()}
+@section PageName {valueOf()}
+
+<p>
+    The <code>valueOf()</code> method is the default behavior for an array. It converts an array to a primitive value. JavaScript will
+    automatically convert an array to a string when a primitive value is expected. Because of this, all these examples will
+    produce the same result.
+</p>
+
+<h5 class="text-center text-info">All JavaScript objects have the valueOf() and toString() methods</h5>
+
+<pre>
+<code>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("example1").innerHTML = fruits;
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("example2").innerHTML = fruits.valueOf();
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("example3").innerHTML = fruits.toString();
+        </code>
+        </pre>
+
+<p>&nbsp;</p>
+
+<div class="card bg-info mt-5">
+    <div class="card-body">
+        <div class="mb-1" id="example1"></div>
+        <div class="mb-1" id="example2"></div>
+        <div class="mb-1" id="example3"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example1").innerHTML = fruits;
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example2").innerHTML = fruits.valueOf();
+
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("example3").innerHTML = fruits.toString();
+    </script>
+
+}

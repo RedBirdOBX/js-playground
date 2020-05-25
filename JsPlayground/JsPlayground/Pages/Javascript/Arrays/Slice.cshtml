@@ -1,0 +1,46 @@
+﻿@page
+
+@model SliceModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "slice()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {slice()}
+@section PageName {slice()}
+
+<p>
+    The slice() method slices out a piece of an array into a new array. This example slices out a part of an array starting
+    from array element 1 ("Orange").
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+var fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
+var citrus = fruits.slice(2);
+document.getElementById("demo").innerHTML = citrus.join(" ");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        var fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
+        var citrus = fruits.slice(2);
+        document.getElementById("demo").innerHTML = citrus.join(" ");
+    </script>
+}

@@ -1,0 +1,127 @@
+﻿@page
+
+@{
+    string pageId = "Methods";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@model JsPlayground.Pages.Javascript.DOMMethods.MethodsModel
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-methods}
+@section BreadCrumbChapter {dom methods}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Here's a basic list of Document Object Methods:
+</p>
+
+<table class="table table-bordered table-condensed table-striped">
+    <tbody>
+        <tr>
+            <td><code>Document.anchors</code></td>
+            <td>Returns all <a> elements that have a name attribute</td>
+        </tr>
+
+        <tr>
+            <td><code>document.baseURI</code></td>
+            <td>Returns the absolute base URI of the document</td>
+        </tr>
+
+        <tr>
+            <td><code>Document.body</code></td>
+            <td>Returns the &lt;body> element</td>
+        </tr>
+
+        <tr>
+            <td><code>Document.cookie</code></td>
+            <td>Returns the document's cookie</td>
+        </tr>
+
+        <tr>
+            <td><code>Document.doctype</code></td>
+            <td>Returns the document's doctype</td>
+        </tr>
+
+        <tr>
+            <td><code>document.documentElement</code></td>
+            <td>Returns the &lt;html> element</td>
+        </tr>
+
+        <tr>
+            <td><code>document.documentURI</code></td>
+            <td>Returns the URI of the document</td>
+        </tr>
+
+        <tr>
+            <td><code>Document.domain</code></td>
+            <td>Returns the domain name of the document server</td>
+        </tr>
+
+        <tr>
+            <td><code>document.getElementById({id})</code></td>
+            <td>Find an element by element id</td>
+        </tr>
+
+        <tr>
+            <td><code>document.getElementById({id})</code></td>
+            <td>Find an element by element id</td>
+        </tr>
+
+        <tr>
+            <td><code>document.getElementsByTagName({tag name})</code></td>
+            <td>Returns a List. Find elements by tag name</td>
+        </tr>
+
+        <tr>
+            <td><code>document.getElementsByClassName({class name})</code></td>
+            <td>Returns a List. Find elements by class name</td>
+        </tr>
+
+        <tr>
+            <td><code>document.images</code></td>
+            <td>Returns all &lt;img> elements</td>
+        </tr>
+
+        <tr>
+            <td><code>document.inputEncoding</code></td>
+            <td>Returns the document's encoding (character set)</td>
+        </tr>
+
+        <tr>
+            <td><code>document.lastModified</code></td>
+            <td>Returns the date and time the document was updated</td>
+        </tr>
+
+        <tr>
+            <td><code>document.scripts</code></td>
+            <td>Returns all &lt;script> elements</td>
+        </tr>
+
+        <tr>
+            <td><code>Document.title</code></td>
+            <td>Returns the &lt;title> element</td>
+        </tr>
+
+        <tr>
+            <td><code>document.URL</code></td>
+            <td>Returns the complete URL of the document</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<p><a href="https://www.w3schools.com/js/js_htmldom_document.asp " target="_blank">https://www.w3schools.com/js/js_htmldom_document.asp</a></p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

@@ -1,0 +1,80 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "OnMouseup / OnMousedown";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {onmouseup / onmousedown}
+@section PageName {OnMouseup / OnMousedown}
+
+<p>
+    The mousedown, mouseup and onclick events are all parts of a mouse-click. First when a mouse-button is clicked, the
+    mousedown event is triggered, then, when the mouse-button is released, the mouseup event is triggered, finally,
+    when the mouse-click is completed, the click event is triggered.
+</p>
+
+<p><a href="https://www.w3schools.com/js/js_htmldom_events.asp" target="_blank">https://www.w3schools.com/js/js_htmldom_events.asp</a></p>
+
+<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:#D94A38;width:200px;height:20px;padding:40px;">
+    Click Me
+</div>
+
+<hr />
+
+<h4>Syntax</h4>
+
+<pre>
+<code>
+// In HTML:
+&lt;element onmouseup="myScript"&gt;&lt;/element&gt;
+
+// In JavaScript:
+object.onmouseup = function(){myScript};
+
+// In JavaScript, using the addEventListener() method:
+object.addEventListener("mouseup", myScript);
+</code>
+</pre>
+
+<hr />
+
+<pre>
+<code>
+function mDown(obj)
+{
+    obj.style.backgroundColor = "#1ec5e5";
+    obj.innerHTML = "Release Me";
+}
+
+function mUp(obj)
+{
+    obj.style.backgroundColor = "#D94A38";
+    obj.innerHTML = "Thank You";
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        function mDown(obj) {
+            obj.style.backgroundColor = "#1ec5e5";
+            obj.innerHTML = "Release Me";
+        }
+
+        function mUp(obj) {
+            obj.style.backgroundColor = "#D94A38";
+            obj.innerHTML = "Thank You";
+        }
+    </script>
+}
