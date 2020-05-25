@@ -1,0 +1,43 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>The jQuery object has an a alias of <code>$</code>.</p>
+
+<pre>
+<code>
+jQuery.ajax();
+.. is the same as...
+$.ajax();
+
+var orderForm = document.getElementById("order-form");
+… is the same as…
+var orderForm = $("#order-form");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

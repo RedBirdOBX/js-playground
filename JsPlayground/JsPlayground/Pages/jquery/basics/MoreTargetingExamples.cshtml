@@ -1,0 +1,53 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.MoreTargetingExamplesModel
+
+@{
+    string pageId = "More Targeting Examples";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<p>To finding something, a specific tag, you use this: <code>$("{dom element here}}");</code></p>
+
+<p>
+    The elements that are returned are returned as an array. Once you find something, you can apply functions and
+    styles and just about anything else. <code>$("h2").css("padding-bottom": "10px");</code>
+</p>
+
+<p>You can also chain methods like this: <code>$("h2").css("padding-bottom" ; "10px").fadeout(5000);</code></p>
+
+<p>Universal Selector: <code>$("*").css("font-weight" : "bold");</code></p>
+
+<p>The ID Selector: <code>$(“#txtFirstName”).addClass(“someNewCSSClass”);</code></p>
+
+<p>The Element Selector: <code>$(“h2”).css(“padding-bottom” : “10px”);</code></p>
+
+<p>The Class Selector: <code>$(“.my-class”).css(“padding-bottom” : “10px”);</code></p>
+
+<p>Grouping. You can also group several together like so: <code>$(“h2”,”h3””;h4”).css(“padding-bottom” : “10px”);</code></p>
+
+<p>
+    Combined Selectors. You can use a combined selector to find something within a specific ID, like so:
+    <code>$(“#HeaderSection p”).css(“padding-bottom”, “10px”);</code>.
+    This would only affect paragraphs within the Header Section.
+</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

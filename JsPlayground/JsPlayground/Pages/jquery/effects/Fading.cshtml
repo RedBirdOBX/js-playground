@@ -1,0 +1,139 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.FadingModel
+
+@{
+    string pageId = "fading()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Common fading methods:</p>
+
+<ul>
+    <li>fadeIn - used to fade in a hidden element</li>
+    <li>fadeOut - used to fade out a hidden element</li>
+    <li>fadeToggle - toggles between the fadeIn() and fadeOut() methods</li>
+    <li>fadeTo - allows fading to a given opacity (value between 0 and 1)</li>
+</ul>
+
+<p><a href="http://www.w3schools.com/jquery/jquery_fade.asp" target="_blank">http://www.w3schools.com/jquery/jquery_fade.asp</a></p>
+
+<h4>Fade In Example</h4>
+
+<p class="text-center"><button id="btnFadeIn" type="button" class="btn btn-success">Click to fade in boxes</button></p>
+
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div>
+<br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div>
+<br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+<p>&nbsp;</p>
+
+<h4>Fade Out Example</h4>
+
+<p class="text-center"><button class="btn btn-warning" id="btnFadeOut" type="button">Fade Out Example</button></p>
+
+<div class="alert alert-warning" id="demo2">
+    <p>Goodbye cruel world.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<h4>FadeToggle Example</h4>
+
+<p>
+    The jQuery <strong>fadeToggle()</strong> method toggles between the fadeIn() and fadeOut() methods.
+    If the elements are faded out, fadeToggle() will fade them in.
+    If the elements are faded in, fadeToggle() will fade them out.
+</p>
+
+<p class="text-center"><button class="btn btn-warning" id="btnFadeToggle" type="button">Fade Toggle</button></p>
+
+<div class="text-center" id="demo3">
+    <div class="alert alert-info">
+        Now you see me.
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<h5>FadeTo Example</h5>
+
+<p>
+    The required <strong>speed</strong> parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+    The required <strong>opacity</strong> parameter in the <code>fadeTo()</code> method specifies fading to a given opacity (value between 0 and 1).
+</p>
+
+<p>The optional callback parameter is a function to be executed after the function completes.</p>
+
+<p class="text-center"><button class="btn btn-info" id="btnFadeTo" type="button">Fade To Example</button></p>
+
+<div class="text-center" id="demo4">
+    <div class="alert alert-danger">
+        <img src="../../assets/images/jquery-logo.png" />
+    </div>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#btnFadeIn").click(function ()
+    {
+        $("#div1").fadeIn();
+        $("#div2").fadeIn("slow");
+        $("#div3").fadeIn(5000);
+    });
+
+    $("#btnFadeOut").click(function ()
+    { $("#demo2").fadeOut(2000); });
+
+    $("#btnFadeToggle").click(function ()
+    { $("#demo3").fadeToggle(3000); });
+
+    $("#btnFadeTo").click(function ()
+    { $("#demo4").fadeTo(4000, 0.25, function(){ alert("all done"); }); });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnFadeIn").click(function () {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(5000);
+            });
+
+            $("#btnFadeOut").click(function () { $("#demo2").fadeOut(2000); });
+
+            $("#btnFadeToggle").click(function () { $("#demo3").fadeToggle(3000); });
+
+            $("#btnFadeTo").click(function () { $("#demo4").fadeTo(4000, 0.25, function () { alert("all done"); }); });
+        });
+    </script>
+}

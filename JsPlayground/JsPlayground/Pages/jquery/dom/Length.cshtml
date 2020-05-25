@@ -1,0 +1,78 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.LengthModel
+
+@{
+    string pageId = "length()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Just like in javascript, the <code>length()</code> method returns the length of a string or an array.
+</p>
+
+<p id="intro">
+    In this jQuery example, it will make a list of all found &lt;p&gt;
+    elements and store those results in an <strong>array</strong>.
+    In this case, the .length property has the
+    <strong>count</strong> of the array - the number of indexes, not the length a string.
+    This is a property, not a method. There is no need for ().
+</p>
+
+<p class="text-center"><button id="btnLength1" type="button" class="btn btn-danger btn-lg">Get Length Ex 1</button></p>
+<p class="text-center"><button id="btnLength2" type="button" class="btn btn-danger btn-lg">Get Length Ex 2</button></p>
+
+<p>&nbsp;</p>
+
+<div class="alert alert-info">
+    <p class="text-danger" id="demo1"></p>
+    <p class="text-danger" id="demo2"></p>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnLength1").click(function ()
+{
+    $("#demo1").html("Number of P elements in this doc: " + $("p").length);
+});
+
+$("#btnLength2").click(function ()
+{
+    var introLength = $("#intro").html().length;
+    $("#demo2").html("Length of P#intro: " + introLength);
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnLength1").click(function () {
+                $("#demo1").html("Number of P elements in this doc: " + $("p").length);
+            });
+
+            $("#btnLength2").click(function () {
+                var introLength = $("#intro").html().length;
+                $("#demo2").html("Length of P#intro: " + introLength);
+            });
+        });
+    </script>
+}
+

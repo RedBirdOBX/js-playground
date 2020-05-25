@@ -1,0 +1,45 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.ElementTypeFilteringModel
+
+@{
+    string pageId = "Element Type Filtering";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    If you want to select one or more html element <strong>types</strong> and use CSS / jQuery selectors, you can use the colon selector.
+</p>
+
+<pre>
+<code>
+//This will select all buttons and text types
+$(':button, :text').css('font-size', '18px');
+
+//This will select checkboxes
+$(':checkbox').attr('checked', true);
+
+//This will format any headers that contain a span element.
+$(':header:has("span")').css('color', 'red').css('font-weight','bold');
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

@@ -1,0 +1,60 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.ContainsFilteringModel
+
+@{
+    string pageId = "contains()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>contains()</code> selects all elements that contain the <strong>specified text</strong>.
+    The matching text can appear directly within the selected element,
+    in any of that element's descendants, or a combination thereof.
+    As with attribute value selectors, text inside the parentheses of <code>contains()</code>
+    can be written as a bare word or surrounded by quotation marks. The text must have matching case to be selected.
+</p>
+
+<div class="m-3">
+    <code>
+        $("li:contains('Sci Fi')").css("text-decoration", "underline", "font-weight", "bold");
+    </code>
+</div>
+
+<ul id="movie-list">
+    <li>Aliens - Sci Fi</li>
+    <li>Goonies - Family</li>
+    <li>Interstellar - Sci Fi</li>
+    <li>Lord of the Rings - Fantasy</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p>
+    <code>has()</code> selects elements with other elements within them.
+    <code>contains()</code> finds elements with simple text-based matches.
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("li:contains('Sci Fi')").css({ "text-decoration": "underline", "font-weight": "bold" });
+    </script>
+}

@@ -1,0 +1,55 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.EmptyModel
+
+@{
+    string pageId = "empty()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>The <code>remove()</code> removes the <strong>child element's (content)</strong> from the selected element.</p>
+
+<div class="alert alert-info">
+    <div>This will stay...</div>
+    <div id="demo1" class="text-center">
+        <p>When you empty the demo1 div, it will remain in the DOM but be empty. Inspect this element after running the test.</p>
+    </div>
+</div>
+
+<p class="text-center"><button id="EmptyButton" type="button" class="btn btn-danger btn-lg">Empty</button></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#EmptyButton").click(function ()
+{
+    $("#demo1").empty();
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#EmptyButton").click(function () {
+                $("#demo1").empty();
+            });
+        });
+    </script>
+}

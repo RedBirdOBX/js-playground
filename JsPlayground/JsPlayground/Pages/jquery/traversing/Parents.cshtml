@@ -1,0 +1,60 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.traversing.ParentsModel
+
+@{
+    string pageId = "parents()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>parents()</code> method returns <strong>all</strong> ancestor elements of the selected element,
+    all the way up to the document's root element (&lt;html&gt;).
+</p>
+
+<p class="text-center"><button type="button" id="btnDemo" class="btn btn-lg btn-success">Next</button></p>
+
+<div class="alert alert-info" id="demo1">
+    <div id="demo2" class="bg-white">
+        <div id="demo3">
+            <div id="demo4">
+                Hello World
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#demo2").parents().css({ "background-color": "yellow" });
+});
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () {
+            $("#demo2").parents().css({ "background-color": "yellow" });
+        });
+    </script>
+}

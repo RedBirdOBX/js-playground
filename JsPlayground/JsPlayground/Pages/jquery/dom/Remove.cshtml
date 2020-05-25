@@ -1,0 +1,56 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.RemoveModel
+
+@{
+    string pageId = "remove()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>The <code>remove()</code> removes the selected element (and any child elements).</p>
+
+<div class="alert alert-info">
+    <div>This will stay...</div>
+    <div id="demo1" class="text-center">
+        <p>When you remove the demo1 div, it will be removed entirely.  Inspect this element after running the test.</p>
+    </div>
+</div>
+
+<p class="text-center"><button id="RemoveButton" type="button" class="btn btn-danger btn-lg">Remove</button></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#RemoveButton").click(function ()
+{
+    $("#demo1").remove();
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#RemoveButton").click(function () {
+                $("#demo1").remove();
+            });
+        });
+    </script>
+}

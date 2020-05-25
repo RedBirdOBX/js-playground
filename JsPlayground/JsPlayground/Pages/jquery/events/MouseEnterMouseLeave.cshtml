@@ -1,0 +1,69 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.MouseEnterMouseLeaveModel
+
+@{
+    string pageId = "mouseEnter() / mouseLeave()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The jQuery <code>mouseeneter()</code> and <code>mouseleave()</code> events
+    automatically wired up an (anonymous) function to the mouseover() and mouseout()
+    properties of the selected element.
+</p>
+
+<p>Click on each of these alerts.</p>
+
+<div id="alert1" class="alert alert-info">
+    <h5>jQuery method - Alert #1</h5>
+</div>
+
+<div id="alert2" class="alert alert-info">
+    <h5>Javascript method - Alert #2</h5>
+</div>
+
+<div id="alert3" class="alert alert-info">
+    <h5 id="demo1" class="text-danger"></h5>
+</div>
+
+<pre>
+<code>
+$("#alert1").mouseenter(function () { $("#demo1").html("entering alert 1"); });
+$("#alert1").mouseleave(function () { $("#demo1").html("leaving alert 1"); });
+
+//Javascript method
+document.getElementById("alert2").addEventListener("mouseover", function () { document.getElementById("demo1").innerHTML = "entering alert 2"; });
+document.getElementById("alert2").addEventListener("mouseout", function () { document.getElementById("demo1").innerHTML = "leaving alert 2"; });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        //jQuery method
+        $("#alert1").mouseenter(function () { $("#demo1").html("entering alert 1"); });
+        $("#alert1").mouseleave(function () { $("#demo1").html("leaving alert 1"); });
+
+        //Javascript method
+        document.getElementById("alert2").addEventListener("mouseover", function () { document.getElementById("demo1").innerHTML = "entering alert 2"; });
+        document.getElementById("alert2").addEventListener("mouseout", function () { document.getElementById("demo1").innerHTML = "leaving alert 2"; });
+    </script>
+}

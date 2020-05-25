@@ -1,0 +1,100 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.OnModel
+
+@{
+    string pageId = "on()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p><code>on()</code> adds an any event listener.</p>
+
+<div class="text-center m-5">
+    <button id="OrderButton" class="btn btn-lrg btn-danger">Order!</button>
+</div>
+
+<p>
+    Also - The <code>on()</code> method attaches <strong>one or more</strong> event handlers for the selected elements.
+    Mouseover or click the Hello World text.
+</p>
+
+<h3 id="demo1" class="m-3">Hello World</h3>
+
+<pre>
+<code>
+// javascript
+orderButton.addEventListener("click", function () { alert("buying"); });
+
+// is same as jQuery's...
+orderButton<mark>.on</mark>("click", function () { alert("buying"); });
+
+$("#demo1").on(
+{
+    mouseenter: function () { $(this).css("background-color", "lightgray"); },
+    mouseleave: function () { $(this).css("background-color", "lightblue"); },
+    click: function () { $(this).css("background-color", "yellow"); }
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>Another example...click a item</p>
+
+<ul class="product-props">
+    <li>Price: $9.99</li>
+    <li>Artist: Van Gogh</li>
+    <li>Title: </li>
+    <li>Description: Self-portrait</li>
+</ul>
+
+<pre>
+<code>
+let productInfo = $(".product-props li");
+productInfo<mark>.on</mark>("click", function () { alert("you clicked on [" + $(this).text()+ "]");});
+</code>
+</pre>
+
+<p>The straight javascript approach would be to use addEventLister like so:</p>
+
+<pre>
+<code>
+    var demo2 = document.getElementById("demo2");
+    demo2.addEventListener("mouseover", function () { demo2.style.backgroundColor = "#D94A38"; });
+    demo2.addEventListener("mouseout", function () { demo2.style.backgroundColor = "#ffcc00"; });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#demo1").on(
+                {
+                    mouseenter: function () { $(this).css("background-color", "lightgray"); },
+                    mouseleave: function () { $(this).css("background-color", "lightblue"); },
+                    click: function () { $(this).css("background-color", "yellow"); }
+                });
+
+            let orderButton = $("#OrderButton");
+            orderButton.on("click", function () { alert("buying"); });
+
+            let productInfo = $(".product-props li");
+            productInfo.on("click", function () { alert("you clicked on [" + $(this).text() + "]"); });
+        });
+    </script>
+}

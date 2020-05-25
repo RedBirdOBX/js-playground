@@ -1,0 +1,46 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>AJAX is the art of exchanging data with a server, and updating parts of a web page - without reloading the whole page.</p>
+
+<p>jQuery provides several methods for AJAX functionality.</p>
+
+<p>
+    With the jQuery AJAX methods, you can request text, HTML, XML, or JSON from a remote server using both HTTP Get and HTTP Post -
+    And you can load the external data directly into the selected HTML elements of your web page!
+</p>
+
+<h4 class="text-center text-info m-3">AJAX = Asynchronous JavaScript and XML</h4>
+
+<div class="alert alert-info">
+    Writing regular AJAX code can be a bit tricky, because different browsers have different syntax for AJAX implementation.
+    This means that you will have to write extra code to test for different browsers. However, the jQuery team has taken
+    care of this for us, so that we can write AJAX functionality with only one single line of code.
+</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

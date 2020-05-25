@@ -1,0 +1,99 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.ShowHideModel
+
+@{
+    string pageId = "show() / hide()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Use <code>show()</code> or <code>hide()</code> to show or hide any document element.
+    The optional speed parameter specifies the speed of the hiding/showing, and can take
+    the following values: "slow", "fast", or milliseconds.
+</p>
+
+<div class="m-3">
+    <code>
+        $(selector).hide/.show(speed,callback);
+    </code>
+</div>
+
+<p class="text-center"><button id="btnShow" class="btn btn-success" type="button">Show</button></p>
+
+<p class="text-center"><button id="btnHide" class="btn btn-danger" type="button">Hide</button></p>
+
+<p id="LorumIpsumContent">
+    <em>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Adipiscing elit duis tristique sollicitudin nibh sit.
+        Condimentum id venenatis a condimentum vitae sapien pellentesque. Nunc consequat interdum varius sit.
+    </em>
+</p>
+
+<pre>
+<code>
+let delay = 3000;
+$("#btnShow").click(function () { $("#LorumIpsumContent").show(delay); });
+$("#btnHide").click(function () { $("#LorumIpsumContent").hide(delay); });
+</code>
+</pre>
+
+<p class="my-5">Using a <strong>callback</strong></p>
+
+<p>
+    The optional callback parameter is a function to be executed after the hide() or show() method completes.
+    Here is an example using callback.
+</p>
+
+<p class="text-center"><button id="btnShow2" class="btn btn-success" type="button">Show</button></p>
+
+<p class="text-center"><button id="btnHide2" class="btn btn-danger" type="button">Hide</button></p>
+
+<p id="LorumIpsumContent2">
+    <em>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Adipiscing elit duis tristique sollicitudin nibh sit.
+        Condimentum id venenatis a condimentum vitae sapien pellentesque. Nunc consequat interdum varius sit.
+    </em>
+</p>
+
+
+<pre>
+<code>
+let delay = 3000;
+$("#btnShow2").click(function () { $("#LorumIpsumContent2").show(delay, function () { alert("done"); }); });
+$("#btnHide2").click(function () { $("#LorumIpsumContent2").hide(delay, function () { alert("done"); }); });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            let delay = 3000;
+            $("#btnShow").click(function () { $("#LorumIpsumContent").show(delay); });
+            $("#btnHide").click(function () { $("#LorumIpsumContent").hide(delay); });
+
+            $("#btnShow2").click(function () { $("#LorumIpsumContent2").show(delay, function () { alert("done"); }); });
+            $("#btnHide2").click(function () { $("#LorumIpsumContent2").hide(delay, function () { alert("done"); }); });
+        });
+    </script>
+}

@@ -1,0 +1,85 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.forms.CountingSelectedCheckboxesModel
+
+@{
+    string pageId = "Counting Selected Checkboxes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Select as many checkboxes as you like.
+</p>
+
+<div class="text-center m-3">
+    <label><input type="checkbox" value="" id="check1">Option 1</label>
+    <label><input type="checkbox" value="" id="check2">Option 2</label>
+    <label><input type="checkbox" value="" id="check3">Option 3</label>
+    <label><input type="checkbox" value="" id="check4">Option 4</label>
+    <label><input type="checkbox" value="" id="check5">Option 5</label>
+</div>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <h4><span id="current-count"></span> checkboxes selected.</h4>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+const Recount = () =>
+{
+    let results = 0;
+    for (let i = 1; i <= 5; i++)
+    {
+        if ($("#check" + i).is(':checked'))
+        { results++; }
+    }
+
+    $("#current-count").html(results);
+};
+
+//wire up controls
+$(":checkbox").on({ click: Recount });
+
+// Set default
+let currentCount = "0";
+$("#current-count").html(currentCount);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        const Recount = () => {
+            let results = 0;
+            for (let i = 1; i <= 5; i++) {
+                if ($("#check" + i).is(':checked')) { results++; }
+            }
+
+            $("#current-count").html(results);
+        };
+
+        //wire up controls
+        $(":checkbox").on({ click: Recount });
+
+        // Set default
+        let currentCount = "0";
+        $("#current-count").html(currentCount);
+    </script>
+}

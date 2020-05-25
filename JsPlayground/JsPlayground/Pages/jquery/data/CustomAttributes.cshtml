@@ -1,0 +1,130 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.data.CustomAttributesModel
+
+@{
+    string pageId = "Custom Attributes";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-data}
+@section BreadCrumbChapter {data}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Often you will need to update UI elements without wanting to make database calls back to the server each time.
+    You can do this using <em>custom data elements</em>.&nbsp;
+    These typically are prefixed with &quot;data-&quot; and are custom html attributes.
+    You can then use JQuery to pick these values out and update a page element.&nbsp;
+</p>
+
+<p>
+    <strong>Remember: </strong> We are using the CSS Selector syntax
+    to select elements with a custom attribute known as
+    <q>data-action=selectMovie</q> instead selecting by an ID.
+</p>
+
+<div class="row my-3">
+    <div class="card col-3">
+        <div class="card-body">
+            <div id="city-links">
+            </div>
+        </div>
+    </div>
+    <div class="card col-9">
+        <div class="card-body">
+            <div id="selected-city">
+                <div><strong>City Name: </strong><span id="city-label"></span></div>
+                <div><strong>City Id: </strong><span id="id-label"></span></div>
+                <div><strong>Created On: </strong><span id="created-label"></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+    $('a[data-action=selectCity]').click(function (e)
+    {
+        e.preventDefault();
+
+        //grab the meta data
+        let cityName = $(this).attr('data-name');
+        let cityId = $(this).attr('data-cityid');
+        let createdOn = $(this).attr('data-createdon');
+
+        $('#city-label').html(cityName);
+        $('#id-label').html(cityId);
+        $('#created-label').html(createdOn);
+    });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+            let displayHtml = "";
+            let cityLinks = [];
+
+            //make a call to the City Info Demo API and get 10 cities
+            const FetchData = async () => {
+                let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+                let data = await response.json();
+                data.forEach(BuildCityLink);
+                CreateDisplay();
+            };
+
+            const BuildCityLink = (city) => {
+                let link = `<div>
+                                            <a href='#' data-action=selectCity
+                                                data-name=${city.name}
+                                                data-cityid='${city.cityId}'
+                                                data-createdon='${city.createdOn}'>
+                                                ${city.name}
+                                            </a>
+                                        </div>`;
+                cityLinks.push(link);
+            };
+
+            const CreateDisplay = () => {
+                cityLinks.forEach(UpdateDisplayHtml);
+                $("#city-links").html(displayHtml);
+
+                // wire this up after we have our data
+                $('a[data-action=selectCity]').click(function (e) {
+                    e.preventDefault();
+
+                    //grab the meta data
+                    let cityName = $(this).attr('data-name');
+                    let cityId = $(this).attr('data-cityid');
+                    let createdOn = $(this).attr('data-createdon');
+
+                    $('#city-label').html(cityName);
+                    $('#id-label').html(cityId);
+                    $('#created-label').html(createdOn);
+                });
+            };
+
+            const UpdateDisplayHtml = (link) => {
+                displayHtml += link;
+            };
+
+            FetchData();
+
+        });
+    </script>
+}

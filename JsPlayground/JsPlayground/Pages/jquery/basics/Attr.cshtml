@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.AttrModel
+
+@{
+    string pageId = "attr()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>attr()</code> method sets or returns attributes and values of the selected elements.
+    When this method is used to <strong>return</strong> the attribute value, it returns the value of the <strong>FIRST</strong> matched element.
+    When this method is used to <strong>set</strong> attribute values, it sets one or more attribute/value pairs for the set of matched elements.
+</p>
+
+<pre>
+<code>
+$("#ReturnExample").html($("#ReturnExample").attr("class"));
+$("#SetExample").attr("class","text-dander");
+$("#ImageDemo").attr("width","500px");
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h4 class="text-info" id="ReturnExample"></h4>
+<h4 id="SetExample">Hello World</h4>
+<p class="text-center"><img id="ImageDemo" src="../../assets/images/minion.jpg" /></p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#ReturnExample").html("The class value of this header is: " + $("#ReturnExample").attr("class"));
+        $("#SetExample").attr("class", "text-dander");
+        $("#ImageDemo").attr("width", "200px");
+    </script>
+}
+
+

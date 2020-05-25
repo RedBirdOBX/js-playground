@@ -1,0 +1,61 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.traversing.ParentsUntilModel
+
+@{
+    string pageId = "parentsUntil()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>parentsUntil()</code> method returns all ancestor elements between two given arguments.
+    The following example returns all ancestor elements between a demo4 and demo2.
+</p>
+
+<p class="text-center"><button type="button" id="btnDemo" class="btn btn-lg btn-success">Next</button></p>
+
+<div class="alert alert-info" id="demo1">
+    div 1
+    <div id="demo2">
+        div 2
+        <div id="demo3">
+            div 3
+            <div id="demo4">
+                div 4
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#demo4").parentsUntil("#demo2").css({ "background-color": "red" });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () {
+            $("#demo4").parentsUntil("#demo2").css({ "background-color": "red" });
+        });
+    </script>
+}

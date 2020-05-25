@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.DocumentReadyModel
+
+@{
+    string pageId = "Document Ready";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The DOM needs to fully load into the browser or you will get errors if you try to execute jQuery code against it before it fully loads.
+    Overcoming this is easy as you can use the ready function.
+</p>
+
+<pre>
+<code>
+$(document).ready(function()
+{
+    // js code here..
+});
+</code>
+</pre>
+
+<p>In jQuery, the shortcut for (document).ready is simply <code>$(function(){ ...code...  });</code>. For example:</p>
+
+<pre>
+<code>
+$(function()
+{
+    //..stuff..
+});
+</code>
+</pre>
+
+<p>Also, In JQuery, the <code>$</code> simply means “find” or “get” ...as in get this element/tag.</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

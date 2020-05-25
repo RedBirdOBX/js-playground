@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.HasModel
+
+@{
+    string pageId = "has()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>has()</code> selector selects all elements that have one or more <strong>elements</strong> inside of them,
+    that matches the specified selector.
+</p>
+
+<p>
+    <code>has()</code> selects <strong>elements</strong> with other elements within them.
+    <code>contains</code> finds elements with simple text-based matches.
+</p>
+
+<div class="alert alert-info">
+    <p><span>This is a span element inside a p element.</span></p>
+    <p>This is a p element with no span element.</p>
+</div>
+
+<div class="m-3">
+    <code>
+        $("p:has(span)").css("border", "solid red");
+    </code>
+</div>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("p:has(span)").css("border", "solid red");
+        });
+    </script>
+}

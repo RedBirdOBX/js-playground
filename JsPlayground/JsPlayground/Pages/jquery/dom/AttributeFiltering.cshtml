@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.AttributeFilteringModel
+
+@{
+    string pageId = "Attribute Filtering";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>CSS, Javascript, and jQuery all borrow from the same method of selecting an element with a specified attribute.</p>
+
+<h5>Example 1</h5>
+
+<p>In the example below, elements with the TITLE attribite will be styled.</p>
+
+<p><a href="#" title="button 1" id="hypBtn1">Button 1</a></p>
+
+<p><a href="#" id="hypBtn2">Button 2</a></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("[title]").addClass("btn btn-success btn-lg");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h5>Example 2</h5>
+
+<p>In this example below, only the button with a TYPE=BUTTON attribite will be styled.</p>
+
+<p><button id="btn3" type="button">Button 3</button></p>
+
+<p><button id="btn4" type="submit">Button 4</button></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("[type=button]").addClass("btn btn-danger btn-lg");
+</code>
+</pre>
+
+<p><a href="http://www.w3schools.com/jquery/jquery_selectors.asp" target="_blank">http://www.w3schools.com/jquery/jquery_selectors.asp</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("[title]").addClass("btn btn-success btn-lg");
+        $("[type=button]").addClass("btn btn-danger btn-lg");
+    </script>
+}

@@ -1,0 +1,142 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.MethodsModel
+
+@{
+    string pageId = "Common Methods";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>AJAX is the art of exchanging data with a server, and updating parts of a web page - without reloading the whole page.</p>
+
+<p>The following table lists all the jQuery AJAX methods:</p>
+
+<p>
+    With the jQuery AJAX methods, you can request text, HTML, XML, or JSON from a remote server using both HTTP Get and HTTP Post -
+    And you can load the external data directly into the selected HTML elements of your web page!
+</p>
+
+<p><a href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp" target="_blank">http://www.w3schools.com/jquery/jquery_ref_ajax.asp</a></p>
+
+<table class="table table-condensed table-bordered table-hover">
+    <tbody class="table-striped">
+        <tr>
+            <th style="width:20%">Method</th>
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td>$.ajax()</td>
+            <td>Performs an async AJAX request</td>
+        </tr>
+
+        <tr>
+            <td>$.ajaxPrefilter()</td>
+            <td>
+                Handle custom Ajax options or modify existing options before each request is
+                sent and before they are processed by $.ajax()
+            </td>
+        </tr>
+
+        <tr>
+            <td>$.ajaxSetup()</td>
+            <td>Sets the default values for future AJAX requests</td>
+        </tr>
+
+        <tr>
+            <td>$.ajaxTransport()</td>
+            <td>Creates an object that handles the actual transmission of Ajax data</td>
+        </tr>
+
+        <tr>
+            <td><a href="get.html">$.get()</a></td>
+            <td>Loads data from a server using an AJAX HTTP GET request</td>
+        </tr>
+
+        <tr>
+            <td>$.getJSON()</td>
+            <td>Loads JSON-encoded data from a server using a HTTP GET request</td>
+        </tr>
+
+        <tr>
+            <td>$.getScript()</td>
+            <td>Loads (and executes) a JavaScript from a server using an AJAX HTTP GET request</td>
+        </tr>
+
+        <tr>
+            <td>$.param()</td>
+            <td>Creates a serialized representation of an array or object (can be used as URL query string for AJAX requests)</td>
+        </tr>
+
+        <tr>
+            <td><a href="post.html">$.post()</a></td>
+            <td>Loads data from a server using an AJAX HTTP POST request</td>
+        </tr>
+
+        <tr>
+            <td><a href="ajaxcomplete.html">ajaxComplete()</a></td>
+            <td>Specifies a function to run when the AJAX request completes</td>
+        </tr>
+
+        <tr>
+            <td><a href="ajaxerror.html">ajaxError()</a></td>
+            <td>Specifies a function to run when the AJAX request completes with an error</td>
+        </tr>
+
+        <tr>
+            <td>ajaxSend()</td>
+            <td>Specifies a function to run before the AJAX request is sent</td>
+        </tr>
+
+        <tr>
+            <td><a href="ajaxstart.html">ajaxStart()</a></td>
+            <td>Specifies a function to run when the first AJAX request begins</td>
+        </tr>
+
+        <tr>
+            <td>ajaxStop()</td>
+            <td>Specifies a function to run when all AJAX requests have completed</td>
+        </tr>
+
+        <tr>
+            <td><a href="ajaxsuccess.html">ajaxSuccess()</a></td>
+            <td>Specifies a function to run when an AJAX request completes successfully</td>
+        </tr>
+
+        <tr>
+            <td><a href="load.html">load()</a></td>
+            <td>Loads data from a server and puts the returned data into the selected element</td>
+        </tr>
+
+        <tr>
+            <td>serialize()</td>
+            <td>Encodes a set of form elements as a string for submission</td>
+        </tr>
+
+        <tr>
+            <td>serializeArray()</td>
+            <td>Encodes a set of form elements as an array of names and values</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

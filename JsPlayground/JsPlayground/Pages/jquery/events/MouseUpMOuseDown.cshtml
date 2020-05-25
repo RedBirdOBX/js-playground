@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.MouseUpMOuseDownModel
+
+@{
+    string pageId = "mouseUp() / mouseDown()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The jQuery <code>mousedown()</code> and <code>mouseup()</code> events automatically wired up an (anonymous) function to the
+    javascript mousedown() and mouseup() properties of the selected element.
+</p>
+
+<p>Click on each of these alerts.</p>
+
+<div id="alert1" class="alert alert-info">
+    <h5>jQuery method - Alert #1</h5>
+</div>
+
+<div id="alert2" class="alert alert-info">
+    <h5>Javascript method - Alert #2</h5>
+</div>
+
+<div id="alert3" class="alert alert-info">
+    <h5 id="demo1" class="text-danger"></h5>
+</div>
+
+<pre>
+<code>
+//jQuery method
+$("#alert1").mouseup(function () { $("#demo1").html("pressing down in well 1"); });
+$("#alert1").mousedown(function () { $("#demo1").html("releasing button in well 1"); });
+
+//Javascript method
+document.getElementById("alert2").addEventListener("mouseup", function () { document.getElementById("demo1").innerHTML = "pressing down in well 2"; });
+document.getElementById("alert2").addEventListener("mousedown", function () { document.getElementById("demo1").innerHTML = "releasing button in well 2"; });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        //jQuery method
+        $("#alert1").mouseup(function () { $("#demo1").html("pressing down in alert 1"); });
+        $("#alert1").mousedown(function () { $("#demo1").html("releasing button in alert 1"); });
+
+        //Javascript method
+        document.getElementById("alert2").addEventListener("mouseup", function () { document.getElementById("demo1").innerHTML = "pressing down in alert 2"; });
+        document.getElementById("alert2").addEventListener("mousedown", function () { document.getElementById("demo1").innerHTML = "releasing button in alert 2"; });
+    </script>
+}

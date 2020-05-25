@@ -1,0 +1,116 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.forms.SettingValsFormControlsModel
+
+@{
+    string pageId = "Setting Values from Controls";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>Use <code>val()</code>.</p>
+
+<p><input type="text" id="DemoText" /></p>
+<pre>
+<code>
+// Textbox, TextArea
+let foo = "Hello World";
+$('#DemoText').val(foo);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="mt-5 text-center">Drop Down List</h3>
+
+<p>Use <code>val()</code>.  You can also set the index like with <code>selectedIndex</code>.</p>
+
+<div class="text-center m-3">
+    <select id="Fruit" name="Fruit">
+        <option value="a">Apple</option>
+        <option value="b">Banana</option>
+        <option value="o">Orange</option>
+    </select>
+</div>
+
+<div class="text-center m-3">
+    <select id="Fruit2" name="Fruit">
+        <option value="a">Apple</option>
+        <option value="b">Banana</option>
+        <option value="o">Orange</option>
+    </select>
+</div>
+
+<pre>
+<code>
+// Drop Downs
+let fruit = "b";
+$("#Fruit").val(fruit);
+$("#Fruit2")[0].selectedIndex = 2;
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="mt-5 text-center">Checkboxes</h3>
+
+<p>This example will use the jQuery to find all elements with a type of checkbox and will set the attribute of checked to true.</p>
+
+<label><input id="Checkbox1" type="checkbox" />Checkbox</label>
+<label><input id="Checkbox2" type="checkbox" />Checkbox</label>
+
+<pre>
+<code>
+$( function () { $(':checkbox').attr('checked', true); } );
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="mt-5 text-center">Radio Buttons</h3>
+
+<p>Here's an example of how to check and set a radio button.</p>
+
+<input id="radAddress" type="radio" name="radAddress" value="radAddress"> By Address
+<input id="radZipCodes" type="radio" name="radZipCodes" value="radZipCodes"> By Zip Code
+
+<pre>
+<code>
+$("#radZipCodes").prop('checked', true);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // Textbox, TextArea
+        let foo = "Hello World";
+        $('#DemoText').val(foo);
+
+        // Drop Downs
+        let fruit = "b";
+        $("#Fruit").val(fruit);
+        $("#Fruit2")[0].selectedIndex = 2;
+
+        // checkboxes
+        $(function () { $(':checkbox').attr('checked', true); });
+
+        // radio buttons
+        $("#radZipCodes").prop('checked', true);
+
+    </script>
+}

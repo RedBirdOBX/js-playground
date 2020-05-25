@@ -1,0 +1,279 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.forms.GettingValsFromControlsModel
+
+@{
+    string pageId = "Getting Values from Controls";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h3 class="mt-5 text-center">Radio Buttons</h3>
+
+<p>Radio Buttons can share the same name.</p>
+
+<p><strong>Option 1</strong></p>
+<input type="radio" name="genderOptions" checked="checked" id="genderOptions1" value="No Filter"> No Filter
+<input type="radio" name="genderOptions" id="genderOptions2" value="Male"> Male
+<input type="radio" name="genderOptions" id="genderOptions3" value="Female"> Female
+
+<h4 id="radio-selected" class="text-danger"></h4>
+
+<hr />
+
+<p><strong>Option 2</strong></p>
+<input id="Radio1" name="group1" value="A" type="radio" />This is A
+<input id="Radio2" name="group1" value="B" type="radio" />This is B
+
+<hr />
+
+<p>
+    <strong>Option 3</strong><br />
+    This example uses a wrapper div and targets all the input types of radio within the wrapper.
+    This example does not need the name of the 'group' (name attribute).
+</p>
+<div id="group3Wrapper" class="m-5">
+    <input id="Radio3" name="group2" value="A" type="radio" />This is A
+    <input id="Radio4" name="group2" value="B" type="radio" />This is B
+</div>
+
+<pre>
+<code>
+    // option 1
+    $("input[name='genderOptions']").change(function ()
+    {
+        let selectedGender = $('input[name=genderOptions]:checked').val();
+        $("#radio-selected").html(selectedGender);
+    });
+
+    // option 2
+    $("input[name='group1']").change(function ()
+    {
+        alert("group 1 was checked");
+        alert("the value selected was: " + $(this).val());
+    });
+
+    // option 3
+    $('#group3Wrapper input:radio').click(function ()
+    {
+        if ($(this).val() === 'A')
+        {
+            alert("group 3 was checked");
+            alert("the value selected was: " + $(this).val());
+        }
+        else if ($(this).val() === 'B')
+        {
+            alert("group 3 was checked");
+            alert("the value selected was: " + $(this).val());
+        }
+    });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="m-3 text-center">Text Boxes</h3>
+
+<div class="text-center">
+    <input id="txtName" placeholder="Name" />
+    <button type="button" class="btn btn-info" onclick="GetName();">Test</button>
+</div>
+
+<h4 id="name-provided" class="text-danger text-center"></h4>
+
+<pre>
+<code>
+    var name = $("#txtName").val();
+    $("#name-provided").html(name);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="m-3 text-center">Drop Downs</h3>
+
+<div class="text-center m-3">
+    <select id="Fruit" name="Fruit">
+        <option value="a">Apple</option>
+        <option value="b">Banana</option>
+        <option value="o">Orange</option>
+    </select>
+</div>
+
+<h4 id="drop-down-selected" class="text-danger text-center"></h4>
+
+<pre>
+<code>
+$("#Fruit").change( function()
+{
+    let ddlValue = $('#Fruit option:selected').val();
+    let ddlText = $('#Fruit option:selected').text();
+    $("#drop-down-selected").html(`Value: ${ddlValue}, Text: ${ddlText}`);
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h3 class="m-3 text-center">Checkboxes</h3>
+
+<div class="text-center">
+    <input type="checkbox" name="chkJanuary" id="chkJanuary" value="January"> January
+    <input type="checkbox" name="chkFebruary" id="chkFebruary" value="February"> February
+    <input type="checkbox" name="chkMarch" id="chkMarch" value="March"> March
+    ...etc...
+</div>
+
+<h4 id="checkboxes-selected" class="text-danger text-center"></h4>
+
+<pre>
+<code>
+// checkboxes
+// there is definitely better ways to do this...this just "works".
+$("#chkJanuary").change(function ()
+{
+    GetSelectedMonths();
+});
+
+$("#chkFebruary").change(function ()
+{
+    GetSelectedMonths();
+});
+
+$("#chkMarch").change(function ()
+{
+    GetSelectedMonths();
+});
+
+function GetSelectedMonths()
+{
+    var x = 0;
+    var html = "";
+    let selectedMonths = [];
+
+    if ($("#chkJanuary").is(':checked'))
+    {
+        selectedMonths.push("January");
+    }
+
+    if ($("#chkFebruary").is(':checked'))
+    {
+        selectedMonths.push("February");
+    }
+
+    if ($("#chkMarch").is(':checked'))
+    {
+        selectedMonths.push("March");
+    }
+
+    do
+    {
+        html += selectedMonths[x] + "&lt;br />";
+        x++;
+    }
+    while (x < selectedMonths.length);
+
+    console.log(selectedMonths);
+
+    $("#checkboxes-selected").html(html);
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        // option 1
+        $("input[name='genderOptions']").change(function () {
+            let selectedGender = $('input[name=genderOptions]:checked').val();
+            $("#radio-selected").html(selectedGender);
+        });
+
+        // option 2
+        $("input[name='group1']").change(function () {
+            alert("group 1 was checked");
+            alert("the value selected was: " + $(this).val());
+        });
+
+        // option 3
+        $('#group3Wrapper input:radio').click(function () {
+            if ($(this).val() === 'A') {
+                alert("group 3 was checked");
+                alert("the value selected was: " + $(this).val());
+            }
+            else if ($(this).val() === 'B') {
+                alert("group 3 was checked");
+                alert("the value selected was: " + $(this).val());
+            }
+        });
+
+        // text box
+        function GetName() {
+            var name = $("#txtName").val();
+            $("#name-provided").html(name);
+        }
+
+        // drop downs
+        $("#Fruit").change(function () {
+            let ddlValue = $('#Fruit option:selected').val();
+            let ddlText = $('#Fruit option:selected').text();
+            $("#drop-down-selected").html(`Value: ${ddlValue}, Text: ${ddlText}`);
+        });
+
+        // checkboxes
+        // there is definitely better ways to do this...this just "works".
+        $("#chkJanuary").change(function () {
+            GetSelectedMonths();
+        });
+
+        $("#chkFebruary").change(function () {
+            GetSelectedMonths();
+        });
+
+        $("#chkMarch").change(function () {
+            GetSelectedMonths();
+        });
+
+        function GetSelectedMonths() {
+            var x = 0;
+            var html = "";
+            let selectedMonths = [];
+
+            if ($("#chkJanuary").is(':checked')) {
+                selectedMonths.push("January");
+            }
+
+            if ($("#chkFebruary").is(':checked')) {
+                selectedMonths.push("February");
+            }
+
+            if ($("#chkMarch").is(':checked')) {
+                selectedMonths.push("March");
+            }
+
+            do {
+                html += selectedMonths[x] + "<br />";
+                x++;
+            }
+            while (x < selectedMonths.length);
+
+            console.log(selectedMonths);
+
+            $("#checkboxes-selected").html(html);
+        }
+    </script>
+}

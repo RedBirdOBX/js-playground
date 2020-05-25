@@ -1,0 +1,138 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.TableFilterDemosModel
+
+@{
+    string pageId = "Table Filter Demos";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<h4 class="m-3">first() & last()</h4>
+
+<table class="table table-bordered table-condensed" id="demo-table1">
+    <tr>
+        <td>Row 1 Cell 1</td>
+        <td>Row 1 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Cell 1</td>
+        <td>Row 2 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 3 Cell 1</td>
+        <td>Row 3 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 4 Cell 1</td>
+        <td>Row 4 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 5 Cell 1</td>
+        <td>Row 5 Cell 2</td>
+    </tr>
+</table>
+
+<h4 class="m-3">odd() & even()</h4>
+
+<table class="table table-bordered table-condensed" id="demo-table2">
+    <tr>
+        <td>Row 1 Cell 1</td>
+        <td>Row 1 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Cell 1</td>
+        <td>Row 2 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 3 Cell 1</td>
+        <td>Row 3 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 4 Cell 1</td>
+        <td>Row 4 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 5 Cell 1</td>
+        <td>Row 5 Cell 2</td>
+    </tr>
+</table>
+
+<h4 class="m-3">less than, equal to, greater than</h4>
+
+<table class="table table-bordered table-condensed mb-5" id="demo-table3">
+    <tr>
+        <td>Row 1 Cell 1</td>
+        <td>Row 1 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Cell 1</td>
+        <td>Row 2 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 3 Cell 1</td>
+        <td>Row 3 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 4 Cell 1</td>
+        <td>Row 4 Cell 2</td>
+    </tr>
+    <tr>
+        <td>Row 5 Cell 1</td>
+        <td>Row 5 Cell 2</td>
+    </tr>
+</table>
+
+<pre>
+<code>
+    $(document).ready(function ()
+    {
+        $("#demo-table1").css("background-color", "pink");
+        $("#demo-table1 tr:first").css("background-color" , "blue");
+        $("#demo-table1 tr:last").css("background-color", "red");
+        $("#demo-table1 td:first").css("background-color", "#ffffff");
+        $("#demo-table1 td:last").css("background-color", "purple");
+
+        $('#demo-table2 tr:odd').css('background-color', 'yellow');
+        $('#demo-table2 tr:even').css('background-color', 'gray');
+
+        $('#demo-table3 tr:lt(3)').css('background-color', 'yellow');     //first 3 rows. Indexes 0 thru 2.
+        $('#demo-table3 tr:eq(3)').css('background-color', 'gray');       //row 3 is gray.
+        $('#demo-table3 tr:gt(3)').css('background-color', 'red');        //row 4-5 is red.
+    });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#demo-table1").css("background-color", "pink");
+            $("#demo-table1 tr:first").css("background-color", "blue");
+            $("#demo-table1 tr:last").css("background-color", "red");
+            $("#demo-table1 td:first").css("background-color", "#ffffff");
+            $("#demo-table1 td:last").css("background-color", "purple");
+
+            $('#demo-table2 tr:odd').css('background-color', 'yellow');
+            $('#demo-table2 tr:even').css('background-color', 'gray');
+
+            $('#demo-table3 tr:lt(3)').css('background-color', 'yellow');     //first 3 rows. Indexes 0 thru 2.
+            $('#demo-table3 tr:eq(3)').css('background-color', 'gray');       //row 3 is gray.
+            $('#demo-table3 tr:gt(3)').css('background-color', 'red');        //row 4-5 is red.
+        });
+    </script>
+}

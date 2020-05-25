@@ -1,0 +1,82 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.PropModel
+
+@{
+    string pageId = "prop()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>prop()</code> method sets or returns properties and values of the selected elements.
+    When this method is used to return the property value, it returns the value of the FIRST matched element.
+    When this method is used to set property values, it sets one or more property/value pairs for the set of matched elements.
+</p>
+
+<p><a href="https://www.w3schools.com/jquery/html_prop.asp" target="_blank">https://www.w3schools.com/jquery/html_prop.asp</a></p>
+
+<pre>
+<code>
+$("#ReturnButton").click(function ()
+{
+    $("#Results1").html(`the properties of class of header 1 are: ${$("#Demo1").prop("class")}. the attr of class is ${$("#Demo1").attr("class")}.`);
+});
+
+$("#SetButton").click(function ()
+{
+    $("#Demo2").prop("class", "text-danger text-center");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h4 id="Demo1" class="text-danger text-center">Hello World</h4>
+
+<p><span id="Results1"></span>&nbsp;</p>
+
+<p class="text-center">
+    <button id="ReturnButton" type="button" class="btn btn-danger btn-lg">
+        Return the Prop
+    </button>
+</p>
+
+<hr />
+
+<h4 id="Demo2" class="">Hello World</h4>
+
+<p><span id="Results2"></span>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p class="text-center">
+    <button id="SetButton" type="button" class="btn btn-danger btn-lg">
+        Set the Prop
+    </button>
+</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#ReturnButton").click(function () {
+            $("#Results1").html(`the properties of class of header 1 are: ${$("#Demo1").prop("class")}. the attr of class is ${$("#Demo1").attr("class")}.`);
+        });
+
+        $("#SetButton").click(function () {
+            $("#Demo2").prop("class", "text-danger text-center");
+        });
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.plugins.CountDownNewModel
+
+@{
+    string pageId = "CountDown (new)";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-plugins}
+@section BreadCrumbChapter {plugins}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<link href="/assets/css/theme.css" rel="stylesheet" />
+
+<style>
+    #clock {
+        margin-top: 200px;
+        font-size: 50px;
+        color: #ffffff;
+        padding: 50px;
+        border-color: #a11502;
+        border-radius: 20px;
+        border-width: 2px;
+        border-style: solid;
+        background-color: #ff8a8a;
+        text-shadow: 2px 2px #1b1b1b;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <div id="clock"></div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+    <script src="/assets/jquery/js/jquery-2.2.0.min.js"></script>
+    <script src="/assets/jquery/plugins/countdown2.1.0/jquery.countdown.min.js"></script>
+    <script type="text/javascript">
+
+        $('#clock').countdown('2016/8/20').on('update.countdown', function (event) {
+            var $this = $(this).html(event.strftime(''
+                + '<span>%-w</span> week%!w '
+                + '<span>%-d</span> day%!d '
+                + '<span>%H</span> hr '
+                + '<span>%M</span> min '
+                + '<span>%S</span> sec'));
+            8
+        });
+
+    </script>
+}

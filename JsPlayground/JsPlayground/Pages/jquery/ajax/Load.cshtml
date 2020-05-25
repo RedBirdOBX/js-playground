@@ -1,0 +1,140 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.LoadModel
+
+@{
+    string pageId = "Load";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>load()</code> method loads data from a server and puts the returned data into the selected element.
+</p>
+
+<div class="m-3">
+    <code>
+        $(selector).load({url},{data},{callback});
+    </code>
+</div>
+
+<ul>
+    <li>The required URL parameter specifies the URL you wish to load.</li>
+    <li>The <strong>optional</strong> data parameter specifies a set of querystring key/value pairs to send along with the request.</li>
+    <li>The <strong>optional</strong> callback parameter is the name of a function to be executed after the load() method is completed</li>
+</ul>
+
+<h5>Simple Test</h5>
+
+<p class="text-center"><button id="btnDemo" class="btn btn-success" type="button">Load Test</button></p>
+
+<p>&nbsp;</p>
+
+<p>It is also possible to add a selector as part of the <strong>URL selector argument</strong>.</p>
+
+<p class="text-center"><button id="btnDemo2" class="btn btn-success" type="button">Load Test2</button></p>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="demo1">
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#demo1").load("ajax-sample.txt");
+});
+
+$("#btnDemo2").click(function ()
+{
+    $("#demo1").load("ajax-sample.txt #special");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h4>The CallBack parameter</h4>
+
+<p>
+    The optional callback parameter specifies a callback function to run when the <code>load()</code> method is completed.
+    The callback function can have different parameters:
+</p>
+
+<ul>
+    <li>responseTxt - contains the resulting content if the call succeeds</li>
+    <li>statusTxt - contains the status of the call</li>
+    <li>xhr - contains the XMLHttpRequest object</li>
+</ul>
+
+<p>
+    The following example displays an alert box after the <code>load()</code> method completes.
+    If the load() method has succeeded, it displays "External content loaded successfully!", and if it fails it displays an error message.
+</p>
+
+<p class="text-center"><button id="btnDemo3" class="btn btn-success" type="button">Load Test</button></p>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="demo2">
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+$("#btnDemo3").click(function()
+{
+    $("#demo2").load("ajax-sample.txt", function(responseTxt, statusTxt, xhr)
+    {
+        if(statusTxt == "success")
+        {alert("External content loaded successfully!");}
+
+        if(statusTxt == "error")
+        {alert("Error: " + xhr.status + ": " + xhr.statusText);}
+    });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnDemo").click(function () {
+                $("#demo1").load("ajax-sample.txt");
+            });
+
+            $("#btnDemo2").click(function () {
+                $("#demo1").load("ajax-sample.txt #special");
+            });
+
+            $("#btnDemo3").click(function () {
+                $("#demo2").load("ajax-sample.txt", function (responseTxt, statusTxt, xhr) {
+                    if (statusTxt == "success") { alert("External content loaded successfully!"); }
+
+                    if (statusTxt == "error") { alert("Error: " + xhr.status + ": " + xhr.statusText); }
+                });
+            });
+
+        });
+    </script>
+}

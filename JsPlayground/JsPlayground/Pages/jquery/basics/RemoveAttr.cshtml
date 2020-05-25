@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.RemoveAttrModel
+
+@{
+    string pageId = "removeAttr()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>removeAttr()</code> method removes one or more attributes from the selected elements.
+</p>
+
+<pre>
+<code>
+    $("#btnDemo1").click(function () { $("#Demo1").removeAttr("class"); });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<h4 id="Demo1" class="text-danger text-center">Hello World</h4>
+
+<p>&nbsp;</p>
+
+<p class="text-center">
+    <button id="btnDemo" type="button" class="btn btn-danger btn-lg">
+        removeAttr()
+    </button>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () { $("#Demo1").removeAttr("class"); });
+    </script>
+}
+

@@ -1,0 +1,72 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.HtmlModel
+
+@{
+    string pageId = "html()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>html()</code> is usually used for getting and setting the inner content of
+    DOM elements (containing html).
+</p>
+
+<p class="text-center"><button id="btnGet" type="button" class="btn btn-danger btn-lg">Get Value</button></p>
+
+<p class="text-center"><button id="btnSet" type="button" class="btn btn-warning btn-lg">Set Value</button></p>
+
+<p>&nbsp;</p>
+
+<div class="alert lert-info">
+    <h4 class="text-danger" id="demo1">Hello World</h4>
+</div>
+
+<div id="source">
+    <strong>Chewbacca</strong> dooku darth chewbacca luuke <em>c-3po luke moff</em>. Maul vader c-3p0 secura.
+    Jango ackbar wicket kessel k-3po. Antilles padmé solo k-3po jawa. Leia darth kamino gonk obi-wan jinn skywalker.
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnGet").click(function ()
+{ $("#demo1").html($("#source").html());  });
+
+$("#btnSet").click(function ()
+{ $("#demo1").html("Just what do you think you are doing &lt;strong>Dave&lt;/strong>?"); });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnGet").click(function () {
+                $("#demo1").html($("#source").html());
+            });
+
+            $("#btnSet").click(function () {
+                $("#demo1").html("Just what do you think you are doing <strong>Dave</strong>?");
+            });
+        });
+    </script>
+}

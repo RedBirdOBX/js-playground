@@ -1,0 +1,51 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.ToggleClassModel
+
+@{
+    string pageId = "toggleClass()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The following example will show how to use the <code>toggleClass()</code> method.
+    This method toggles between adding/removing classes from the selected elements.
+</p>
+
+<div class="well well-sm">
+    <h3 id="demo3" class="text-danger">Hello World</h3>
+</div>
+
+<p class="text-center">
+    <button id="btnDemo3" type="button" class="btn btn-danger btn-lg">
+        toggleClass
+    </button>
+</p>
+
+<pre>
+<code>
+$("#btnDemo3").click(function () { $("#demo3").toggleClass("text-danger")});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo3").click(function () { $("#demo3").toggleClass("text-danger") });
+    </script>
+}

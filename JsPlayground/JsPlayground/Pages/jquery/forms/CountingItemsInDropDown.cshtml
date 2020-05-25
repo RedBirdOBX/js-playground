@@ -1,0 +1,57 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.forms.CountingItemsInDropDownModel
+
+@{
+    string pageId = "Counting Items if Drop Down";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    You can use the <code>.length</code> property to count the number of items in a Select object (drop down).
+    You can actually use this on any javascript array - all jQuery does is target and find the ddl control.
+</p>
+
+<div class="text-center m-3">
+    <select id="Fruit" name="Fruit">
+        <option value="a">Apple</option>
+        <option value="b">Banana</option>
+        <option value="o">Orange</option>
+    </select>
+</div>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+let items = $("#Fruit option").length;
+$("#demo1").html("There are " + items + " items in the drop down.");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let items = $("#Fruit option").length;
+        $("#demo1").html("There are " + items + " items in the drop down.");
+    </script>
+}

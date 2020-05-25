@@ -1,0 +1,116 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.GettingSettingCSSPropsModel
+
+@{
+    string pageId = "Getting / Setting CSS Props";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <strong>Return a CSS Property</strong><br />
+    To return the value of a specified CSS property, use the following syntax: <code>css("propertyname");</code>
+</p>
+
+<p>The following example will return the color value of the element.</p>
+
+<div class="alert alert-info">
+    <h3 id="HelloWorldHeader" class="text-danger">Hello World</h3>
+</div>
+
+<p class="text-center">
+    <button id="GetCssButton" type="button" class="btn btn-danger btn-lg">
+        Get color of Hello World test.
+    </button>
+
+    <div class="card text-white bg-info my-3">
+        <div class="card-body">
+<p>Get the font color of demo1: <span id="results" class="text-white"></span></p>
+
+<pre>
+<code>
+let colorValue = $("#HelloWorldHeader").css("color");
+$("#GetCssButton").click(function () { $("#results").html(colorValue); });
+</code>
+</pre>
+
+<hr />
+
+<p>
+    <strong>Set a CSS Property</strong><br />
+    To set the value of a specified CSS property, use the following syntax: <code>css("property name","property value");</code>
+</p>
+
+
+<div class="alert alert-info">
+    <h4 id="HelloWorldHeader2" class="text-danger">Hello World</h4>
+</div>
+
+<div class="text-center my-3">
+    <button id="SetCSSButton" type="button" class="btn btn-danger btn-lg">Set CSS</button>
+</div>
+
+<pre>
+<code>
+    $("#SetCSSButton").click(function () { $("#HelloWorldHeader2").css("font-size", "50px"); });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>You can also set <strong>multiple CSS properties</strong> like so:</p>
+
+<div class="alert alert-info">
+    <h4 id="HelloWorldHeader3" class="text-danger">Hello World</h4>
+</div>
+
+<p class="text-center">
+    <button id="SetMultiplePropsButton" type="button" class="btn btn-danger btn-lg">
+        Set Multiple CSS Properties
+    </button>
+
+<p>Notice we use a js object to do this.</p>
+
+<pre>
+<code>
+$("#SetMultiplePropsButton").click(function ()
+{
+    $("#HelloWorldHeader3").css({
+        "font-size": "10px",
+        "font-weight": "bold",
+        "text-decoration": "underline"
+    });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let colorValue = $("#HelloWorldHeader").css("color");
+        $("#GetCssButton").click(function () { $("#results").html(colorValue); });
+        $("#SetCSSButton").click(function () { $("#HelloWorldHeader2").css("font-size", "50px"); });
+        $("#SetMultiplePropsButton").click(function () {
+            $("#HelloWorldHeader3").css({
+                "font-size": "10px",
+                "font-weight": "bold",
+                "text-decoration": "underline"
+            });
+        });
+    </script>
+}
+

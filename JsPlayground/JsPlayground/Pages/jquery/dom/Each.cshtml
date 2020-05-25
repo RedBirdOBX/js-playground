@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.EachFilteringModel
+
+@{
+    string pageId = "each()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>each()</code> acts as a loop.&nbsp; It will loop through any collection you provide it like in this obnoxious demo
+    and execute a function.
+</p>
+
+<div class="alert alert-info">
+    <div id="demo1"></div>
+</div>
+
+<table align="center" border="1" width="500" id="DemoTable">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+var content = "";
+$('#DemoTable td').each(function () { content+= this.innerHTML + "&lt;br /&gt;"; });
+$("#demo1").html(content);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        var content = "";
+        $('#DemoTable td').each(function () { content += this.innerHTML + "<br />"; });
+        $("#demo1").html(content);
+    </script>
+}

@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.traversing.ParentModel
+
+@{
+    string pageId = "parent()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>parent()</code> returns the <strong>direct parent</strong> element of the selected element.
+    This method only traverses a <strong>single level</strong> up the DOM tree.
+</p>
+
+<p class="text-center"><button type="button" id="btnDemo" class="btn btn-lg btn-success">Next</button></p>
+
+<div class="alert alert-info" id="parent">
+    <div id="child" class="bg-white">
+        Hello World
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#child").parent().css({ "border-width" : "5px", "border-type" : "solid", "border-color" : "red"});
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () {
+            $("#child").parent().css({ "background-color": "red" });
+        });
+    </script>
+}

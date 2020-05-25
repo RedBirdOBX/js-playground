@@ -1,0 +1,64 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.CloneModel
+
+@{
+    string pageId = "clone()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <code>clone()</code> will copy selected elements and insert them at the end of
+    the &lt;body&gt; or any other document element.
+</p>
+
+<p>&nbsp;</p>
+
+<div id="demo-container">
+    <h3 id="demo1" class="text-danger">I am unique.</h3>
+</div>
+
+<p class="text-center"><button type="button" id="btnClone" class="btn btn-danger">Clone Test</button></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#btnClone").click(function ()
+    {
+        $("#demo1").clone().appendTo("#demo-container");
+    });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnClone").click(function () {
+                $("#demo1").clone().appendTo("#demo-container");
+            });
+        });
+    </script>
+}

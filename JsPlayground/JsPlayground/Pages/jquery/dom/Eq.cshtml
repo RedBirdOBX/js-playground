@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.EqModel
+
+@{
+    string pageId = "eq()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>eq()</code> method returns an element with a specific index number of the selected elements.
+    The index numbers start at 0, so the first element will have the index number 0 and not 1.
+</p>
+
+<p>This example will apply css to the 3rd <code>li</code> which has an index of 2.</p>
+
+<ul id="example1">
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+
+<pre>
+<code>
+    $("#example1 li").eq(2).css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#example1 li").eq(2).css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+        });
+    </script>
+}

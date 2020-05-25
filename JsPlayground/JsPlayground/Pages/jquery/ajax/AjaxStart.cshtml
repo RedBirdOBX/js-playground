@@ -1,0 +1,95 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.AjaxStartModel
+
+@{
+    string pageId = "AjaxStart";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>ajaxStart()</code> method is triggered when the request is started.
+    The demo shows a loading section while the request is being made.
+</p>
+
+<p><a href="http://www.w3schools.com/jquery/ajax_ajaxstart.asp" target="_blank">http://www.w3schools.com/jquery/ajax_ajaxstart.asp</a></p>
+
+<p class="text-center"><button id="btnStart" class="btn btn-success" type="button">Start Test</button></p>
+
+<div id="loading">
+    <p class="text-center">
+        Loading.....<br /><br />
+        <img src="/assets/images/minion.jpg" />
+    </p>
+</div>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="request-response">
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#loading").hide();
+
+    $(document).ajaxStart(function () { ShowStart(); });
+    $(document).ajaxError(function () { ShowError(); });
+    $(document).ajaxComplete(function () { HideStart(); });
+
+
+    $("#btnStart").click(function ()
+    { $("#request-response").load("ajax-sample.txt"); });
+
+    function ShowStart()
+    { $("#loading").show(); }
+
+    function HideStart()
+    { $("#loading").hide(1000); }
+
+    function ShowError()
+    { $("#demo1").html("An error occurred...must be a bad file name."); }
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#loading").hide();
+
+            $(document).ajaxStart(function () { ShowStart(); });
+            $(document).ajaxError(function () { ShowError(); });
+            $(document).ajaxComplete(function () { HideStart(); });
+
+
+            $("#btnStart").click(function () { $("#request-response").load("ajax-sample.txt"); });
+
+            function ShowStart() { $("#loading").show(); }
+
+            function HideStart() { $("#loading").hide(1000); }
+
+            function ShowError() { $("#demo1").html("An error occurred...must be a bad file name."); }
+        });
+    </script>
+}

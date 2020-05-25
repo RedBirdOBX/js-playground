@@ -1,0 +1,77 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.ValModel
+
+@{
+    string pageId = "val()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>The <code>val()</code> is usually used for getting and setting form field elements, ie: form controls.</p>
+
+<p class="text-center"><button id="btnGet" type="button" class="btn btn-danger btn-lg">Get Value</button></p>
+
+<p class="text-center"><button id="btnSet" type="button" class="btn btn-warning btn-lg">Set Value</button></p>
+
+<div class="row m-3">
+    <div class="col-sm-6 col-sm-offset-3">
+        <input id="txtSource" class="form-control" value="What is it?" />
+    </div>
+</div>
+
+<div class="alert alert-info">
+    <h3 class="text-danger" id="demo1">Hello World</h3>
+</div>
+
+<p>&nbsp;</p>
+
+<p class="text-center"><button id="btnTest" type="button" class="btn btn-danger">Change href and title</button></p>
+
+<p class="text-center"><a href="http://www.w3schools.com" title="some title" id="w3s">W3Schools.com</a></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnGet").click(function ()
+{
+    $("#demo1").html($("#txtSource").val());
+});
+
+$("#btnSet").click(function ()
+{
+    $("#txtSource").val("Good morning Dave.");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnGet").click(function () {
+                $("#demo1").html($("#txtSource").val());
+            });
+
+            $("#btnSet").click(function () {
+                $("#txtSource").val("Good morning Dave.");
+            });
+        });
+    </script>
+}

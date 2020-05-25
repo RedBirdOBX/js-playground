@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.FilterModel
+
+@{
+    string pageId = "filter()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>filter()</code> method lets you specify a criteria.
+    Elements that do not match the criteria are removed from the selection, and those that match will be returned.
+</p>
+
+<p>This example will apply css to the <strong>li</strong>s which have a class of foo.</p>
+
+<ul id="example1">
+    <li class="foo">list item 1</li>
+    <li>list item 2</li>
+    <li class="foo">list item 3</li>
+    <li>list item 4</li>
+    <li class="foo">list item 5</li>
+</ul>
+
+<p class="text-center m-3"><button id="btnDemo" type="button" class="btn btn-danger">Filter Test</button></p>
+
+<pre>
+<code>
+&lt;ul id="example1"&gt;
+&lt;li class="foo">list item 1&lt;/li&gt;
+&lt;li&gt;list item 2&lt;/li&gt;
+&lt;li&gt; class="foo">list item 3&lt;/li&gt;
+&lt;li&gt;list item 4&lt;/li&gt;
+&lt;li&gt; class="foo">list item 5&lt;/li&gt;
+&lt;/ul&gt;
+
+$("#btnDemo").click(function ()
+{
+    $("#example1 li").filter(".foo").css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnDemo").click(function () {
+                $("#example1 li").filter(".foo").css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+            });
+        });
+    </script>
+}

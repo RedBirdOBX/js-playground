@@ -1,0 +1,78 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.ToggleModel
+
+@{
+    string pageId = "toggle()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    With jQuery, you can toggle between the hide() and show() methods with the <code>toggle()</code> method.
+    Shown elements are hidden and hidden elements are shown. You can provide the milliseconds as a param.
+    With no parameters, the .toggle() method simply toggles the <strong>visibility</strong> of elements.
+</p>
+
+<p><a href="https://api.jquery.com/toggle/" target="_blank">https://api.jquery.com/toggle/</a></p>
+
+<div class="text-center m-5">
+    <button id="ToggleDemoButton" class="btn btn-primary">Hide the Lorum Ipson</button>
+</div>
+
+<p id="LorumIpsumContent">
+    <em>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Adipiscing elit duis tristique sollicitudin nibh sit.
+        Condimentum id venenatis a condimentum vitae sapien pellentesque. Nunc consequat interdum varius sit.
+    </em>
+</p>
+
+<pre>
+<code>
+$(document).ready(function()
+{
+    let delay = 2000;
+    $("#ToggleDemoButton").click(function()
+    {
+        $("#LorumIpsumContent").toggle(2000);
+    });
+});
+
+
+// here's another sample - not demonstrated
+var $logInToggle = $("#log-in-toggle");
+var $popUpForm = $(".pop-up-form");
+
+// toggle is just for show/hide
+$logInToggle.on("click", function () { $popUpForm.toggle();});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            let delay = 1000;
+            $("#ToggleDemoButton").click(function () {
+                $("#LorumIpsumContent").toggle(delay);
+            });
+        });
+    </script>
+}

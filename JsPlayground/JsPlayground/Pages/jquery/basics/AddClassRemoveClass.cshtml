@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.AddClassRemoveClassModel
+
+@{
+    string pageId = "addClass() / removeClass()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>To add and/or remove a CSS Class from a page element, use this:</p>
+
+<pre>
+<code>
+    $("#btnTest").removeClass();
+    $("#btnTest").addClass("btn btn-danger");
+</code>
+</pre>
+
+<div class="text-center my-5">
+    <button id="btnTest" class="btn btn-primary" onclick="ChangeClass(); return false">Click Me</button>
+</div>
+
+<p>
+    The code above will remove the btn-primary class from the button and adds the btn-danger class.
+    If you do not provide the removeClass function with any arguments (class names) then it will remove <strong>all</strong> CSS classes. If
+    you provide it with one or more class names, it will only remove those specified classes.
+</p>
+
+<p>The <code>css()</code> method sets or returns one or more style properties for the selected elements.</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        const ChangeClass = () => {
+            $("#btnTest").removeClass();
+            $("#btnTest").addClass("btn btn-danger");
+        };
+    </script>
+}

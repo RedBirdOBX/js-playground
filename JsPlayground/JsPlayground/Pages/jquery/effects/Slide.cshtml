@@ -1,0 +1,131 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.SlideModel
+
+@{
+    string pageId = "slide()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<style>
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+
+    #panel2, #flip2 {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel2 {
+        padding: 50px;
+    }
+
+
+    #panel3, #flip3 {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel3 {
+        padding: 50px;
+        display: none;
+    }
+</style>
+
+
+<p>Common <code>slide()</code> methods for which you can use optional time 'delay' values:</p>
+
+<ul>
+    <li>slideDown - used to slide down an element.</li>
+    <li>slideUp - used to slide up an element.</li>
+    <li>slideToggle - toggles between the slideDown() and slideUp() methods</li>
+</ul>
+
+<p><a href="http://api.jquery.com/category/effects/sliding/" target="_blank">http://api.jquery.com/category/effects/sliding/</a></p>
+
+<h4>slideDown Example</h4>
+
+<p>The element to slide down should have a CSS display property of <strong>hidden</strong>.</p>
+
+<div id="flip"><strong>Click</strong> to slide down panel</div>
+<div id="panel">Hello world!</div>
+
+<p>&nbsp;</p>
+
+<h4>slideUp Example</h4>
+
+<div id="flip2"><strong>Click</strong> to slide down panel</div>
+<div id="panel2">Hello world!</div>
+
+<p>&nbsp;</p>
+
+<h4>slideToggle Example</h4>
+
+<p>The element to slide down should have a CSS display property of <strong>hidden</strong>.</p>
+
+<div id="flip3"><strong>Click</strong> to slide the panel down or up</div>
+<div id="panel3">Hello world!</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+//slide down
+$("#flip").click(function () { $("#panel").slideDown("slow"); });
+
+//slide up
+$("#flip2").click(function () { $("#panel2").slideUp(5000); })
+
+//slide toggle
+$("#flip3").click(function () { $("#panel3").slideToggle(); });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            //slide down
+            $("#flip").click(function () { $("#panel").slideDown("slow"); });
+
+            //slide up
+            $("#flip2").click(function () { $("#panel2").slideUp(5000); })
+
+            //slide toggle
+            $("#flip3").click(function () { $("#panel3").slideToggle(); });
+
+        });
+    </script>
+}
+

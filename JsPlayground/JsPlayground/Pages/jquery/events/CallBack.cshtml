@@ -1,0 +1,77 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.CallBackModel
+
+@{
+    string pageId = "Callback";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<p>
+    A callback function is executed after the current effect/function is 100% finished.
+    JavaScript statements are executed line by line. However, with effects, the next line of code can be run even
+    though the effect is not finished/delayed. This can create errors. To prevent this, you can create a callback function.
+</p>
+
+<p>
+    A callback function is executed after a current effect (or some other function if supported) is finished.
+    This is really more of a js concept and not so much as jQuery feature.
+</p>
+
+<div class="m-3">
+    <code>
+        $({jquery selector}).{function name}(speed, {callback function});
+    </code>
+</div>
+
+<h4 class="text-center text-info">The callback function is an anonymous function, not just another line of code!</h4>
+
+<p class="text-center"><button id="btnHide" type="button" class="btn btn-danger">Hide</button></p>
+
+<div class="alert alert-info" id="demo1">
+    <h4 class="text-info">Goodbye cruel world.</h4>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnHide").click(function ()
+{
+    //correct
+    $("#demo1").hide(3000, function () { alert("Demo1 is now hidden"); });
+
+    //NOT correct
+    $("#demo1").hide(3000, alert("Demo1 is now hidden"));
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnHide").click(function () {
+                $("#demo1").hide(3000, function () { alert("Demo1 is now hidden"); });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,100 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.AttrModel
+
+@{
+    string pageId = "attr()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>The <code>attr()</code> also gets or sets an html attribute on a DOM Element.</p>
+
+<p class="text-center"><button id="btnGet" type="button" class="btn btn-danger btn-lg">Get Attribute</button></p>
+
+<p class="text-center"><button id="btnSet" type="button" class="btn btn-warning btn-lg">Set Attribute</button></p>
+
+<p>&nbsp;</p>
+
+<div class="alert alert-info">
+    <h3 class="text-danger" id="demo1">Hello World</h3>
+</div>
+
+<p>&nbsp;</p>
+
+<p class="text-center"><button id="btnTest" type="button" class="btn btn-danger">Change href and title</button></p>
+
+<p class="text-center"><a href="http://www.w3schools.com" title="some title" id="w3s">W3Schools.com</a></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#btnGet").click(function ()
+    {
+        var cssClass = $("#demo1").attr("class");
+        $("#demo1").html("The current class of this text is " + cssClass + ".");
+    });
+
+    $("#btnSet").click(function ()
+    {
+        $("#demo1").attr("class", "text-info")
+        $("#demo1").html("Setting the css class to text-info....");
+    });
+
+    $("#btnTest").click(function ()
+    {
+        $("#w3s").attr({
+            "href": "http://www.w3schools.com/jquery",
+            "title": "W3Schools jQuery Tutorial",
+            "class": "btn btn-danger"
+        });
+
+    });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnGet").click(function () {
+                var cssClass = $("#demo1").attr("class");
+                $("#demo1").html("The current class of this text is " + cssClass + ".");
+            });
+
+            $("#btnSet").click(function () {
+                $("#demo1").attr("class", "text-info")
+                $("#demo1").html("Setting the css class to text-info....");
+            });
+
+            $("#btnTest").click(function () {
+                $("#w3s").attr({
+                    "href": "http://www.w3schools.com/jquery",
+                    "title": "W3Schools jQuery Tutorial",
+                    "class": "btn btn-danger"
+                });
+
+            });
+        });
+    </script>
+}

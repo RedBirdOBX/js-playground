@@ -1,0 +1,47 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.RemovePropModel
+
+@{
+    string pageId = "removeProp()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>removeProp()</code> method removes a property set by the prop() method.
+    Note: Do not use this method to remove other HTML attributes like style, id, or checked.
+    Use the <code>removeAttr()</code> method instead.
+</p>
+
+<pre>
+<code>
+$(selector).removeProp(property);
+
+$("button").click(function(){
+    var $x = $("div");
+    $x.prop("color", "FF0000");
+    $x.append("The color property: " + $x.prop("color"));
+    $x.removeProp("color");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

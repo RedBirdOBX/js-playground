@@ -1,0 +1,111 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.PostModel
+
+@{
+    string pageId = "Post";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The jQuery <code>get()</code> and <code>post()</code> methods are used to request data from the server with an HTTP GET or POST request.
+    Two commonly used methods for a request-response between a client and server are: GET and POST.
+</p>
+
+<ul>
+    <li>GET - Requests data from a specified resource</li>
+    <li>POST - Submits data to be processed to a specified resource</li>
+</ul>
+
+<p>
+    GET is basically used for just getting (retrieving) some data from the server. Note: The GET method may return cached data.
+</p>
+
+<p>
+    POST can also be used to get some data from the server. However, the POST method NEVER caches data,
+    and is often used to <strong>send data</strong> along with the request.
+</p>
+
+<h4>jQuery $.post() Method</h4>
+
+<p>The <code>$.post()</code> method requests data from the server using an HTTP POST request.</p>
+
+<p>The <code>$.get()</code> method requests data from the server with an HTTP GET request.</p>
+
+<div class="m-3">
+    <code>
+        $.post({url}}, {data}, {callback function name }});
+    </code>
+</div>
+
+<ul>
+    <li>The URL required parameter specifies the URL you wish to request</li>
+    <li>The optional <strong>data</strong> parameter specifies some data to send along with the request in the form of an <strong>anonymous</strong> object.</li>
+    <li>The optional callback parameter is the name of a function to be executed if the request succeeds.</li>
+</ul>
+
+<p class="text-center"><button id="btnPost" class="btn btn-success" type="button">Post Test</button></p>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="demo-content">
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+// this doesn't yet work...needs to be sent as json
+$(document).ready(function ()
+{
+    $("#btnPost").click( function ()
+    {
+        $.post("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest",
+            {
+                Name: "Temple of Sirynx",
+                Description: "Where the priests are."
+            },
+            function (data, status)
+            {
+                $("#demo1").html(data + "<br /><br />Status: " + status);
+            });
+    }
+    );
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnPost").click(function () {
+                $.post("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest",
+                    {
+                        Name: "Temple of Sirynx",
+                        Description: "Where the priests are."
+                    },
+                    function (data, status) {
+                        $("#demo1").html(data + "<br /><br />Status: " + status);
+                    });
+            }
+            );
+        });
+    </script>
+}

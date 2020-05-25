@@ -1,0 +1,75 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.HeightWidthModel
+
+@{
+    string pageId = "Height / Width";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Query has several important methods for working with dimensions:</p>
+
+<ul>
+    <li><code>width()</code> gets or sets the current computed width for the element (subtracting padding, border and margin).</li>
+    <li><code>height()</code> gets or sets the current computed height for the element (subtracting padding, border and margin).</li>
+    <li><code>innerWidth()</code> gets or sets the current computed inner width (<strong>including</strong> padding but not border) for the element.</li>
+    <li><code>innerHeight()</code> gets or sets the current computed inner height (<strong>including</strong> padding but not border) for the element.</li>
+    <li><code>outerWidth()</code> get or sets the current computed width for the element (including padding, border, and optionally margin).</li>
+    <li><code>outerHeight()</code> get or sets the current computed height for the element (including padding, border, and optionally margin).</li>
+</ul>
+
+<div id="ImageContainer" class="bg-info">
+    <p class="text-danger" id="msg1"></p>
+    <img src="../../assets/images/minion.jpg" />
+</div>
+
+<p class="text-center">
+    <button id="btnDemo1" type="button" class="btn btn-danger btn-lg">
+        Get InnerWidth and InnerHeight
+    </button>
+</p>
+
+<p class="text-center">
+    <button id="btnDemo2" type="button" class="btn btn-danger btn-lg">
+        Set InnerWidth and InnerHeight
+    </button>
+</p>
+
+<pre>
+<code>
+let message = "";
+let width = $("#ImageContainer").innerWidth();
+let height = $("#ImageContainer").innerHeight();
+message = `The innerWidth is ${width} and the innerHeight is ${height}.`;
+
+$("#btnDemo1").click(function () { $("#msg1").html(message); });
+$("#btnDemo2").click(function () { $("#ImageContainer").innerHeight(250).innerWidth(250); } );
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let message = "";
+        let width = $("#ImageContainer").innerWidth();
+        let height = $("#ImageContainer").innerHeight();
+        message = `The innerWidth is ${width} and the innerHeight is ${height}.`;
+
+        $("#btnDemo1").click(function () { $("#msg1").html(message); });
+        $("#btnDemo2").click(function () { $("#ImageContainer").innerHeight(250).innerWidth(250); });
+    </script>
+}

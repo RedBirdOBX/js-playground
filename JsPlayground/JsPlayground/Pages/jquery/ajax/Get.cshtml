@@ -1,0 +1,96 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.GetModel
+
+@{
+    string pageId = "Get";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The jQuery <code>get()</code> and <code>post()</code> methods are used to request data from the server with an HTTP GET or POST request.
+    Two commonly used methods for a request-response between a client and server are: GET and POST.
+</p>
+
+<ul>
+    <li>GET - Requests data from a specified resource</li>
+    <li>POST - Submits data to be processed to a specified resource</li>
+</ul>
+
+<p>
+    GET is basically used for just getting (retrieving) some data from the server. Note: The GET method may return cached data.
+</p>
+
+<p>
+    POST can also be used to get some data from the server. However, the POST method NEVER caches data, and is
+    often used to <strong>send data</strong> along with the request.
+</p>
+
+<p>The <code>$.get()</code> method requests data from the server with an HTTP GET request.</p>
+
+<div class="m-3">
+    <code>
+        $.get({url}}, {callback function name }});
+    </code>
+</div>
+
+<p>
+    The required URL parameter specifies the URL you wish to request.
+    The optional callback parameter is the name of a function to be executed if the request succeeds.
+</p>
+
+<p><a href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp" target="_blank">http://www.w3schools.com/jquery/jquery_ref_ajax.asp</a></p>
+
+<p class="text-center m-5"><button id="btnGet" class="btn btn-success" type="button">Get Test</button></p>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="demo-content">
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#btnGet").click(function ()
+    {
+        $.get(""../../assets/css/custom.css", function (data, status)
+        {
+            $("#demo-content").html(data + "&lt;br />&lt;br />Status: " + status);
+        });
+    });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            // for some reason, iis express didn't want to serve txt files from wwwroot
+            $("#btnGet").click(function () {
+                $.get("../../assets/css/custom.css", function (data, status) {
+                    $("#demo-content").html(data + "<br /><br />Status: " + status);
+                });
+            });
+        });
+    </script>
+}
+

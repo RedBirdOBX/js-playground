@@ -1,0 +1,155 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.jquery_ui.SliderExampleModel
+
+@{
+    string pageId = "Slider Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ui}
+@section BreadCrumbChapter {ui}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+    #custom-handle {
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -.8em;
+        text-align: center;
+        line-height: 1.6em;
+    }
+</style>
+
+<p>In order to use jQuery UI tools, you will need to include the jQuery js and css files.</p>
+
+<p>
+    <a href="http://jqueryui.com/slider" target="_blank">http://jqueryui.com/slider</a>
+
+    <h5>Example 1 - Simple Slider</h5>
+
+    <div class="row">
+        <div class="col-12">
+            <div id="jq-slider1"></div>
+        </div>
+    </div>
+
+<p>&nbsp;</p>
+
+<h5>Example 2 - Handle with value</h5>
+
+<div class="row">
+    <div class="col-12">
+        <div id="slider2">
+            <div id="custom-handle" class="ui-slider-handle"></div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<h5>Example 3 - Simple Slider with Min, Max, Steps, a Preset Default Value, and a Label</h5>
+
+<div class="row">
+    <div class="col-12">
+        <p>
+            <label for="amount">Minimum number of bedrooms:</label>
+            <input type="text" id="txtAmount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+        </p>
+        <div id="slider3"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+// example 1
+$(function () { $("#jq-slider1").slider(); });
+
+// example 2
+$(function ()
+{
+    var handle = $("#custom-handle");
+
+    $("#slider2").slider({
+        create: function ()
+        {
+            handle.text($(this).slider("value"));
+        },
+        slide: function (event, ui)
+        {
+            handle.text(ui.value);
+        }
+    });
+});
+
+// example 3
+$(function ()
+{
+    $("#slider3").slider({
+        range: "max",
+        min: 0,
+        max: 1000,
+        value: 100,
+        step: 50,
+        slide: function (event, ui) {
+            $("#txtAmount").val(ui.value);
+        }
+    });
+    $("#txtAmount").val($("#slider3").slider("value"));
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            // example 1
+            $(function () { $("#jq-slider1").slider(); });
+
+            // example 2
+            $(function () {
+                var handle = $("#custom-handle");
+
+                $("#slider2").slider({
+                    create: function () {
+                        handle.text($(this).slider("value"));
+                    },
+                    slide: function (event, ui) {
+                        handle.text(ui.value);
+                    }
+                });
+            });
+
+            // example 3
+            $(function () {
+                $("#slider3").slider({
+                    range: "max",
+                    min: 0,
+                    max: 1000,
+                    value: 100,
+                    step: 50,
+                    slide: function (event, ui) {
+                        $("#txtAmount").val(ui.value);
+                    }
+                });
+                $("#txtAmount").val($("#slider3").slider("value"));
+            });
+        });
+    </script>
+}

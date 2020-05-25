@@ -1,0 +1,71 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.AppendPrependModel
+
+@{
+    string pageId = "append() / preprend()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>append()</code> method inserts specified content at
+    the <strong>end</strong> of the selected elements.
+</p>
+
+<p>
+    To insert content at the beginning of the selected elements,
+    use the <code>prepend()</code> method.
+</p>
+
+<p><a href="http://www.w3schools.com/jquery/html_append.asp" target="_blank">http://www.w3schools.com/jquery/html_append.asp</a></p>
+
+<p class="text-center"><button type="button" id="DemoButton" class="btn btn-danger">Append and Prepend Test</button></p>
+
+<p>&nbsp;</p>
+
+<div class="alert alert-info">
+    <h3 class="text-danger" id="demo-header">Hello</h3>
+    <ol id="list-items">
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+    </ol>
+</div>
+
+<pre>
+<code>
+        $("#DemoButton").click(function ()
+        {
+        $("#demo-header").append(" World.");
+        $("#list-items").append("&lt;li>List Item 4&lt;/li>");
+        $("#list-items").prepend("&lt;li>List Item 0&lt;/li>");
+        });
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#DemoButton").click(function () {
+            $("#demo-header").append(" World.");
+            $("#list-items").append("<li>List Item 4</li>");
+            $("#list-items").prepend("<li>List Item 0</li>");
+        });
+    </script>
+}

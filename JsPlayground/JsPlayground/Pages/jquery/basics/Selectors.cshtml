@@ -1,0 +1,61 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.basics.SelectorsModel
+
+@{
+    string pageId = "Selectors";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    You can select an element with jQuery by using one of three selectors:
+    by tag ID (#), by tag TYPE (DOM element), and by CSS Class.
+</p>
+
+<pre>
+<code>
+$("#demo1").hide();                 // id
+$("H1").hide();                     // element
+$(".special-class").hide();         // css class
+</code>
+</pre>
+
+
+<p>More Examples of jQuery Selectors:</p>
+
+<pre>
+<code>
+$("*")				    Selects all elements
+$(this)				    Selects the current HTML element
+$("p.intro")			Selects all &lt;p> elements with class="intro"
+$("p:first")			Selects the first &lt;p> element
+$("ul li:first")		Selects the first &lt;li> element of the first &lt;ul>
+$("ul li:first-child")	Selects the first &lt;li> element of every &lt;ul>
+$("[href]")			    Selects all elements with an href attribute
+$("a[target='_blank']")	Selects all &lt;a> elements with a target attribute value equal to "_blank"
+$("a[target!='_blank']")Selects all &lt;a> elements with a target attribute value NOT equal to "_blank"
+$(":button")			Selects all &lt;button> elements and <input> elements of type="button"
+$("tr:even")			Selects all even &lt;tr> elements
+$("tr:odd")			    Selects all odd &lt;tr> elements
+$(":empty")			    Selects empty elements - an element without child elements or text.
+$(":disabled")			Selects all elements with a disabled property.
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+}

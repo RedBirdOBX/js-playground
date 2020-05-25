@@ -1,0 +1,74 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.BlurFocusModel
+
+@{
+    string pageId = "blur() / focus()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The jQuery <code>blur()</code> and <code>focus()</code> methods
+    attach to an event handler function to an HTML form field.
+    The function is executed when the form field gains or loses focus.
+</p>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <label>jQuery Method</label>
+        <input id="txtName1" class="form-control" type="text" />
+    </div>
+</div>
+
+<div>&nbsp;</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <label>Javascript Method</label>
+        <input id="txtName2" class="form-control" type="text" />
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+// jQuery method
+$("#txtName1").focus(function () { $(this).css("background-color", "#cccccc"); });
+$("#txtName1").blur(function () { $(this).css("background-color", "#ffcc00"); });
+
+//fyi - javascript method
+document.getElementById("txtName2").addEventListener("focus", function () { this.style.background = "#ff0000"; });
+document.getElementById("txtName2").addEventListener("blur", function () { this.style.background = "#00ff00"; });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#txtName1").focus(function () { $(this).css("background-color", "#cccccc"); });
+            $("#txtName1").blur(function () { $(this).css("background-color", "#ffcc00"); });
+
+        });
+
+        document.getElementById("txtName2").addEventListener("focus", function () { this.style.background = "#ff0000"; });
+        document.getElementById("txtName2").addEventListener("blur", function () { this.style.background = "#00ff00"; });
+    </script>
+}

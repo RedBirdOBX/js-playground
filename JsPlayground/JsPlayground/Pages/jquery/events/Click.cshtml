@@ -1,0 +1,51 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.ClickModel
+
+@{
+    string pageId = "click()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The jQuery <code>click()</code> event automatically wires up an (anonymous) function to the onclick property of the selected element.
+</p>
+
+<p class="text-center"><button id="jQueryBtn" type="button" class="btn btn-danger">jQuery method</button></p>
+
+<p class="text-center"><button id="javascriptBtn" type="button" class="btn btn-danger">Javascript method</button></p>
+
+<pre>
+<code>
+// jQuery method
+$("#jQueryBtn").click(function() { alert("jQuery button"); });
+
+// Javascript method
+document.getElementById("javascriptBtn").addEventListener("click", function () { alert("Javascript button");});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#jQueryBtn").click(function () { alert("jQuery button"); });
+        document.getElementById("javascriptBtn").addEventListener("click", function () { alert("Javascript button"); });
+    </script>
+}

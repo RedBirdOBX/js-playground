@@ -1,0 +1,66 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.traversing.ChildrenModel
+
+@{
+    string pageId = "children()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>find()</code>  method returns all direct children of the selected element.
+</p>
+
+<p>The following example returns the one single elements which is a direct descendant of the demo2 element.</p>
+
+<p class="text-center"><button type="button" id="btnDemo" class="btn btn-lg btn-success">Children</button></p>
+
+<div class="alert alert-info" id="demo1">
+    div1
+    <div id="demo2">
+        div2
+        <div id="demo3">
+            div3
+            <div id="demo4">
+                div4
+                <div id="div5">
+                    div5
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#demo2").children().attr({ "class" : "text-danger"});
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () {
+            $("#demo2").children().attr({ "class": "text-danger" });
+        });
+    </script>
+}

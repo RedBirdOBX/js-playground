@@ -1,0 +1,95 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.effects.StopModel
+
+@{
+    string pageId = "stop()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-effects}
+@section BreadCrumbChapter {effects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>The jQuery stop() method is used to stop animations or effects before it is finished.</p>
+
+<div class="m-3">
+    <code>
+        $(selector).stop(stopAll, goToEnd);
+    </code>
+</div>
+
+<p>
+    The jQuery <code>stop()</code> method is used to stop an animation or effect before it is finished.
+    The <code>stop()</code> method works for <strong>all</strong> jQuery effect functions, including sliding, fading and custom animations.
+</p>
+
+<p><a href="http://api.jquery.com/category/effects/custom-effects/" target="_blank">http://api.jquery.com/category/effects/custom-effects/</a></p>
+
+<p class="text-center"><button id="btnAnimate" type="button" class="btn btn-danger">Start Animation</button></p>
+
+<p class="text-center"><button id="btnStop" type="button" class="btn btn-danger">Stop the Animation</button></p>
+
+<div id="demo1" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<pre>
+<code>
+    $(document).ready(function ()
+    {
+        $("#btnAnimate").click(function ()
+        {
+            $("#demo1").animate
+            (
+                {
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                }, 100000
+            );
+        });
+
+        $("#btnStop").click(function () { $("#demo1").stop(); });
+    });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnAnimate").click(function () {
+                $("#demo1").animate
+                    (
+                        {
+                            left: '250px',
+                            opacity: '0.5',
+                            height: '150px',
+                            width: '150px'
+                        }, 5000
+                    );
+            });
+
+            $("#btnStop").click(function () { $("#demo1").stop(); });
+        });
+    </script>
+}

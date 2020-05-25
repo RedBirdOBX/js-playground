@@ -1,0 +1,77 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.TextModel
+
+@{
+    string pageId = "text()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>text()</code> <strong>sets or returns</strong> the text content of selected element(s).
+    Unlike the .html() method, .text() can be used in both XML and HTML documents.
+    The result of the .text() method is a <strong>raw string</strong> containing the combined text of all matched elements.
+</p>
+
+<div class="alert alert-info">
+    <h4 class="text-danger" id="demo1">Hello World - this will be updated</h4>
+</div>
+
+<h4 class="text-info m-5" id="source">
+    Chewbacca dooku darth chewbacca luuke c-3po luke moff. Maul vader c-3p0 secura.
+    Jango ackbar wicket kessel k-3po. Antilles padmé solo k-3po jawa. Leia darth kamino gonk obi-wan jinn skywalker.
+</h4>
+
+<p class="text-center"><button id="btnGet" type="button" class="btn btn-danger btn-lg">Get Text</button></p>
+
+<p class="text-center"><button id="btnSet" type="button" class="btn btn-warning btn-lg">Set Text</button></p>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$("#btnGet").click(function ()
+{
+    $("#demo1").html($("#source").text());
+
+});
+
+$("#btnSet").click(function ()
+{
+    $("#demo1").text("Hello World");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            // get the text from #source and update #demo
+            $("#btnGet").click(function () {
+                $("#demo1").html($("#source").text());
+
+            });
+
+            $("#btnSet").click(function () {
+                $("#demo1").text("Hello World");
+            });
+        });
+    </script>
+}

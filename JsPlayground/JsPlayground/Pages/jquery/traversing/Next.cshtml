@@ -1,0 +1,56 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.traversing.NextModel
+
+@{
+    string pageId = "next()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-traversing}
+@section BreadCrumbChapter {traversing}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The <code>next()</code> returns the <strong>next</strong> sibling element of the selected element.
+</p>
+
+<p class="text-center"><button type="button" id="btnDemo" class="btn btn-lg btn-success">Next</button></p>
+
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li class="third-item">list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $( "li.third-item" ).next().css( "background-color", "red" );
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#btnDemo").click(function () {
+            $("li.third-item").next().css("background-color", "red");
+        });
+    </script>
+}

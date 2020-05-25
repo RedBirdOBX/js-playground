@@ -1,0 +1,55 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.BeforeAfterModel
+
+@{
+    string pageId = "before() / after()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>before()</code> inserts content before the selected elements.
+</p>
+
+<div class="alert alert-info">
+    <h4 id="DemoHeader" class="text-center">Master clock harvey falcone thorne joe swamp falcone gotham wayne.</h4>
+</div>
+
+<p class="text-center"><button type="button" id="DemoButton" class="btn btn-danger">Before Test</button></p>
+
+<pre>
+<code>
+$("#DemoButton").click(function ()
+{
+    $("#DemoHeader").before("&lt;h4>Before&lt;/h4>");
+    $("#DemoHeader").after("&lt;h4>After&lt;/h4>");
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $("#DemoButton").click(function () {
+            $("#DemoHeader").before("<h4>Before</h4>");
+            $("#DemoHeader").after("<h4>After</h4>");
+        });
+    </script>
+}
+

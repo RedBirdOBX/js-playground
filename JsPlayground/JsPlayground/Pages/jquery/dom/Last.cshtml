@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.LastModel
+
+@{
+    string pageId = "last()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>last()</code> method grabs and returns the <strong>first</strong> element <strong>inside</strong> of the selected parent element.
+    This works well for element and class selectors since multiple matches can be found ....but not so well with
+    ID selectors alone. If you use an ID selector, be sure to use a Class or Element selector to target the first/last
+    element within.
+</p>
+
+<p>For example: </p>
+
+<ul id="example1">
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+
+<p class="text-center m-3"><button id="btnDemo" type="button" class="btn btn-danger">last() Test</button></p>
+
+<pre>
+<code>
+$("#btnDemo").click(function ()
+{
+    $("#example1 li").last().css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnDemo").click(function () {
+                $("#example1 li").last().css({ "border-color": "red", "border-width": "3px", "border-style": "solid" });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,82 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.dom.PropModel
+
+@{
+    string pageId = "prop()";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-dom}
+@section BreadCrumbChapter {dom}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>The <code>prop()</code> method sets or returns properties and values of the selected elements.</p>
+
+<p>When this method is used to <strong>return</strong> the property value, it returns the value of the FIRST matched element.</p>
+
+<p>When this method is used to <strong>set</strong> property values, it sets one or more property/value pairs for the set of matched elements.</p>
+
+<p>
+    Note: The prop() method should be used to retrieve <strong>property</strong> values,
+    e.g. DOM properties (like tagName, nodeName, defaultChecked) or your own custom made properties.
+</p>
+
+<p>To <strong>remove</strong> a property, use <strong>removeProp()</strong>.</p>
+
+<p class="text-center"><button id="btnGet" type="button" class="btn btn-danger btn-lg">Get Property</button></p>
+
+<p class="text-center"><button id="btnSet" type="button" class="btn btn-warning btn-lg">Set Property</button></p>
+
+<p>&nbsp;</p>
+
+<div class="alert alert-info">
+    <h3 class="text-danger" id="demo1">Hello World</h3>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+    $("#btnGet").click(function ()
+    {
+        var propValue = $("#demo1").prop("class");
+        $("#demo1").html("The current property of this header is " + propValue + ".");
+    });
+
+    $("#btnSet").click(function ()
+    {
+        $("#demo1").prop("class", "text-white")
+        $("#demo1").html("Setting the css class to text-white....");
+    });
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#btnGet").click(function () {
+                var propValue = $("#demo1").prop("class");
+                $("#demo1").html("The current property of this header is " + propValue + ".");
+            });
+
+            $("#btnSet").click(function () {
+                $("#demo1").prop("class", "text-white")
+                $("#demo1").html("Setting the css class to text-white....");
+            });
+        });
+    </script>
+}
