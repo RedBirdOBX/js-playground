@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.TypeAnnotationsModel
+
+@{
+    string pageId = "Type Annotations";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In TypeScript, you should use Type Annotations to declare your Types. Although these works:
+</p>
+
+<pre>
+<code>
+// these are inferred. It seems that these should be of type &lt;T>.
+var age = 50;
+var anything;
+var num1;
+</code>
+</pre>
+
+<p>
+    It really should be handled like this:
+</p>
+
+<pre>
+<code>
+let age : number = 50;
+let anything : any;
+let num1 : number;
+</code>
+</pre>
+
+<p>
+    It really should be handled like this:
+</p>
+
+<pre>
+<code>
+// this will work although you shouldn’t do this
+// str1 will be <mark>inferred</mark> into a string.
+var num1 : number = 100;
+var str1 = num1 + " some string"; // will show as ‘100 some string’
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

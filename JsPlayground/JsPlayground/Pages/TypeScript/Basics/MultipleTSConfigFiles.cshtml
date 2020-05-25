@@ -1,0 +1,64 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.MultipleTSConfigFilesModel
+
+@{
+    string pageId = "Multiple tsconfig files";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    It will be common scenario where you want to store your classes and interfaces in separate ts files.
+    It will also be expected that your app's .js file should be able to reference all these compiled versions.
+    Instead of adding all the js files to your html pages, you can compile multiple ts files down into a single
+    js file.
+</p>
+
+<p>
+    If you app is very simple, you can do this by compiling <strong>all</strong> of your ts files into a single js file.
+</p>
+
+<p><code>file1.ts, file2.ts, file3.ts ==>> app.js</code></p>
+
+<p>This can be done with a single "root" tsconfig.json file.</p>
+
+<p>
+    That said, your app may be more complicated and require several compiled js files through-out your app.
+    You can do this by having a "base" config file and then a specialized config file in any given subdirectory.
+    The will inherit all of the settings defined in the base config file and then apply it's own overrides.
+</p>
+
+<div>
+    <img src="/assets/images/multiple-tsconf-files.PNG" class="d-block mx-auto mb-5 img-fluid" />
+</div>
+
+<pre>
+<code>
+// patterns:
+// . - current directory
+// ** - look thru all sub directories
+// *.ts or *.* all valid ts extensions
+
+"include": [
+"./**/*.*"
+]
+    </code>
+</pre>
+
+<p><a href="http://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">http://www.typescriptlang.org/docs/handbook/tsconfig-json.html</a></p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

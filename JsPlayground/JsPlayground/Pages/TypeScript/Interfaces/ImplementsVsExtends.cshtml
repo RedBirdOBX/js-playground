@@ -1,0 +1,40 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.ImplementsVsExtendsModel
+
+@{
+    string pageId = "Implements versus Extends";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <strong>Implements</strong>: Used with Interfaces and Classes.  A Class <code>implements</code> a <code>interface</code>.<br />
+    <em>This is <strong>defined</strong> by that.</em>
+</p>
+
+<p><code>class Employee implements IPerson</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>Extends</strong>: Used with Abstract Classes and derived Classes.
+    A derived Class <code>extends</code> an <code>abstract</code> class. <br />
+    <em>This <strong>includes</strong> all of that ....and maybe more.</em>
+</p>
+
+<p><code>class Dog extends Animal</code></p>
+
+<p>&nbsp;</p>
+
+

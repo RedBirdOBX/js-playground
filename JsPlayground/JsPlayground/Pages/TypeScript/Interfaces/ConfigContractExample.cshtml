@@ -1,0 +1,57 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.ConfigContractExampleModel
+
+@{
+    string pageId = "Interface Demo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    This demonstrates the use of a Interface. In this example, we are using an Interface to define an Object Contract.
+    The <code>DisplaySpaceship</code> method requires a <code>SpaceshipConfiguration</code> Type which is the interface.
+    In this example, it is acting like a DTO.
+</p>
+
+<p>
+    Here's a video showing how an interface can be used to pass options: <br />
+    <a href="https://www.youtube.com/watch?v=NeUrwZVi4IE" target="_blank">https://www.youtube.com/watch?v=NeUrwZVi4IE</a>
+</p>
+
+<h5 class="text-info text-center">Tip: Interfaces cannot be instantiated.</h5>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-info mt-5">
+            <div class="card-header">
+                <span id="name-label"></span>
+            </div>
+            <div class="card-body">
+                <p id="designation-label"></p>
+                <p id="engines-label"></p>
+                <p id="passengers-label"></p>
+                <p id="crew-label"></p>
+                <p id="commission-date-label"></p>
+                <p id="decommission-date-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/interfaces/interface-contract-example.js"></script>
+}

@@ -1,0 +1,61 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.FlowControl.SwitchModel
+
+@{
+    string pageId = "Switch Case";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<pre>
+<code>
+switch(expression)
+{
+    case n:
+    // code block
+    break;
+
+    case n:
+    // code block
+    break;
+
+    default:
+    // default code block
+}
+
+switch (new Date().getDay())
+{
+    case 0:
+    day = "Sunday";
+    break;
+
+    case 1:
+    day = "Monday";
+    break;
+
+    case 2:
+    day = "Tuesday";
+    break;
+
+    //etc...
+
+    case 6:
+    day = "Saturday";
+    break;
+}
+</code>
+</pre>
+

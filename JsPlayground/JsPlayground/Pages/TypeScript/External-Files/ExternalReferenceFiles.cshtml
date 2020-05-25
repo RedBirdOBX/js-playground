@@ -1,0 +1,105 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.External_Files.ExternalReferenceFilesModel
+
+@{
+    string pageId = "External Reference Files";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-external-files}
+@section BreadCrumbChapter {external files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Often, you need to reference classes in other files (see Ambient Declarations). To do this, use the reference snippet:
+</p>
+
+<code>
+    /// &lt;reference path="vending-machine.ts" />
+</code>
+
+<p class="mt-3">
+    Look at the example below. VendingMachine Class is declared in a vending-machine.ts. Bootstrapper.ts is trying to
+    instantiate the VendingMachine class but has not idea what that Type is. It needs a reference to that other file (much
+    like a using statement in .NET) so it can have access to those libraries.
+</p>
+
+<p><a href="http://definitelytyped.org/" target="_blank">http://definitelytyped.org/</a></p>
+
+<h5>Tip: type the word <code>ref</code> and hit enter.</h5>
+
+<p class="text-center">
+    <img src="/assets/images/vending1.PNG" />
+    <img src="/assets/images/vending2.PNG" />
+    <img src="/assets/images/vending3.PNG" />
+</p>
+
+<p>
+    A lot of times, you will need to use Definition files - files that declare and define all the external types (from other
+    libraries) such as jQuery, Knockout, and so on.
+</p>
+
+<p>You can recognize the Definition Files due to the “d” in their file names.</p>
+
+<pre>
+<code>
+/// &lt;reference path="definition-files/knockout-3.4.d.ts" />
+/// &lt;reference path=”jquery.d.ts” />
+    </code>
+</pre>
+
+<p><strong>Observations</strong></p>
+
+<p>
+    FYI - I noticed that VS Code automatically picks up and uses the Definition Files without needed to make eternal
+    references to them. Other IDEs may or may not do this.
+</p>
+
+<p>Through trial & error, I was able to install the jQuery definition file through npm.</p>
+
+<code>npm install --save @@types/jquery</code>
+
+<p class="text-center">
+    <img src="/assets/images/npm-jquery.PNG" />
+    <img src="/assets/images/npm-jquery.PNG" />
+</p>
+
+<p>
+    Doing this seemed to installed the jQuery file globally and then tsc was happy. I was able to remove my reference to the
+    definition file AND not use an ambient declaration. Still worked.
+</p>
+
+<pre>
+<code>
+namespace TypeScriptDemos.DefinitionFiles
+{
+    var message: string = "Hello World";
+
+    window.onload = function ()
+    {
+        $("#hello-world-label").html(message);
+    };
+}
+</code>
+</pre>
+
+<p>Also...here is a good link on a more modern way to do this. See answer #2.</p>
+
+<p>
+    <a href="https://stackoverflow.com/questions/32050645/how-to-use-jquery-with-typescript" target="_blank">
+        https://stackoverflow.com/questions/32050645/how-to-use-jquery-with-typescript
+    </a>
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+

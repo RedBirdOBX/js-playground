@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.DeclareModel
+
+@{
+    string pageId = "declare";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>declare</code> is used for ambient declarations where you want to
+    define a variable that may not have originated from a TypeScript
+    file. For example, lets imagine that we have a library called
+    myLibrary that doesn't have a TypeScript declaration file
+    and have a namespace called myLibrary in the global namespace.
+</p>
+
+<p>
+    <code>declare</code> is a special keyword in Typescript which creates an
+    ambient declaration. It basically says "document" (or whatever) is
+    going to be something that is referred to and I don’t necessarily have it in my file.
+</p>
+
+<p>
+    When Doing this, you are making an <code>ambient declaration</code>.
+    Ambient declarations are a way of telling the TypeScript compiler that the actual source code exists elsewhere. When you
+    are consuming a bunch of third party js libraries like jquery/angularjs/nodejs - you can’t rewrite it in TypeScript.
+    Ensuring type-safety and intellisense while using these libraries will be challenging for a TypeScript programmer.
+    Ambient declarations help to seamlessly integrate other js libraries into TypeScript.
+</p>
+
+<p>Ambient declarations are by convention kept in a type declaration file with following extension (d.ts)</p>
+
+<code>
+    Sample.d.ts
+</code>
+
+<p>&nbsp;</p>
+
+

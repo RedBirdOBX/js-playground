@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Challenges.PrimeNumbersModel
+
+@{
+    string pageId = "Prime Numbers Challenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h4 class="my-5">To prime or not to prime?</h4>
+
+<p><em>Tip: View Console</em></p>
+
+<form>
+    <div class="form-group row">
+        <label for="NumbersText" class="col-sm-2 col-form-label">Number of Loops</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="NumbersText" placeholder="numbers">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary" id="TestButton">Run Test</button>
+        </div>
+    </div>
+</form>
+
+<p></p>
+
+<div class="row">
+    <div class="col-4">
+        <span id="output"></span>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Challenges/prime-numbers.js"></script>
+}
+

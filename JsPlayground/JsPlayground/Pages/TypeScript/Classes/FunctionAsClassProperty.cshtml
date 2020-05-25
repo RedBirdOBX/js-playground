@@ -1,0 +1,76 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.FunctionAsClassPropertyModel
+
+@{
+    string pageId = "Function as Class Property";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    You can also have a Property which its Type is a Function... or more accurately, gets it value from an
+    anonymous function.
+</p>
+
+<pre>
+<code>
+namespace ClientSideToolBox.ObjectTypes
+{
+    var spaceship =
+    {
+        ShipType: "Cruiser",
+        TotalCrew: 50,
+        Weight: 250000,
+<mark>CalculateSpeed: function () { return (this.TotalCrew + this.Weight) * 2; }</mark>
+    };
+
+    console.log("Speed: " + spaceship.CalculateSpeed());
+}
+</code>
+</pre>
+
+<p class="text-center my-5">
+    <img src="/assets/images/function-as-property.PNG" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+<p>
+    Here is the same example except the function (properties) now accepts an argument which is a number and uses that as the
+    multiplier.
+</p>
+
+<pre>
+<code>
+var spaceship =
+{
+    ShipType: "Cruiser",
+    TotalCrew: 50,
+    Weight: 250000,
+    CalculateSpeed: function (x : number) { return (this.TotalCrew + this.Weight) * x; }
+};
+console.log("Speed: " + spaceship.CalculateSpeed(7));
+</code>
+</pre>
+
+<p class="text-center my-5">
+    <img src="/assets/images/function-as-property-2.PNG" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

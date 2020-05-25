@@ -1,0 +1,43 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Cookies.CookiesModel
+
+@{
+    string pageId = "Cookies";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-cookies}
+@section BreadCrumbChapter {cookies}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    A cookie named <code>superhero</code> will be set with the name in the querysting.<br />
+    For example: <code>http://127.0.0.1:8080/TypeScript/Cookies/cookies.html?superhero=batman</code>
+</p>
+
+<p><a href="https://www.w3schools.com/js/js_cookies.asp" target="_blank">https://www.w3schools.com/js/js_cookies.asp</a></p>
+
+<p>&nbsp;</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Cookies
+    </div>
+    <div class="card-body">
+        <div id="cookie-value-label"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/cookies/cookies.js"></script>
+}

@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.TypeScriptFeaturesModel
+
+@{
+    string pageId = "TypeScript Features";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h5>JavaScript Characteristics</h5>
+
+<p><strong>Good</strong></p>
+
+<ul>
+    <li>Prototypical Inheritance instead of Classes</li>
+    <li>Not type-less but dynamically typed</li>
+    <li>Just In Time compiled</li>
+    <li>Variables can hold any object</li>
+    <li>Implicit type coercion (string to int, etc)</li>
+</ul>
+
+<p><strong>Bad</strong></p>
+
+<ul>
+    <li>Difficult to ensure proper tests</li>
+    <li>Enterprise scale apps can have thousands of lines of code</li>
+    <li>Not everyone uses === for type comparisons</li>
+</ul>
+
+<h5 class="mt-5">TypeScript Characteristics</h5>
+
+<p>TypeScript is Javascript. It is a superset of Javascript.</p>
+
+<p><a href="http://www.typescriptlang.org" target="_blank">http://www.typescriptlang.org</a></p>
+
+<p><strong>Features</strong></p>
+
+<ul>
+    <li>Supports standard javascript</li>
+    <li>Provides standard Typing (object types)</li>
+    <li>Has built in Type definitions of Javascript</li>
+    <li>Encapsulation through classes and Modules (also known as Naming Containers, Namespaces)</li>
+    <li>Constructors, properties, functions, etc.</li>
+    <li>Supports Interfaces (contract to objects)</li>
+    <li>Supports ‘lambdas’</li>
+    <li>Good IDE support</li>
+    <li>Follows ES6+ Syntax as much as possible</li>
+</ul>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

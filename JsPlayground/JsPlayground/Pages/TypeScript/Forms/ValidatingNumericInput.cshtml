@@ -1,0 +1,83 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Forms.ValidatingNumericInputModel
+
+@{
+    string pageId = "Validating Numeric Input";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<form id="TestForm">
+
+    <div class="form-group">
+        <label for="ColorList">Age</label>
+        <input type="text" id="AgeText" class="form-control" name="AgeText" />
+    </div>
+
+    <div>
+        <button type="button" id="TestButton" class="btn btn-primary" name="TestButton">
+            Test Button
+        </button>
+    </div>
+
+</form>
+
+<hr />
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+static IsNumeric(val: string): number
+{
+    if (!parseInt(val))
+    {
+        return 0;
+    }
+    return parseInt(val);
+}
+
+static ValidateForm()
+{
+    let age: HTMLInputElement = &lt;HTMLInputElement>document.getElementById("AgeText");
+    let demo: HTMLElement = &lt;HTMLElement>document.getElementById("demo");
+    let results: number = FormValidator.IsNumeric(age.value);
+
+    if (results === 0)
+    {
+        demo.innerHTML = "Not a number. Give me a valid number."
+    }
+    else
+    {
+        demo.innerHTML = `Thank you. Age is ${age.value}`;
+    }
+}
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Forms/validating-numeric-input.js"></script>
+}

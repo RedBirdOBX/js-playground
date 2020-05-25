@@ -1,0 +1,99 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.modules.BasicsModel
+
+@{
+    string pageId = "Module Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-modules}
+@section BreadCrumbChapter {modules}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<blockquote class="blockquote m-3">
+    <strong>A note about terminology:</strong> It’s important to note that in TypeScript 1.5, the nomenclature has changed.
+    "Internal modules" are now "namespaces". "External modules" are now simply "modules", as to align with
+    ECMAScript 2015’s terminology, (namely that module X { is equivalent to the now-preferred namespace X {).
+</blockquote>
+
+<hr />
+
+<p>
+    Modules are executed within their own scope, not in the global scope; this means that variables, functions, classes,
+    etc. declared in a module are not visible outside the module unless they are explicitly exported.
+</p>
+
+<p>
+    <q><strong>Modules are great but they can require some supporting technologies.</strong></q>
+</p>
+
+<p>
+    ES2015 (ECMA6) JavaScript was the first version of js to provide native support for modules.
+</p>
+
+<p>
+    To consume a variable, function, class, interface, etc. exported from a different module, it
+    has to be imported using <code>import</code>.
+</p>
+
+<p>
+    <code>Namespaces</code> are used to organize/encapsulate your code.
+</p>
+
+<p>
+    <code>Modules</code> are used to organize/encapsulate your code AND to locate your code at <strong>runtime</strong>.
+</p>
+
+<p>
+    <strong>In ECMAScript 6 / ES2015, modules are stored in files. There is exactly one module per file and one file per module.</strong>
+</p>
+
+<p>
+    In practice, you have two choices at runtime:
+</p>
+
+<ul>
+    <li>
+        combine all transpiled code into one file (<strong>preferred</strong>)
+    </li>
+    <li>
+        use external modules and have multiple files and require some other <strong>mechanism</strong>
+        (Common.js or Require.js) to get at those files (boo....)
+    </li>
+</ul>
+
+<p>
+    Modules import one another using a module <strong>loader</strong>. At runtime the module loader is responsible for locating and
+    executing all dependencies of a module before executing it. Well-known modules loaders used in JavaScript are the
+    <code>CommonJS</code> module loader for Node.js and <code>require.js</code> for Web applications. If you use or follow option 1 above
+    (combining all ts files into a single js file), then you do not likely need Common.js or Require.js.
+</p>
+
+<p>
+    <strong>Any file containing a top-level import or export is considered a module</strong>. Conversely, a file without any top-level
+    import or export declarations is treated as a script whose contents are available in the global scope (and therefore to
+    modules as well).
+</p>
+
+<p>
+    Once you're ready, look into this course:
+    <a href="https://app.pluralsight.com/library/courses/javascript-module-fundamentals/table-of-contents">
+        https://app.pluralsight.com/library/courses/javascript-module-fundamentals/table-of-contents
+    </a>
+</p>
+
+<div class="my-5 text-center">
+    <img src="../../assets/images/module-image.PNG" style="width: 80%;" />
+</div>
+
+<p>&nbsp;</p>
+

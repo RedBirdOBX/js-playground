@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Forms.GetValuesFromDropDownModel
+
+@{
+    string pageId = "Get Values from Drop Down";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Getting the selected value is pretty easy.  We use <code>HTMLSelectElement.value</code>.  This returns the value of the selected element.
+    See <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement</a>.
+</p>
+
+<p>
+    To get the selected <strong>text</strong> from the selected item is a little more complex. We use the <code>HTMLSelectElement.selectedOptions</code>
+    property.  This is a collection of selected items for the <code>select</code> object.  Since we know we only need the first one (rare that is set up to
+    select multiple), we can just target the zero-index selectedOption. See
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/selectedOptions</a>
+</p>
+
+<pre>
+<code>
+let valueDemo: HTMLElement = &lt;HTMLElement>document.getElementById("demo-value");
+let textDemo: HTMLElement = &lt;HTMLElement>document.getElementById("demo-text");
+let colorsList: HTMLSelectElement = &lt;HTMLSelectElement>document.getElementById("ColorList");
+valueDemo.innerHTML = `Your value is ${colorsList.value}`;
+textDemo.innerHTML = `Your text is ${colorsList.selectedOptions[0].text}`;
+</code>
+</pre>
+
+<div class="form-group">
+    <label for="ColorList">Pick a color</label>
+    <select class="form-control" id="ColorList">
+        <option value="0">pick a color</option>
+        <option value="1">Red</option>
+        <option value="2">Blue</option>
+        <option value="3">White</option>
+    </select>
+</div>
+
+<div class="card bg-light my-5">
+    <div class="card-body">
+        <div id="demo-value"></div>
+        <div id="demo-text"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>Also - see the js version: <a href="/Javascript/DOM-Events/OnChange">change event</a>.</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Forms/get-values-from-drop-down.js"></script>
+}

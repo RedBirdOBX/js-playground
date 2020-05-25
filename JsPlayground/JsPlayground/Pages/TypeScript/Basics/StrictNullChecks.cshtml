@@ -1,0 +1,66 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.StrictNullChecksModel
+
+@{
+    string pageId = "Strict Null Checks";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h5>What is TypeScript</h5>
+
+<p>
+    By default in Javascript, the <code>any</code> type can be ... any .. type.  In addition, by default,
+    <strong>null and undefined</strong> are considered to be <code>any</code> types since they cannot be determined by the
+    javascript compiler.
+</p>
+
+<pre>
+<code>
+// this produces NO errors.
+let basicString: string;
+
+let undefinedType: undefined;
+let anyType: any;
+let nullType: null;
+
+basicString = undefinedType;
+basicString = anyType;
+basicString = nullType;
+</code>
+</pre>
+
+<p>
+    This has lead to countless javascript bugs.  You can explicitly prevent this in TypeScript by explicitly
+    setting the compiler option <code>strictNullChecks</code> to true.  Then and only then will your variables
+    be protected from being null/undefined/any.
+</p>
+
+<p>
+    Should you expect the variable you create to have a null value, you can use the <a href="../Types/union-types.html">Union Type</a>
+    to set it to be either your decided primitive type or <code>null</code>.
+</p>
+
+<div>
+    <img src="/assets/images/strict-null-check-before.PNG" class="d-block mx-auto my-2" />
+    <img src="/assets/images/strict-null-check-after.PNG" class="d-block mx-auto my-2" />
+    <img src="/assets/images/strict-null-check-after2.PNG" class="d-block mx-auto my-2" />
+    <img src="/assets/images/strict-null-check-after3.PNG" class="d-block mx-auto my-2" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

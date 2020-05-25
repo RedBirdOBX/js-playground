@@ -1,0 +1,59 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.PackageJsonModel
+
+@{
+    string pageId = "package.json";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    All npm packages contain a file, usually in the project root, called <code>package.json</code> - this file holds various metadata
+    relevant to the project. This file is used to give information to npm that allows it to identify the project as well as
+    handle the project's dependencies.
+</p>
+
+<p>
+    It can also contain other metadata such as a project description, the version of the
+    project in a particular distribution, license information, even configuration data - all of which can be vital to both
+    npm and to the end users of the package. The <code>package.json</code> file is normally located at the root directory of a Node.js
+    project.
+</p>
+
+<p>
+    In this example, I have set up my <code>package.json</code> file to run an npm script labeled as "start".
+    Node.js will watch and listen for the command "start" in this app and run the <code>http-server</code> script.
+</p>
+
+<p><strong>Examples:</strong></p>
+
+<div>
+    <img src="/assets/images/package-json-1.PNG" class="d-block mx-auto my-2" />
+    <img src="/assets/images/package-json-2.PNG" class="d-block mx-auto my-2" />
+</div>
+
+<p>
+    Then in order to run this package, I simply navigate to the working folder from a command prompt and type
+    <code>npm {command name}</code> like so:
+</p>
+
+<div>
+    <img src="/assets/images/package-json-3.PNG" class="d-block mx-auto my-2" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

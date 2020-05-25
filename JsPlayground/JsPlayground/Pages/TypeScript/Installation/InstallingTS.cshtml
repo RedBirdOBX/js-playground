@@ -1,0 +1,87 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Installation.InstallingTSModel
+
+@{
+    string pageId = "Installation";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-installation}
+@section BreadCrumbChapter {installation}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Visual Studio and Visual Studio Code automatically support TypeScript and come with it (the compiler) installed.
+    However, if you need to or want to install it manually, read below.
+</p>
+
+<p>The compiler (included with TypeScript) is known as <code>tsc</code>.</p>
+
+<p>
+    To see what version is installed, type <code>tsc -v</code> or <code>tsc --version</code> at a Powershell command prompt.
+</p>
+
+<div>
+    <img src="/assets/images/ts-version.PNG" class="d-block mx-auto" />
+</div>
+
+<h5 class="mt-5">How do I install TypeScript?</h5>
+
+<p>
+    Both Visual Studio and Visual Studio code come with TypeScript support built it so you
+    may not have to do anything.  But if you do, see below.
+</p>
+
+<ol>
+    <li>Install Node.js</li>
+    <li>
+        Once Node.js is installed, type <code>npm install -g typescript</code>.
+        This is the node package manager. <code>-g</code> indicates we
+        want it installed globally.
+    </li>
+</ol>
+
+<p>
+    To see what version of Node.js is installed, type <code>node -v</code> at a Powershell command prompt.
+</p>
+
+<div class="my-3">
+    <img src="/assets/images/node-version.PNG" class="d-block mx-auto" />
+</div>
+
+<p>Visual Studio Code will tell you which version of ts you are using when you are editing a ts file: </p>
+
+<div class="my-3">
+    <img src="/assets/images/vs-code-ts-version.PNG" class="d-block mx-auto" />
+</div>
+
+<p>With TypeScript, you get the <code>tsc</code> - the TypeScript compiler.</p>
+
+<h5 class="mt-5">What is tsc?</h5>
+
+<p><code>tsc</code> is the TypeScript compiler and it runs on Node.js which should be installed on your local machine.</p>
+
+<p>
+    To run the <code>tsc</code> and to have it build a package/task (such as tsconfig.json), type <code>tsc -p tsconfig.json</code>
+    in the root of your project from the command prompt.
+</p>
+
+<div class="my-3">
+    <img src="/assets/images/tsc-build-example.PNG" class="d-block mx-auto" />
+</div>
+
+<p>To run this task in VS Code, just use the shortcut <code>ctrl + shift + B</code>.</p>
+
+<div class="my-3">
+    <img src="/assets/images/tsc-build-example.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>

@@ -1,0 +1,142 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.FlowControl.LoopsModel
+
+@{
+    string pageId = "Loops";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p><strong>Do While - executes at least once</strong> - test after the loop</p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="do-while-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let counter: number = 1;
+let output: string = "";
+do
+{
+    output += "&lt;div>" + counter + "&lt;/div>";
+    counter++;
+}
+while (counter < 6);
+</code>
+</pre>
+
+<hr />
+
+<p><strong>While</strong> - tests <strong>first</strong> and then executes</p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="while-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+while (counter < 6)
+{
+output +="&lt;div>" + counter + "&lt;/div>";
+counter++;
+}
+</code>
+</pre>
+
+<hr />
+
+<p><strong>For In - loops thru items in a collection and returns the INDEX</strong></p>
+
+<p>
+    There is no <code>for each</code> in javascript - at least not any more.
+    It was deprecated as of ES4. Use <code>for in</code> instead.
+</p>
+
+<p>
+    Both <code>for..of</code> and <code>for..in</code> statements iterate over lists. The values iterated <strong>on</strong> are
+    different though. <code>for..in</code> returns a list of keys (indexes) on the object being iterated,
+    whereas <code>for..of</code> returns a  list of
+    values of the numeric properties of the object being iterated.
+</p>
+
+<p><strong>for in</strong></p>
+<div class="card bg-light  my-3">
+    <div class="card-body">
+        <div class="mb-1" id="for-in-demo-1"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// show the indexes
+let colors : object = [ "Red", "Blue", "White", "Green" ];
+let output : string = "";
+
+for (let i in colors)
+{
+output += i + "&lt;br />";
+}
+</code>
+</pre>
+
+<p><strong>for of</strong> - loops through the values of an iterable object.</p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="for-of-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// show the values
+let colors = ["Red", "Blue", "White", "Green"];
+let output: string = "";
+
+for (let i of colors)
+{
+    output += i + "&lt;br />";
+}
+</code>
+</pre>
+
+<hr />
+
+<p><strong>For - loops thru block of code <em>n</em> number of times</strong></p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="for-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+// ITI = Initialize. Test, Increment
+var output : string = "";
+for (var i = 0; i < 5; i++)
+{
+    output += "The number is " + i + "&lt;br />";
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/flow-control/flow-control.js"></script>
+}

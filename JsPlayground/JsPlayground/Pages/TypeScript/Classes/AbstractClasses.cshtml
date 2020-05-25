@@ -1,0 +1,57 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.AbstractClassesModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Abstract classes are base classes from which other classes may be derived. They may <strong>not</strong> be instantiated directly.
+    Unlike an interface, an abstract class <strong>may contain</strong> implementation details for its non-abstract members. The abstract keyword is used
+    to define abstract classes as well as abstract methods within an abstract class.
+</p>
+
+<p>
+    Abstract members (function and properties) must be defined in the derived classes and not in the abstract class.  They are just sketched out.
+</p>
+
+<p>
+    To create a derived class from an abstract class, you must use the <code>extends</code> keyword.
+</p>
+
+<p class="text-center text-info">
+    Implements: Used with Interfaces and Classes A Class implements an Interface.
+    Extends: An Abstract Class is inherited. A derived class extends an abstract class.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Vehicles
+    </div>
+    <div class="card-body">
+        <p id="car-label"></p>
+        <p id="train-label"></p>
+    </div>
+</div>
+
+<p class="text-center my-5">
+    <img src="/assets/images/abstract-class.PNG" class="img-fluid" />
+</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/classes/abstract-class.js"></script>
+}

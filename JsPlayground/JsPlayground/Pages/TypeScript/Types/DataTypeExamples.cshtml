@@ -1,0 +1,34 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Types.DataTypeExamplesModel
+
+@{
+    string pageId = "Data Type Examples";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<pre>
+<code>
+var age : number = 48;
+var name : string = “Ricky Bobby”;
+var isFast : boolean = true;
+var names : string[] = [“Ricky, Bobby”];
+var firstPerson : string = name [0];
+
+var isSpaceship = function(){... logic here… return results;};
+</code>
+</pre>
+
+<p>&nbsp;</p>

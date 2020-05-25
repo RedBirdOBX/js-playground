@@ -1,0 +1,117 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.BasicsModel
+
+@{
+    string pageId = "Interface Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<h5 class="text-info text-center py-3">
+    Tip: Interfaces cannot be directly instantiated. They can however, used to define a Type.
+</h5>
+
+<p>
+    Like in c# , you can use interfaces to define the shape and function of something.
+    In this example, we're using an interface very much like DTO.  We're mapping values to properties
+    and passing that in to help instantiate a new Spaceship.
+</p>
+
+<div>
+    <img src="/assets/images/interface-example.PNG" class="img-fluid my-3" />
+</div>
+
+<div>
+    <img src="/assets/images/interface-differences.PNG" class="img-fluid my-3" />
+</div>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-info mt-5">
+            <div class="card-header">
+                <span id="name-label"></span>
+            </div>
+            <div class="card-body">
+                <p id="designation-label"></p>
+                <p id="engines-label"></p>
+                <p id="passengers-label"></p>
+                <p id="crew-label"></p>
+                <p id="commission-date-label"></p>
+                <p id="decommission-date-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<pre>
+<code>
+class Spaceship
+{
+    DisplaySpaceship(config: ISpaceshipConfiguration)
+    {
+        var DesignationLabel = &lt;HTMLElement>document.getElementById("designation-label");
+        DesignationLabel.innerHTML = "Designation: " + config.DesignationCode;
+
+        var NameLabel = &lt;HTMLElement>document.getElementById("name-label");
+        NameLabel.innerHTML = "Name: " + config.ShipName;
+
+        var WarpEnginesLabel = &lt;HTMLElement>document.getElementById("engines-label");
+        WarpEnginesLabel.innerHTML = "Warp Engines: " + config.NumberOfWarpNacelles.toString();
+
+        var PassengersLabel = &lt;HTMLElement>document.getElementById("passengers-label");
+        PassengersLabel.innerHTML = "Passengers: " + config.NumberOfPassengers.toString();
+
+        var CrewLabel = &lt;HTMLElement>document.getElementById("crew-label");
+        CrewLabel.innerHTML = "Crew: " + config.NumberOfCrew.toString();
+
+        var CommissionedDateLabel = &lt;HTMLElement>document.getElementById("commission-date-label");
+        CommissionedDateLabel.innerHTML = "Commission Date: " + config.CommissionDate.toString();
+
+        var DecommissionedDateLabel = &lt;HTMLElement>document.getElementById("decommission-date-label");
+        DecommissionedDateLabel.innerHTML = "Decommission Date: " + config.DecommissionDate;
+    }
+}
+
+interface ISpaceshipConfiguration
+{
+    // Properties
+    DesignationCode: string;
+    ShipName: string;
+    NumberOfWarpNacelles: number;
+    NumberOfPassengers: number;
+    NumberOfCrew: number;
+    CommissionDate: Date;
+    DecommissionDate?: Date; // this is nullable because not all ships have a decommissioned date.
+}
+
+window.onload = function ()
+{
+    let spaceshipConfig = { DesignationCode: "NCC1701", ShipName : "Enterprise", NumberOfWarpNacelles: 2,
+        NumberOfPassengers : 1000, NumberOfCrew: 100, CommissionDate: new Date(2200, 7, 30)};
+    let spaceship = new Spaceship();
+    spaceship.DisplaySpaceship(spaceshipConfig);
+};
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/interfaces/interface-contract-example.js"></script>
+}
+
+

@@ -1,0 +1,79 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.DeclarationFiles.InstallingDeclarationFilesModel
+
+@{
+    string pageId = "Installing Declaration File";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-declaration-files}
+@section BreadCrumbChapter {declaration files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    You may need to "install" (acquire) a Type Declaration file such as jQuery.
+    You can go over to <a href="http://definitelytyped.org/" target="_blank">
+        http://definitelytyped.org/
+    </a> to get the file and pur into your project manually,
+    or you can use <code>npm</code>.  Your VS Code or Visual Studio IDE
+    knows to go to the <code>definitelytyped.org</code> web site and place them
+    into a <code>types</code> folder in your project.
+</p>
+
+<p>
+    Go to <a href="https://microsoft.github.io/TypeSearch/" target="_blank">https://microsoft.github.io/TypeSearch/</a>
+    and search for your file.
+</p>
+
+<p class="text-center">
+    <img src="../../assets/images/type-search.PNG" />
+</p>
+
+<p>
+    In this example, I used <code>npm</code> to install jQuery.
+    I typed <code>npm install --save jquery</code> and the magic happened.
+</p>
+
+<ol>
+    <li>a node_modules folder waa created</li>
+    <li>jquery was downloaded into it</li>
+    <li>packages.json / packages-lock.json was created/updated</li>
+</ol>
+
+<p class="text-center mb-3">
+    <img src="../../assets/images/installing-jquery.PNG" width="100%;" />
+</p>
+
+<p>
+    Once I did that, I installed the jQuery declaration files by
+    using the npm command shown on the library's page (which TypeSearch directed me to).
+</p>
+
+<p class="text-center mb-3">
+    <img src="/assets/images/types-results-page.PNG" />
+</p>
+
+<p>Doing this created a <code>@@types</code> folder and a jQuery folder from the jQuery install above.</p>
+
+<p class="text-center mb-3">
+    <img src="/assets/images/npm-new-folder.PNG" />
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

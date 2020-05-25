@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Operators.NonNullAssertionOperatorModel
+
+@{
+    string pageId = "Non-Null Assertion Operator";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-operators}
+@section BreadCrumbChapter {operators}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    If you look closely at the <code>document.getElementById</code> method, you will notice that the
+    method returns an HtmlElement <strong>or</strong> a null type.  Since we like to enabled <code>strict null checks</code>
+    in our code to disallow null returns, this will cause an error.
+</p>
+
+<div>
+    <img src="/assets/images/non-null-assertion-type.png" class="d-block mx-auto my-5" />
+</div>
+
+<p>
+    The way to overcome this is to do two things (shown below):
+</p>
+
+<ul>
+    <li>
+        use a union type to allow your variable to be nullable. Since getElementById returns a HtmlElement or a null,
+        our variable has to have the same signature.
+    </li>
+    <li>
+        use a <code>non-null assertion operator</code>. We want to assert to the compiler
+        that we know more about this assignment that the compiler does. Even though our message variable type can be of
+        HtmlElement or null types, the innerHTML property cannot! Here, we tell the compiler to "be quiet" and we assert that
+        it will be non-null regardless.
+    </li>
+</ul>
+
+<p>
+    Since, by nature, the innerHTML property of the document element <strong>only</strong> can be assigned a string and not
+    a null, we want to assert that is not going to be null. The non-null assertion operator is the <strong>!</strong> character.
+</p>
+
+<div>
+    <img src="/assets/images/non-null-assertion-type-example.png" class="d-block mx-auto my-5" />
+</div>
+
+<p>Note: should you choose to use jQuery, it seems to still handle all of this better.  No need for all that. </p>
+<div>
+    <img src="/assets/images/non-null-assertion-type-example2.png" class="d-block mx-auto my-5" />
+</div>
+
+<p>&nbsp;</p>
+

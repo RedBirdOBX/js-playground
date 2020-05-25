@@ -1,0 +1,54 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.HtmlElements.TargetingModel
+
+@{
+    string pageId = "HTML Element Targeting";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-html}
+@section BreadCrumbChapter {html elements}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In order to target any html element via TypeScript, you need to cast it like so:<br />
+    <code>var MessageLabel = &lt;HTMLElement&gt;document.getElementById("message");</code>
+</p>
+
+<pre>
+<code>
+window.onload = function ()
+{
+    var greeting: string = "Hello World";
+
+    var MessageLabel = &lt;HTMLElement>document.getElementById("message");
+    MessageLabel.innerHTML = greeting;
+
+    var TextBox1 = &lt;HTMLInputElement>document.getElementById("TextBox1");
+    TextBox1.value = greeting;
+};
+</code>
+</pre>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <div id="message"></div>
+        <div><input type="text" id="TextBox1" class="form-control mt-3" /></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/html-elements.js"></script>
+}

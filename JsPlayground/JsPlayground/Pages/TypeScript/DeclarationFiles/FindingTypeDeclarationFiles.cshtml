@@ -1,0 +1,40 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.DeclarationFiles.FindingTypeDeclarationFilesModel
+
+@{
+    string pageId = "Finding Type Declaration Files";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-declaration-files}
+@section BreadCrumbChapter {declaration files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Often, 3rd party js libraries will include these type definition/declaration files in the libraries themselves:
+</p>
+
+<p class="text-center">
+    <img src="/assets/images/type-definition-example.PNG" />
+</p>
+
+<p>If you can't find one provided by your 3rd party library, check this web site out:</p>
+
+<p><a href="http://definitelytyped.org/" target="_blank">http://definitelytyped.org/</a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

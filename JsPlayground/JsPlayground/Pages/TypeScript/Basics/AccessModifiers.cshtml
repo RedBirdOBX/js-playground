@@ -1,0 +1,42 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.AccessModifiersModel
+
+@{
+    string pageId = "Access Modifers";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>&nbsp;</p>
+
+<ul>
+    <li>Everything is <code>public</code> unless specifically declared</li>
+    <li><code>private</code> means that only members within the same class can access it</li>
+    <li><code>protected</code> means that only members within the same class or classes <strong>which inherit (using extends)</strong> the class can access it</li>
+    <li><code>const</code> is for static variables</li>
+    <li><code>readonly</code> is for static class properties</li>
+</ul>
+
+<p>The alert on this page is a demonstration on how ClassB used a protected field from ClassA.</p>
+
+<p class="text-center">
+    <img src="/assets/images/protected-example.PNG" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/basics/basics.js"></script>
+}

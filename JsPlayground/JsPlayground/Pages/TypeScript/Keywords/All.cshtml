@@ -1,0 +1,105 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.AllModel
+
+@{
+    string pageId = "Keywords";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <strong>as</strong>: Use the <code>as</code> keyword to give an exported class an alias.
+    You can export <code>ClassA</code> as <code>ClassB</code> and it will appear as <code>ClassB</code>
+    in the classes in which import into.
+</p>
+
+<p><code>export Employee as StaffMember;</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>const</strong>:  Values cannot be changed once they are bound.
+    A <code>const</code> can be used anywhere.
+</p>
+
+<p><code>const secretCode: string = "abc";</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong><a href="../modules/export.html">export</a></strong>: Allows you to convert and encapsulate your code into a "module" making it available to other
+    ts code which will them import it. Very much like namespaces.
+</p>
+
+<p><code>export class Spaceship{}</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>Extends</strong>: Used with Abstract Classes and derived Classes.
+    A derived Class <code>extends</code> an <code>abstract</code> class.
+</p>
+
+<p><code>class Dog extends Animal</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>Implements</strong>: Used with Interfaces and Classes.  A Class <code>implements</code> a <code>interface</code>.
+</p>
+
+<p><code>class Employee implements IPerson</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <code>readonly</code>: A keyword that can only be used in a class.
+</p>
+
+<p><code>let readonly _secretCode: string = "abc";</code></p>
+
+<p>&nbsp;</p>
+
+<p>
+    <strong>super</strong>: Each derived class that contains a constructor function must call super() which
+    will execute the constructor of the  base class.
+</p>
+
+<pre>
+<code>
+class WebDeveloper extends Developer
+{
+    favoriteEditor: string;
+
+    constructor(editor: string)
+    {
+<mark>super();</mark>
+        this.favoriteEditor = editor;
+    }
+}
+</code>
+</pre>
+
+<p>
+    Each derived class that contains a constructor function must call super() which <strong>
+        will execute the constructor
+        of the base class
+    </strong>. What’s more, before we ever access a property on this in a constructor body, we have to
+    call super(). This is an important rule that TypeScript will enforce.
+</p>
+
+<p>&nbsp;</p>
+
+

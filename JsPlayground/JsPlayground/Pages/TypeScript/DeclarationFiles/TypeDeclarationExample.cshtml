@@ -1,0 +1,56 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.DeclarationFiles.TypeDeclarationExampleModel
+
+@{
+    string pageId = "Type Declaration Files Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-declaration-files}
+@section BreadCrumbChapter {declaration files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Make sure you add references to other external library definition files such as jQuery. Doing so will allow you to
+    use an <code>ambient declaration</code> like so: <code>declare var $;</code>.
+</p>
+
+<pre>
+<code>
+namespace TypeScriptDemos.DeclarationFiles
+{
+    ///
+    &lt;reference path="jquery.d.ts" /> ///
+
+    //declare var $;
+
+    window.onload = function ()
+    {
+        let msg: string = "Some men just want to watch the world burn.";
+        $("#demo1").html(msg);
+    };
+}
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        jQuery Example
+    </div>
+    <div class="card-body">
+        <div id="demo1"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/type-declarations/type-declaration-example.js"></script>
+}

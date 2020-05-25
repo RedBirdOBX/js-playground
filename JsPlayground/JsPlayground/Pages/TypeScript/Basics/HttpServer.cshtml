@@ -1,0 +1,56 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.HttpServerModel
+
+@{
+    string pageId = "http-server";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<h2 class="mb-5">http-server</h2>
+
+<p>
+    <code>http-server</code> is a little, light weight npm package which lets you server files as a web site and not as file-based.
+    This comes in handy when you want to use ajax or load files in js/ts which these scripts cannot do when server "file-based".
+</p>
+
+<p>
+    <strong>To install, </strong> type <code>npm install http-server -g</code> at a console.
+</p>
+
+<div class="mb-5">
+    <img src="/assets/images/http-server.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    Once you do this, you should be able to run your project from it's root folder by simply typing <code>http-server</code> at a
+    command prompt.
+</p>
+
+<div class="mb-5">
+    <img src="/assets/images/http-server-start.PNG" class="d-block mx-auto" />
+    <img src="/assets/images/http-server-works.PNG" class="d-block mx-auto" />
+</div>
+
+<p>Helpful links</p>
+
+<ul>
+    <li>https://www.npmjs.com/package/http-server</li>
+    <li>https://www.youtube.com/watch?v=3L6cFd8obfk</li>
+</ul>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

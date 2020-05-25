@@ -1,0 +1,36 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.TypeAssertionsModel
+
+@{
+    string pageId = "Type Assertions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Think of this as Casting. You can assign a variable as a <code>any</code> type, give it a value
+    and then later, for whatever reason, assign it a value of a different type later.
+</p>
+
+<div>
+    <img src="/assets/images/type-assertions.PNG" class="d-block mx-auto my-2" style="width: 50%;" />
+</div>
+
+<p>You can do this with the two different techniques above.</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

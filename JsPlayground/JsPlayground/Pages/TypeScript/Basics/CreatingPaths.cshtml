@@ -1,0 +1,33 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.CreatingPathsModel
+
+@{
+    string pageId = "Creating Paths";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>These may seem obvious but just for clarity....</p>
+
+<ul>
+    <li><code>/</code> is the root of the current drive</li>
+    <li><code>./</code> is the current directory</li>
+    <li><code>../</code> is the <strong>parent</strong> of the current directory</li>
+</ul>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

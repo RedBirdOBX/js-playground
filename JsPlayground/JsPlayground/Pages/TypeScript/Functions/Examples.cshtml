@@ -1,0 +1,73 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.ExamplesModel
+
+@{
+    string pageId = "Function Examples";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p class="mt-5"><strong>Old Boring Way</strong></p>
+
+<pre>
+<code>
+function BoringFunction(arg1, arg2)
+{
+    // code here
+}
+</code>
+</pre>
+
+<p>What's it output?  Void? Some value?  What about the arguments?  Are the nullable? Strings, ints, objects?</p>
+
+<p class="mt-5"><strong>New, coolness way</strong></p>
+
+<pre>
+<code>
+function CoolFunction(arg1: string, arg2?: string) : string
+{
+    // I do stuff and return a string. Arg2 is optional.
+}
+</code>
+</pre>
+
+<div class="card bg-light m3-5">
+    <div class="card-body">
+        <div><strong>Example 1</strong></div>
+        <div class="mb-5" id="example1"></div>
+
+        <div><strong>Example 2</strong></div>
+        <div class="mb-5" id="example2"></div>
+
+        <div><strong>Example 3</strong></div>
+        <div class="mb-5" id="example3"></div>
+
+        <div><strong>Example 4</strong></div>
+        <div class="mb-5" id="example4"></div>
+
+        <div><strong>Example 5</strong></div>
+        <div class="mb-5" id="example5"></div>
+
+        <div><strong>Example 6</strong></div>
+        <div class="mb-5" id="example6"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/function-examples.js"></script>
+}

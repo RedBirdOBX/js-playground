@@ -1,0 +1,61 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.LetModel
+
+@{
+    string pageId = "let";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>let</code> and <code>const</code> are two relatively new types of variable declarations in JavaScript.
+    <code>let</code> is similar to <code>var</code> in some respects, but allows users to avoid some of the
+    common "gotchas" that users run into in JavaScript. <code>const</code> is an augmentation of let in
+    that it prevents re-assignment to a variable.
+</p>
+
+<p><code>let</code> prevents variables from being used before their declaration.</p>
+
+<div>
+    <p><strong>var = bad</strong></p>
+    <img src="/assets/images/let-bad.png" class="img-fluid my-3" />
+</div>
+
+<div>
+    <p><strong>let = good</strong></p>
+    <img src="/assets/images/let-good.png" class="img-fluid" />
+</div>
+
+<div>
+    <p><strong>let = good</strong></p>
+    <img src="/assets/images/let-example.PNG" class="img-fluid" />
+</div>
+
+<p>&nbsp;</p>
+
+<p>
+    <a href="https://www.typescriptlang.org/docs/handbook/variable-declarations.html" target="_blank">
+        https://www.typescriptlang.org/docs/handbook/variable-declarations.html
+    </a>
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/keywords/let.js"></script>
+}

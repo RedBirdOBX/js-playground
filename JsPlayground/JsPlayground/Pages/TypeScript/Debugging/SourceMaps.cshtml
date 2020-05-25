@@ -1,0 +1,41 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Debugging.SourceMapsModel
+
+@{
+    string pageId = "Source Maps";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-debugging}
+@section BreadCrumbChapter {debugging}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Source Maps help map precompiled to code to the compiled version.
+</p>
+
+<div class="my-5">
+    <img src="/assets/images/source-maps.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    You can use this to your advantage by debugging in the browser. You can set breakpoints.
+</p>
+
+<div class="my-5">
+    <img src="/assets/images/debugging-in-browser.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

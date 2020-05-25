@@ -1,0 +1,95 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.SuperModel
+
+@{
+    string pageId = "super";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    <strong>If</strong> you have a class (ex: Cat) which extends another class (abstract or not, ex: Animal),
+    <strong>and</strong> your derived class (Cat) has a <code>constructor</code>,
+    then you must use the <code>super</code> function keyword.
+</p>
+
+<p>
+    Each derived class (Cat) that contains a constructor function must call <code>super()</code> which
+    <strong>will execute the constructor of the base class</strong>...even if the base class has an empty/no constructor.
+    Before we ever access a property on this in a constructor body, we have to call <code>super()</code>.
+    This is an important rule that TypeScript will enforce.
+</p>
+
+<p>Observe the code below.</p>
+
+<ul>
+    <li>Animal requires an argument of name when instantiated</li>
+    <li>Cat requires the Animal argument as well as it's own - ColorOfFur</li>
+    <li>Because Cat extends Animal, you must provide both arguments</li>
+    <li>
+        Because Cat has a Constructor, yo <strong>must</strong> use the super keyword.
+        This will invoke the Animal constructor....even if it was empty(missing)
+    </li>
+    <li>
+        You can completely remove the Animal constructor and <code>super</code> is still required
+        in Cat because Cat has it's own Constructor.
+    </li>
+</ul>
+
+<pre>
+<code>
+class Animal
+{
+    Name: string = "";
+
+    constructor(name: string)
+    {
+        this.Name = name;
+    }
+}
+
+class <mark>Cat</mark> extends Animal
+{
+    ColorOfFur: string = "";
+
+<mark>constructor</mark>(name: string, furColor: string)
+    {
+        super(name);
+        this.ColorOfFur = furColor;
+    }
+
+    Greeting = () : string => `${this.Name} says meow and his color is ${this.ColorOfFur}.`;
+}
+
+window.onload = function ()
+{
+    let cat = new Cat("Spot", "Orange");
+    let superDemo = &lt;HTMLElement>document.getElementById("super-demo");
+    superDemo.innerHTML = cat.Greeting();
+};
+</code>
+</pre>
+
+<div class="card bg-warning m1-5">
+    <div class="card-body">
+        <p id="super-demo"></p>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/keywords/super.js"></script>
+}

@@ -1,0 +1,40 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Types.ReadonlyArrayModel
+
+@{
+    string pageId = "Readonly Array";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    TypeScript comes with a ReadonlyArray&lt;T&gt; type that is the same as Array&lt;T&gt; with all mutating methods removed, so you
+    can make sure you don’t change your arrays after creation.
+</p>
+
+<pre>
+<code>
+let colors : string[] = ["red","white","blue"];
+let validColors : ReadonlyArray<string> = colors;
+
+// ok
+colors.push("purple");
+
+// not ok
+// validColors.push("purple");
+</code>
+</pre>
+
+<p>&nbsp;</p>

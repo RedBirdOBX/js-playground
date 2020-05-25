@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.BasicConceptsModel
+
+@{
+    string pageId = "Basic Concepts";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h5>What is TypeScript</h5>
+
+<p>
+    <a href="https://www.typescriptlang.org/index.html" target="_blank">TypeScript</a> is an open-sourced project maintained by Microsoft.
+    It is a strongly typed language which compiled into javascript. The latest version is 3.8.
+</p>
+
+<p>The compiler (included with TypeScript) is known as <code>tsc</code>.</p>
+
+<div>
+    <img src="/assets/images/tsc-graphic.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    To see what version is installed, type <code>tsc -v</code> at a Powershell command prompt.
+</p>
+
+<div>
+    <img src="/assets/images/ts-version.PNG" class="d-block mx-auto" />
+</div>
+
+<h5 class="mt-5">Node.js</h5>
+
+<p>
+    <a href="https://nodejs.org/en/" target="_blank">Node.js</a> is a server-side javascript service.
+    As an asynchronous event driven JavaScript runtime, Node is designed to
+    build scalable network applications.  Node Package Manager (npm) uses Node.js.
+</p>
+
+<p>
+    To see what version of Node.js is installed, type <code>node -v</code> at a Powershell command prompt.
+</p>
+
+<div class="my-3">
+    <img src="/assets/images/node-version.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    To see what version of Node Package Manager is installed, type <code>npm -v</code> at a Powershell command prompt.
+</p>
+
+<div class="my-3">
+    <img src="/assets/images/npm-version.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

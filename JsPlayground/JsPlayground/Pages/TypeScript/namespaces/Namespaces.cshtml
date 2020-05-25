@@ -1,0 +1,102 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.namespaces.NamespacesModel
+
+@{
+    string pageId = "Namespace Demo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-namespaces}
+@section BreadCrumbChapter {namespaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Namespaces are great for organizing and encapsulating your code. If you code spans across multiple
+    namespaces (files), you need to:
+</p>
+
+<ul>
+    <li>
+        <strong>a)</strong> <a href="../modules/export">export</a> your namespaces so they can be accessible to other namespaces
+    </li>
+    <li>
+        <strong>b)</strong> (preferred) compile them down into a single file or you will need to remember to make
+        references to all js files (containing those namespaces) involved
+    </li>
+</ul>
+
+<h5 class="text-info text-center my-5">
+    Use <code>export</code> to make publicly accessible and <code>reference</code> to locate these namespaces from other
+    files.
+</h5>
+
+<p>
+    <strong>Exporting:</strong> To access namespaces within other namespaces, you need to prefix the namespaces which should be
+    exposed with a <code>export</code> keyword.  This will allow other namespaces to have public access to them.  This works very much like importing
+    namespaces in c#.
+</p>
+
+<p class="text-center my-5">
+    <img src="/assets/images/export-namespaces.PNG" class="img-fluid" />
+</p>
+
+<p>
+    <strong>Referencing your Exports:</strong> Unless you define your namespaces in the same file like shown in
+    the first image below (and you most likely will NOT), you will need to add <code>reference</code> tags in
+    your consuming code to tell TypeScript where it can locate this other code.
+</p>
+
+<p class="text-center my-5">
+    <img src="/assets/images/reference-tags.PNG" class="img-fluid" />
+</p>
+
+<p>
+    <strong>Finally</strong>, this is common sense but I'll state it anyways.
+    We need to make sure all of our compiled code gets loaded into the browsers.
+    In this example, we need to not only load <code>namespaces.js</code>, but we also need to
+    load <code>federation.js</code> and <code>klingon.js</code>.
+</p>
+
+<p class="text-center my-5">
+    <img src="/assets/images/loading-namespaces.PNG" class="img-fluid" />
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Federation vs Klingon
+    </div>
+    <div class="card-body">
+        <div id="output"></div>
+    </div>
+</div>
+
+<p class="text-center my-5">
+    <img src="/assets/images/namespaces-final.PNG" class="img-fluid" />
+</p>
+
+<p>
+    <strong>Tip</strong> - if you want to combine all required js files into one single one
+    (klingon, federation, and namespaces/battleground) like "battleground.js" or something, you can
+    using <code>-output file</code>. See this page:
+    <a href="https://www.typescriptlang.org/docs/handbook/namespaces.html" target="_blank">
+        https://www.typescriptlang.org/docs/handbook/namespaces.html
+    </a>.
+</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/namespaces/federation.js"></script>
+    <script src="/assets/javascripts/compiled/namespaces/klingons.js"></script>
+    <script src="/assets/javascripts/compiled/namespaces/namespaces.js"></script>
+}

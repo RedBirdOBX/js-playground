@@ -1,0 +1,71 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Types.PrimitiveModel
+
+@{
+    string pageId = "Primitive Types Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<ul>
+    <li>Boolean</li>
+    <li>String</li>
+    <li>Number</li>
+    <li>Array</li>
+    <li>Date</li>
+    <li>Enum</li>
+    <li>Void (an absence of a type)</li>
+    <li>Null</li>
+    <li>Undefined</li>
+    <li>Any</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Primitive Types
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="well well-sm">
+                    <div class="text-white">
+                        <h3 class="text-center">Driver data</h3>
+                        <p id="driver-name"></p>
+                        <p id="driver-age"></p>
+                        <p id="driver-isDriver"></p>
+                        <p id="driver-isFast"></p>
+                        <p id="foods-count"></p>
+                        <p id="first-food"></p>
+                        <p id="second-food"></p>
+                        <p id="favorite-foods"></p>
+                        <p id="total-years-won"></p>
+                        <p id="years-won"></p>
+                        <p id="last-year-won"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Types/primitive.js"></script>
+}

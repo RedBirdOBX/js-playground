@@ -1,0 +1,66 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.ConstModel
+
+@{
+    string pageId = "const";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <code>const</code> values cannot be changed once they are bound.
+    In other words, they have the same scoping rules as <code>let</code>, but you can’t re-assign to them.
+</p>
+
+<p><code>readonly</code> is a keyword that can <strong>only</strong> be used in a class. A <code>const</code> can be used anywhere.</p>
+
+<p>
+    The easiest way to remember whether to use <code>readonly</code> or <code>const</code> is to ask whether you’re using it on a variable or a
+    field/property.
+</p>
+
+<h4 class="text-center text-info my-5">Variables use <code>const</code> whereas fields/properties use <code>readonly</code>.</h4>
+
+<pre>
+<code>
+<mark>const _message: string = "Hello World";</mark>
+
+window.onload = function ()
+{
+    let messageLabel = &lt;HTMLElement>document.getElementById("message-label");
+    messageLabel.innerHTML = _message;
+
+    // notice that you cannot reassign this.
+    //_message = "new text here";
+    //messageLabel.innerHTML = _message;
+};
+</code>
+</pre>
+
+<div class="card bg-warning m1-5">
+    <div class="card-body">
+        <p id="message-label"></p>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p>https://www.typescriptlang.org/docs/handbook/variable-declarations.html</p>
+
+@section Scripts
+{
+    <script src="../../assets/javascripts/compiled/keywords/const.js"></script>
+}
+

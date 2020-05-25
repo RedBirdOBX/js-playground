@@ -1,0 +1,123 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.TSConfigModel
+
+@{
+    string pageId = "tsconfig";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    The presence of a <code>tsconfig.json</code> file in a directory indicates that the directory is the root of a TypeScript project.
+    This is also known as a <strong>TypeScript Project File</strong>.
+    The <code>tsconfig.json</code> file specifies the files to included and excludes, where to compile to,
+    and the compiler <strong>options</strong> required to compile the project.
+</p>
+
+<p>
+    By invoking tsc with no input files, in which case the compiler <strong>searches</strong> for the <code>tsconfig.json</code> file
+    starting in the current directory and continuing up the parent directory chain.
+</p>
+
+<p><code>tsconfig.json</code>, aka the Project File, also supports configuration <strong>inheritance</strong>.</p>
+
+<p>
+    <a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">
+        https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
+    </a>
+</p>
+
+<p>
+    With the right set of arguments, you can determine the inclusion or exclusion of files. You can determine which selected ts files
+    will be compiled (or all) and where the outputs will be; whether one js file per ts file or all into one js file.
+</p>
+
+<pre>
+<code>
+{
+    "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
+    },
+    "files": [
+    "HelloWorld.ts",
+    ]
+}
+
+// Another Example
+{
+    "compilerOptions": 
+    {
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "target": "es6",
+        "outFile": "javascripts/app.js",    // <-- combine into one file
+        //"outDir" : "/javascripts/" // <-- dir where ts files will be compiled into. One for each ts file.
+                                            }
+                                            }
+</code>
+</pre>
+
+<h5 class="mb-5">Tips</h5>
+
+<p>1) To see att the compiler options available for <code>tsconfig</code>, you can type <code>tsc -h</code> for help.</p>
+
+<div>
+    <img src="/assets/images/tsc-help.PNG" class="d-block mx-auto mb-5" />
+</div>
+
+<p>
+    2) You can use <code>tsc</code> to create a starter Project File by using this command from a command prompt in the
+    <strong>root of your project folder</strong>. It will give you all available options.
+</p>
+
+<p><code>tsc --init</code></p>
+
+<div>
+    <img src="../../assets/images/init-config-file.PNG" class="d-block mx-auto mb-5" />
+</div>
+
+<p>
+    3) You will need to use the command <code>terminate</code> to tell tsc to stop watching your <code>tsc</code>
+    if you make changes to it.  <code>ctrl + shift + p >> terminate</code>.  Rebuilding it will make it start
+    watching your config file again if it is set up to do so.
+</p>
+
+<p>
+    4) When trying to include or exlude certain files using patterns, keep these wildcards in mind:
+</p>
+
+<ul>
+    <li><code>*</code> matches zero or more characters (excluding directory separators)</li>
+    <li><code>?</code> matches any one character (excluding directory separators)</li>
+    <li><code>**/</code> recursively matches any subdirectory</li>
+</ul>
+
+<p>Helpful links:</p>
+
+<ul>
+    <li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">https://www.typescriptlang.org/docs/handbook/compiler-options.html</a></li>
+    <li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">https://www.typescriptlang.org/docs/handbook/tsconfig-json.html</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

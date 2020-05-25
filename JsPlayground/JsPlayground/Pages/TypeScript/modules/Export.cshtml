@@ -1,0 +1,109 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.modules.ExportModel
+
+@{
+    string pageId = "export";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-modules}
+@section BreadCrumbChapter {modules}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <a href="http://www.typescriptlang.org/docs/handbook/modules.html" target="_blank">
+        http://www.typescriptlang.org/docs/handbook/modules.html
+    </a>
+</p>
+
+<p>
+    Any declaration (such as a variable, function, class, type alias, or interface) can be exported by
+    adding the <code>export</code> keyword. Exporting it will make it publicly accessible.
+</p>
+
+<p>
+    If you look at the image below, you can see that we <code>export</code> our Logger class so that it can be used
+    in the <code>export-example1</code> ts file.  See how the <code>export-example1</code> file already knew what"Logger" type was?
+</p>
+
+<div>
+    <img src="/assets/images/export-sample1.PNG" class="d-block mx-auto" />
+</div>
+
+<p class="mt-3">
+    If I remove the <code>export</code> keyword from the logger class, look what happens:
+</p>
+
+<div class="m-5">
+    <img src="/assets/images/export-error1.PNG" class="d-block mx-auto" />
+</div>
+
+<p class="mt-3">
+    The export-example1 ts file has no knowledge of what Logger is.
+</p>
+
+<p class="mt-3">
+    We know this is working once <code>export</code> is put back because of this:
+    <strong><span class="text-danger" id="demo1"></span></strong><br /><br />
+    My <code>export-example.ts</code> file <strong>does</strong> have knowledge of the
+    <code>logger.ts</code> file and functionality.
+</p>
+
+<p>
+    Now in a lot of online examples and tutorials, you will be told to use <code>import</code> statements in your consuming classes.
+    Something like <code>import { Logger } from "./logger";</code>.
+</p>
+
+<p>
+    I was never able to get this to work because I lacked (information and experience) on using a <strong>module loader</strong> in my project.
+    I believe the concept is that I would have a series of separate js files in my app, each file as a module. And instead of embedding all of these
+    js files into any given page, the loader would help one js file call another.
+</p>
+
+<p>
+    I was able to overcome this by compiling all the related files into a single js file and just referencing that file in my page.
+    I defined this in my tsconfig.json file.
+</p>
+
+<div>
+    <img src="/assets/images/module-export-example.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>Important things to remember:</strong></p>
+
+<p>
+    You need to use 'child' ts project files.  One <code>tsconfig.base.json</code> in the root and then one per folder.
+    The one in the working folder (child project file) determines the output file.
+    <img src="/assets/images/child-tsconfig-example.PNG" class="float-right" />
+</p>
+
+<p>
+    We are not using a module loader so you need to set your <code>tsconfig.json</code> file to use the "system" module generation.
+    <code>"module": "system",</code>
+</p>
+
+<p>
+    Only by using namespaces (which define this "module") in our code can we do this without some magic module loader.
+    If I don't encapsulate within a common namespace and use <code>import</code> instead, <code>tsc</code>
+    will compile it fine but the browser will not know what to do.
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/modules/export-example.js"></script>
+}

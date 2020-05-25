@@ -1,0 +1,36 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Challenges.FibonacciModel
+
+@{
+    string pageId = "Fibonacci Challenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>Current Number = sum of last 2 numbers.</p>
+
+<div class="row">
+    <div class="col-4">
+        <span id="output"></span>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    <script src="../../assets/javascripts/compiled/challenges/fibonacci.js"></script>
+}
+

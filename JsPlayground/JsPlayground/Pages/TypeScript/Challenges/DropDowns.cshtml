@@ -1,0 +1,48 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Challenges.DropDownsModel
+
+@{
+    string pageId = "The Drop Down Challenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Populate a second drop down list with a subset list based on the selection of the first drop down list.
+</p>
+
+<hr />
+
+<form>
+    <div class="form-group">
+        <label for="TypesList">Select a Food</label>
+        <select class="form-control" id="TypesList">
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="ChoicesList">Available Choices</label>
+        <select class="form-control" id="ChoicesList">
+        </select>
+    </div>
+</form>
+
+<p class="my-b"></p>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/challenges/drop-downs.js"></script>
+}
+

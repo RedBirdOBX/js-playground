@@ -1,0 +1,35 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.CompilingManuallyModel
+
+@{
+    string pageId = "Compiling Manually";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Before you set up your TypeScript project to perform complicated build tasks, you can compile each
+    individual file manually. You can do this at a command like by just saying <code>tsc myFile.ts</code>.
+</p>
+
+<p>It will automatically build a js version in the same folder. You need to make sure you're in the same folder as the ts file.</p>
+
+<div>
+    <img src="/assets/images/compiling-manually.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

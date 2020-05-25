@@ -1,0 +1,69 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.GlobalFunctionsModel
+
+@{
+    string pageId = "Global Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Class-less functions.  You should evaluate and determine:</p>
+
+<ul>
+    <li>&quot;Does this functionality really need to be in a Class?&quot;</li>
+    <li>&quot;Can it/should it be shared throughout the app?&quot;</li>
+</ul>
+
+<p>
+    You may want a Global Function and not a Class Function.
+    Defining functions NOT within a class. These are considered GLOBAL functions.  Not restricted to be within a class.
+    You can mouse-over this function and see that it outputs a number because the arguments are numbers.
+</p>
+
+<pre>
+<code>
+// Example 1
+let CalculateMillage = function (lightYearsTraveled: number, gallons: number)
+{
+    return lightYearsTraveled / gallons;
+}
+
+// Example 2
+// Here is a 'short cut' to write the same thing. This uses arrow function and omits the keyword 'function'.
+let CalculateMillage2 = (lightYearsTraveled: number, gallons: number) => lightYearsTraveled / gallons;
+
+window.onload = function ()
+{
+    let LightYearsPerGallonLabel = &lt;HTMLElement>document.getElementById("light-years-per-gallon");
+    LightYearsPerGallonLabel.innerHTML = "Light Years Per Gallon: " + CalculateMillage(100, 3);
+
+    let LightYearsPerGallonLabel2 = &lt;HTMLElement>document.getElementById("light-years-per-gallon-2");
+    LightYearsPerGallonLabel2.innerHTML = "Light Years Per Gallon: " + CalculateMillage2(100, 2.3);
+};
+</code>
+</pre>
+
+<div class="card bg-warning mt-5">
+    <div class="card-body">
+        <p id="light-years-per-gallon"></p>
+        <p id="light-years-per-gallon-2"></p>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/global-functions.js"></script>
+}

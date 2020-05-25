@@ -1,0 +1,74 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.ReadonlyModel
+
+@{
+    string pageId = "readonly";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Some properties should only be modifiable when an object is first created. You can specify this by putting readonly
+    before the name of the property.
+</p>
+
+<p><code>readonly</code> is a keyword that can only be used in a class. A <code>const</code> can be used anywhere.</p>
+
+<p>
+    The easiest way to remember whether to use <code>readonly</code> or <code>const</code> is to ask whether you’re
+    using it on a variable or a field/property.
+</p>
+
+<h4 class="text-center text-info my-5">Variables use <code>const</code> whereas fields/properties use <code>readonly</code>.</h4>
+
+<p>Properties declared as <code>readonly</code> can only be set in a constructor or when they are declared and initialized.</p>
+
+<div class="card bg-info mt-5">
+    <div class="card-body">
+        <div class="text-white" id="readonly-label"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p class="text-center">
+    <img src="/assets/images/readonly.PNG" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+<p>
+    You can also assign properties of a class to be readonly but still have the constructor set them via arguments.
+    Once a user instantiates the object and gives values for these properties, they cannot be changed.
+    <code>readonly</code> is used in Classes <strong>only</strong>.
+</p>
+
+<div class="card bg-info mt-5">
+    <div class="card-body">
+        <div class="text-white" id="readonly-parameter-label"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<p class="text-center">
+    <img src="/assets/images/readonly-properties.PNG" class="img-fluid" />
+</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/keywords/readonly.js"></script>
+}

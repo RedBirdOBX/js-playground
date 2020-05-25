@@ -1,0 +1,88 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.DeclarationFiles.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-declaration-files}
+@section BreadCrumbChapter {declaration files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Sometimes ...quite often...we need to write code which refers to other libraries (jQuery, jQuery validation, etc…). We
+    want to be able to pull in and use the Types from these other libraries but we don’t control those Types. This is done
+    through the use of <code>Ambient Declarations</code> and these ambient declarations depend of <code>Type Declaration Files</code>.
+</p>
+
+<pre>
+<code>
+<mark>declare</mark> var document;
+        document.title = “Hello World”
+    </code>
+</pre>
+
+<p>
+    <code>declare</code> is a special keyword in Typescript which creates an ambient declaration.
+    It basically says "document" (or whatever) is going to be something that is referred to
+    and I don’t necessarily have it in my file.
+</p>
+
+<p>
+    In this example, it is the <code>lib.d.ts</code> file which is referred to by default by TypeScript.
+    This file contains things about
+    the DOM and Javascript itself and it included as part of VS2017 and it’s support for TypeScript. Therefore, TypeScript
+    will accept this kind of declaration: <code>var foo = document.getElementById("foo");</code> without knowing
+    what exactly "document" is.
+</p>
+
+<p class="text-center">
+    <img src="/assets/images/lib-d.PNG" />
+</p>
+
+<p>
+    DOM and JavaScript are ‘built in’ to TypeScript. This however, the following is <strong>not</strong> acceptable since TypeScript,
+    by default, does <strong>not</strong> know what <code>$</code> is that is found in jQuery:
+    <code>var foo = $("#foo").val();</code>
+</p>
+
+<p>
+    Ambient Declarations allow you to use external references such as jQuery. We can do this with Definition Files such as
+    <code>{name}.d.ts</code>. Note that doing this <strong>requires you to use a namespace or module wrapper</strong>.
+</p>
+
+<pre>
+<code>
+namespace TypeScriptDemos.DeclarationFiles
+{
+    ///
+    &lt;reference path="jquery.d.ts" /> ///
+
+    declare var $;
+
+    window.onload = function ()
+    {
+        let msg: string = "Some men just want to watch the world burn.";
+        $("#demo1").html(msg);
+    };
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/type-declarations/type-declaration-example.js"></script>
+}

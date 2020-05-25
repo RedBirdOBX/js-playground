@@ -1,0 +1,37 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Operators.ModulusModel
+
+@{
+    string pageId = "Modulus Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-operators}
+@section BreadCrumbChapter {operators}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Every 4th row will be red.</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Modulus
+    </div>
+    <div class="card-body">
+        <div id="output"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Operators/operators.js"></script>
+}

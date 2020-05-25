@@ -1,0 +1,80 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.FunctionScopeExampleModel
+
+@{
+    string pageId = "Function Scope Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    This is a good illustration of how one function within a class has visibility to another function using the
+    <code>this</code> keyword.  Arrow Function likely behave different.  A little more research is needed.
+</p>
+
+<div>
+    <button type="button" id="UpdateCounterButton">
+        Update the counter
+    </button>
+</div>
+
+<div class="card bg-warning mt-5">
+    <div class="card-body">
+        <p id="output"></p>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+namespace ScriptDemo
+{
+    class FunctionExample
+    {
+        Counter: number = 0;
+
+        CalculateStuff(): void
+        {
+            this.Counter++;
+<mark>this.UpdatePage(this.Counter);</mark>
+        }
+
+        UpdatePage(counter: number): void
+        {
+            let label: HTMLElement = &lt;HTMLElement>document.getElementById("output");
+            label.innerHTML = counter.toString();
+        }
+    }
+
+    window.onload = function ()
+    {
+        let functionExample = new FunctionExample();
+        let button: HTMLButtonElement = &lt;HTMLButtonElement>document.getElementById("UpdateCounterButton");
+        button.addEventListener("click", () => functionExample.CalculateStuff());
+    };
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/function-scope-example.js"></script>
+}

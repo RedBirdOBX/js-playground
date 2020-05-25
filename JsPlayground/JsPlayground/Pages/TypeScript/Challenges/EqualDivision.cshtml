@@ -1,0 +1,125 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Challenges.EqualDivisionModel
+
+@{
+    string pageId = "Equal Division Challenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Here are three examples of how to take a list and divide them up into 2 buckets as equally as possible.
+    Each test increases in it's complexity.
+</p>
+
+<p>
+    Which one will do the best job? Watch the developer's console when running the tests.
+    Inspired by <em>Mr. Waffles</em>.
+</p>
+
+<p>&nbsp;</p>
+
+<div class="form-group">
+    <label class="text-info" for="NumbersText">Enter in a series of numbers, comma delimited</label>
+    <input id="NumbersText" class="form-control col-6" value="145,5,180,8,27,45,51,131,165,211" />
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card bg-light">
+            <div class="card-header">Alternating</div>
+            <div class="card-body">
+                <p>
+                    This technique sorts the numbers (desc) and then runs thru the list and alternates between  bucket1 and bucket2 inserts it into one or the other.
+                </p>
+                <p class="card-text">
+                    <span id="demo1"></span>
+                </p>
+            </div>
+            <div class="card-footer text-center">
+                <button id="Button1" class="btn btn-primary" type="button">Alternating Test</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card bg-light">
+            <div class="card-header">Equal Split Test</div>
+            <div class="card-body">
+                <p>
+                    This technique will calculate a break point by dividing the sum of all numbers by 2.
+                    It will run thru the numbers list (desc) and insert
+                    into bucket1 as long as it hasn't exceeded the breakpoint and then will switch over to
+                    bucket 2 once it exceeds the breakpoint.
+                </p>
+                <p class="card-text">
+                    <span id="demo2"></span>
+                </p>
+            </div>
+            <div class="card-footer text-center">
+                <button id="Button2" class="btn btn-primary" type="button">Equal Split Test</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md">
+        <div class="card bg-light">
+            <div class="card-header">Top & Bottom Cherry Pick</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                    This technique does the following:
+                </p>
+                <ul>
+                    <li>
+                        sorts the list desc and then picks the very most top value (max) and inserts it into the
+                        bucket with the lowest total
+                    </li>
+                    <li>
+                        removes the value just used from the list so it cannot be used again
+                    </li>
+                    <li>
+                        resorts the list in ascending order and grabs the top most (min) value.
+                        It will insert this min value into the bucket with the lowest total
+                    </li>
+                    <li>
+                        removes the value just used from the list so it cannot be used again
+                    </li>
+                    <li>
+                        resorts the list again in desc order and starts over
+                    </li>
+                </ul>
+                <p class="card-text">
+                    <span id="demo3"></span>
+                </p>
+            </div>
+            <div class="card-footer text-center">
+                <button id="Button3" class="btn btn-primary" type="button">Top & Bottom Cherry Pick Test</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/challenges/equal-division.js"></script>
+}
+

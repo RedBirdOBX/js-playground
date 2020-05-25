@@ -1,0 +1,152 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.ClassPropertiesModel
+
+@{
+    string pageId = "Class Properties";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In TypeScript, properties can look more like c# fully-implemented properties. Notice in the Constructor, we do NOT get the private
+    fields but instead, the properties themselves.
+</p>
+
+<p>
+    Just as in most OOP languages, we have Getters and Setters. In TypeScript, properties are really just "keyword" methods/functions
+    which are implicitly public.
+</p>
+
+<p>
+    You don't have to use getters and setters but if do, you can implement business logic and rules. Notice that with getters and setters,
+    the name of the methods ARE the property names.  Ex: <code>get designationCode()</code> and <code>set designationCode</code>.
+    See example 3.
+</p>
+
+<p>
+    The <strong>getter</strong> ("get") should accept any arguments and will return the property's value.
+    The <strong>setter</strong> ("set") will accept the value of property as an argument.
+</p>
+
+<p>
+    <strong>TypeScript doesn't really have a concept of fields vs properties.  They're all properties.  </strong>
+    It's just up to you to expose them publicly or privately.
+</p>
+
+<p>
+    Whenever you want to refer to a class member that belongs to the class you're in you need to prefix the reference to the
+    member with <code>this</code> followed by a period. <code>this.MyMethod()</code>
+</p>
+
+<pre>
+<code>
+// Example 1
+class Quarter
+{
+    // fields
+    private _coinValue : number = 0.25;
+
+    // properties
+    // This one is read only
+    get ValueOfCoin()
+    {
+        return this._coinValue;
+    }
+}
+
+// in this document
+window.onload = function ()
+{
+    let quarter = new Quarter();
+    let demo = document.getElementById("demo");
+    demo.innerHTML = quarter.ValueOfCoin;
+};
+
+
+// Exmaple 2
+class Developer
+{
+    department: string;
+    private _title: string;
+
+    // notice the use of getters and setters
+    get title(): string
+    {
+        return this._title;
+    }
+
+    set title(newTitle: string)
+    {
+        this._title = newTitle.toUpperCase();
+    }
+}
+
+// Example 3
+class Spaceship
+{
+    // fields
+    private _designationCode: string;
+
+    // properties - these are what you want expose publicly.
+<mark>get</mark> designationCode(): string
+    { return this._designationCode; }
+<mark>set</mark> designationCode(value: string)
+    {
+        if ((value == undefined) || (value === ""))
+        {
+            value = "Designation Code needed.";
+            throw "Designation Code needed.";
+        }
+        else
+        {
+            this._designationCode = value;
+        }
+    }
+
+    // constructor
+    constructor(DesignationCode: string, etc..)
+    {
+        this.designationCode = DesignationCode;
+        ...etc
+    }
+}
+</code>
+</pre>
+
+<div class="card text-white bg-info my-2">
+    <div class="card-header">Example 1</div>
+    <div class="card-body">
+        <p id="demo"></p>
+    </div>
+</div>
+
+<p>
+</p>
+
+<p class="text-center">
+    <img src="" class="img-fluid" />
+</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Classes/class-properties.js"></script>
+    <script>
+        window.onload = function () {
+            let quarter = new Quarter();
+            let demo = document.getElementById("demo");
+            demo.innerHTML = quarter.ValueOfCoin;
+        };
+    </script>
+}

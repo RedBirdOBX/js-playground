@@ -1,0 +1,35 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Events.ButtonClickModel
+
+@{
+    string pageId = "Button Click";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    &nbsp;
+</p>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <div id="results-label" class="text-success"></div>
+        <div><button id="ClickDemoButton" class="btn btn-primary mt-3">Click me</button></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/events/events.js"></script>
+}

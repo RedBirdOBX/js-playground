@@ -1,0 +1,65 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.FunctionWithDefaultArgumentsValsModel
+
+@{
+    string pageId = "Functions with default values for their arguments";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p class="mt-5">
+    If there's any risk of of not getting one ore more of the arguments defined in the function's signature,
+    you can set default values for your function arguments.  By doing this, you make the argument optional.
+</p>
+
+<p>Notice that you can leave off the third and even the second argument.</p>
+
+<p class="text-danger"><strong>View the Console</strong></p>
+
+<pre>
+<code>
+function SayHello(name: string, feeling: string = "good", hungry?: boolean): void
+{
+    console.log("**************************");
+    console.log(`Hello ${name}`);
+    if(feeling ==="good")
+    {
+        console.log("I'm glad you are feeling good.");
+    }
+    else
+    {
+        console.log("I hope you are feeling good.");
+    }
+
+    if(hungry !== undefined)
+    {
+        console.log(`Are you hungry? ${hungry}`);
+    }
+}
+
+SayHello("Ricky Bobby", "so-so", true);
+SayHello("Ricky Bobby", "so-so");
+SayHello("Ricky Bobby");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/functions-with-default-values.js"></script>
+}

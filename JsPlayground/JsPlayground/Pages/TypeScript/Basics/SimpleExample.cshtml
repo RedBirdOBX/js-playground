@@ -1,0 +1,50 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.SimpleExampleModel
+
+@{
+    string pageId = "Simple Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h5>What is TypeScript</h5>
+
+<p>
+    TypeScript is very much like C# or any other OOP language. This simple Class has a property.
+    The Constructor requires an argument of type String and the function “greet”
+    returns the message + "Hello". It supports encapsulation and Static Typing.
+</p>
+
+<pre>
+<code>
+class Greeter
+{
+    Greeting: string = "";
+
+    constructor (message: string)
+    { this.Greeting = message;}
+
+    Greet()
+    {
+        return "Hello" + this.Greeting;
+    }
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }

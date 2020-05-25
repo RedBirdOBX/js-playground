@@ -1,0 +1,197 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.ArrowFunctionsThisModel
+
+@{
+    string pageId = "Arrow Functions and this";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<ul>
+    <li>
+        A regular function cares very much who calls it. The value of the <code>this</code> inside a regular function depends on HOW the function was called -
+        the object that made the call. <code>this</code> can vary.
+    </li>
+    <li>
+        An arrow function does not care who calls it and it's <code>this</code> keyword inside the arrow function depends on WHERE
+        the function was defined (the scope of the defined function)
+    </li>
+</ul>
+
+<p>
+    For example (arrows), if your arrow function is defined in a class, the <code>this</code> will always be that Class regardless of who calls it.
+    This is a fundamental difference from standard js functions.
+</p>
+
+<h4 class="text-info text-center m-3">
+    <em>'this' in regular functions == who called it? 'this' in arrow functions == where was this defined?</em>
+</h4>
+
+<p><strong>View the console.</strong></p>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <div><strong>Example 1</strong></div>
+        <div class="mb-3" id="example1"></div>
+
+        <div><strong>Example 2</strong></div>
+        <div class="mb-3" id="example2"></div>
+
+        <div><strong>Example 3</strong></div>
+        <div class="mb-3" id="example3"></div>
+
+        <div><strong>Example 4</strong></div>
+        <div class="mb-3" id="example4"></div>
+
+        <div><strong>Example 5</strong></div>
+        <div class="mb-3" id="example5"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+function RegFunction()
+{
+    // old boring global function.
+    // who is "this"?  The caller.
+    // it always binds the value for it's "this" keyword to the caller.
+    // this might be better known as "caller" in this scenario.
+    // if it didn't have an explicit caller, it is bound to the calling environment like Window.
+    // this is the Window object
+    console.log(`RegFunction: ${this}`);
+    console.dir(this);
+    return this;
+}
+
+// notice that `this` is the **person** object.
+// 'this' is contained within this object scope
+let person =
+{
+    FirstName: "Penelope",
+    LastName: "Barrymore",
+    FullName: function ()
+    {
+        console.log(`Person Obj: ${this}`);
+        console.dir(this);
+        return this.FirstName + " " + this.LastName;
+    }
+}
+
+// notice that `this` is the window object again even though it was the car
+// object who called it. Why?  Because it was defined in the Window object.
+let CalculateCost = () =>
+{
+    console.log(`CalculateCost: ${this}`);
+    console.dir(this);
+    return 1000000 * 1;
+}
+
+let car =
+{
+    Color: "Red",
+    Speed: "Fast",
+    Cost: CalculateCost
+}
+
+let testerObj =
+{
+    // the properties of this obj are defined by functions
+    FunctProp1: function(){ console.log("FunctProp1", this); <mark>return this;</mark> },
+    FunctProp2: () => { console.log("FunctProp2", this); <mark>return this;</mark> }
+};
+
+$(function()
+{
+    $("#example1").text(RegFunction());
+    $("#example2").text(person.FullName());
+    $("#example3").text(car.Cost);
+    $("#example4").text(testerObj.FunctProp1());
+    $("#example5").text(testerObj.FunctProp2());
+});
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+    function RegFunction()
+    {
+        // old boring global function.
+        // who is "this"?  The caller.
+        // it always binds the value for it's "this" keyword to the caller.
+        // this might be better known as "caller" in this scenario.
+        // if it didn't have an explicit caller, it is bound to the calling environment like Window.
+        // this is the Window object
+        console.log(`RegFunction: ${this}`);
+        console.dir(this);
+        return this;
+    }
+
+    // notice that `this` is the **person** object.
+    // 'this' is contained within this object scope
+    let person =
+    {
+        FirstName: "Penelope",
+        LastName: "Barrymore",
+        FullName: function ()
+        {
+            console.log(`Person Obj: ${this}`);
+            console.dir(this);
+            return this.FirstName + " " + this.LastName;
+        }
+    }
+
+    // notice that `this` is the window object again even though it was the car
+    // object who called it. Why?  Because it was defined in the Window object.
+    let CalculateCost = () =>
+    {
+        console.log(`CalculateCost: ${this}`);
+        console.dir(this);
+        return 1000000 * 1;
+    }
+
+    let car =
+    {
+        Color: "Red",
+        Speed: "Fast",
+        Cost: CalculateCost
+    }
+
+    let testerObj =
+    {
+        // the properties of this obj are defined by functions
+
+        // 'this' is this testerObj.  It was 'called' by this tester object
+        FunctProp1: function(){ console.log("FunctProp1", this); return this; },
+
+        // 'this' will be associated with the same 'this' keyword that was available in the
+        // scope when the function was defined. The tester obj was defined in the Window obj.
+        FunctProp2: () => { console.log("FunctProp2", this); return this; }
+    };
+
+    $(function()
+    {
+        $("#example1").text(RegFunction());
+        $("#example2").text(person.FullName());
+        $("#example3").text(car.Cost);
+        $("#example4").text(testerObj.FunctProp1());
+        $("#example5").text(testerObj.FunctProp2());
+    });
+    </script>
+}
+

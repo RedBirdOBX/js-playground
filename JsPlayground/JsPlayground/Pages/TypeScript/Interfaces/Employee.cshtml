@@ -1,0 +1,116 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.EmployeeModel
+
+@{
+    string pageId = "Employee Interface Demo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>This is a good example of how to use an interface.  Like c#, it helps establish a contract.  Notice that:</p>
+
+<ul>
+    <li>All employees, which implement (defined by)<code>IEmployee</code>, have Name, Title, and Type.</li>
+    <li><code>IManager</code> extends (inherits)<code>IEmployee</code> so managers have everything an Employee has but can also schedule meetings.</li>
+    <li><code>BossMan</code> implements (defined by)<code>IManager</code> so when you instantiate a new BossMan, he will have all the IManager powers</li>
+</ul>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-info mt-2">
+            <div class="card-body">
+                <p id="boss-label"></p>
+                <p id="employee-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr />
+
+<pre>
+<code>
+namespace TypeScriptDemos.Interfaces
+{
+    // If I ever want to use employee, here's what it looks like:
+    interface IEmployee
+    {
+        Name: string;
+        Title: string;
+        Type: string;
+    }
+
+    // If I ever want to use manager, here's what it looks like:
+    interface IManager extends IEmployee
+    {
+        Department: string;
+        NumberOfEmployees: number;
+
+        ScheduleMeeting: (topic: string) => void;
+    }
+
+    class Employee implements IEmployee
+    {
+        Name: string;
+        Title: string;
+        Type: string
+    }
+
+    class BossMan implements IManager
+    {
+        Name: string;
+        Title: string;
+        Type: string
+
+        Department: string;
+        NumberOfEmployees: number;
+
+        ScheduleMeeting(topic: string): void
+        {
+        // code that does stuff
+        }
+    }
+
+    window.onload = function ()
+    {
+        let bossMan = new BossMan();
+        bossMan.Name = "Boss Man";
+        bossMan.Title = "Boss"
+        bossMan.Type = "FTE";
+        bossMan.Department = "Service"
+        bossMan.NumberOfEmployees = 10;
+        bossMan.ScheduleMeeting("My Meeting")
+        let bossManLabel: HTMLElement = &lt;HTMLElement>document.getElementById("boss-label");
+        bossManLabel.innerHTML = `${bossMan.Name} ${bossMan.Title} of ${bossMan.Department}`
+
+        let employee = new Employee();
+        employee.Name = "Nameless Employee";
+        employee.Title = "Pee On"
+        employee.Type = "PTE"
+        let employeeLabel: HTMLElement = &lt;HTMLElement>document.getElementById("employee-label");
+        employeeLabel.innerHTML = `${employee.Name} ${employee.Title} : ${employee.Type}`
+    };
+}
+</code>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Interfaces/employee.js"></script>
+}

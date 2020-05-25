@@ -1,0 +1,115 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.ArrowFunctionsModel
+
+@{
+    string pageId = "Arrow Functions";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p class="mt-5">
+    These are anonymous functions with a simple syntax. They do not use the keyword <code>function</code>.
+    The body of the function is defined and assigned to a variable. Using <code>const</code> is safer
+    than using <code>var</code> or <code>let</code>,
+    because a function expression is always constant value.
+</p>
+
+<div class="my-3">
+    <code>
+        const {name} = ({optional parameter: type}, {optional parameter: type}, etc): {return type} => {function body};<br />
+        const DailyPay = (hourlyRate : number, hours : number, bonus? : number): number => { (hourlyRate * hours) + bonus; };
+    </code>
+</div>
+
+<ul>
+    <li>Do not use the <code>function</code> keyword. <code>const</code> is preferred.</li>
+    <li>
+        A regular function cares very much who calls it. The value of the <code>this</code> inside a regular function depends on HOW the function was called -
+        the object that made the call. <code>this</code> can vary.
+    </li>
+    <li>
+        An arrow function does not care who calls it and it's <code>this</code> keyword inside the arrow function depends on WHERE
+        the function was defined (the scope of the defined function).
+    </li>
+    <li>You can omit the curly braces if you can define your return statement (function body) in one line. See example 1</li>
+    <li>
+        If you use curly braces to define your return statement (function body), then you <strong>must</strong> include
+        a <code>return</code> statement. See example 4.
+    </li>
+    <li>They are not well suited for defining object methods.</li>
+</ul>
+
+<p>
+    For example (arrows), if your arrow function is defined in a class, the <code>this</code> will always be that Class regardless of who calls it.
+    This is a fundamental difference from standard js functions.
+</p>
+
+<pre>
+<code>
+// example 1
+let squareIt = (x: number) => x * x;
+
+// example 1a
+// If you have one and only one parameter AND you don't want use a type-annotation, you can
+// skip the parenthesis. I personally prefer them.
+let squareIt = x => x * x;
+
+// this is more declarative
+let squareIt = (x) => x * x;
+
+// example 2
+let addIt = (a: number, b: number) => a + b;
+
+// example 3
+let greeting = () => "hello!";
+
+// example 4
+// since I have multiple lines of code, I need to use curly-braces.
+let scores: number[] = [15,45,55,75,90];
+let highScores: number[];
+highScores = scores.filter((element) =>
+{
+    if(element > 70)
+    {
+        return true;
+    }
+    return false;
+});
+</code>
+</pre>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <div><strong>Example 1</strong></div>
+        <div class="mb-3" id="example1"></div>
+
+        <div><strong>Example 2</strong></div>
+        <div class="mb-3" id="example2"></div>
+
+        <div><strong>Example 3</strong></div>
+        <div class="mb-3" id="example3"></div>
+
+        <div><strong>Example 4</strong></div>
+        <div class="mb-1" id="example4"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/arrow-functions.js"></script>
+}

@@ -1,0 +1,71 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Keywords.StaticModel
+
+@{
+    string pageId = "static";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-keywords}
+@section BreadCrumbChapter {keywords}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In TypeScript, you <strong>cannot</strong> define an entire class as <code>static</code> but you can however define it's members.
+    When you do this, you do not need to instantiate a new object to access those members.
+</p>
+
+<p>
+    When members of a class are public (not static), you access them using the <code>this</code> keyword.
+    When members of a class are static, you call them by prefixing the call with the class name and non the
+    <code>this</code> keyword...even within the same class.
+</p>
+
+<pre>
+<code>
+class Logger
+{
+<mark>static</mark> LogInfo(message: string): void
+    {
+        console.log(message);
+    }
+
+<mark>static</mark> LogError(message: string): void
+    {
+        console.error(message);
+
+        // see how we call it by using the class name instead of 'this'?
+        Logger.LogInfo("An error occurred...");
+    }
+}
+
+window.onload = function ()
+{
+    // see how I didn't need to instantiate the class as an object?
+<mark>Logger.LogInfo</mark>("hello there");
+<mark>Logger.LogError</mark>("danger!");
+};
+</code>
+</pre>
+
+<p class="text-center">
+    <img src="/assets/images/static-members.PNG" class="img-fluid hidden" />
+</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/keywords/static.js"></script>
+}
+
+

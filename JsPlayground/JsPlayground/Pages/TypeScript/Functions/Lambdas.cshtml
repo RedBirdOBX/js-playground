@@ -1,0 +1,62 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.LambdasModel
+
+@{
+    string pageId = "Lambdas";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p class="mt-5">
+    A Lambda expression can also be referred to as a "arrow function". It "returns this".
+</p>
+
+
+<div>
+<pre>
+<code>
+// example 1
+// streamlined version of Arrow Function
+var RandomMath = (x: number, y: number) => x + y;
+
+// example 2
+class VendingMachine
+{
+    private _paid : number = 0;
+
+    // method which accepts arg Type of 'coin'.
+    AcceptCoin(coin : Quarter) : void
+    {
+        this._paid += coin.ValueOfCoin;
+    }
+}
+
+...becomes...
+
+class VendingMachine
+{
+    private _paid : number = 0;
+
+    // method which accepts arg Type of 'coin'.
+    AcceptCoin = (coin : Quarter) : void <mark>=></mark>
+    {
+        this._paid += coin.ValueOfCoin;
+    }
+}
+
+</code>
+</pre>
+</div>
+
+<p>&nbsp;</p>

@@ -1,0 +1,122 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Forms.FormControlsModel
+
+@{
+    string pageId = "Form Controls";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-forms}
+@section BreadCrumbChapter {forms}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    In this example, let's grab each type of form control and capture it's value.
+</p>
+
+<hr />
+
+<form id="TestForm">
+
+    <div class="form-group">
+        <label for="ColorList">Pick a color</label>
+        <select class="form-control" id="ColorList" name="ColorList">
+            <option value="0">pick a color</option>
+            <option value="1">Red</option>
+            <option value="2">Blue</option>
+            <option value="3">White</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ColorList">Name</label>
+        <input type="text" id="NameText" value="Ricky Bobby" class="form-control" name="NameText" />
+    </div>
+
+    <div class="form-check my-3">
+        <input class="form-check-input" type="checkbox" value="" id="CheckBox1" name="CheckBox1">
+        <label class="form-check-label" for="CheckBox1">
+            Check Me
+        </label>
+    </div>
+
+    <div class="my-3">
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="RadioGroup1" id="Radio1" value="Foo" checked>
+            <label class="form-check-label" for="Radio1">
+                Foo
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="RadioGroup1" id="Radio2" value="Bar">
+            <label class="form-check-label" for="Radio2">
+                Bar
+            </label>
+        </div>
+    </div>
+
+    <div>
+        <button type="button" id="TestButton" class="btn btn-primary" name="TestButton">
+            Test Button
+        </button>
+    </div>
+
+</form>
+
+<hr />
+
+<div class="card bg-primary my-5">
+    <div class="card-body text-white">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let output: string = "";
+let demo: HTMLElement = &lt;HTMLElement>document.getElementById("demo");
+
+// drop down
+let colorsList: HTMLSelectElement = &lt;HTMLSelectElement>document.getElementById("ColorList");
+output += `Color value: ${colorsList.value}, Color text: ${colorsList.selectedOptions[0].text}<br />`;
+
+// text box
+let nameText: HTMLInputElement = &lt;HTMLInputElement>document.getElementById("NameText");
+output += `Name: ${nameText.value}&lt;br />`;
+
+// checkbox
+let checkbox1Checkbox: HTMLInputElement = &lt;HTMLInputElement>document.getElementById("CheckBox1");
+output += `CheckMe checked?: ${checkbox1Checkbox.checked}&lt;br />`;
+
+// radios
+// This was a little challenging in ts.
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+// https://stackoverflow.com/questions/9561625/checking-value-of-radio-button-group-via-javascript
+
+let radioSelection: HTMLInputElement | null =
+document.querySelector('input[name="RadioGroup1"]:checked');
+output += `Selected Radio: ${radioSelection!.value}&lt;br />`;
+
+// results
+demo.innerHTML = output;
+</code>
+</pre>
+
+<hr />
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Forms/form-controls.js"></script>
+}

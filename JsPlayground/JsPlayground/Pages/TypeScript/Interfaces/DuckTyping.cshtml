@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.DuckTypingModel
+
+@{
+    string pageId = "Duck Typing";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<h5 class="my-3 text-info text-center">
+    Tip: Interfaces cannot be directly instantiated. They can however, used to define a Type.
+</h5>
+
+<p>
+    "duck typing" is sometimes used to describe when one object is defined as another type who's shape just happens to match.
+</p>
+
+<pre>
+<code>
+interface Employee
+{
+    Name: string;
+    Title: string;
+}
+
+let Developer =
+{
+    Name: "Ricky Bobby",
+    Title: "Senior Developer",
+    Editor: "Visual Studio Code"
+}
+
+let newEmployee: Employee = Developer;
+    </code>
+</pre>
+
+<p>&nbsp;</p>
+
+

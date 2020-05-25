@@ -1,0 +1,48 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.BasicsModel
+
+@{
+    string pageId = "Basics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Classes have the following features:</p>
+
+<ul>
+    <li>Method implementation details and definition</li>
+    <li>Property implementation</li>
+    <li>Accessors (getters and setters)</li>
+    <li>Access modifiers (public, private, or protected)</li>
+</ul>
+
+<p>
+    Whenever you want to refer to a class member that belongs to the class you're in you need to prefix the reference to the
+    member with <code>this</code> followed by a period. <code>this.MyMethod()</code>
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <p id="engine-label"></p>
+        <p id="start-label"></p>
+        <p id="stop-label"></p>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/classes/car.js"></script>
+}

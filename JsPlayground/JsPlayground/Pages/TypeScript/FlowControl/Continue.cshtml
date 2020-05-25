@@ -1,0 +1,64 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.FlowControl.ContinueModel
+
+@{
+    string pageId = "Continue";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next
+    iteration in the loop. This example skips the value of 3.
+</p>
+
+<hr />
+
+<div class="card bg-light my-5">
+    <div class="card-body">
+        <div class="mb-5" id="continue-demo"></div>
+    </div>
+</div>
+
+<hr />
+
+<pre>
+<code>
+function ContinueExample(): void
+{
+    let output: string = "";
+    let demo1: HTMLElement = <HTMLElement>document.getElementById("demo1");
+
+    for (let i: number = 0; i < 6; i++)
+    {
+        if (i===3)
+        {
+            output += `skipped! &lt;br />`;
+            continue;
+        }
+        output +=`The number is ${i} &lt;br />`;
+    }
+    demo1.innerHTML = output;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/flow-control/flow-control.js"></script>
+}

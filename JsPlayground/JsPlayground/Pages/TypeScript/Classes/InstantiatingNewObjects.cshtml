@@ -1,0 +1,70 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.InstantiatingNewObjectsModel
+
+@{
+    string pageId = "Instantiating New Objects";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    Notice the difference here. Method 1 is standard.  Method 2 differs a little that it would from c#.
+    Notice that you instantiate the anonymous object, you do not use the <code>new</code> keyword like you would
+    with c#.  You also use a colon instead of a equal operator.
+</p>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-info mt-5">
+            <div class="card-body">
+                <p id="thing1-label"></p>
+                <p id="thing2-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<pre>
+<code>
+// method 1
+let thing1 = new Thing();
+thing1.Property1 = "Foo";
+thing1.Property2 = "Bar";
+thing1.Property3 = "undecided";
+
+// method 2
+let <mark>thing2:</mark> Thing =
+{
+    Property1: "Foo2",
+    Property2: "Bar2",
+    Property3: "undecided2",
+};
+
+// c# method
+<mark>Spaceship oSpaceship = new Spaceship()
+{
+    PassengerCapacity = 10,
+    RequiredCrew = 5
+};</mark>
+</code>
+</pre>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Classes/instantiating-objects.js"></script>
+}

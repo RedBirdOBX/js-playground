@@ -1,0 +1,103 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.ReferenceFiles.ReferenceFilesModel
+
+@{
+    string pageId = "External Reference Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-reference}
+@section BreadCrumbChapter {reference files}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Often you will want to reference code/classes in other files.  In order to do this, you will need to
+    use a "triple slash" reference in the code file which references the external code.
+    See <a href="../namespaces/namespaces">namespace demo page</a>. If you do not do this,
+    you will most likely get errors such as a <code>not defined</code> error or even a
+    <code>not a constructor</code> error if all of your
+    TypeScript files are compiled into a single js file.
+</p>
+
+<h5>Example 1</h5>
+
+<p>
+    In this <a href="https://app.pluralsight.com/player?course=typescript-practical-start&author=roland-guijt&name=typescript-practical-start-m1&clip=9&mode=live" target="_blank">PluralSight example</a>,
+    the author was compiling the two ts files into a single file called <q>app.js</q>.
+    Because he did not use a reference declaration to the second file, they compiled "out of order" and the class was
+    referenced in the js file before it was defined!
+</p>
+
+<div class="my-5">
+    <img src="/assets/images/reference-file-error1.PNG" class="d-block mx-auto" />
+</div>
+
+<p>This caused a <code>not a constructor</code> error.</p>
+
+<div class="my-5">
+    <img src="/assets/images/reference-file-error2.PNG" class="d-block mx-auto" />
+</div>
+
+<h5>Example 2</h5>
+
+<p>
+    In this second example, we get a <code>not defined</code> error due to the fact that the compiled js has no awareness
+    of class defined in the other file.
+</p>
+
+<div class="my-5">
+    <img src="/assets/images/reference-file-error3.PNG" class="d-block mx-auto" />
+</div>
+
+<h5>How to achieve success</h5>
+
+<p>
+    If you have your project set to compile <strong>multiple</strong> ts files into js file(s), the <code>tsc</code>
+    compiler is smart enough to to look into those files for any external references.  No triple-slash references are needed.
+</p>
+
+<div class="my-5">
+    <small>See - no reference errors</small>
+    <img src="/assets/images/no-reference-errors.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    If you do not include those files which you need code <strong>from</strong> in you compile options, then yes, you will get errors.
+    <code>tsc</code> will not know to look into those files for references..
+</p>
+
+<div class="my-5">
+    <small>reference errors</small>
+    <img src="/assets/images/reference-file-errors.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    The solution is to tell the <code>tsc</code> where to find this code by using triple-slash references.
+</p>
+
+<div class="my-5">
+    <small>See - no reference errors</small>
+    <img src="/assets/images/no-reference-errors-2.PNG" class="d-block mx-auto" />
+</div>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <h2>Spaceship Ref Demo</h2>
+        <div id="reference-demo-label" class="text-success"></div>
+    </div>
+</div>
+
+<div class="my-5">&nbsp;</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/reference-file-example.js"></script>
+}

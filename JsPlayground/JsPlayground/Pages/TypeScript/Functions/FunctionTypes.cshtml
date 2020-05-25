@@ -1,0 +1,55 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.FunctionTypesModel
+
+@{
+    string pageId = "Function Types";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p class="mt-5">
+    Functions have Types just as any primitive variable might have. <code>foo</code> can given a type
+    of number, bool, date, or the type of a <strong>function</strong>.
+    Knowing this, you can assign multiple variables to the same function.
+</p>
+
+<div>
+<pre>
+<code>
+function PostScore(score: number, playerName: string = "game player"): void
+{
+    let logger: (message: string) => void;
+    if (score < 1)
+    { logger=logLoser; }
+    else
+    { logger=logSuccess; }
+
+    let scoreElement: HTMLElement | null=document.getElementById("posted-scores");
+    scoreElement!.innerText=`${score} - ${playerName}`; logger(`Score: ${score}`);
+}
+
+let logSuccess = (message: string): void => console.log(message);
+logSuccess("You did pretty good!");
+
+let logLoser = (message: string): void => console.error(message);
+logLoser("You did not do so well.");
+</code>
+</pre>
+</div>
+
+<div>
+    <img src="/assets/images/function-type-example.PNG" class="img-fluid" />
+</div>
+

@@ -1,0 +1,51 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.OptionalArgumentsModel
+
+@{
+    string pageId = "Optional Arguments";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p class="mt-5">
+    By using a <code>?</code> to define an argument, you make it optional (nullable). x & y are required but z is not.
+    When this technique is used, be sure to test for the optional arguments.
+</p>
+
+
+<div>
+<pre>
+<code>
+function CalculateStuff (x: number, y: number, <mark>z?</mark>: number)
+{
+    var results: number;
+    if (z === undefined)
+    { results = x + y;}
+    else
+    { results = x + y + z;}
+    return results;
+}
+console.log("results without z: " + CalculateStuff(7, 7));
+console.log("results with z: " + CalculateStuff(7, 7, 7));
+</code>
+</pre>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <img src="../../assets/images/optional-arguments.PNG" class="img-fluid" />
+}
+

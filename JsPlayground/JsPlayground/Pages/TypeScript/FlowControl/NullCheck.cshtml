@@ -1,0 +1,68 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.FlowControl.NullCheckModel
+
+@{
+    string pageId = "Null Check";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    This is a great example of null-checking.
+    You can check to see if an object is null by simply using this: <code>if(object){ ... code ...}</code>.
+</p>
+
+<p>
+    Keep in mind that null is <strong>not</strong> the same thing as undefined. Nulls are for objects.
+    Undefined is for variables and properties.
+</p>
+
+<div class="card bg-info mt-5">
+    <div class="card-body">
+        <div class="mb-5 text-white" id="null-check-demo"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+// test true when name has not been defined.
+if(name === undefined)
+{
+   nameMsg = "Name is undefined.";
+}
+
+// tests true when name has no value but has been defined.
+if (name === null)
+{
+   nameMsg = "Name is null.";
+}
+
+if (name)
+{
+   nameMsg = "Name is not null and is " + name + ".";
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/flow-control/flow-control.js"></script>
+}

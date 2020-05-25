@@ -1,0 +1,46 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Types.EnumExamplesModel
+
+@{
+    string pageId = "Enum Examples";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>&nbsp;</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Enums
+    </div>
+    <div class="card-body">
+        <div id="ratings-label"></div>
+        <div id="responses-label"></div>
+        <div id="directions-label"></div>
+        <div id="all-directions-label"></div>
+    </div>
+</div>
+
+<h3 class="my-5">Display Size Example</h3>
+
+<div class="row" id="display-output">
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/types/enums.js"></script>
+}

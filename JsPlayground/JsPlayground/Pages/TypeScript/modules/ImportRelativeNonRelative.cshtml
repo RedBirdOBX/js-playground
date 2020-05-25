@@ -1,0 +1,74 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.modules.ImportRelativeNonRelativeModel
+
+@{
+    string pageId = "import relative vs non-relative";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-modules}
+@section BreadCrumbChapter {modules}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    <a href="http://www.typescriptlang.org/docs/handbook/modules.html" target="_blank">
+        http://www.typescriptlang.org/docs/handbook/modules.html
+    </a>
+</p>
+
+<p>
+    In order to understand how TypeScript resolves the location of the modules you want to import, you need to
+    understand the difference between relative imports and non-relative imports.
+</p>
+
+<p>
+    As a general rule of thumb, you should refer to your <strong>own modules with relative references</strong> and
+    3rd party modules with non-relative references.
+</p>
+
+<p>&nbsp;</p>
+
+<p><strong>Relative References</strong></p>
+
+<pre>
+<code>
+// off of the root
+import { Foo } from '/foo.ts';
+
+// in the current folder
+import { Foo } from './foo.ts';
+
+// up two folders above and then in a 'folder' folder name
+import { Foo } from '../../folder/foo.ts';
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p><strong>Non-Relative References</strong></p>
+
+<p>
+    Non-relative references are nearly identical except for the fact they do not include any references to the folder
+    structure before the module name.
+</p>
+
+<pre>
+<code>
+// notice that these don't include any paths.
+import * as $ from 'jquery';
+import * as lodash from 'lodash';
+import { Developer } from 'person.ts';
+</code>
+</pre>
+
+<p>&nbsp;</p>
+

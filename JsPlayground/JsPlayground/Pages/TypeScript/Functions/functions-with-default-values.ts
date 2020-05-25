@@ -1,0 +1,22 @@
+function SayHello(name: string, feeling: string = "good", hungry?: boolean): void
+{
+    console.log("**************************");
+    console.log(`Hello ${name}`);
+    if(feeling ==="good")
+    {
+        console.log("I'm glad you are feeling good.");
+    }
+    else
+    {
+        console.log("I hope you feel better.");
+    }
+
+    if(hungry !== undefined)
+    {
+        console.log(`Are you hungry? ${hungry}`);
+    }
+}
+
+SayHello("Ricky Bobby", "so-so", true);
+SayHello("Ricky Bobby", "so-so");
+SayHello("Ricky Bobby");

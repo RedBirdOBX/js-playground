@@ -1,0 +1,63 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.ExtendsModel
+
+@{
+    string pageId = "Extends";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    In TypeScript, you can inherit another class just like you can in most OO languages.
+    In c#, you would denote an inherited class by the use of a colon like so: <code>public class Rectangle : Polygon</code>.
+</p>
+
+<p>
+    In TypeScript, we do this with the <code>extends</code> keyword.
+</p>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-header">
+        Dog
+    </div>
+    <div class="card-body">
+        <p id="dog-move-label"></p>
+        <p id="dog-bark-label"></p>
+    </div>
+</div>
+
+<div class="card text-white bg-info my-5">
+    <div class="card-header">
+        Cat
+    </div>
+    <div class="card-body">
+        <p id="cat-move-label"></p>
+        <p id="cat-meow-label"></p>
+    </div>
+</div>
+
+<p>
+    As expected, you can access members of the base class in the derived class...but you cannot access members of other derived classes.
+</p>
+
+<p class="text-center">
+    <img src="/assets/images/extends-error.PNG" class="img-fluid" />
+</p>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/classes/extends.js"></script>
+}

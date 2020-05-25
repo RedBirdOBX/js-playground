@@ -1,0 +1,58 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.SpaceshipModel
+
+@{
+    string pageId = "Spaceship";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>This demonstrates the use of a TypeScript Class. The Spaceship Class has all of the common members: fields, properties, methods, and constructors.</p>
+
+<p>
+    The <code>constructor</code> requires you to pass in the following arguments:
+</p>
+
+<ol>
+    <li>DesignationCode</li>
+    <li>ShipName</li>
+    <li>NumberOfWarpNacelles</li>
+    <li>NumberOfPassengers</li>
+    <li>NumberOfCrew</li>
+</ol>
+
+<p>If you do not pass these in or any of them are of the wrong type, it will throw an error in the console.</p>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-info mt-5">
+            <div class="card-header">
+                <span id="name-label"></span>
+            </div>
+            <div class="card-body">
+                <p id="designation-label"></p>
+                <p id="engines-label"></p>
+                <p id="passengers-label"></p>
+                <p id="crew-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/classes/spaceship.js"></script>
+}

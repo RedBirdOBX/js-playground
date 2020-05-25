@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Basics.BuildTaskModel
+
+@{
+    string pageId = "Build Tasks";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-basics}
+@section BreadCrumbChapter {basics}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<blockquote class="blockquote">
+    <p class="mb-0"><code>ctrl + shift + p</code> lets you search VS Code commands.  It will bring up a search bar.</p>
+    <p class="mb-0"><code>ctrl + shift + b</code> will run the <strong>build</strong> task very much like it will build an application in Visual Studio.</p>
+</blockquote>
+
+<p>When working with TypeScript, we will need use a TypeScript Build Task which uses a <code>tsconfig.json</code> file.</p>
+
+<div class="my-5">
+    <img src="/assets/images/typescript-task.PNG" class="d-block mx-auto" />
+</div>
+
+<p>
+    <a href="https://app.pluralsight.com/player?course=typescript-getting-started&author=brice-wilson&name=typescript-getting-started-m1&clip=6&mode=live" target="_blank">
+        Helpful demonstration of a task runner here on Pluralsight.
+    </a>
+</p>
+
+<p>
+    You may see a <code>task.json</code> file appear from time to time. This is a file which defines a single task that be executed.  However, we will
+    most likely use <code>tsconfig.json</code> (<a href="../Basics/tsconfig.html">see here</a>) which can compile all of our TypeScript files at once.
+</p>
+
+<div class="my-5">
+    <img src="/assets/images/task-json.PNG" class="d-block mx-auto" />
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{ }
+

@@ -1,0 +1,61 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.FlowControl.BreakModel
+
+@{
+    string pageId = "Break";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The <code>break</code> statement "jumps out" of a loop or a conditional test such as a <code>switch/case</code> statement.
+</p>
+
+<hr />
+
+<pre>
+<code>
+// Example 1
+let text: string = "";
+for (let i: number = 0; i < 10; i++)
+{
+    if (i===3)
+    {
+        break;
+    }
+    text +="The number is " + i + "&lt;br />";
+}
+$("#demo1").html(text);
+
+
+// Example 2 - will stop testing after break is hit.
+switch(expression)
+{
+    case n:
+    //code block
+    break;
+
+    case n:
+    //code block
+    break;
+
+    default:
+    //default code block
+    break:
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+

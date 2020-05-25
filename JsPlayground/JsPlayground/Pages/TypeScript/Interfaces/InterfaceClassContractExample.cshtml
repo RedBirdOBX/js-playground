@@ -1,0 +1,84 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Interfaces.InterfaceClassContractExampleModel
+
+@{
+    string pageId = "Interface Spaceship Contract Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-interfaces}
+@section BreadCrumbChapter {interfaces}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    This example shows us how to use an Interface to define and require the shape of a used class.
+    Notice that if I try to use this class and
+    <strong>not define</strong> one of it's required properties, it throws an error.
+</p>
+
+<p>
+    To use an interface, you need to use the <code>implements</code> keyword :
+    <code>class Spaceship implements SpaceshipContact</code>
+</p>
+
+<p>
+    Just like c#, if your class has methods with definitions, you cannot provide those definitions in the interface.
+</p>
+
+<div class="row">
+    <div class="col-4">
+
+        <div class="card text-white bg-danger mt-5">
+            <div class="card-header">
+                Cruiser Example
+            </div>
+            <div class="card-body">
+                <p id="cruiser-designation-label"></p>
+                <p id="cruiser-ship-name-label"></p>
+                <p id="cruiser-engines-label"></p>
+                <p id="cruiser-passengers-label"></p>
+                <p id="cruiser-crew-label"></p>
+                <p id="cruiser-commission-date-label"></p>
+                <p id="cruiser-storage-capacity-label"></p>
+                <p id="cruiser-fuel-capacity-label"></p>
+                <p id="cruiser-decommission-date-label"></p>
+            </div>
+        </div>
+
+        <div class="card text-white bg-danger mt-5">
+            <div class="card-header">
+                Fighter Example
+            </div>
+            <div class="card-body">
+                <p id="fighter-designation-label"></p>
+                <p id="fighter-ship-name-label"></p>
+                <p id="fighter-engines-label"></p>
+                <p id="fighter-passengers-label"></p>
+                <p id="fighter-crew-label"></p>
+                <p id="fighter-commission-date-label"></p>
+                <p id="fighter-lasers-label"></p>
+                <p id="fighter-torpedos-label"></p>
+                <p id="fighter-decommission-date-label"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<p class="text-center my-5">
+    <img src="/assets/images/interface-error.PNG" class="img-fluid" />
+</p>
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/interfaces/interface-class-contract-example.js"></script>
+}
+

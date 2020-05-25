@@ -1,0 +1,58 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Functions.SimpleArrowsExampleModel
+
+@{
+    string pageId = "Simple Arrows Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<pre>
+<code>
+namespace ScriptDemo
+{
+class FunctionExample
+{
+    BuildMessage = () : string => { return "Hello World"; };
+
+    ShowMessage = () : void =>
+    {
+        let label: HTMLElement = &lt;HTMLElement>document.getElementById("message-label");
+        label.innerHTML = this.BuildMessage();
+    }
+}
+
+window.onload = function ()
+{
+    let functionExample = new FunctionExample();
+    functionExample.ShowMessage();
+};
+}
+</code>
+</pre>
+
+<div class="card bg-light mt-5">
+    <div class="card-body">
+        <div class="text-info" id="message-label"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script src="/assets/javascripts/compiled/Functions/simple-arrows-example.js"></script>
+}

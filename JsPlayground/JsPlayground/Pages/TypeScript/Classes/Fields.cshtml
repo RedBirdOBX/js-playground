@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Classes.FieldsModel
+
+@{
+    string pageId = "Fields";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-classes}
+@section BreadCrumbChapter {classes}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<pre>
+<code>
+class Spaceship
+{
+    // fields
+    private _designationCode: string;
+    private _shipName: string;
+    private _numberOfWarpNacelles: number;
+    private _numberOfPassengers: number;
+    private _numberOfCrew: number;
+
+    private _secretSecurityCode: string = "alpha111"; //never should be shown or changed.
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    Whenever you want to refer to a class member that belongs to the class you're in you need to prefix the reference to the
+    member with <code>this</code> followed by a period. <code>this.MyMethod()</code>
+</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+}

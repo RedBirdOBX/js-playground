@@ -1,0 +1,52 @@
+﻿@page
+
+@model JsPlayground.Pages.TypeScript.Types.UnionTypesModel
+
+@{
+    string pageId = "Union Types";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {TypeScript}
+@section BreadCrumbLibrary {typescript}
+@section BreadCrumbAnchor {ts-types}
+@section BreadCrumbChapter {types}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    Union Types allow you to assign more than one type to a variable and as long as it's in the
+    list, it will be accepted
+</p>
+
+<p><code>let someValue: string | number;</code></p>
+
+<pre>
+<code>
+let someValue: string | number;
+someValue = "Hello";
+someValue = 42;
+
+// notice how this won't work
+//someValue = true;
+
+
+let basicString: string;
+basicString = "foo";
+// basicString = null; <-- nope
+                           let basicString2: string | null;
+                           basicString2=null;
+                           let basicString3: string | number;
+//basicString3 = null; <-- nope
+                           basicString3=42;
+</code>
+</pre>
+
+<div>
+    <img src="/assets/images/union-types.PNG" class="img-fluid my-5 d-block mx-auto" />
+</div>
+
