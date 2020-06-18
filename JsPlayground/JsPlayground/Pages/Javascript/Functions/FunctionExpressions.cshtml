@@ -17,7 +17,7 @@
 @section PageName {@pageId}
 
 <p>
-    Expanding on the <a href="../Functions/anonymous-functions.html">anonymous function concept</a>, we know that
+    Expanding on the <a href="AnonymousFunctions">anonymous function concept</a>, we know that
     function do not need names.  You can also take function, not give it a name, and "express" it with a lambda expression.
     Take this code snippet for example - this is using a function <strong>with</strong> a name called <code>DoMath</code>:
 </p>
@@ -67,7 +67,7 @@ $(function ()
 
 <p>
     Now we can use an function expression.  Notice how I said "sum is an arrow, that takes two args and it's return is e + f "?
-    This an expression....a formula.
+    This a function expression - aka an arrow function.  The expression is assigned to a variable called <code>sum</code>.
 </p>
 
 <div class="card text-white bg-info my-3 col-3">
@@ -81,7 +81,7 @@ $(function ()
 {
     let e = 102;
     let f = 102;
-<mark>let sum = (e,f) => { return e + f; };</mark>
+    <mark>let sum = (e,f) => { return e + f; };</mark>
     $("#Demo3").html(sum(e,f));
 });
 </code>
@@ -104,12 +104,11 @@ $(function ()
 {
     let g = 103;
     let h = 103;
-<mark>let sum = (g,h) => g + h; </mark>
+    <mark>let sum = (g,h) => g + h; </mark>
     $("#Demo4").html(sum(g,h));
 });
 </code>
 </pre>
-
 
 
 @section Scripts
@@ -146,6 +145,5 @@ $(function ()
             let sum = (g, h) => g + h;
             $("#Demo4").html(sum(g, h));
         });
-
     </script>
 }
