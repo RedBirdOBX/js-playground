@@ -82,7 +82,7 @@
 
             //make a call to the City Info Demo API and get 10 cities
             const FetchData = async () => {
-                let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+                let response = await fetch("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
                 let data = await response.json();
                 data.forEach(BuildCityLink);
                 CreateDisplay();
