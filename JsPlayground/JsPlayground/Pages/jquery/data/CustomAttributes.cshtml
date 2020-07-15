@@ -90,13 +90,13 @@
 
             const BuildCityLink = (city) => {
                 let link = `<div>
-                                            <a href='#' data-action=selectCity
-                                                data-name=${city.name}
-                                                data-cityid='${city.cityId}'
-                                                data-createdon='${city.createdOn}'>
-                                                ${city.name}
-                                            </a>
-                                        </div>`;
+                                <a href='#' data-action=selectCity
+                                    data-name=${city.name}
+                                    data-cityid='${city.cityId}'
+                                    data-createdon='${city.createdOn}'>
+                                    ${city.name}
+                                </a>
+                            </div>`;
                 cityLinks.push(link);
             };
 
