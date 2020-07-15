@@ -5,18 +5,18 @@ namespace TypeScriptDemos.Forms
         static GetFormValues(): void
         {
             let output: string = "";
-            let demo: HTMLElement = <HTMLElement>document.getElementById("demo");
+            let demo: HTMLElement | null = <HTMLElement>document.getElementById("demo");
 
             // drop down
-            let colorsList: HTMLSelectElement = <HTMLSelectElement>document.getElementById("ColorList");
+            let colorsList: HTMLSelectElement | null = <HTMLSelectElement>document.getElementById("ColorList");
             output += `Color value: ${colorsList.value}, Color text: ${colorsList.selectedOptions[0].text}<br />`;
 
             // text box
-            let nameText: HTMLInputElement = <HTMLInputElement>document.getElementById("NameText");
+            let nameText: HTMLInputElement | null = <HTMLInputElement>document.getElementById("NameText");
             output += `Name: ${nameText.value}<br />`;
 
             // checkbox
-            let checkbox1Checkbox: HTMLInputElement = <HTMLInputElement>document.getElementById("CheckBox1");
+            let checkbox1Checkbox: HTMLInputElement | null = <HTMLInputElement>document.getElementById("CheckBox1");
             output += `CheckMe checked?: ${checkbox1Checkbox.checked}<br />`;
 
             // radios
