@@ -4,7 +4,6 @@ var TypeScriptDemos;
     var DeclarationFiles;
     (function (DeclarationFiles) {
         window.onload = function () {
-            $("#demo1").html("Hello World!");
         };
     })(DeclarationFiles = TypeScriptDemos.DeclarationFiles || (TypeScriptDemos.DeclarationFiles = {}));
 })(TypeScriptDemos || (TypeScriptDemos = {}));

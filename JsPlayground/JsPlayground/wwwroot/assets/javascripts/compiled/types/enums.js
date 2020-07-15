@@ -41,16 +41,12 @@ var TypeScriptDemos;
             switch (numberOfColumns) {
                 case DisplaySize.Small:
                     return "<div class=\"bg-info col-4\">One Column</div>";
-                    break;
                 case DisplaySize.Medium:
                     return "<div class=\"bg-info col-4\">Two Columns</div><div class=\"bg-warning col-4\">Two Columns</div>";
-                    break;
                 case DisplaySize.Large:
                     return "<div class=\"bg-info col-4\">Three Columns</div><div class=\"bg-warning col-4\">Three Columns</div><div class=\"bg-success col-4\">Three Columns</div>";
-                    break;
                 default:
                     return "1";
-                    break;
             }
         }
         window.onload = function () {

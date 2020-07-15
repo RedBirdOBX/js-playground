@@ -1,0 +1,102 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.OnInputModel
+
+@{
+    string pageId = "On Input";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<p>
+    By using <code>on()</code> and specifying the <code>input</code> event, you can detect when the value of an input
+    in the UI is changed <strong>in</strong> the browser...by a user.
+</p>
+
+<div class="text-center m-5">
+    <div>
+        <input id="TestInput" type="text" class="form-contol" placeholder="type in me" />
+    </div>
+</div>
+
+<p>
+    This works great when a user types in a field. There's a catch.
+    If you try to change it programmatically, it will <strong>not</strong> trigger the <code>input()</code> event.
+    Notice that the button does NOT trigger the alert for input's change.
+</p>
+
+<div class="text-center">
+    <button id="ChangeInputButton" class="btn btn-info">Change the input</button>
+</div>
+
+<p>
+    <a href="https://stackoverflow.com/questions/37686861/input-event-not-working-if-value-is-changed-with-jquery-val-or-javascript" target="_blank">
+        https://stackoverflow.com/questions/37686861/input-event-not-working-if-value-is-changed-with-jquery-val-or-javascript
+    </a>
+</p>
+
+<p>
+    To do this, you must <strong>manually</strong> trigger the <code>input</code> method.
+</p>
+
+<div class="text-center mb-5">
+    <button id="ChangeInputButton2" class="btn btn-info">Change the input - the right way</button>
+</div>
+
+<pre>
+<code>
+$(document).ready(function ()
+{
+    $("#TestInput").on("input", function () { alert("input was changed...."); });
+    $("#ChangeInputButton").click(function () { UpdateInput(); });
+    $("#ChangeInputButton2").click(function () { UpdateInput2(); });
+});
+
+const UpdateInput = () =>
+{
+    alert("Changing input value...");
+    $("#TestInput").val("Foobar!");
+};
+
+const UpdateInput2 = () =>
+{
+    alert("Changing input value 2...");
+    $("#TestInput").val("Foobar!")<mark>.trigger("input");</mark>
+};
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#TestInput").on("input", function () { alert("input was changed...."); });
+            $("#ChangeInputButton").click(function () { UpdateInput(); });
+            $("#ChangeInputButton2").click(function () { UpdateInput2(); });
+        });
+
+        const UpdateInput = () => {
+            alert("Changing input value...");
+            $("#TestInput").val("Foobar!");
+        };
+
+        const UpdateInput2 = () => {
+            alert("Changing input value 2...");
+            $("#TestInput").val("Foobar!").trigger("input");
+        };
+    </script>
+}
