@@ -67,10 +67,18 @@ $(document).ready(function ()
 {
     $("#btnGet").click(function ()
     {
-        $.get(""../../assets/css/custom.css", function (data, status)
-        {
+        // getting css content
+        $.get("../../assets/css/custom.css", function (data, status) {
             $("#demo-content").html(data + "&lt;br />&lt;br />Status: " + status);
         });
+
+        // getting api data
+        $.get("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pageNumber=1&pageSize=10",
+            function (data, status)
+            {
+                console.log(data);
+                console.dir(data);
+            });
     });
 });
 </code>
@@ -84,11 +92,22 @@ $(document).ready(function ()
 {
     <script>
         $(document).ready(function () {
+
             // for some reason, iis express didn't want to serve txt files from wwwroot
-            $("#btnGet").click(function () {
+            $("#btnGet").click(function ()
+            {
+                // getting css content
                 $.get("../../assets/css/custom.css", function (data, status) {
                     $("#demo-content").html(data + "<br /><br />Status: " + status);
                 });
+
+                // getting api data
+                $.get("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pageNumber=1&pageSize=10",
+                    function (data, status)
+                    {
+                        console.log(data);
+                        console.dir(data);
+                    });
             });
         });
     </script>
