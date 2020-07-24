@@ -65,7 +65,7 @@
 <code>
 let FetchData = async () =>
 {
-    let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+    let response = await fetch("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
     let data = await response.json();
     let firstCity = data[0];
     document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
@@ -80,7 +80,7 @@ FetchData();
 {
     <script>
         let FetchData = async () => {
-            let response = await fetch("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
+            let response = await fetch("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pagenumber=1&pagesize=10");
             let data = await response.json();
             let firstCity = data[0];
             document.getElementById("demo").innerHTML = `${firstCity.cityId} - ${firstCity.name}`;
