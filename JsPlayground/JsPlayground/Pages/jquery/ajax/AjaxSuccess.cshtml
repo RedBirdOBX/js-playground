@@ -36,16 +36,17 @@
 
 <pre>
 <code>
-    $(document).ready(function ()
-    {
-        $(document).ajaxSuccess(function () { ShowSuccess(); });
+$(document).ready(function ()
+{
+    // only the ajax call can trigger this
+    $(document).ajaxSuccess(function () { ShowSuccess(); });
 
-        $("#btnSuccess").click(function ()
-        { $("#ajax-content").load("../../assets/css/custom.css"); });
+    $("#btnSuccess").click(function ()
+    { $("#ajax-content").load("../../assets/css/custom.css"); });
 
-        function ShowSuccess()
-        { $("#demo1").html("AJAX was successful");  }
-    });
+    function ShowSuccess()
+    { $("#demo1").html("AJAX was successful");  }
+});
 </code>
 </pre>
 

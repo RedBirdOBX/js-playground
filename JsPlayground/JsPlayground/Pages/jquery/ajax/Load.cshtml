@@ -18,9 +18,15 @@
 @section BreadCrumbPageName {@pageId.ToLower()}
 @section PageName {@pageId}
 
+<p>
+    The jQuery <code>load()</code> method is a simple, but powerful AJAX method.
+    The <code>load()</code> method loads data from a server and puts the returned data into the selected element.
+</p>
 
 <p>
-    The <code>load()</code> method loads data from a server and puts the returned data into the selected element.
+    <a href="https://www.w3schools.com/jquery/jquery_ajax_load.asp" target="_blank">
+        https://www.w3schools.com/jquery/jquery_ajax_load.asp
+    </a>
 </p>
 
 <div class="m-3">
@@ -41,7 +47,10 @@
 
 <p>&nbsp;</p>
 
-<p>It is also possible to add a selector as part of the <strong>URL selector argument</strong>.</p>
+<p>
+    It is also possible to add a jQuery selector as part of the <strong>URL selector argument</strong>.
+    The following example loads the content of SampleFile.txt with id="special" into the UI card.
+</p>
 
 <p class="text-center"><button id="btnDemo2" class="btn btn-success" type="button">Load Test2</button></p>
 
@@ -54,14 +63,23 @@
 
 <pre>
 <code>
-$("#btnDemo").click(function ()
-{
-    $("#demo1").load("ajax-sample.txt");
-});
+$(document).ready(function () {
+    $("#btnDemo").click(function () {
+        $("#demo1").load("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pageNumber=1&pageSize=10");
+    });
 
-$("#btnDemo2").click(function ()
-{
-    $("#demo1").load("ajax-sample.txt #special");
+    $("#btnDemo2").click(function () {
+        $("#demo1").load("../../assets/SampleFiles/SampleFile.txt #special");
+    });
+
+    $("#btnDemo3").click(function () {
+        $("#demo2").load("ajax-sample.txt", function (responseTxt, statusTxt, xhr) {
+            if (statusTxt == "success") { alert("External content loaded successfully!"); }
+
+            if (statusTxt == "error") { alert("Error: " + xhr.status + ": " + xhr.statusText); }
+        });
+    });
+
 });
 </code>
 </pre>
@@ -117,24 +135,27 @@ $("#btnDemo3").click(function()
 
 @section Scripts
 {
-    <script>
-        $(document).ready(function () {
-            $("#btnDemo").click(function () {
-                $("#demo1").load("ajax-sample.txt");
-            });
-
-            $("#btnDemo2").click(function () {
-                $("#demo1").load("ajax-sample.txt #special");
-            });
-
-            $("#btnDemo3").click(function () {
-                $("#demo2").load("ajax-sample.txt", function (responseTxt, statusTxt, xhr) {
-                    if (statusTxt == "success") { alert("External content loaded successfully!"); }
-
-                    if (statusTxt == "error") { alert("Error: " + xhr.status + ": " + xhr.statusText); }
-                });
-            });
-
+<script>
+    $(document).ready(function () {
+        $("#btnDemo").click(function ()
+        {
+            $("#demo1").load("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities?pageNumber=1&pageSize=10");
         });
-    </script>
+
+        $("#btnDemo2").click(function () {
+            $("#demo1").load("../../assets/SampleFiles/SampleFile.txt #special");
+        });
+
+        $("#btnDemo3").click(function ()
+        {
+            $("#demo2").load("ajax-sample.txt", function (responseTxt, statusTxt, xhr)
+            {
+                if (statusTxt == "success") { alert("External content loaded successfully!"); }
+
+                if (statusTxt == "error") { alert("Error: " + xhr.status + ": " + xhr.statusText); }
+            });
+        });
+
+    });
+</script>
 }

@@ -38,6 +38,7 @@
 <code>
 $(document).ready(function ()
 {
+    // only the ajax call can trigger this
     $(document).ajaxError(function () { ShowError(); });
 
     $("#btnError").click(function ()
@@ -66,10 +67,13 @@ $(document).ready(function ()
 @section Scripts
 {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function ()
+        {
+            // only the ajax call can trigger this
             $(document).ajaxError(function () { ShowError(); });
 
-            $("#btnError").click(function () {
+            $("#btnError").click(function ()
+            {
                 // bad call
                 $("#ajax-content").load("bad-file.txt");
 
@@ -77,7 +81,8 @@ $(document).ready(function ()
                 //$("#ajax-content").load("ajax-sample.txt");
             });
 
-            const ShowError = () => {
+            const ShowError = () =>
+            {
                 $("#ajax-error").html("An error occurred...must be a bad file name.");
             };
 

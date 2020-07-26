@@ -47,22 +47,25 @@ $(document).ready(function ()
 {
     $("#loading").hide();
 
+    $("#btnStart").click(function ()
+    {
+        $("#request-response").load("ajax-sample.txt");
+    });
+
+    // the start of the ajax call will trigger this
     $(document).ajaxStart(function () { ShowStart(); });
+
+    // an error of the ajax call will trigger this
     $(document).ajaxError(function () { ShowError(); });
+
+    // the completion of the ajax call will trigger this
     $(document).ajaxComplete(function () { HideStart(); });
 
+    function ShowStart() { $("#loading").show(); }
 
-    $("#btnStart").click(function ()
-    { $("#request-response").load("ajax-sample.txt"); });
+    function HideStart() { $("#loading").hide(1000); }
 
-    function ShowStart()
-    { $("#loading").show(); }
-
-    function HideStart()
-    { $("#loading").hide(1000); }
-
-    function ShowError()
-    { $("#demo1").html("An error occurred...must be a bad file name."); }
+    function ShowError() { $("#request-response").html("An error occurred...must be a bad file name."); }
 });
 </code>
 </pre>
@@ -75,21 +78,30 @@ $(document).ready(function ()
 @section Scripts
 {
     <script>
-        $(document).ready(function () {
+        $(document).ready(function ()
+        {
             $("#loading").hide();
 
+            $("#btnStart").click(function ()
+            {
+                $("#request-response").load("ajax-sample.txt");
+            });
+
+
+            // the start of the ajax call will trigger this
             $(document).ajaxStart(function () { ShowStart(); });
+
+            // an error of the ajax call will trigger this
             $(document).ajaxError(function () { ShowError(); });
+
+            // the completion of the ajax call will trigger this
             $(document).ajaxComplete(function () { HideStart(); });
-
-
-            $("#btnStart").click(function () { $("#request-response").load("ajax-sample.txt"); });
 
             function ShowStart() { $("#loading").show(); }
 
             function HideStart() { $("#loading").hide(1000); }
 
-            function ShowError() { $("#demo1").html("An error occurred...must be a bad file name."); }
+            function ShowError() { $("#request-response").html("An error occurred...must be a bad file name."); }
         });
     </script>
 }

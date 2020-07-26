@@ -40,7 +40,10 @@
 <code>
 $(document).ready(function ()
 {
-    const ShowComplete = () => { $("#ajax-content").html("AJAX request completed even though it was not successful."); };
+    const ShowComplete = () =>
+    {
+        $("#ajax-content").html("AJAX request **completed** even though it was not successful.");
+    };
 
     $("#ajax-content").load("ajax-sample-foo.txt");
 
@@ -59,12 +62,17 @@ $(document).ready(function ()
 @section Scripts
 {
     <script>
-        $(document).ready(function () {
-            const ShowComplete = () => { $("#ajax-content").html("AJAX request completed even though it was not successful."); };
+        $(document).ready(function ()
+        {
+            const ShowComplete = () =>
+            {
+                $("#ajax-content").html("AJAX request **completed** even though it was not successful.");
+            };
 
             $("#ajax-content").load("ajax-sample-foo.txt");
 
-            $(document).ajaxComplete(function () {
+            $(document).ajaxComplete(function ()
+            {
                 ShowComplete();
             });
         });
