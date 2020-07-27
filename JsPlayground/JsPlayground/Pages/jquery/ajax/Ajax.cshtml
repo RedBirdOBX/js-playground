@@ -52,6 +52,31 @@
 <h4>POST Test</h4>
 
 <p>
+    <code>contentType</code> is important to take inconsideration. The default is <code>application/x-www-form-urlencoded; charset=UTF-8</code>.
+    If you use this method, you need to make sure you pass a <strong>object</strong> and not a serialized one/json.
+</p>
+
+<pre>
+<code>
+data: myObject, 
+contentType: "application/x-www-form-urlencoded",
+</code>
+</pre>
+
+<p>
+    You can also set the contentType to <code>contentType: "application/json"</code> (preferred way), but if you do, 
+    make sure you send a <strong>serialized</strong> object.
+</p>
+
+<pre>
+<code>
+data: JSON.stringify(myObject), 
+contentType: "application/json",
+</code>
+</pre>
+
+
+<p>
     I attempted many times (for a few hours) to be able to POST against the City Info DEMO Api using jQuery and was never able to
     make it work. Disappointing.  Finally, I ended up using this service to test a POST against and it worked:
     <a href="https://reqres.in/" target="_blank">https://reqres.in/</a>. More work is needed.
