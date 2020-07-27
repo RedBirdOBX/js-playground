@@ -91,11 +91,11 @@
             const newObject =
             {
                 // test api
-                //"name": "Paul Rudd",
-                //"movie": "I Love You Man"
+                "name": "morpheus",
+                "job": "leader"
 
-                "name": "New City X",
-                "description": "description of city x"
+                //"name": "New City X",
+                //"description": "description of city x"
             };
             let json = JSON.stringify(newObject);
 
@@ -103,15 +103,17 @@
             {
                 //url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
                 //url: "https://postman-echo.com/post",
-                url: "http://localhost:5000/api/v1.0/cities/",
-                //url: "https://reqres.in/api/users",
+                //url: "http://localhost:5000/api/v1.0/cities/",
+                url: "https://reqres.in/api/users",
 
                 method: "POST",
 
                 // it doesn't seem to work when I pass it stringified data!
                 // I seem to have to pass it as an object.
-                data: { data: json },
+                data: json,
                 dataType: "json",
+
+                // you can also add header data like so:
                 //headers:
                 //{
                 //    "Accept": "application/json",
@@ -132,19 +134,15 @@
                 });
             });
 
-
             const ShowOutput = (response) =>
             {
                 console.dir(response);
 
-                let output = `${response.name}<br />`;
-                if (response.cityId !== undefined)
+                let output = `${response.createdAt}<br />`;
+
+                if (response.id !== undefined)
                 {
-                    output += `${response.cityId}<br />`;
-                }
-                if (response.movie !== undefined)
-                {
-                    output += `${response.movie}<br />`;
+                    output += `${response.id}<br />`;
                 }
 
                 $("#demo-content").html(`${output} (view the console)`);
