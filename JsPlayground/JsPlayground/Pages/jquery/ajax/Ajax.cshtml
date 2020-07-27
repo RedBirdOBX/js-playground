@@ -1,0 +1,136 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.AjaxModel
+
+@{
+    string pageId = "Ajax";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    The jQuery <code>ajax()</code> is a complete, very configurable, way to make an asynchronous HTTP request.  It is the most common.
+</p>
+
+<p>
+    <a href="https://www.w3schools.com/jquery/ajax_ajax.asp" target="_blank">
+        https://www.w3schools.com/jquery/ajax_ajax.asp
+    </a><br />
+    <a href=" https://api.jquery.com/jQuery.ajax/" target="_blank">
+        https://api.jquery.com/jQuery.ajax/ (more up to date)
+    </a>
+</p>
+
+
+<div class="m-5">
+    <code>
+        $.ajax({name:value, name:value, name:value... })
+    </code>
+</div>
+
+<h4>GET Test</h4>
+
+<p>
+    This test will use a GET request and call the City Info DEMO API and grab a single city.
+    <small>The first attempt will be slow.  The API will have to 'wake up'.</small>
+</p>
+
+<p class="text-center"><button id="GetTestButton" class="btn btn-success" type="button">GET Test AJAX Call</button></p>
+
+<p>&nbsp;</p>
+
+<h4>POST Test</h4>
+
+<p>
+    I attempted many times (for a few hours) to be able to POST against the City Info DEMO Api using jQuery and was never able to
+    make it work. Disappointing.  Finally, I ended up using this service to test a POST against and it worked:
+    <a href="https://reqres.in/" target="_blank">https://reqres.in/</a>. More work is needed.
+</p>
+
+<p class="text-center"><button id="PostTestButton" class="btn btn-success" type="button">POST Test AJAX Call</button></p>
+
+<p>&nbsp;</p>
+
+<div class="card text-white bg-info m-5 col-12">
+    <div class="card-body">
+        <div id="demo-content">
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function ()
+        {
+            // GET Test
+            const ajaxGetSettings =
+            {
+                url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/38276231-1918-452d-a3e9-6f50873a95d2?includePointsOfInterest=true",
+                type: "GET"
+            };
+
+            $("#GetTestButton").click(function () {
+                $.ajax(ajaxGetSettings).done(function (response) {
+                    ShowOutput(response);
+                });
+            });
+
+            // POST Test
+            //const newCity =
+            //{
+            //    "name": "New City X-" + new Date(),
+            //    "description": "Description of new city"
+            //};
+            //let json = JSON.stringify(newCity);
+
+            const ajaxPostSettings =
+            {
+                //url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+                //url: "https://postman-echo.com/post",
+                //url: "http://localhost:5000/api/v1.0/cities/",
+                url: "https://reqres.in/api/users",
+
+                method: "POST",
+                data: { name: "paul rudd", movies: ["I Love You Man", "Role Models"] },
+                //dataType: "json",
+                //headers:
+                //{
+                //    "Accept": "application/json",
+                //    "Access-Control-Allow-Origin": "*",
+                //    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                //    "Content-Type": "application/json"
+                //}
+            };
+
+            $("#PostTestButton").click(function ()
+            {
+                console.dir(ajaxPostSettings);
+
+                $.ajax(ajaxPostSettings).done(function (response)
+                {
+                    ShowOutput(response);
+                });
+            });
+
+
+            const ShowOutput = (response) =>
+            {
+                console.dir(response);
+                $("#demo-content").html(`${response.name}: ${response.cityId} (view the console)`);
+            };
+        });
+    </script>
+}
