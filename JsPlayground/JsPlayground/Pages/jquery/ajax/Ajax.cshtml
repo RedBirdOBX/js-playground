@@ -88,23 +88,30 @@
             });
 
             // POST Test
-            //const newCity =
-            //{
-            //    "name": "New City X-" + new Date(),
-            //    "description": "Description of new city"
-            //};
-            //let json = JSON.stringify(newCity);
+            const newObject =
+            {
+                // test api
+                //"name": "Paul Rudd",
+                //"movie": "I Love You Man"
+
+                "name": "New City X",
+                "description": "description of city x"
+            };
+            let json = JSON.stringify(newObject);
 
             const ajaxPostSettings =
             {
                 //url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
                 //url: "https://postman-echo.com/post",
-                //url: "http://localhost:5000/api/v1.0/cities/",
-                url: "https://reqres.in/api/users",
+                url: "http://localhost:5000/api/v1.0/cities/",
+                //url: "https://reqres.in/api/users",
 
                 method: "POST",
-                data: { name: "paul rudd", movies: ["I Love You Man", "Role Models"] },
-                //dataType: "json",
+
+                // it doesn't seem to work when I pass it stringified data!
+                // I seem to have to pass it as an object.
+                data: { data: json },
+                dataType: "json",
                 //headers:
                 //{
                 //    "Accept": "application/json",
@@ -129,7 +136,18 @@
             const ShowOutput = (response) =>
             {
                 console.dir(response);
-                $("#demo-content").html(`${response.name}: ${response.cityId} (view the console)`);
+
+                let output = `${response.name}<br />`;
+                if (response.cityId !== undefined)
+                {
+                    output += `${response.cityId}<br />`;
+                }
+                if (response.movie !== undefined)
+                {
+                    output += `${response.movie}<br />`;
+                }
+
+                $("#demo-content").html(`${output} (view the console)`);
             };
         });
     </script>
