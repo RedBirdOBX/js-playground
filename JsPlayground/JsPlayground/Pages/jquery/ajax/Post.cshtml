@@ -39,6 +39,15 @@
 
 <h4>jQuery $.post() Method</h4>
 
+<p>
+    <a href="https://www.w3schools.com/jquery/ajax_post.asp" target="_blank">
+        https://www.w3schools.com/jquery/ajax_post.asp
+    </a><br />
+    <a href=" https://api.jquery.com/jquery.post/" target="_blank">
+        https://api.jquery.com/jquery.post/
+    </a>
+</p>
+
 <p>The <code>$.post()</code> method requests data from the server using an HTTP POST request.</p>
 
 <p>The <code>$.get()</code> method requests data from the server with an HTTP GET request.</p>
@@ -57,6 +66,14 @@
 
 <p class="text-center"><button id="btnPost" class="btn btn-success" type="button">Post Test</button></p>
 
+<p class="text-center"><small>The first attempt will be slow.  The API will have to 'wake up'.</small></p>
+
+<p>
+    Note: This should work but API is refusing the request.  It seems to think it's not json. I wrestled with this for
+    a couple of hours before deciding to move on.  I even tried grabbing code-snippets from Postman and the issues just didn't stop.
+    One after another. I will attempt to get <code>$.ajax</code> to work.
+</p>
+
 <div class="card text-white bg-info m-5 col-12">
     <div class="card-body">
         <div id="demo-content">
@@ -66,22 +83,16 @@
 
 <pre>
 <code>
-// this doesn't yet work...needs to be sent as json
 $(document).ready(function ()
 {
-    $("#btnPost").click( function ()
+    let url = "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest";
+    let data = { name: "New Jack City", description: "Where the priests are." };
+    let json = JSON.stringify(data);
+    let successCallBack = (data, status) => { $("#demo1").html(data + "&lt;br />&lt;br />Status: " + status); };
+    $("#btnPost").click(function ()
     {
-        $.post("https://city-info-api-demo.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest",
-            {
-                Name: "Temple of Sirynx",
-                Description: "Where the priests are."
-            },
-            function (data, status)
-            {
-                $("#demo1").html(data + "<br /><br />Status: " + status);
-            });
-    }
-    );
+        $.post(url, json, successCallBack, "json");
+    });
 });
 </code>
 </pre>
@@ -94,18 +105,18 @@ $(document).ready(function ()
 @section Scripts
 {
     <script>
-        $(document).ready(function () {
-            $("#btnPost").click(function () {
-                $.post("https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest",
-                    {
-                        Name: "Temple of Sirynx",
-                        Description: "Where the priests are."
-                    },
-                    function (data, status) {
-                        $("#demo1").html(data + "<br /><br />Status: " + status);
-                    });
-            }
-            );
+        $(document).ready(function ()
+        {
+            let url = "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest";
+            //let url = "http://localhost:5000/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest";
+            //let url = "http://localhost:5000/api/v1.0/cities";
+            let data = { name: "New Jack City", description: "Where the priests are." };
+            let json = JSON.stringify(data);
+            let successCallBack = (data, status) => { $("#demo1").html(data + "<br /><br />Status: " + status); };
+            $("#btnPost").click(function ()
+            {
+               $.post(url, json, successCallBack, "json");
+            });
         });
     </script>
 }
