@@ -60,7 +60,7 @@
 
 <ul>
     <li>The URL required parameter specifies the URL you wish to request</li>
-    <li>The optional <strong>data</strong> parameter specifies some data to send along with the request in the form of an <strong>anonymous</strong> object.</li>
+    <li>The optional <strong>data</strong> parameter specifies some data to send along with the request in the form of an <strong>anonymous object</strong>.</li>
     <li>The optional callback parameter is the name of a function to be executed if the request succeeds.</li>
 </ul>
 
@@ -71,7 +71,7 @@
 <p>
     Note: This should work but API is refusing the request.  It seems to think it's not json. I wrestled with this for
     a couple of hours before deciding to move on.  I even tried grabbing code-snippets from Postman and the issues just didn't stop.
-    One after another. I will attempt to get <code>$.ajax</code> to work.
+    One after another. Using the <a href="Ajax">ajax()</a> method is the way to go.
 </p>
 
 <div class="card text-white bg-info m-5 col-12">
@@ -87,11 +87,10 @@ $(document).ready(function ()
 {
     let url = "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/ce09626b-e19e-47f5-82f3-2bbf60866a47/pointsofinterest";
     let data = { name: "New Jack City", description: "Where the priests are." };
-    let json = JSON.stringify(data);
     let successCallBack = (data, status) => { $("#demo1").html(data + "&lt;br />&lt;br />Status: " + status); };
     $("#btnPost").click(function ()
     {
-        $.post(url, json, successCallBack, "json");
+        $.post(url, data, successCallBack, "json");
     });
 });
 </code>
@@ -115,7 +114,7 @@ $(document).ready(function ()
             let successCallBack = (data, status) => { $("#demo1").html(data + "<br /><br />Status: " + status); };
             $("#btnPost").click(function ()
             {
-               $.post(url, json, successCallBack, "json");
+               $.post(url, data, successCallBack, "json");
             });
         });
     </script>

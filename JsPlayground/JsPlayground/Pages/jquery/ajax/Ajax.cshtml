@@ -58,28 +58,28 @@
 
 <pre>
 <code>
-data: myObject, 
+data: myObject,
 contentType: "application/x-www-form-urlencoded",
 </code>
 </pre>
 
 <p>
-    You can also set the contentType to <code>contentType: "application/json"</code> (preferred way), but if you do, 
+    You can also set the contentType to <code>contentType: "application/json"</code> (preferred way), but if you do,
     make sure you send a <strong>serialized</strong> object.
 </p>
 
 <pre>
 <code>
-data: JSON.stringify(myObject), 
+data: JSON.stringify(myObject),
 contentType: "application/json",
 </code>
 </pre>
 
 
 <p>
-    I attempted many times (for a few hours) to be able to POST against the City Info DEMO Api using jQuery and was never able to
-    make it work. Disappointing.  Finally, I ended up using this service to test a POST against and it worked:
-    <a href="https://reqres.in/" target="_blank">https://reqres.in/</a>. More work is needed.
+    This can be tricky.  Double check all the settings (data, dataType, contentType, etc.).  After many trials,
+    it finally worked. Another great resource to test this with is REQ |RES.
+    <a href="https://reqres.in/" target="_blank">https://reqres.in/</a>.
 </p>
 
 <p class="text-center"><button id="PostTestButton" class="btn btn-success" type="button">POST Test AJAX Call</button></p>
@@ -93,6 +93,76 @@ contentType: "application/json",
     </div>
 </div>
 
+<pre>
+<code>
+$(document).ready(function ()
+{
+    // GET Test
+    const ajaxGetSettings =
+    {
+        url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/382762312d-a3e9-6f50873a95d2?includePointsOfInterest=true",
+        type: "GET"
+    };
+
+    $("#GetTestButton").click(function ()
+    {
+        $.ajax(ajaxGetSettings).done(function (response)
+        {
+            ShowOutput(response);
+        });
+    });
+
+    const newCity =
+    {
+        "name": "New City X",
+        "description": "description of city x"
+    };
+    let json = JSON.stringify(newCity);
+
+
+    // you can also add header data like so:
+    //headers:
+    //{
+    //    "Accept": "application/json",
+    //    "Access-Control-Allow-Origin": "*",
+    //    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+    //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    //    "Content-Type": "application/json"
+    //}
+
+    const ajaxPostSettings =
+    {
+        url: "http://localhost:5000/api/v1.0/cities/",
+        method: "POST",
+        data: json,
+        dataType: "json",
+        contentType: "application/json"
+    };
+
+    $("#PostTestButton").click(function ()
+    {
+        console.dir(ajaxPostSettings);
+
+        $.ajax(ajaxPostSettings).done(function (response)
+        {
+            ShowOutput(response);
+        });
+    });
+
+    const ShowOutput = (response) =>
+    {
+        console.dir(response);
+
+        let output = `${response.cityId}&lt;br />`;
+        output += `${response.name}&lt;br />`;
+        output += `${response.description}&lt;br />`;
+
+        $("#demo-content").html(`${output} (view the console)`);
+    };
+});
+
+</code>
+</pre>
 
 @section Scripts
 {
@@ -112,41 +182,46 @@ contentType: "application/json",
                 });
             });
 
-            // POST Test
-            const newObject =
-            {
-                // test api
-                "name": "morpheus",
-                "job": "leader"
+            // POST Test for ReqRes
+            //const newUser =
+            //{
+            //    // test api
+            //    "name": "morpheus",
+            //    "job": "leader"
+            //};
 
-                //"name": "New City X",
-                //"description": "description of city x"
+            // POST Test for City Info API
+            const newCity =
+            {
+                "name": "New City X",
+                "description": "description of city x"
             };
-            let json = JSON.stringify(newObject);
+
+            let json = JSON.stringify(newCity);
+
+
+            // Settings
+            //url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+            //url: "https://postman-echo.com/post",
+            //url: "https://reqres.in/api/users",
+
+            // you can also add header data like so:
+            //headers:
+            //{
+            //    "Accept": "application/json",
+            //    "Access-Control-Allow-Origin": "*",
+            //    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            //    "Content-Type": "application/json"
+            //}
 
             const ajaxPostSettings =
             {
-                //url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
-                //url: "https://postman-echo.com/post",
-                //url: "http://localhost:5000/api/v1.0/cities/",
-                url: "https://reqres.in/api/users",
-
+                url: "http://localhost:5000/api/v1.0/cities/",
                 method: "POST",
-
-                // it doesn't seem to work when I pass it stringified data!
-                // I seem to have to pass it as an object.
                 data: json,
                 dataType: "json",
-
-                // you can also add header data like so:
-                //headers:
-                //{
-                //    "Accept": "application/json",
-                //    "Access-Control-Allow-Origin": "*",
-                //    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-                //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-                //    "Content-Type": "application/json"
-                //}
+                contentType: "application/json"
             };
 
             $("#PostTestButton").click(function ()
@@ -163,12 +238,9 @@ contentType: "application/json",
             {
                 console.dir(response);
 
-                let output = `${response.createdAt}<br />`;
-
-                if (response.id !== undefined)
-                {
-                    output += `${response.id}<br />`;
-                }
+                let output = `${response.cityId}<br />`;
+                output += `${response.name}<br />`;
+                output += `${response.description}<br />`;
 
                 $("#demo-content").html(`${output} (view the console)`);
             };
