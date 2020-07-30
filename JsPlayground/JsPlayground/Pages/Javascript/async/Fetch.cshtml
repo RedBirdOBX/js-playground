@@ -20,7 +20,7 @@
 <p>
     The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as
     requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources
-    asynchronously across the network.
+    <strong>asynchronously</strong> across the network.
 </p>
 
 <p>
@@ -49,6 +49,7 @@
     <li><code>fetch()</code> returns a <code>promise</code> ("response")</li>
     <li>use a <code>.then</code> call to evaluate the promise</li>
     <li>the response is raw so we will prob need to turn it into json as shown in the code sample</li>
+    <li>this is an async call.  your response must <code>await</code> the fetch call.</li>
 </ul>
 
 <p>
