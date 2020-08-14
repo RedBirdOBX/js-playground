@@ -51,16 +51,23 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="../../assets/javascripts/jquery.countdown.js"></script>
     <script>
-            $(function () {
-                $('#clock').countdown('2020/8/20').on('update.countdown', function (event) {
-                    var $this = $(this).html(event.strftime(''
-                        + '<span>%-w</span> week%!w '
-                        + '<span>%-d</span> day%!d '
-                        + '<span>%H</span> hr '
-                        + '<span>%M</span> min '
-                        + '<span>%S</span> sec'));
-                    8
-                });
+        $(function ()
+        {
+            //$('#clock').countdown('2025/04/30').on('update.countdown', function (event) {
+            //    var $this = $(this).html(event.strftime(''
+            //        + '<span>%-Y</span> year%!Y '
+            //        //+ '<span>%-w</span> week%!w '
+            //        + '<span>%-d</span> day%!d '
+            //        + '<span>%H</span> hr '
+            //        + '<span>%M</span> min '
+            //        + '<span>%S</span> sec'));
+            //    8
+            //});
+
+            $('#clock').countdown('2025/04/30', function (event)
+            {
+              $('#clock').html(event.strftime('%m months and %n days'));
             });
+        });
     </script>
 }

@@ -1,0 +1,87 @@
+﻿@page
+
+@model FillModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "fill()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {fill()}
+@section PageName {fill()}
+
+<p>
+    The <code>fill()</code> method fills the specified elements in an array with a static value.
+    You can specify the position of where to start and end the filling. If not specified, all elements will be filled.
+</p>
+
+<code>
+array.fill(value, optional: start, optional: end)
+</code>
+
+<p class="my-3"><a href="https://www.w3schools.com/jsref/jsref_fill.asp">https://www.w3schools.com/jsref/jsref_fill.asp</a></p>
+
+<div class="card text-white bg-info my-3 col-6">
+    <div class="card-body">
+        <div id="">
+            <h4 class="text-white text-center">Fruits</h4>
+            <p class="text-white text-center" id="demo1"></p>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.fill("Pineapple");
+document.getElementById("demo1").innerHTML = fruits.toString();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>Here's an example where we specify the array elements to be replaced</p>
+
+<p>
+    Here's an example using a function expression. Instead of creating a separate function, were defining its definition right in the filter's argument.
+</p>
+
+<div class="card text-white bg-info m-3 col-6">
+    <div class="card-body">
+        <div id="">
+            <h4 class="text-white text-center">Names</h4>
+            <p class="text-white text-center" id="demo2"></p>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+let names = ["Anna", "Barbara", "Cathy", "Denise", "Esther", "Frances"];
+names.fill("Ricky Bobby", 2,4);
+document.getElementById("demo2").innerHTML = fruits.toString();
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.fill("Pineapple");
+        document.getElementById("demo1").innerHTML = fruits.toString();
+
+        let names = ["Anna", "Barbara", "Cathy", "Denise", "Esther", "Frances"];
+        names.fill("Ricky Bobby", 2,4);
+        document.getElementById("demo2").innerHTML = names.toString();
+    </script>
+}
