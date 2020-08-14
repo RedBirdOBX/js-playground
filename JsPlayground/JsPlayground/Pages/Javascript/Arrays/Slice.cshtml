@@ -17,9 +17,25 @@
 @section BreadCrumbPageName {slice()}
 @section PageName {slice()}
 
+<code>
+    array.slice(start, end)
+</code>
+
 <p>
     The slice() method slices out a piece of an array into a new array. This example slices out a part of an array starting
     from array element 1 ("Orange").
+</p>
+
+<p>
+    <code>start	(optional)</code>
+    An integer that specifies where to start the selection (The first element has an index of 0).
+    Use negative numbers to select from the end of an array. If omitted, it acts like "0"
+</p>
+
+<p>
+    <code>end (optional)</code>
+    An integer that specifies where to end the selection. If omitted, all elements from the start position and
+    to the end of the array will be selected. Use negative numbers to select from the end of an array.
 </p>
 
 <div>
@@ -33,6 +49,26 @@ var citrus = fruits.slice(2);
 document.getElementById("demo").innerHTML = citrus.join(" ");
 </code>
 </pre>
+
+<p>&nbsp;</p>
+
+<p>
+    Here's an excellent example of taking an array, replacing only certain values, and then returning the modified array using <code>slice()</code>.
+</p>
+
+<pre>
+<code>
+handleClick(i)
+{
+    // takes old array, finds the one passed in, and marks it as X.
+    const squares = this.state.squares.slice();
+    squares[i] = "X";
+    console.log(squares[i]);
+    this.setState({squares: squares});
+}
+</code>
+</pre>
+
 
 <p>&nbsp;</p>
 

@@ -56,6 +56,24 @@ document.getElementById("demo").innerHTML = capFruitsArray.join(" - ");
 
 <p>&nbsp;</p>
 
+<p>
+    You can also use lambda expressions with <code>.map()</code>.
+</p>
+
+<div class="m-5">
+    <h3 class="text-danger" id="demo2"></h3>
+</div>
+
+<pre>
+<code>
+let lcFruits = fruitsArray.map(<mark>f => f.toLowerCase()</mark>);
+document.getElementById("demo2").innerHTML = lcFruits.join(" - ");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
 @section Scripts
 {
     <script>
@@ -64,8 +82,11 @@ document.getElementById("demo").innerHTML = capFruitsArray.join(" - ");
         }
 
         let fruitsArray = ["Banana", "Orange", "Apple", "Mango"];
-        let capFruitsArray = fruitsArray.map(Capitalize)
 
+        let capFruitsArray = fruitsArray.map(Capitalize)
         document.getElementById("demo").innerHTML = capFruitsArray.join(" - ");
+
+        let lcFruits = fruitsArray.map(f => f.toLowerCase());
+        document.getElementById("demo2").innerHTML = lcFruits.join(" - ");
     </script>
 }
