@@ -1,0 +1,74 @@
+﻿@page
+
+@model SpreadModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Spread";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {spread}
+@section PageName {spread}
+
+<p>
+    You can take a js object and <code>spread</code> it by using a special <code>...</code> three-dot syntax.
+    This will take all of the object's properties and place them into an array.  This might be easier to implement -
+    especially when passing items to a function with a lot of arguments.
+</p>
+
+<p>
+    Technically speaking, <code>spread</code> is a new ECM6 operator and not a array method.  However, since it's
+    mostly used with arrays, I have placed it here.
+</p>
+
+<div class="card text-white bg-info mt-1">
+    <div class="card-body">
+        <div id="spread-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+
+// take person and create an array called rickyBobby
+let { ...rickyBobby } = person;
+
+
+// for UI. Method wants an array.
+const DisplayPersonData = (person) =>
+{
+    $("#spread-demo").html(`Name: ${person["Name"]}<br />Occupation: ${person["Occupation"]}`)
+};
+
+DisplayPersonData(rickyBobby);
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+
+        // take person and create an array called rickyBobby
+        let { ...rickyBobby } = person;
+
+
+        // for UI. Method wants an array.
+        const DisplayPersonData = (person) =>
+        {
+            $("#spread-demo").html(`Name: ${person["Name"]}<br />Occupation: ${person["Occupation"]}`)
+        };
+
+        DisplayPersonData(rickyBobby);
+    </script>
+}
