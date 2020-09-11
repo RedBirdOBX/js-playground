@@ -1,0 +1,75 @@
+﻿@page
+
+@model SortModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "sort()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {sort()}
+@section PageName {sort()}
+
+<p>
+    The <code>sort()</code> method sorts an array alphabetically and treats all items as <strong>strings</strong>.
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo"></h3>
+</div>
+
+<pre>
+<code>
+let fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
+document.getElementById("demo").innerHTML = fruits.sort().join("-");
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>
+    Here's a good trick if you need to sort a list of numbers.<br />
+    <a href="https://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly" target="_blank">
+    https://stackoverflow.com/questions/1063007/how-to-sort-an-array-of-integers-correctly</a>
+</p>
+
+<div>
+    <h3 class="text-danger" id="demo2"></h3>
+    <h3 class="text-danger" id="demo3"></h3>
+</div>
+
+<pre>
+<code>
+let numbers = [1, 5, 80, 20, 15, 50, 10];
+// ascending
+document.getElementById("demo2").innerHTML = "Ascending: " + numbers.sort(<mark>(a, b) => a - b</mark>).join("-");
+
+//descending
+document.getElementById("demo3").innerHTML = "Descending: " + numbers.sort(<mark>(a, b) => b - a</mark>).join("-");
+</code>
+</pre>
+
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
+        document.getElementById("demo").innerHTML = fruits.sort().join("-");
+
+        let numbers = [1, 5, 80, 20, 15, 50, 10];
+        // ascending
+        document.getElementById("demo2").innerHTML = "Ascending: " + numbers.sort((a, b) => a - b).join("-");
+
+        //descending
+        document.getElementById("demo3").innerHTML = "Descending: " + numbers.sort((a, b) => b - a).join("-");
+    </script>
+}
