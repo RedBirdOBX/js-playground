@@ -1,0 +1,139 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Challenges.AggregateArrayModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Aggregate Array";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-challenges}
+@section BreadCrumbChapter {challenges}
+@section BreadCrumbPageName {aggregate array}
+@section PageName {Aggregate Array}
+
+<p>&nbsp;</p>
+
+<p>
+    Say you have a collection of authors in an array. Each author has a property of <code>books</code> which is a list
+    of string (book titles).  You need to create a list of all books by all authors and sorted them in alpha-numeric order.
+</p>
+
+<p>
+    Authors looks like this:
+</p>
+
+<pre>
+<code>
+const authors =
+[
+    {
+        name: 'Mark Twain',
+        imageUrl: 'Images/Authors/mark-twain.jpg',
+        books: ['The Adventures of Huckleberry Finn', 'Life on the Mississippi']
+    },
+    {
+        name: 'Joseph Conrad',
+        imageUrl: 'Images/Authors/joseph-conrad.jpg',
+        books: ['Heart of Darkness']
+    },
+    {
+        name: 'J.K Rowling',
+        imageUrl: 'Images/Authors/jk-rowling.jpg',
+        books: ['Harry Potter and the Sorcerers Stone']
+    },
+    {
+        name: 'Stephen King',
+        imageUrl: 'Images/Authors/stephen-king.jpg',
+        books: ['The Shining', 'It']
+    },
+    {
+        name: 'William Shakespeare',
+        imageUrl: 'Images/Authors/william-shakespeare.jpg',
+        books: ['Hamlet', 'Macbeth']
+    }
+];
+</code>
+</pre>
+
+
+@*<code>const stars = [1,2,3,4,5,6,7,8];</code>
+
+<p class="m-2">
+    Now, using <code>.map()</code>, take the contents of the numbers and call a function which builds some html for the UI
+    for each element in the array .  Don't use a <code>for</code> loop.... use <code>map()</code>.
+    Something like....
+</p>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div>2</div>
+        <div>4</div>
+        <div>6</div>
+        <div>etc...</div>
+    </div>
+</div>
+
+
+<div class="text-center m-5"><button id="ShowSolutionButton" class="btn btn-info">Show Solution</button></div>
+
+<div id="SolutionContainer">
+
+    <div class="card text-white bg-info m-3 col-3">
+        <div class="card-body" id="DemoContainer">
+        </div>
+    </div>
+
+<pre>
+<code>
+// solution
+let solutionHtml = "";
+const numbers = [1,2,3,4,5,6,7,8];
+
+// this receives each element of the array and we will call it 'number'
+const BuildHtml = (number) =>
+{
+    if (number % 2 == 0)
+    {
+        solutionHtml += `&lt;div class="text-white">${number}&lt;/div>`;
+    }
+};
+
+// build html
+numbers.map(BuildHtml);
+$("#DemoContainer").html(solutionHtml);
+</code>
+</pre>
+</div>*@
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        //$("#SolutionContainer").hide();
+        //$("#ShowSolutionButton").click(function () {
+        //    $("#SolutionContainer").toggle();
+        //});
+
+        //// solution
+        //let solutionHtml = "";
+        //const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        //// this receives each element of the array and we will call it 'number'
+        //const BuildHtml = (number) => {
+        //    if (number % 2 == 0) {
+        //        solutionHtml += `<div class="text-white">${number}</div>`;
+        //    }
+        //};
+        //numbers.map(number => BuildHtml(number));
+        //$("#DemoContainer").html(solutionHtml);
+    </script>
+
+
+}
