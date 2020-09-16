@@ -1,0 +1,76 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Objects.DeletePropertyModel
+
+@{
+    string pageId = "Delete A Property";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-objects}
+@section BreadCrumbChapter {objects}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>
+    If your object has a property you do not want, you can delete it.
+</p>
+
+<pre>
+<code>
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+delete person.age;
+// or delete person["age"];
+</code>
+</pre>
+
+<p>If you need to loop thru a collection, you can do this:</p>
+
+<pre>
+    <code>
+        let personA = { Name: "Ricky", Age: 50, Junk: "Foo" };
+        let personB = { Name: "Bobby", Age: 50, Junk: "Foo" };
+        let persons1 = [personA, personB];
+
+        let personC = { Name: "Ricky", Age: 50, Junk: "Foo" };
+        let personD = { Name: "Bobby", Age: 50, Junk: "Foo" };
+        let persons2 = [personC, personD];
+
+        console.log("Before delete");
+        console.dir(persons1);
+
+        persons2.forEach((p) => { delete p.Junk; });
+        console.log("After delete");
+        console.dir(persons2);
+    </code>
+</pre>
+
+<p>View the Console.</p>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        let personA = { Name: "Ricky", Age: 50, Junk: "Foo" };
+        let personB = { Name: "Bobby", Age: 50, Junk: "Foo" };
+        let persons1 = [personA, personB];
+
+        let personC = { Name: "Ricky", Age: 50, Junk: "Foo" };
+        let personD = { Name: "Bobby", Age: 50, Junk: "Foo" };
+        let persons2 = [personC, personD];
+
+        console.log("Before delete");
+        console.dir(persons1);
+
+        persons2.forEach((p) => { delete p.Junk; });
+        console.log("After delete");
+        console.dir(persons2);
+    </script>
+}
