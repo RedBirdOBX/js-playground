@@ -141,13 +141,17 @@ const books =
                 }
             ];
         let output = "";
-
         authors.forEach((author) => { author.books.forEach((book) => { books.push(book); }); });
+
+        // a lot less efficient
+        //authors.reduce(function (p, c, i) { return p.concat(c.books) }, []);
+
         books = books.sort();
         output = books.join(", ");
-        $("#DemoContainer").html(output);
 
+        $("#DemoContainer").html(output);
         $("#SolutionContainer").hide();
+
         $("#ShowSolutionButton").click(function () {
             $("#SolutionContainer").toggle();
         });
