@@ -1,0 +1,157 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Libraries.ShuffleModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Shuffle Example";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-libraries}
+@section BreadCrumbChapter {libraries}
+@section BreadCrumbPageName {shuffle}
+@section PageName {Shuffle by underscore.js}
+
+<p>&nbsp;</p>
+
+<p>
+    The library <strong>underscore.js</strong> (<a href="https://underscorejs.org/" target="_blank">https://underscorejs.org/</a>)
+    has over 100 useful functions.  One of them is <code>shuffle()</code>.
+</p>
+
+<p>
+    Tip: to install, use this npm command: <code>npm install underscore</code>.
+</p>
+
+<p>
+    We have an array of authors like below.  Let's use <code>shuffle</code> to put them in random order.
+</p>
+
+<pre>
+<code>
+$(function()
+{
+    $("#ShuffleButton").click(function ()
+    {
+        const authors =
+        [
+            {
+                name: 'Mark Twain',
+                imageUrl: 'Images/Authors/mark-twain.jpg',
+                books: ['The Adventures of Huckleberry Finn', 'Life on the Mississippi']
+            },
+            {
+                name: 'Joseph Conrad',
+                imageUrl: 'Images/Authors/joseph-conrad.jpg',
+                books: ['Heart of Darkness']
+            },
+            {
+                name: 'J.K Rowling',
+                imageUrl: 'Images/Authors/jk-rowling.jpg',
+                books: ['Harry Potter and the Sorcerers Stone']
+            },
+            {
+                name: 'Stephen King',
+                imageUrl: 'Images/Authors/stephen-king.jpg',
+                books: ['The Shining', 'It']
+            },
+            {
+                name: 'William Shakespeare',
+                imageUrl: 'Images/Authors/william-shakespeare.jpg',
+                books: ['Hamlet', 'Macbeth']
+            },
+            {
+                name: 'Arthur C Clarke',
+                imageUrl: 'Images/Authors/arthur-c-clarke.jpg',
+                books: ['2001', 'Rendevous with Rama']
+            },
+            {
+                name: 'Isaas Asimov',
+                imageUrl: 'Images/Authors/isaac-asimov.jpg',
+                books: ['The Gods Themselves', 'Robot Dreams', 'The Naked Sun']
+            }
+        ];
+
+<mark>let shuffledAuthors = _.shuffle(authors);</mark>
+        let output = "";
+
+        shuffledAuthors.forEach((author) => { output += author.name + "&lt;br />"; });
+        $("#DemoContainer").html(output);
+    });
+});
+</code>
+</pre>
+
+<div class="text-center m-5">
+    <button id="ShuffleButton" class="btn btn-info">Shuffle Authors</button>
+</div>
+
+
+<div class="card text-white bg-info m-3">
+    <div class="card-body" id="DemoContainer">
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script src="https://unpkg.com/underscore@1.11.0/underscore-min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $("#ShuffleButton").click(function () {
+                const authors =
+                    [
+                        {
+                            name: 'Mark Twain',
+                            imageUrl: 'Images/Authors/mark-twain.jpg',
+                            books: ['The Adventures of Huckleberry Finn', 'Life on the Mississippi']
+                        },
+                        {
+                            name: 'Joseph Conrad',
+                            imageUrl: 'Images/Authors/joseph-conrad.jpg',
+                            books: ['Heart of Darkness']
+                        },
+                        {
+                            name: 'J.K Rowling',
+                            imageUrl: 'Images/Authors/jk-rowling.jpg',
+                            books: ['Harry Potter and the Sorcerers Stone']
+                        },
+                        {
+                            name: 'Stephen King',
+                            imageUrl: 'Images/Authors/stephen-king.jpg',
+                            books: ['The Shining', 'It']
+                        },
+                        {
+                            name: 'William Shakespeare',
+                            imageUrl: 'Images/Authors/william-shakespeare.jpg',
+                            books: ['Hamlet', 'Macbeth']
+                        },
+                        {
+                            name: 'Arthur C Clarke',
+                            imageUrl: 'Images/Authors/arthur-c-clarke.jpg',
+                            imageSource: 'Wikimedia Commons',
+                            books: ['2001', 'Rendevous with Rama']
+                        },
+                        {
+                            name: 'Isaas Asimov',
+                            imageUrl: 'Images/Authors/isaac-asimov.jpg',
+                            imageSource: 'Wikimedia Commons',
+                            books: ['The Gods Themselves', 'Robot Dreams', 'The Naked Sun']
+                        }
+                    ];
+
+                let shuffledAuthors = _.shuffle(authors);
+                let output = "";
+
+                shuffledAuthors.forEach((author) => { output += author.name + "<br />"; });
+                $("#DemoContainer").html(output);
+            });
+        });
+    </script>
+}
