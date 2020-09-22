@@ -17,6 +17,12 @@
 @section BreadCrumbPageName {spread}
 @section PageName {spread}
 
+<p class="text-center">
+    <a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">
+        https://www.w3schools.com/jsref/jsref_obj_array.asp
+    </a>
+</p>
+
 <p>
     You can take a js object and <code>spread</code> it by using a special <code>...</code> three-dot syntax.
     This will take all of the object's properties and place them into an array.  This might be easier to implement -
@@ -64,8 +70,7 @@ DisplayPersonData(rickyBobby);
 
 
         // for UI. Method wants an array.
-        const DisplayPersonData = (person) =>
-        {
+        const DisplayPersonData = (person) => {
             $("#spread-demo").html(`Name: ${person["Name"]}<br />Occupation: ${person["Occupation"]}`)
         };
 

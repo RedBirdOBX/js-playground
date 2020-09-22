@@ -17,13 +17,19 @@
 @section BreadCrumbPageName {fill()}
 @section PageName {fill()}
 
+<p class="text-center">
+    <a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">
+        https://www.w3schools.com/jsref/jsref_obj_array.asp
+    </a>
+</p>
+
 <p>
     The <code>fill()</code> method fills the specified elements in an array with a static value.
     You can specify the position of where to start and end the filling. If not specified, all elements will be filled.
 </p>
 
 <code>
-array.fill(value, optional: start, optional: end)
+    array.fill(value, optional: start, optional: end)
 </code>
 
 <p class="my-3"><a href="https://www.w3schools.com/jsref/jsref_fill.asp">https://www.w3schools.com/jsref/jsref_fill.asp</a></p>
@@ -81,7 +87,7 @@ document.getElementById("demo2").innerHTML = fruits.toString();
         document.getElementById("demo1").innerHTML = fruits.toString();
 
         let names = ["Anna", "Barbara", "Cathy", "Denise", "Esther", "Frances"];
-        names.fill("Ricky Bobby", 2,4);
+        names.fill("Ricky Bobby", 2, 4);
         document.getElementById("demo2").innerHTML = names.toString();
     </script>
 }

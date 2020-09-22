@@ -1,0 +1,95 @@
+﻿@page
+
+@model FindModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "find()";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-arrays}
+@section BreadCrumbChapter {arrays}
+@section BreadCrumbPageName {find()}
+@section PageName {find()}
+
+<p class="text-center">
+    <a href="https://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">
+        https://www.w3schools.com/jsref/jsref_obj_array.asp
+    </a>
+</p>
+
+<p>
+    The <code>find()</code> returns the value of the <strong>first</strong> element in an array that pass a test (provided as a function).
+</p>
+
+<p>
+    The <code>find()</code> method executes the function once for each element present in the array.
+    If it finds an array element where the function returns a true value,
+    <code>find()</code> returns the value of that array element (and <strong>does not check the remaining values</strong>)
+    Otherwise it returns <code>undefined</code>.
+</p>
+
+<p>
+    <code>find()</code> does not execute the function for empty arrays.
+</p>
+
+<p>
+    <code>find()</code> does not change the original array.
+</p>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div id="">
+            <p class="text-white text-center" id="demo1"></p>
+        </div>
+    </div>
+</div>
+
+<pre>
+<code>
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@*<p>
+    Here's an example using a function expression. Instead of creating a separate function, were defining its definition right in the filter's argument.
+</p>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div id="">
+            <h4 class="text-white text-center">Youth ages</h4>
+            <p class="text-white text-center" id="demo2"></p>
+        </div>
+    </div>
+</div>
+
+    <pre>
+<code>
+const ages = [40, 11, 8, 32, 33, 16, 40];
+document.getElementById("demo2").innerHTML = ages.filter((a) => a < 18 );
+</code>
+</pre>*@
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script src="~/assets/javascripts/SampleAuthorsArray.js"></script>
+    <script>
+        $(function ()
+        {
+            debugger;
+            let clarkeMatch = authors.find( (author) => { author.name.toLowerCase() === "arthur c clarke" });
+            console.dir(clarkeMatch);
+            $("#demo1").html(clarkeMatch.name);
+        });
+    </script>
+}
