@@ -32,9 +32,35 @@ $("#demo").html("First name is " + <mark>person["firstName"]</mark>);
 
 <p>&nbsp;</p>
 
-<p>&nbsp;</p>
+<p>
+    The second example deserves some exploration. What if you had a scenario where you wanted to select
+    and use an object's property dynamically?  What if you wanted to select First Name, Last Name, or age at will?
+    You can actually pass in the property name as an argument and since it will be seen as a string, the code below
+    will work fine.
+</p>
 
+<pre>
+<code>
+let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+const ShowProperty = (prop) => { $("#demo").html(<mark>person[prop]</mark>); };
+ShowProperty("Name");
+</code>
+</pre>
+
+
+<div class="card text-white bg-info my-3">
+    <div class="card-body">
+        <div id="demo"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
 
 @section Scripts
 {
+    <script>
+        let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
+        const ShowProperty = (prop) => { $("#demo").html(person[prop]); };
+        ShowProperty("Name");
+    </script>
 }
