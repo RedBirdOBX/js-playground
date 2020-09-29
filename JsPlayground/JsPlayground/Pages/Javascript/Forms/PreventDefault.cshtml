@@ -48,6 +48,16 @@
 
 <hr />
 
+<pre>
+<code>
+document.querySelector("#id-checkbox").addEventListener("click", function (event)
+{
+    document.getElementById("output-box").innerHTML += "Sorry! &lt;code>preventDefault()&lt;/code> won't let you check this!&lt;br />";
+    event.preventDefault();
+}, false);
+</code>
+</pre>
+
 
 <p>&nbsp;</p>
 

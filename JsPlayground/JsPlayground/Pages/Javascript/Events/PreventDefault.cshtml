@@ -29,7 +29,30 @@
     <button type="submit" id="btnSubmit" class="btn btn-danger">
         Prevent me from submitting
     </button>
+    <div class="my-5">
+        <label for="id-checkbox">Prevent me from checking:</label>
+        <input id="checkbox1" type="checkbox" id="id-checkbox" />
+    </div>
 </form>
+
+<pre>
+<code>
+document.body.onload = function ()
+{
+    document.getElementById("btnSubmit").addEventListener("click", function (event)
+    {
+        event.preventDefault()
+        alert("You shall not pass!");
+    });
+
+    document.getElementById("checkbox1").addEventListener("click", function (event)
+    {
+        event.preventDefault()
+        alert("You shall not be checked!");
+    });
+};
+</code>
+</pre>
 
 <p>&nbsp;</p>
 
@@ -40,6 +63,11 @@
             document.getElementById("btnSubmit").addEventListener("click", function (event) {
                 event.preventDefault()
                 alert("You shall not pass!");
+            });
+
+            document.getElementById("checkbox1").addEventListener("click", function (event) {
+                event.preventDefault()
+                alert("You shall not be checked!");
             });
         };
     </script>
