@@ -1,0 +1,71 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Functions.InvokingVsCallingModel
+
+@{
+    string pageId = "Reference Example";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-functions}
+@section BreadCrumbChapter {functions}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Notice how we can pass a reference to the function down the chain...&nbsp;</p>
+
+<p class="text-center">
+    <img src="~/assets/images/js-reference-example.png" />
+</p>
+
+<p>&nbsp;</p>
+
+
+<div class="text-center my-5">
+    <button id="DemoButton" class="btn btn-info">Say Hello</button>
+</div>
+
+<pre>
+<code>
+const SayHello = (msg) =>
+{
+    alert(msg);
+};
+
+const ref1 = SayHello;
+const ref2 = ref1;
+
+$("#DemoButton").click(function ()
+{
+    ref2("Hello World");
+    console.dir(ref2);
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+
+        const SayHello = (msg) => {
+            alert(msg);
+        };
+
+        const ref1 = SayHello;
+        const ref2 = ref1;
+
+        $("#DemoButton").click(function () {
+            ref2("Hello World");
+            console.dir(ref2);
+        });
+    </script>
+}
