@@ -25,26 +25,17 @@
 
 <p>
     The <code>filter()</code> method allows you to apply a filter to an array and then return a <strong>new</strong>
-    array of all the values that meet the condition.
+    array based on the elements of the original that meet the condition.  <code>filter()</code> will <strong>return</strong> whatever is
+    in the original array whether it is a number, string, or object.
 </p>
 
 <p>
-    The <code>filter()</code> method creates an array filled with all array elements <strong>that pass a test</strong> (provided as a function).
+    The <code>filter()</code> method creates an array filled with array elements <strong>that pass a test</strong> (provided as a function).
     <code>filter()</code> <strong>executes on each element of the array</strong> and does not execute the function for array elements without values.
     Note: filter() does not change the original array.
 </p>
 
-<p><a href="https://www.w3schools.com/jsref/jsref_filter.asp">https://www.w3schools.com/jsref/jsref_filter.asp</a></p>
-
-<div class="card text-white bg-info m-3 col-3">
-    <div class="card-body">
-        <div id="">
-            <h4 class="text-white text-center">Adult ages</h4>
-            <p class="text-white text-center" id="demo1"></p>
-        </div>
-    </div>
-</div>
-
+<p><strong>Example 1</strong></p>
 <pre>
 <code>
 const ages = [40, 11, 8, 32, 33, 16, 40];
@@ -54,38 +45,85 @@ document.getElementById("demo1").innerHTML = ages.filter(CheckForAdult);
 </code>
 </pre>
 
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div>
+            <h4 class="text-white text-center">Adult ages</h4>
+            <p class="text-white text-center" id="demo1"></p>
+        </div>
+    </div>
+</div>
+
+
 <p>&nbsp;</p>
 
 <p>
-    Here's an example using a function expression. Instead of creating a separate function, were defining its definition right in the filter's argument.
+    <strong>Example 2</strong>. Here's an example using a <em>function expression</em>.
+    Instead of creating a separate function, were defining its definition right in the filter's argument.
 </p>
+
+<pre>
+<code>
+const ages = [40, 11, 8, 32, 33, 16, 40];
+document.getElementById("demo2").innerHTML = ages.filter(<mark>(a) => a < 18</mark> );
+</code>
+</pre>
 
 <div class="card text-white bg-info m-3 col-3">
     <div class="card-body">
-        <div id="">
+        <div>
             <h4 class="text-white text-center">Youth ages</h4>
             <p class="text-white text-center" id="demo2"></p>
         </div>
     </div>
 </div>
 
+<p>&nbsp;</p>
+
+<p>
+    <strong>Example 3</strong>. Uses <a href="~/assets/javascripts/SampleAuthorsArray.js" target="_blank">authors.js</a>.
+</p>
+
 <pre>
 <code>
-const ages = [40, 11, 8, 32, 33, 16, 40];
-document.getElementById("demo2").innerHTML = ages.filter((a) => a < 18 );
+let femaleAuthors = authors.filter((<mark>author</mark>) =>
+{
+    if (<mark>author</mark>.gender.toLowerCase() === "female")
+    {
+        return author;
+    }
+});
 </code>
 </pre>
+
+<div class="card text-white bg-info m-3 col-3">
+    <div class="card-body">
+        <div id="">
+            <h4 class="text-white text-center">Female Authors</h4>
+            <p class="text-white text-center" id="demo3"></p>
+        </div>
+    </div>
+</div>
 
 <p>&nbsp;</p>
 
 
 @section Scripts
 {
+    <script src="~/assets/javascripts/SampleAuthorsArray.js"></script>
     <script>
         const ages = [40, 11, 8, 32, 33, 16, 40];
         const CheckForAdult = (age) => { return age >= 18; };
+        let femaleAuthors = authors.filter((author) =>
+        {
+            if (author.gender.toLowerCase() === "female")
+            {
+                return author;
+            }
+        });
 
         document.getElementById("demo1").innerHTML = ages.filter(CheckForAdult);
         document.getElementById("demo2").innerHTML = ages.filter((a) => a < 18);
+        document.getElementById("demo3").innerHTML = femaleAuthors.length;
     </script>
 }

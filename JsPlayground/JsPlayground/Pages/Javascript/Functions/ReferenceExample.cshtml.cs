@@ -2,7 +2,7 @@
 
 namespace JsPlayground.Pages.Javascript.Functions
 {
-    public class InvokingVsCallingModel : PageModel
+    public class RefExampleModel : PageModel
     {
         public void OnGet()
         {
