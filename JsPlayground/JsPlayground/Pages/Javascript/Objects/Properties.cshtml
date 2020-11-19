@@ -44,6 +44,21 @@ $("#demo").html("First name is " + <mark>person["firstName"]</mark>);
 let person = { Name: "Ricky Bobby", Occupation: "Race Car Driver", Gender: "Male", Age: 45 };
 const ShowProperty = (prop) => { $("#demo").html(<mark>person[prop]</mark>); };
 ShowProperty("Name");
+
+// another example
+const GetBackgroundColor = (answerStatus) =>
+{
+    let mapping =
+    {
+        "none": "",
+        "correct": "green",
+        "wrong": "red"
+    };
+
+    // returns "", green or red
+    return mapping[answerStatus];
+};
+
 </code>
 </pre>
 

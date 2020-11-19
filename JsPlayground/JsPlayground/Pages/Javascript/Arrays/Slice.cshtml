@@ -33,26 +33,35 @@
 </p>
 
 <p>
-    <code>start	(optional)</code>
+    <code>start</code>
     An integer that specifies where to start the selection (The first element has an index of 0).
     Use negative numbers to select from the end of an array. If omitted, it acts like "0"
 </p>
 
 <p>
     <code>end (optional)</code>
-    An integer that specifies where to end the selection. If omitted, all elements from the start position and
+    An integer that specifies where to end the selection - <strong>not zero-based index</strong>.
+    If omitted, all elements from the start position and
     to the end of the array will be selected. Use negative numbers to select from the end of an array.
 </p>
 
-<div>
-    <h3 class="text-danger" id="demo"></h3>
+
+<div class="card text-white bg-info m-3 col-6">
+    <div class="card-body">
+        <div id="">
+            <h3 class="text-white" id="demo"></h3>
+            <h3 class="text-white" id="demo2"></h3>
+        </div>
+    </div>
 </div>
 
 <pre>
 <code>
-var fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
-var citrus = fruits.slice(2);
-document.getElementById("demo").innerHTML = citrus.join(" ");
+let fruits = ["Pear", "Banana", "Apple", "Orange", "Lemon", "Mango", "Lime"];
+let citrus = fruits.slice(3);
+let partial = fruits.slice(1, 5)
+document.getElementById("demo").innerHTML = citrus.join(", ");
+document.getElementById("demo2").innerHTML = partial.join(", ");
 </code>
 </pre>
 
@@ -81,8 +90,10 @@ handleClick(i)
 @section Scripts
 {
     <script>
-        var fruits = ["Banana", "Apple", "Orange", "Lemon", "Mango"];
-        var citrus = fruits.slice(2);
-        document.getElementById("demo").innerHTML = citrus.join(" ");
+        let fruits = ["Pear", "Banana", "Apple", "Orange", "Lemon", "Mango", "Lime"];
+        let citrus = fruits.slice(3);
+        let partial = fruits.slice(1, 5)
+        document.getElementById("demo").innerHTML = citrus.join(", ");
+        document.getElementById("demo2").innerHTML = partial.join(", ");
     </script>
 }
