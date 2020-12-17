@@ -1,0 +1,59 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Snippets.LeftPadModel
+
+@{
+    string pageId = "LeftPad";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-snippets}
+@section BreadCrumbChapter {snippets}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+
+<pre>
+<code>
+let totalTime = 120;
+let minutes = Math.floor(totalTime / 60);
+let seconds = totalTime - (minutes * 60);
+let secondsPadded = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+
+let minutesLabel = document.getElementById("minutes");
+let secondsLabel = document.getElementById("seconds");
+minutesLabel.innerHTML = minutes;
+secondsLabel.innerHTML = secondsPadded;
+</code>
+</pre>
+
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <span id="minutes"></span>:<span id="seconds"></span>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        let totalTime = 120;
+        let minutes = Math.floor(totalTime / 60);
+        let seconds = totalTime - (minutes * 60);
+        let secondsPadded = (seconds < 10) ? `0${seconds}` : `${seconds}`;
+        let minutesLabel = document.getElementById("minutes");
+        let secondsLabel = document.getElementById("seconds");
+        minutesLabel.innerHTML = minutes;
+        secondsLabel.innerHTML = secondsPadded;
+    </script>
+}
+
