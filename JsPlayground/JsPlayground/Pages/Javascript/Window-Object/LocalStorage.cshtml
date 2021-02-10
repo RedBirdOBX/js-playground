@@ -65,6 +65,14 @@
     </div>
 </div>
 
+<p>
+    You can even store serialized objects which is handy.
+</p>
+
+<p>
+   <img src="~/assets/images/local-storage.png" />
+</p>
+
 <pre>
 <code>
 $(function ()
@@ -84,6 +92,7 @@ const Submit = () =>
     localStorage.Message = msg;
     localStorage.MagicNumber = magicNumber;
     window.location.assign(window.location.href);
+    localStorage.MagicObject = JSON.stringify({ Message: msg, MagicNumber: magicNumber });
 };
 
 const Remove = () =>
@@ -104,8 +113,7 @@ const Remove = () =>
 @section Scripts
 {
     <script>
-        $(function ()
-        {
+        $(function () {
             let demo1 = $("#demo1");
             let msg = (localStorage.Message === undefined || localStorage.Message === "") ? "nothing yet" : localStorage.Message;
             let num = (localStorage.MagicNumber === undefined || localStorage.MagicNumber === "") ? "nothing yet" : localStorage.MagicNumber;
@@ -113,18 +121,17 @@ const Remove = () =>
             demo1.html(html);
         });
 
-        const Submit = () =>
-        {
+        const Submit = () => {
             let msg = $("#Message").val();
             let magicNumber = $("#MagicNumber").val();
 
             localStorage.Message = msg;
             localStorage.MagicNumber = magicNumber;
+            localStorage.MagicObject = JSON.stringify({ Message: msg, MagicNumber: magicNumber });
             window.location.assign(window.location.href);
         };
 
-        const Remove = () =>
-        {
+        const Remove = () => {
             localStorage.removeItem("Message");
             localStorage.removeItem("MagicNumber");
             window.location.assign(window.location.href);
