@@ -1,0 +1,89 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "While Loops";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-flow-control}
+@section BreadCrumbChapter {flow control}
+@section BreadCrumbPageName {while loops}
+@section PageName {while loops}
+
+
+
+<p><strong>Do While - executes at least once</strong> - test after the loop</p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="do-while-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let counter = 1;
+let output = "";
+do
+{
+    output += "&lt;div>" + counter + "&lt;/div>";
+    counter++;
+}
+while (counter < 6);
+</code>
+</pre>
+
+<hr />
+
+<p><strong>While</strong> - tests <strong>first</strong> and then executes</p>
+<div class="card bg-light my-3">
+    <div class="card-body">
+        <div class="mb-1" id="while-demo"></div>
+    </div>
+</div>
+
+<pre>
+<code>
+let output2 = "";
+let counter2 = 0;
+while (counter2 < 6)
+{
+    output2 += "&lt;div>" + counter2 + "&lt;/div>";
+    counter2++;
+}
+</code>
+</pre>
+
+
+
+@section Scripts
+{
+    <script>
+        $(function ()
+        {
+            // do while
+            let counter = 1;
+            let output = "";
+            do {
+                output += "<div>" + counter + "</div>";
+                counter++;
+            }
+            while (counter < 6);
+            $("#do-while-demo").html(output);
+
+            // while
+            let output2 = "";
+            let counter2 = 0;
+            while (counter2 < 6)
+            {
+                output2 += "<div>" + counter2 + "</div>";
+                counter2++;
+            }
+            $("#while-demo").html(output2);
+        });
+    </script>
+}
