@@ -18,20 +18,15 @@
 @section BreadCrumbPageName {@pageId.ToLower()}
 @section PageName {@pageId}
 
-<p>The jQuery <strong>event.which</strong> will return <strong>which</strong> keyboard key was pressed:.</p>
+<p>The jQuery <strong>event.which</strong> will return <strong>which</strong> keyboard key was pressed.</p>
 
-<div class="m-3">
-    <code>
-        $("#txtDemo").keydown(function (event) { $("#demo1").html("Key: " + event.which);  });
-    </code>
-</div>
-
-<p>&nbsp;</p>
+<p>Type a character in the textbox. Watch what happens when you press the key; hold the key down, and the release the key.</p>
 
 <p><input type="text" id="txtDemo" class="form-control"></p>
 
 <div class="well well-sm">
-    <h3 id="demo1" class="text-danger">Type in the input field</h3>
+    <h4 id="demo1" class="text-danger"></h4>
+    <h4 id="demo2" class="text-danger"></h4>
 </div>
 
 <p>&nbsp;</p>
@@ -51,11 +46,20 @@
 
 <pre>
 <code>
-// jQuery method
-$("#jQueryBtn").click(function() { alert("jQuery button"); });
+$(document).ready(function ()
+{
+    $("#txtDemo").keydown(function (event)
+    {
+        console.dir(event);
+        $("#demo1").html("Key: " + event.which + " was pressed down.");
+    });
 
-// Javascript method
-document.getElementById("javascriptBtn").addEventListener("click", function () { alert("Javascript button");});
+    $("#txtDemo").keyup(function (event)
+    {
+        console.dir(event);
+        $("#demo2").html("Key: " + event.which + " was released.");
+    });
+});
 </code>
 </pre>
 
@@ -68,7 +72,16 @@ document.getElementById("javascriptBtn").addEventListener("click", function () {
 {
     <script>
         $(document).ready(function () {
-            $("#txtDemo").keydown(function (event) { $("#demo1").html("Key: " + event.which); });
+            $("#txtDemo").keydown(function (event)
+            {
+                console.dir(event);
+                $("#demo1").html("Key: " + event.which + " was pressed down.");
+            });
+            $("#txtDemo").keyup(function (event)
+            {
+                console.dir(event);
+                $("#demo2").html("Key: " + event.which + " was released.");
+            });
         });
     </script>
 }

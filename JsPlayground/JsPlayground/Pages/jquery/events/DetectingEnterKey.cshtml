@@ -1,0 +1,87 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.events.DetectingEnterKeyModel
+
+@{
+    string pageId = "Detecting Enter Key";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-events}
+@section BreadCrumbChapter {events}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>You can use the <code>keyCode</code> property of the event to detect which key was pressed.  Enter Key is 13.</p>
+
+<p>Press Enter Key and release it.</p>
+
+<p><input type="text" id="txtDemo" class="form-control"></p>
+
+<div class="well well-sm">
+    <h4 id="demo1" class="text-danger"></h4>
+</div>
+
+<p>&nbsp;</p>
+
+
+<pre>
+<code>
+let txtDemoInput = $("#txtDemo");
+txtDemoInput.keydown(function (event)
+{
+    if (event.keyCode === 13)
+    {
+        event.preventDefault();
+        $("#demo1").text("Enter Key was pressed down.");
+    }
+});
+
+txtDemoInput.keyup(function (event)
+{
+    if (event.keyCode === 13)
+    {
+        event.preventDefault();
+        $("#demo1").text("Enter Key was released.");
+    }
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+<script>
+    $(document).ready(function ()
+    {
+        let txtDemoInput = $("#txtDemo");
+        txtDemoInput.keydown(function (event)
+        {
+            if (event.keyCode === 13)
+            {
+                event.preventDefault();
+                $("#demo1").text("Enter Key was pressed down.");
+            }
+        });
+
+        txtDemoInput.keyup(function (event)
+        {
+            if (event.keyCode === 13)
+            {
+                event.preventDefault();
+                $("#demo1").text("Enter Key was released.");
+            }
+        });
+    });
+</script>
+}

@@ -1,0 +1,71 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Add Event Listeners to Multiple Tags";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dom-events}
+@section BreadCrumbChapter {dom events}
+@section BreadCrumbPageName {add event listeners to multiple tags}
+@section PageName {Add Event Listeners to Multiple Tags}
+
+<p>
+    Nice little snippet of adding events to multiple items.
+</p>
+
+<h5 id="h5-1">header 1 - click me</h5>
+<h5 id="h5-2">header 2 - click me</h5>
+<h5 id="h5-3">header 3 - click me</h5>
+<h5 id="h5-4">header 4 - click me</h5>
+
+<p>&nbsp;</p>
+
+<div class="well well-sm">
+    <h4 id="demo1" class="text-danger"></h4>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+$(document).ready(function ()
+    {
+    let h5s = document.getElementsByTagName("h5");
+    for (let f = 0; f < h5s.length; f++)
+    {
+        let h5 = h5s[f];
+        h5.addEventListener("click", function (event)
+        {
+            console.dir(event);
+            console.dir(this);
+            $("#demo1").text("You clicked " + this.id + ".");
+        });
+    }
+});
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            let h5s = document.getElementsByTagName("h5");
+            for (let f = 0; f < h5s.length; f++) {
+                let h5 = h5s[f];
+                h5.addEventListener("click", function (event) {
+                    console.dir(event);
+                    console.dir(this);
+                    $("#demo1").text("You clicked " + this.id + ".");
+                });
+            }
+        });
+    </script>
+}
