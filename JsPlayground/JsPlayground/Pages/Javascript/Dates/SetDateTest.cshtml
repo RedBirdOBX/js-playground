@@ -1,0 +1,85 @@
+﻿@page
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Set Date Test";
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-dates}
+@section BreadCrumbChapter {dates}
+@section BreadCrumbPageName {set methods}
+@section PageName {Set Date Test}
+
+<p>Working this out was tricky. View the console.</p>
+
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Select Date</label>
+    <select class="form-control" id="DatesSelect">
+        <option>4/1/2021</option>
+        <option>4/2/2021</option>
+        <option>4/3/2021</option>
+        <option>4/4/2021</option>
+        <option>4/5/2021</option>
+        <option>4/6/2021</option>
+        <option>4/7/2021</option>
+        <option>4/8/2021</option>
+        <option>4/9/2021</option>
+        <option>4/10/2021</option>
+        <option>4/11/2021</option>
+        <option>4/12/2021</option>
+        <option>4/13/2021</option>
+        <option>4/14/2021</option>
+        <option>4/15/2021</option>
+        <option>4/16/2021</option>
+        <option>4/17/2021</option>
+        <option>4/18/2021</option>
+        <option>4/19/2021</option>
+        <option>4/20/2021</option>
+        <option>4/21/2021</option>
+        <option>4/22/2021</option>
+        <option>4/23/2021</option>
+        <option>4/24/2021</option>
+        <option>4/25/2021</option>
+        <option>4/26/2021</option>
+        <option>4/27/2021</option>
+        <option>4/28/2021</option>
+        <option>4/29/2021</option>
+        <option>4/30/2021</option>
+    </select>
+</div>
+
+<button type="button" class="btn btn-primary" id="RunTestButton" onclick="RunTest();">
+    Run Test
+</button>
+
+@section Scripts
+{
+    <script>
+        const RunTest = () =>
+        {
+            // https://stackoverflow.com/questions/42247140/javascript-setdate-getdate28-returns-bad
+
+            console.clear();
+            console.log("Running test....");
+
+            let dateString = $("#DatesSelect").val();
+            console.log(`selected ${dateString}`);
+
+            console.log("");
+
+            let startDate = new Date(dateString);
+            console.log(`startDate is ${startDate}`);
+
+            let newEndDate = new Date(dateString);
+            console.log(`endDate is initialized as ${newEndDate}`);
+
+            newEndDate.setDate(startDate.getDate() + 30);
+            console.log(`endDate is now ${newEndDate}`);
+        };
+    </script>
+}
