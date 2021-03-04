@@ -1,0 +1,77 @@
+﻿@page
+
+@model JsPlayground.Pages.Javascript.Snippets.IsDateModel
+
+@{
+    string pageId = "IsDate";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {JavaScript}
+@section BreadCrumbLibrary {javascript}
+@section BreadCrumbAnchor {js-snippets}
+@section BreadCrumbChapter {snippets}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+<p>Good snippet to see if string is a valid date.  Returns <code>bool</code>.</p>
+<div class="card text-white bg-info mt-5">
+    <div class="card-body">
+        <div id="demo1"></div>
+        <div id="demo2"></div>
+        <div id="demo3"></div>
+        <div id="demo4"></div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre>
+<code>
+const IsValidDate = (string) =>
+{
+    // If the date is valid then the getTime() method will always be equal to itself.
+    // If the date is Invalid then the getTime() method will return NaN which is not equal to itself.
+    let d = new Date(string);
+    let results = d.getTime() === d.getTime();
+    return results;
+};
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+@section Scripts
+{
+    <script>
+        const IsValidDate = (string) =>
+        {
+            // If the date is valid then the getTime() method will always be equal to itself.
+            // If the date is Invalid then the getTime() method will return NaN which is not equal to itself.
+            let d = new Date(string);
+            let results = d.getTime() === d.getTime();
+            return results;
+        };
+
+        let test1 = "2021-01-01";
+        let results1 = IsValidDate(test1);
+        $("#demo1").text(`Is ${test1} a valid date? ${results1.toString().toUpperCase()}.`);
+
+        let test2 = "x2021-01-01";
+        let results2 = IsValidDate(test2);
+        $("#demo2").text(`Is ${test2} a valid date? ${results2.toString().toUpperCase()}.`);
+
+        let test3 = "01 Jan 1970 00:00:00 GMT";
+        let results3 = IsValidDate(test3);
+        $("#demo3").text(`Is ${test3} a valid date? ${results3.toString().toUpperCase()}.`);
+
+        let test4 = "Mar 25 2015";
+        let results4 = IsValidDate(test4);
+        $("#demo4").text(`Is ${test4} a valid date? ${results4.toString().toUpperCase()}.`);
+
+    </script>
+}
