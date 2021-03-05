@@ -34,6 +34,11 @@
 <code>
 const IsValidDate = (string) =>
 {
+    if (string === null)
+    {
+        return false
+    }
+
     // If the date is valid then the getTime() method will always be equal to itself.
     // If the date is Invalid then the getTime() method will return NaN which is not equal to itself.
     let d = new Date(string);
@@ -50,6 +55,11 @@ const IsValidDate = (string) =>
     <script>
         const IsValidDate = (string) =>
         {
+            if (string === null)
+            {
+                return false
+            }
+
             // If the date is valid then the getTime() method will always be equal to itself.
             // If the date is Invalid then the getTime() method will return NaN which is not equal to itself.
             let d = new Date(string);
