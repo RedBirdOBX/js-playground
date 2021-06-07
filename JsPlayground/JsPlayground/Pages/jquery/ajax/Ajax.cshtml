@@ -86,9 +86,13 @@ contentType: "application/json",
 
 <p>&nbsp;</p>
 
-<div class="card text-white bg-info m-5 col-12">
-    <div class="card-body">
-        <div id="demo-content">
+<div class="row">
+    <div class="col-12">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div id="demo-content">
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -167,8 +171,7 @@ $(document).ready(function ()
 @section Scripts
 {
     <script>
-        $(document).ready(function ()
-        {
+        $(document).ready(function () {
             // GET Test
             const ajaxGetSettings =
             {
@@ -224,18 +227,15 @@ $(document).ready(function ()
                 contentType: "application/json"
             };
 
-            $("#PostTestButton").click(function ()
-            {
+            $("#PostTestButton").click(function () {
                 console.dir(ajaxPostSettings);
 
-                $.ajax(ajaxPostSettings).done(function (response)
-                {
+                $.ajax(ajaxPostSettings).done(function (response) {
                     ShowOutput(response);
                 });
             });
 
-            const ShowOutput = (response) =>
-            {
+            const ShowOutput = (response) => {
                 console.dir(response);
 
                 let output = `${response.cityId}<br />`;
