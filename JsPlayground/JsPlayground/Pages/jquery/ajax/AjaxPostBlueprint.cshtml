@@ -1,9 +1,9 @@
 ﻿@page
 
-@model JsPlayground.Pages.jquery.ajax.AjaxGetBlueprintModel
+@model JsPlayground.Pages.jquery.ajax.AjaxPostBlueprintModel
 
 @{
-    string pageId = "Ajax GET Blueprint";
+    string pageId = "Ajax POST Blueprint";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
@@ -19,10 +19,10 @@
 @section PageName {@pageId}
 
 
-<h3>GET</h3>
+<h3>POST</h3>
 
 <p>
-    Complete blueprint of an <strong>GET</strong> ajax call.  Your callback functions will receive three arguments (all optional) from the call itself.
+    Complete blueprint of an <strong>POST</strong> ajax call.  Your callback functions will receive three arguments (all optional) from the call itself.
 </p>
 
 <p>
@@ -41,9 +41,9 @@
 <p class="text-center">
     <button id="StartCallsButton"
             class="btn btn-success btn-lg"
-            onclick="GetCity();"
+            onclick="CreateCity();"
             type="button">
-        Get City
+        Create City
     </button>
 </p>
 
@@ -62,18 +62,30 @@
 
 <pre id="code-container" class="d-none">
 <code>
-async function GetCityWithPointsOfInterest(cityId)
+async function CreateCity()
+{
+    const newCity =
+    {
+        "name": "New City X",
+        "description": "description of city x"
+    };
+
+    let json = JSON.stringify(newCity);
+    let newCityResults = await CreateNewCity(json);
+    await ShowResults(newCityResults);
+}
+
+async function CreateNewCity(json)
 {
     const ajaxConfig =
     {
-        url: `https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/${cityId}?includePointsOfInterest=true`,
-        type: "GET",
-        async: true,        // default
-        dataType: "json",   //what we expect back from server
-        headers: {
-                "Content-Type": "application/json",
-                "x-custom-header": "foobar"
-        }
+        url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+        method: "POST",
+        async: true,
+        data: json,
+        dataType: "json",                       // what we expect back
+        contentType: "application/json",        // what we're sending
+        headers: { "x-custom-header": "foobar" }
     };
 
     let apiResults = await $.ajax(ajaxConfig)
@@ -122,45 +134,34 @@ async function GetCityWithPointsOfInterest(cityId)
 
 <p>&nbsp;</p>
 
+
 @section Scripts
 {
     <script>
-        async function GetCity()
+        async function CreateCity()
         {
-            console.clear();
-            console.log("Starting the call....");
-
-
-            // get the city with its points of interest
-            let city = await GetCityWithPointsOfInterest("ce09626b-e19e-47f5-82f3-2bbf60866a47");
-
-            let html = `cityId: ${city.cityId}<br />`;
-            html += `name: ${city.name}<br />`;
-            html += `description: ${city.description}<br />`;
-            html += `points of interest count: ${city.numberOfPointsOfInterest}<br />`;
-            html += `points of interest:<br />`;
-            city.pointsOfInterest.forEach((p) =>
+            const newCity =
             {
-                html += `* ${p.name} - ${p.description}<br />`;
-            });
+                "name": "New City X2",
+                "description": "description of city x2"
+            };
 
-            $("#demo-content").html(html);
-            $("#demo-container").removeClass("d-none");
-            $("#code-container").removeClass("d-none");
+            let json = JSON.stringify(newCity);
+            let newCityResults = await CreateNewCity(json);
+            await ShowResults(newCityResults);
         }
 
-        async function GetCityWithPointsOfInterest(cityId)
+        async function CreateNewCity(json)
         {
             const ajaxConfig =
             {
-                url: `https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/${cityId}?includePointsOfInterest=true`,
-                type: "GET",
-                async: true,        // default
-                dataType: "json",   //what we expect back from server
-                headers: {
-                        "Content-Type": "application/json",
-                        "x-custom-header": "foobar"
-                }
+                url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+                method: "POST",
+                async: true,
+                data: json,
+                dataType: "json",                       // what we expect back
+                contentType: "application/json",        // what we're sending
+                headers: { "x-custom-header": "foobar" }
             };
 
             let apiResults = await $.ajax(ajaxConfig)
@@ -203,6 +204,19 @@ async function GetCityWithPointsOfInterest(cityId)
                     console.dir(xhr);
                 });
             return apiResults;
+        }
+
+        async function ShowResults(newCity)
+        {
+            console.dir(newCity);
+            let html = `cityId: ${newCity.cityId}<br />`;
+            html += `name: ${newCity.name}<br />`;
+            html += `description: ${newCity.description}<br />`;
+            html += `points of interest count: ${newCity.numberOfPointsOfInterest}<br />`;
+
+            $("#demo-content").html(html);
+            $("#demo-container").removeClass("d-none");
+            $("#code-container").removeClass("d-none");
         }
     </script>
 }
