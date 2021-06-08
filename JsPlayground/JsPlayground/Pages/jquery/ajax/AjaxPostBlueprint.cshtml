@@ -1,0 +1,222 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.AjaxPostBlueprintModel
+
+@{
+    string pageId = "Ajax POST Blueprint";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h3>POST</h3>
+
+<p>
+    Complete blueprint of an <strong>POST</strong> ajax call.  Your callback functions will receive three arguments (all optional) from the call itself.
+</p>
+
+<p>
+    The optional callback parameter specifies a callback function to run when the
+    given method is completed. The callback function can have three different parameters (name is mutable):
+</p>
+
+<ul>
+    <li><code>responseTxt</code> - contains the resulting content if the call succeeds</li>
+    <li><code>statusTxt</code> - contains the status of the call</li>
+    <li><code>xhr</code> - contains the XMLHttpRequest object</li>
+</ul>
+
+<p>View the console.</p>
+
+<p class="text-center">
+    <button id="StartCallsButton"
+            class="btn btn-success btn-lg"
+            onclick="CreateCity();"
+            type="button">
+        Create City
+    </button>
+</p>
+
+<div id="demo-container" class="row d-none">
+    <div class="col-12">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div id="demo-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre id="code-container" class="d-none">
+<code>
+async function CreateCity()
+{
+    const newCity =
+    {
+        "name": "New City X",
+        "description": "description of city x"
+    };
+
+    let json = JSON.stringify(newCity);
+    let newCityResults = await CreateNewCity(json);
+    await ShowResults(newCityResults);
+}
+
+async function CreateNewCity(json)
+{
+    const ajaxConfig =
+    {
+        url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+        method: "POST",
+        async: true,
+        data: json,
+        dataType: "json",                       // what we expect back
+        contentType: "application/json",        // what we're sending
+        headers: { "x-custom-header": "foobar" }
+    };
+
+    let apiResults = await $.ajax(ajaxConfig)
+        .done(function (responseTxt, statusTxt, xhr)
+        {
+            // success code here
+            console.log("DONE callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+
+            if (statusTxt === "success")
+            {
+                console.log("    success!    ");
+            }
+        })
+        .fail(function (responseTxt, statusTxt, xhr)
+        {
+            // fail code here
+            console.log("FAIL callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+        })
+        .always(function (responseTxt, statusTxt, xhr)
+        {
+            //always executed
+            console.log("ALWAYS callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+        });
+    return apiResults;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        async function CreateCity()
+        {
+            const newCity =
+            {
+                "name": "New City X2",
+                "description": "description of city x2"
+            };
+
+            let json = JSON.stringify(newCity);
+            let newCityResults = await CreateNewCity(json);
+            await ShowResults(newCityResults);
+        }
+
+        async function CreateNewCity(json)
+        {
+            const ajaxConfig =
+            {
+                url: "https://city-info-api-prod.azurewebsites.net/api/v1.0/cities",
+                method: "POST",
+                async: true,
+                data: json,
+                dataType: "json",                       // what we expect back
+                contentType: "application/json",        // what we're sending
+                headers: { "x-custom-header": "foobar" }
+            };
+
+            let apiResults = await $.ajax(ajaxConfig)
+                .done(function (responseTxt, statusTxt, xhr)
+                {
+                    // success code here
+                    console.log("DONE callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+
+                    if (statusTxt === "success")
+                    {
+                        console.log("    success!    ");
+                    }
+                })
+                .fail(function (responseTxt, statusTxt, xhr)
+                {
+                    // fail code here
+                    console.log("FAIL callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+                })
+                .always(function (responseTxt, statusTxt, xhr)
+                {
+                    //always executed
+                    console.log("ALWAYS callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+                });
+            return apiResults;
+        }
+
+        async function ShowResults(newCity)
+        {
+            console.dir(newCity);
+            let html = `cityId: ${newCity.cityId}<br />`;
+            html += `name: ${newCity.name}<br />`;
+            html += `description: ${newCity.description}<br />`;
+            html += `points of interest count: ${newCity.numberOfPointsOfInterest}<br />`;
+
+            $("#demo-content").html(html);
+            $("#demo-container").removeClass("d-none");
+            $("#code-container").removeClass("d-none");
+        }
+    </script>
+}
