@@ -1,0 +1,215 @@
+﻿@page
+
+@model JsPlayground.Pages.jquery.ajax.AjaxGetBlueprintModel
+
+@{
+    string pageId = "Ajax async";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = pageId;
+}
+
+@section LibraryHeader {jQuery}
+@section BreadCrumbLibrary {jquery}
+@section BreadCrumbAnchor {jq-ajax}
+@section BreadCrumbChapter {ajax}
+@section BreadCrumbPageName {@pageId.ToLower()}
+@section PageName {@pageId}
+
+
+<h3>GET</h3>
+
+<p>
+    Complete blueprint of an <strong>GET</strong> ajax call.  Your callback functions will receive three arguments (all optional) from the call itself.
+</p>
+
+<p>
+    The optional callback parameter specifies a callback function to run when the
+    given method is completed. The callback function can have three different parameters (name is mutable):
+</p>
+
+<ul>
+    <li><code>responseTxt</code> - contains the resulting content if the call succeeds</li>
+    <li><code>statusTxt</code> - contains the status of the call</li>
+    <li><code>xhr</code> - contains the XMLHttpRequest object</li>
+</ul>
+
+<p>View the console.</p>
+
+<p class="text-center">
+    <button id="StartCallsButton"
+            class="btn btn-success btn-lg"
+            onclick="GetCity();"
+            type="button">
+        Get City
+    </button>
+</p>
+
+<div id="demo-container" class="row d-none">
+    <div class="col-12">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div id="demo-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<pre id="code-container" class="d-none">
+<code>
+async function GetCityWithPointsOfInterest(cityId)
+{
+    const ajaxConfig =
+    {
+        url: `https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/${cityId}?includePointsOfInterest=true`,
+        type: "GET"
+    };
+
+    let apiResults = await $.ajax(ajaxConfig)
+        .done(function (responseTxt, statusTxt, xhr)
+        {
+            // success code here
+            console.log("DONE callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+
+            if (statusTxt === "success")
+            {
+                console.log("    success!    ");
+            }
+        })
+        .fail(function (responseTxt, statusTxt, xhr)
+        {
+            // fail code here
+            console.log("FAIL callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+        })
+        .always(function (responseTxt, statusTxt, xhr)
+        {
+            //always executed
+            console.log("ALWAYS callback function");
+            console.log("responseTxt");
+            console.dir(responseTxt);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("xhr");
+            console.dir(xhr);
+        });
+    return apiResults;
+}
+</code>
+</pre>
+
+<p>&nbsp;</p>
+
+
+@section Scripts
+{
+    <script>
+        async function GetCity()
+        {
+            console.clear();
+            console.log("Starting the call....");
+
+
+            // get the city with its points of interest
+            let city = await GetCityWithPointsOfInterest("ce09626b-e19e-47f5-82f3-2bbf60866a47");
+
+            let html = `cityId: ${city.cityId}<br />`;
+            html += `name: ${city.name}<br />`;
+            html += `description: ${city.description}<br />`;
+            html += `points of interest count: ${city.numberOfPointsOfInterest}<br />`;
+            html += `points of interest:<br />`;
+            city.pointsOfInterest.forEach((p) =>
+            {
+                html += `* ${p.name} - ${p.description}<br />`;
+            });
+
+            $("#demo-content").html(html);
+            $("#demo-container").removeClass("d-none");
+            $("#code-container").removeClass("d-none");
+        }
+
+        async function GetCityWithPointsOfInterest(cityId)
+        {
+            const ajaxConfig =
+            {
+                url: `https://city-info-api-prod.azurewebsites.net/api/v1.0/cities/${cityId}?includePointsOfInterest=true`,
+                type: "GET",
+
+                // ??
+                headers: {
+                        "Content-Type": "application/json",
+                        "x-custom-header": "foobar"
+                }
+            };
+
+
+    // you can also add header data like so:
+    //headers:
+    //{
+    //    "Accept": "application/json",
+    //    "Access-Control-Allow-Origin": "*",
+    //    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+    //    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+    //    "Content-Type": "application/json"
+    //}
+
+
+            let apiResults = await $.ajax(ajaxConfig)
+                .done(function (responseTxt, statusTxt, xhr)
+                {
+                    // success code here
+                    console.log("DONE callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+
+                    if (statusTxt === "success")
+                    {
+                        console.log("    success!    ");
+                    }
+                })
+                .fail(function (responseTxt, statusTxt, xhr)
+                {
+                    // fail code here
+                    console.log("FAIL callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+                })
+                .always(function (responseTxt, statusTxt, xhr)
+                {
+                    //always executed
+                    console.log("ALWAYS callback function");
+                    console.log("responseTxt");
+                    console.dir(responseTxt);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("xhr");
+                    console.dir(xhr);
+                });
+            return apiResults;
+        }
+    </script>
+}

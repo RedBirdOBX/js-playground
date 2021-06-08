@@ -2,7 +2,7 @@
 
 namespace JsPlayground.Pages.jquery.ajax
 {
-    public class AutoCompleteModel : PageModel
+    public class AjaxGetBlueprintModel : PageModel
     {
         public void OnGet()
         {
