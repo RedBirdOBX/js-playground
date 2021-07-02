@@ -92,15 +92,17 @@ async function GetAllCities(pageNum, pageSize)
 
     // thorough version
     let apiResults = await $.ajax(ajaxGetSettings)
-        .done(function (response)
+        .done(function (response, statusTxt, xhr)
         {
             // your done code here
-            // if (response.Status === 1)...etc
+            // if (xhr.status === 200)...etc
+            console.dir(xhr.status);
+            console.dir(xhr.statusText);
         })
-        .fail(function (error)
+        .fail(function (xhr, statusTxt, errorThrown)
         {
             // your fail code here
-            console.error(`Error: ${error}`);
+            console.error(`Error: ${errorThrown}`);
         })
         .always(() =>
         {
@@ -177,13 +179,17 @@ async function GetFirstPointOfInterest(cityId, pointId)
             };
 
             let apiResults = await $.ajax(ajaxGetSettings)
-                .done(function (response) {
+                .done(function (response, statusTxt, xhr)
+                {
                     // your done code here
-                    // if (response.Status === 1)...etc
+                    // if (xhr.status === 200)...etc
+                    console.dir(xhr.status);
+                    console.dir(xhr.statusText);
                 })
-                .fail(function (error) {
+                .fail(function (xhr, statusTxt, errorThrown)
+                {
                     // your fail code here
-                    console.error(`Error: ${error}`);
+                    console.error(`Error: ${errorThrown}`);
                 })
                 .always(() => {
                     // always is executed

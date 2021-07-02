@@ -22,7 +22,8 @@
 <h3>GET</h3>
 
 <p>
-    Complete blueprint of an <strong>GET</strong> ajax call.  Your callback functions will receive three arguments (all optional) from the call itself.
+    Complete blueprint of an <strong>GET</strong> ajax call.
+    Your callback functions will receive three arguments (all optional) from the call itself.
 </p>
 
 <p>
@@ -35,6 +36,10 @@
     <li><code>statusTxt</code> - contains the status of the call</li>
     <li><code>xhr</code> - contains the XMLHttpRequest object</li>
 </ul>
+
+<p>
+    <a href="https://api.jquery.com/jQuery.ajax/" target="_blank">https://api.jquery.com/jQuery.ajax/</a>
+</p>
 
 <p>View the console.</p>
 
@@ -93,20 +98,22 @@ async function GetCityWithPointsOfInterest(cityId)
                 console.log("    success!    ");
             }
         })
-        .fail(function (responseTxt, statusTxt, xhr)
+        .fail(function (xhr, statusTxt, errorThrown)
         {
             // fail code here
             console.log("FAIL callback function");
-            console.log("responseTxt");
-            console.dir(responseTxt);
-            console.log("statusTxt");
-            console.dir(statusTxt);
             console.log("xhr");
             console.dir(xhr);
+            console.log("statusTxt");
+            console.dir(statusTxt);
+            console.log("errorThrown");
+            console.dir(errorThrown);
         })
         .always(function (responseTxt, statusTxt, xhr)
         {
             //always executed
+            // if success, you get back data, textStatus, jqXHR
+            // if fail, you get back XHR, textStatus, errorThrow
             console.log("ALWAYS callback function");
             console.log("responseTxt");
             console.dir(responseTxt);
@@ -129,7 +136,6 @@ async function GetCityWithPointsOfInterest(cityId)
         {
             console.clear();
             console.log("Starting the call....");
-
 
             // get the city with its points of interest
             let city = await GetCityWithPointsOfInterest("ce09626b-e19e-47f5-82f3-2bbf60866a47");
@@ -180,20 +186,23 @@ async function GetCityWithPointsOfInterest(cityId)
                         console.log("    success!    ");
                     }
                 })
-                .fail(function (responseTxt, statusTxt, xhr)
+                .fail(function (xhr, statusTxt, errorThrown)
                 {
                     // fail code here
                     console.log("FAIL callback function");
-                    console.log("responseTxt");
-                    console.dir(responseTxt);
-                    console.log("statusTxt");
-                    console.dir(statusTxt);
                     console.log("xhr");
                     console.dir(xhr);
+                    console.log("statusTxt");
+                    console.dir(statusTxt);
+                    console.log("errorThrown");
+                    console.dir(errorThrown);
                 })
                 .always(function (responseTxt, statusTxt, xhr)
                 {
                     //always executed
+                    // if success, you get back data, textStatus, jqXHR
+                    // if fail, you get back XHR, textStatus, errorThrow
+
                     console.log("ALWAYS callback function");
                     console.log("responseTxt");
                     console.dir(responseTxt);
